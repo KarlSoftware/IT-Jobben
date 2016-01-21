@@ -19,8 +19,13 @@ angular
       })
 
       .state('test', {
-        url:'/test',
+        url: '/test',
         templateUrl: 'templates/test.html'
+      })
+
+      .state('searchresults', {
+        url: '/searchresults',
+        templateUrl: 'templates/searchResults.html'
       })
 
 

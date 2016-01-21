@@ -15,13 +15,15 @@
      <ul class="nav navbar-nav">
        <li><a ui-sref='singleAd'>Annons</a></li>
        <li><a ui-sref='test'>Test</a></li>
+       <li><a ui-sref='searchresults'>Sök</a></li>
+
 
      </ul>
      <form ng-controller="searchBarCtrl" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" ng-model="searchterm" class="form-control" placeholder="Sök efter jobb">
         </div>
-        <button type="submit" ng-click="doSearch()" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        <a type="submit" ng-click="doSearch()" ng-href="#/searchresults" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
       </form>
    </div><!-- /.navbar-collapse -->
  </div><!-- /.container-fluid -->
