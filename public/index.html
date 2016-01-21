@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+  <link rel="stylesheet" href="lib/bootswatch/journal/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>IT Jobben</title>
 </head>
 <body>
 
   <!-- Angular app -->
   <div ng-app="app">
+    <div ng-include="'templates/navbar.html'"></div>
+
     <div ui-view></div>
   </div>
 
@@ -18,7 +20,19 @@
 <!-- scipts -->
 <script src="../node_modules/angular/angular.js"></script>
 <script src="../node_modules/angular-ui-router/build/angular-ui-router.min.js"></script>
-<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" integrity="sha384-XXXXXXXX" crossorigin="anonymous"></script>
+<script src="lib/jquery/dist/jquery.js"></script>
+
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/app.js"></script>
+<script src="js/controllers/singleAdCtrl.js"></script>
+<script src="js/controllers/testCtrl.js"></script>
+
+<script>
+  // get bootstrap navbar to collapse on click
+  $(document).on('click', function(){
+    $('.collapse').collapse('hide');
+  });
+</script>
+
 </body>
 </html>
