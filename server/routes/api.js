@@ -29,7 +29,7 @@ module.exports = function(app) {
       });
   });
 
-  // route to get single ad 
+  // route to get single ad
   router.get('/singleAd/:annonsid', function (req, res) {
 
     var Request = unirest.get(baseURL + req.params.annonsid + '');
@@ -52,6 +52,19 @@ module.exports = function(app) {
     })
 
   });
+
+  // route for searching
+  router.get('/search/:searchTerm', function (req, res) {
+
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&nyckelord=' +req.params.searchTerm + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  })
 
 
 
