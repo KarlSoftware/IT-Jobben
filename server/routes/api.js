@@ -29,6 +29,7 @@ module.exports = function(app) {
       });
   });
 
+  // route to get single ad 
   router.get('/singleAd/:annonsid', function (req, res) {
 
     var Request = unirest.get(baseURL + req.params.annonsid + '');
@@ -38,13 +39,6 @@ module.exports = function(app) {
     }).end(function (response) {
       res.send(response);
     })
-    // request(baseURL +  req.params.annonsid + '', function (error, response, body) {
-    //
-    //
-    //     // console.log(response);
-    //     res.send(body)
-    //
-    // })
 
   });
 
