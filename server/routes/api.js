@@ -78,10 +78,10 @@ module.exports = function(app) {
 
   }) // end of router
 
-  // route to get yrkesgrupp id
-  router.get('/yrkesgrupper/:id', function(req, res) {
+  // route to get all ads in a profession
+  router.get('/profession/:id', function(req, res) {
 
-    var Request = unirest.get(baseURL + 'matchning?yrkesgruppid=' + req.params.id + '');
+    var Request = unirest.get('http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?yrkesid=' + req.params.id + '');
     Request.headers({
       'Accept': 'application/json',
       'Accept-Language': 'sv'
