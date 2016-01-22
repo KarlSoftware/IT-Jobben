@@ -14,7 +14,7 @@ angular
       })
 
       .state('singleAd', {
-        url: '/annonsid/2819163',
+        url: '/annonsid/:adID',
         templateUrl: 'templates/singleAd.html'
       })
 
