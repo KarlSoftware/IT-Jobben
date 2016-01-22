@@ -28,6 +28,11 @@ angular
         templateUrl: 'templates/searchResults.html'
       })
 
+      .state('workgroups', {
+        url: '/workgroups',
+        templateUrl: 'templates/workGroups.html'
+      })
+
 
 
 
