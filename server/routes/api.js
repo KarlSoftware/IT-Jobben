@@ -78,6 +78,19 @@ module.exports = function(app) {
 
   }) // end of router
 
+  // route to get yrkesgrupp id
+  router.get('/yrkesgrupper/:id', function(req, res) {
+
+    var Request = unirest.get(baseURL + 'matchning?yrkesgruppid=' + req.params.id + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  }) // end of router
+
 
 
 }
