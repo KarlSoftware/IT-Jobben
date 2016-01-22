@@ -15,7 +15,7 @@ angular
 
       .state('singleAd', {
         url: '/annonsid/:adID',
-        templateUrl: 'templates/singleAd.html'
+        templateUrl: 'templates/singleAd/singleAd.html'
       })
 
 
