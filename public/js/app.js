@@ -38,6 +38,10 @@ angular
         templateUrl: 'templates/workGroupID.html'
       })
 
+      .state('yrkeDetail', {
+        url: '/profession/:professionID',
+        templateUrl: 'templates/professionDetails.html'
+      })
 
 
 
