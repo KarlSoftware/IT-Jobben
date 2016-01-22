@@ -8,8 +8,9 @@ angular
       $scope.searchTerm = Data.getSearchTerm();
 
       $http.get('http://localhost:1339/api/search/' + Data.getSearchTerm())
-      .then(function(data) {
-        $scope.result = data;
+      .then(function(response) {
+        $scope.result = response;
+        $scope.ads = response.data.body.matchningslista.matchningdata;
       })
 
     }]) // end of controller
