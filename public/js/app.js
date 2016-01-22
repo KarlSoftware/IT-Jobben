@@ -2,8 +2,15 @@
 
 angular
   .module('app', [
-    'ui.router'
+    'ui.router',
+    'angularMoment'
   ])
+
+  // change Moment language
+  .run(function(amMoment) {
+    amMoment.changeLocale('sv');
+  })
+
   .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/');
 
