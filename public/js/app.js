@@ -33,6 +33,11 @@ angular
         templateUrl: 'templates/workGroups.html'
       })
 
+      .state('workgroupsID', {
+        url: '/workgroups/:workgroupID',
+        templateUrl: 'templates/workGroupID.html'
+      })
+
 
 
 
