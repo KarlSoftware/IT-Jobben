@@ -18,8 +18,6 @@ angular
         templateUrl: 'templates/singleAd/singleAd.html'
       })
 
-
-
       .state('searchresults', {
         url: '/searchresults',
         templateUrl: 'templates/search/searchResults.html'
