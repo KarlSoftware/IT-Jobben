@@ -22,22 +22,22 @@ angular
 
       .state('searchresults', {
         url: '/searchresults',
-        templateUrl: 'templates/searchResults.html'
+        templateUrl: 'templates/search/searchResults.html'
       })
 
       .state('workgroups', {
         url: '/workgroups',
-        templateUrl: 'templates/workGroups.html'
+        templateUrl: 'templates/workgroup/workGroups.html'
       })
 
       .state('workgroupsID', {
         url: '/workgroups/:workgroupID',
-        templateUrl: 'templates/workGroupID.html'
+        templateUrl: 'templates/workgroup/workGroupID.html'
       })
 
       .state('yrkeDetail', {
         url: '/profession/:professionID',
-        templateUrl: 'templates/professionDetails.html'
+        templateUrl: 'templates/workgroup/professionDetails.html'
       })
 
 
