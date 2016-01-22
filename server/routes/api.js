@@ -91,6 +91,19 @@ module.exports = function(app) {
 
   }) // end of router
 
+  // get overview of a specifik yrkesgrupp
+  router.get('/yrkesgrupp/:id', function(req, res) {
+
+    var Request = unirest.get(baseURL + 'soklista/yrken?yrkesgruppid=' + req.params.id + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  }) // end of router
+
 
 
 }
