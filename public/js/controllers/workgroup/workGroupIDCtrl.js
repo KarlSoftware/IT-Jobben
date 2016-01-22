@@ -16,4 +16,11 @@ angular
         $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
+      // change current state of workgroup
+      $scope.setProfession = function(yrke) {
+        console.log('du klickade på', yrke);
+        WorkGroupState.setWorkgroup(yrke);
+        console.log("Workgroupstate är nu:" + yrke);
+      }
+
     }])
