@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    .controller('workGroupsCtrl', ['$scope', '$http', function($scope, $http) {
+    .controller('workGroupsCtrl', ['$scope', '$http', 'WorkGroupState', function($scope, $http, WorkGroupState) {
 
       console.log('workGroupsCtrl is working');
 
@@ -11,4 +11,10 @@ angular
         $scope.workgroups = response.data.body.soklista.sokdata;
       })
 
+      // change current state of workgroup
+      $scope.setWorkgroup = function(workgroup) {
+        console.log('du klickade på', workgroup);
+        WorkGroupState.setWorkgroup(workgroup);
+        console.log("Workgroupstate är nu:" + workgroup);
+      }
     }]) // end of controller

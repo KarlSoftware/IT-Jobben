@@ -1,8 +1,8 @@
 <div class="container" ng-controller="professionDetailsCtrl">
-  <h1>Lediga jobb inom yrket</h1>
+  <h1>Lediga jobb inom {{currentProfession}}</h1>
 
   <table class="table table-striped table-hover table-bordered">
-    <caption><b>{{result.data.body.matchningslista.antal_platsannonser_exakta}}</b> annonser inom yrket</caption>
+    <caption><b>{{result.data.body.matchningslista.antal_platsannonser_exakta}}</b> annonser inom {{currentProfession}}</caption>
   <thead>
     <tr>
       <th>Annonsrubrik</th>
