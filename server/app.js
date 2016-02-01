@@ -7,6 +7,8 @@ var express = require('express'),
 // Require other modules (files)
 var config =  require('./config')(app);
 var api =     require('./routes/api')(app);
+var location =     require('./routes/location')(app);
+
 
 var server = http.createServer(app);
 
