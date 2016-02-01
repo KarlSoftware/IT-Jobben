@@ -1,0 +1,23 @@
+<div class="container" ng-controller="municipalityAdsCtrl">
+  <h1>Lediga jobb i {{currentLocation}}</h1>
+
+  <table class="table table-striped table-hover table-bordered">
+    <caption><b ng-if="howManyAds == '1'">{{howManyAds}}</b><b ng-if="howManyAds != '1'">{{howManyAds}}</b> annonser i {{currentLocation}}</caption>
+  <thead>
+    <tr>
+      <th>Annonsrubrik</th>
+      <th>Arbetsplatsnamn</th>
+      <th>Antal</th>
+      <th>Publicerad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="ad in ads">
+        <td ng-if="ad.relevans == '100'"><a ng-href="#/annonsid/{{ad.annonsid}}">{{ad.annonsrubrik}}</a></td>
+        <td ng-if="ad.relevans == '100'">{{ad.arbetsplatsnamn}}</td>
+        <td ng-if="ad.relevans == '100'">{{ad.antalplatser}} jobb</td>
+        <td ng-if="ad.relevans == '100'">{{ad.publiceraddatum | amCalendar}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
