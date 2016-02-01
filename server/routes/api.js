@@ -3,10 +3,9 @@ var express = require('express'),
     unirest = require('unirest'),
     app = express();
 
-// Base URL from OMDb api
+// Base URL from arbetsförmedlingen
 var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
-// Base URL from OMDb api
-var baseURL2 = 'http://www.omdbapi.com/';
+
 
 
 
