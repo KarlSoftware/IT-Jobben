@@ -52,7 +52,18 @@ module.exports = function(app) {
 
   });
 
+  // route to get a matching list of all ads in a municipality
+  router.get('/municipality/:municipalityID', function (req, res) {
 
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&kommunid=' + req.params.municipalityID + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  });
 
 
 }
