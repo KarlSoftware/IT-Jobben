@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    // Controller to view imdb id
+    // Controller to all professions in a workgroup
     .controller('workGroupIDCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', function($scope, $http, $stateParams, WorkGroupState) {
 
       // Create variable from param

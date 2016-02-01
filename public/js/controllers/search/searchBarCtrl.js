@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    // Controller to view imdb id
+    // Controller for search bar
     .controller('searchBarCtrl', ['$scope', '$http', '$stateParams', 'Data', function($scope, $http, $stateParams, Data) {
 
       console.log('searchBarCtrl');

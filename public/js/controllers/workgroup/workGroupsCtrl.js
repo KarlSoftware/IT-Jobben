@@ -1,6 +1,7 @@
 angular
   .module('app')
 
+    // controller to view all the workgroups
     .controller('workGroupsCtrl', ['$scope', '$http', 'WorkGroupState', function($scope, $http, WorkGroupState) {
 
       console.log('workGroupsCtrl is working');

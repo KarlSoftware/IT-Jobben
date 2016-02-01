@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    // Controller to view imdb id
+    // Controller to view all counties
     .controller('countiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', function($scope, $http, $stateParams, LocationState) {
 
 

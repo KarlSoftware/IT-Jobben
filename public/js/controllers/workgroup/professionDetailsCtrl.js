@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    // Controller to view imdb id
+    // Controller to all ads in a profession
     .controller('professionDetailsCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', 'LocationState', function($scope, $http, $stateParams, WorkGroupState, LocationState) {
 
       // Create variable from param

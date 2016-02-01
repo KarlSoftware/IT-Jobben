@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    // Controller to view imdb id
+    // Controller for viewing single ad 
     .controller('singleAdCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
 
       // Create variable from param

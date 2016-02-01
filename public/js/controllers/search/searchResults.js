@@ -1,6 +1,7 @@
 angular
   .module('app')
 
+    // Controller for search bar results
     .controller('searchResultsCtrl', ['$scope', '$http', 'Data', function($scope, $http, Data) {
 
       console.log('searchResultCtrl working');
