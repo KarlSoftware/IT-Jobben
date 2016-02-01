@@ -15,7 +15,7 @@
     <tr ng-repeat="ad in ads">
         <td ng-if="ad.relevans == '100'"><a ng-href="#/annonsid/{{ad.annonsid}}">{{ad.annonsrubrik}}</a></td>
         <td ng-if="ad.relevans == '100'">{{ad.arbetsplatsnamn}}</td>
-        <td ng-if="ad.relevans == '100'">{{ad.kommunnamn}}</td>
+        <td ng-if="ad.relevans == '100'"><a ng-click="setLocation(ad.kommunnamn)" ng-href="#/municipality/{{ad.kommunkod}}/ads">{{ad.kommunnamn}}</a></td>
         <td ng-if="ad.relevans == '100'">{{ad.publiceraddatum | amCalendar}}</td>
     </tr>
   </tbody>
