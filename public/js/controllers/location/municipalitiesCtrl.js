@@ -18,11 +18,11 @@ angular
         // $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
-      // // change current state of workgroup
-      // $scope.setProfession = function(yrke) {
-      //   console.log('du klickade på', yrke);
-      //   WorkGroupState.setWorkgroup(yrke);
-      //   console.log("Workgroupstate är nu:" + yrke);
-      // }
+      // set locationState upon clicking a county
+      $scope.setLocation = function(location) {
+        console.log('du klickade på', location);
+        LocationState.setLocation(location);
+        console.log("Location är nu:" + location);
+      }
 
     }])

@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="municipality in municipalities">
-        <td>{{municipality.namn}}</td>
+        <td><a ng-click="setLocation(municipality.namn)">{{municipality.namn}}</a></td>
     </tr>
   </tbody>
 </table>
