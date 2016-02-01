@@ -2,7 +2,7 @@ angular
   .module('app')
 
     // Controller to view imdb id
-    .controller('countiesCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+    .controller('countiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', function($scope, $http, $stateParams, LocationState) {
 
 
 
@@ -11,5 +11,12 @@ angular
         $scope.counties = response.data.body.soklista.sokdata;
         console.log(response)
       })
+
+      // set locationState upon clicking a county
+      $scope.setLocation = function(location) {
+        console.log('du klickade på', location);
+        LocationState.setLocation(location);
+        console.log("Location är nu:" + location);
+      }
 
     }])
