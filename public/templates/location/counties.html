@@ -1,0 +1,16 @@
+<div class="container" ng-controller="countiesCtrl">
+  <h1>Yrkesgrupper inom IT</h1>
+  <table class="table table-striped table-hover table-bordered">
+    <caption>Alla län</caption>
+  <thead>
+    <tr>
+      <th>Län</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="county in counties">
+        <td>{{county.namn}}</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>

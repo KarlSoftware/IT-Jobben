@@ -45,6 +45,11 @@ angular
         templateUrl: 'templates/workgroup/professionDetails.html'
       })
 
+      .state('counties', {
+        url: '/counties',
+        templateUrl: 'templates/location/counties.html'
+      })
+
 
 
   }]);
