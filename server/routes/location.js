@@ -39,6 +39,19 @@ module.exports = function(app) {
 
   });
 
+  // route to get a list of all municipalities (kommuner) in a county (län)
+  router.get('/municipalities/:countyID', function (req, res) {
+
+    var Request = unirest.get(baseURL + 'soklista/kommuner?lanid=' + req.params.countyID + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  });
+
 
 
 
