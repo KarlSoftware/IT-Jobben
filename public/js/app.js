@@ -55,6 +55,10 @@ angular
         templateUrl: 'templates/location/municipalities.html'
       })
 
+      .state('municipalityAds', {
+        url: '/municipality/:municipalityID/ads',
+        templateUrl: 'templates/location/municipalityAds.html'
+      })
 
 
   }]);
