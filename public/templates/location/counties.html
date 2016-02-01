@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="county in counties">
-        <td><a ng-click="setLocation(county.namn)">{{county.namn}}</a></td>
+        <td><a ng-href="#/municipalities/{{county.id}}" ng-click="setLocation(county.namn)">{{county.namn}}</a></td>
     </tr>
   </tbody>
 </table>
