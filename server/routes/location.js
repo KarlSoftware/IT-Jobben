@@ -17,8 +17,6 @@ module.exports = function(app) {
   // delcare prefix url for api
   app.use('/location', router);
 
-
-
   // Routes
   router.get('/help', function (req, res) {
     res.json({
@@ -27,7 +25,7 @@ module.exports = function(app) {
   });
 
   // route to get a list of all the countys (län)
-  router.get('/county', function (req, res) {
+  router.get('/counties', function (req, res) {
 
     var Request = unirest.get(baseURL + 'soklista/lan');
     Request.headers({
