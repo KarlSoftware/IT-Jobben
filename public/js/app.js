@@ -50,6 +50,11 @@ angular
         templateUrl: 'templates/location/counties.html'
       })
 
+      .state('municipalities', {
+        url: '/municipalities/:countyID',
+        templateUrl: 'templates/location/municipalities.html'
+      })
+
 
 
   }]);
