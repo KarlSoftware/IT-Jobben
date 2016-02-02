@@ -63,5 +63,30 @@ module.exports = function(app) {
 
   });
 
+  // route to match all ads in a county. Use this primarily to get total ad nr in a county
+  router.get('/match/county/:countyID', function (req, res) {
+
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&lanid=' + req.params.countyID + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  });
+
+  // route to match all ads in a municipality. Use this primarily to get total ad nr in a municipality
+  router.get('/match/municipality/:municipalityID', function (req, res) {
+
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&kommunid=' + req.params.municipalityID + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  });
 
 }
