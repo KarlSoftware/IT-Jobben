@@ -25,3 +25,7 @@
 td a {
   text-decoration: none !important;
 }
+
+.preserve-newline {
+    white-space: pre-wrap;
+}
