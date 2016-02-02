@@ -6,8 +6,8 @@
     <div ng-repeat="county in counties" class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <a ng-href="#/municipalities/{{county.id}}" ng-click="setLocation(county.namn)">
-          <img ng-if="county.namn != 'Ospecificerad arbetsort'"ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{county.namn}}&size=640x400&zoom=6&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
-          <img ng-if="county.namn == 'Ospecificerad arbetsort'"ng-src="http://maps.googleapis.com/maps/api/staticmap?center=sweden&size=640x400&zoom=5&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
+          <img ng-if="county.namn != 'Ospecificerad arbetsort'" ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{county.namn}}&size=640x400&zoom=6&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
+          <img ng-if="county.namn == 'Ospecificerad arbetsort'" ng-src="http://maps.googleapis.com/maps/api/staticmap?center=sweden&size=640x400&zoom=5&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
         </a>
         <div class="caption">
           <h3>{{county.namn}}</h3>
