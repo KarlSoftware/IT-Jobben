@@ -9,7 +9,7 @@ angular
       $http.get('http://localhost:1339/location/counties')
       .then(function(response) {
         $scope.counties = response.data.body.soklista.sokdata;
-        console.log(response)
+        console.log(response);
       })
 
       // set locationState upon clicking a county
@@ -18,8 +18,6 @@ angular
         LocationState.setLocation(location);
         console.log("Location är nu:" + location);
       }
-
-
 
     }])
 
