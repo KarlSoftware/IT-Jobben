@@ -17,7 +17,7 @@
       <td><a ng-href="#/annonsid/{{ad.annonsid}}">{{ad.annonsrubrik}}</a></td>
       <td>{{ad.yrkesbenamning}}</td>
       <td>{{ad.arbetsplatsnamn}}</td>
-      <td>{{ad.kommunnamn}}</td>
+      <td><a ng-href="#/municipality/{{ad.kommunkod}}/ads">{{ad.kommunnamn}}</a></td>
       <td>{{ad.publiceraddatum | amCalendar}}</td>
     </tr>
   </tbody>
