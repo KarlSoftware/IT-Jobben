@@ -14,6 +14,8 @@ angular
       $http.get('http://localhost:1339/location/municipality/' + municipalityID)
       .then(function(response) {
         $scope.howManyAds = response.data.body.matchningslista.antal_platsannonser_exakta;
+        $scope.howManyAdsNear = response.data.body.matchningslista.antal_platsannonser_narliggande;
+        console.log($scope.howManyAdsNear);
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
         // $scope.workgroup = response.data.body.soklista.sokdata;
