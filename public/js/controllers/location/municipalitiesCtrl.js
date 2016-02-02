@@ -26,3 +26,13 @@ angular
       }
 
     }])
+
+    // Child Controller to get number of ads in a municipality
+    .controller('municipalityChildCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+
+      $http.get('http://localhost:1339/location/match/municipality/' + $scope.municipality.id +'')
+      .then(function(response) {
+        $scope.adsInMunicipality = response.data.body.matchningslista.antal_platsannonser_exakta;
+      })
+
+    }])
