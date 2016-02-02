@@ -12,7 +12,6 @@ angular
       .then(function(response) {
         $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
         $scope.ads = response.data.body.matchningslista.matchningdata;
-        console.log($scope.ads);
       })
 
     }]) // end of controller
