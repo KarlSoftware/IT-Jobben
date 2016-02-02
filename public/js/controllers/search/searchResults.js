@@ -10,8 +10,9 @@ angular
 
       $http.get('http://localhost:1339/api/search/' + Data.getSearchTerm())
       .then(function(response) {
-        $scope.result = response;
+        $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
         $scope.ads = response.data.body.matchningslista.matchningdata;
+        console.log($scope.ads);
       })
 
     }]) // end of controller

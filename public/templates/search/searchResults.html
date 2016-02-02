@@ -2,6 +2,10 @@
   <h1>Sökresultat för {{searchTerm}}</h1>
 
   <table class="table table-striped table-hover table-bordered">
+    <caption>
+      <b>{{searchResults}}</b> annonser matchade din sökning efter <b>{{searchTerm}}</b>.
+      <span ng-if="searchResults > 75"> Precisera din sökning ytterligare för bättre resultat</span>
+    </caption>
     <thead>
       <tr>
         <th>Annons</th>
