@@ -36,10 +36,10 @@
           <tr ng-repeat="ad in ads">
               <td ng-if="ad.relevans == '100'"><a ng-href="#/annonsid/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                 <span class="text-muted">
-                  <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
-                  <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
-                  <span ng-if="ad.antalPlatserVisa == '0'">ingen info</span><br>
-                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
+                  <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
+                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                  <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}} </span>
+                  <span ng-if="ad.antalPlatserVisa == '0'">ingen info </span><br>
                   <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
                 </span>
               </td>
