@@ -4,7 +4,7 @@
 
   <div class="row">
     <div ng-repeat="municipality in municipalities" class="col-sm-6 col-md-4">
-      <div class="thumbnail">
+      <div class="thumbnail" ng-if="municipality.namn != 'Ospecificerad arbetsort'" ng-controller="municipalityChildCtrl">
         <a ng-href="#/municipality/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn)">
           <img ng-if="municipality.namn != 'Ospecificerad arbetsort'"ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{municipality.namn}}&size=640x400&zoom=9&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
           <img ng-if="municipality.namn == 'Ospecificerad arbetsort'"ng-src="http://maps.googleapis.com/maps/api/staticmap?center=sweden&size=640x400&zoom=5&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
