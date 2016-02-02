@@ -1,4 +1,23 @@
 <div class="container" ng-controller="singleAdCtrl">
-  <h1>Hello from single add</h1>
-  {{adDetails}}
+  <h1>{{annons.annonsrubrik}}</h1>
+  <!-- <h2 class="text-muted"></h2> -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <p class="preserve-newline">{{annons.annonstext}}</p>
+    </div> <!-- end of col -->
+
+    <div class="col-md-4">
+      <p>{{ansokan}}</p>
+      <br>
+      <p>{{arbetsplats}}</p>
+      <br>
+      <p>{{krav}}</p>
+      <br>
+      <p>{{villkor}}</p>
+    </div> <!-- end of col -->
+
+  </div> <!-- end of row -->
+
+
 </div>
