@@ -1,7 +1,7 @@
 angular
   .module('app')
 
-    // Controller to get all municipalities in a county
+    // Controller to get all municipalities in a municipality
     .controller('municipalitiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', function($scope, $http, $stateParams, LocationState) {
 
       // Create variable from param
@@ -18,7 +18,7 @@ angular
         // $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
-      // set locationState upon clicking a county
+      // set locationState upon clicking a municipality
       $scope.setLocation = function(location) {
         console.log('du klickade på', location);
         LocationState.setLocation(location);
