@@ -39,7 +39,8 @@
                   <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                   <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
                   <span ng-if="ad.antalPlatserVisa == '0'">ingen info</span><br>
-                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
+                  <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
                 </span>
               </td>
           </tr>
@@ -79,7 +80,8 @@
                   <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
                   <span ng-if="ad.antalPlatserVisa == '0'">ingen info</span><br>
                   <a ng-href="#/municipality/{{ad.kommunkod}}/ads" ng-click="setLocation(ad.kommunnamn)"><i class="fa fa-map-marker"> {{ad.kommunnamn}}</a></i>
-                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
+                  <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
                 </span>
               </td>
           </tr>
