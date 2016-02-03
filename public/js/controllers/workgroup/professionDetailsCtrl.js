@@ -8,7 +8,7 @@ angular
       var id = $stateParams.professionID;
 
       // fetch current profession
-      $scope.currentProfession = WorkGroupState.getSetWorkgroup();
+      $scope.currentProfession = WorkGroupState.getProfession();
 
       $http.get('http://localhost:1339/api/profession/' + id)
       .then(function(response) {

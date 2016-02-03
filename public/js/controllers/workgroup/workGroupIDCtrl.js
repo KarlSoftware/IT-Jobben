@@ -20,7 +20,7 @@ angular
       // change current state of workgroup
       $scope.setProfession = function(yrke) {
         console.log('du klickade på', yrke);
-        WorkGroupState.setWorkgroup(yrke);
+        WorkGroupState.setProfession(yrke);
         console.log("Workgroupstate är nu:" + yrke);
       }
 
