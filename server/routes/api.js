@@ -41,17 +41,6 @@ module.exports = function(app) {
 
   });
 
-  // Test URL for testing request node module
-  router.get('/test', function (req, res) {
-
-    request(baseURL2 + '?t=frozen&', function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        res.send(body); // Show the HTML for the Google homepage.
-      }
-    })
-
-  });
-
   // route for searching
   router.get('/search/:searchTerm', function (req, res) {
 
