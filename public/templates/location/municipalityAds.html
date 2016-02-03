@@ -2,12 +2,12 @@
   <div class="row">
 
     <div class="col-md-4">
-      <h2>{{currentLocation}}</h2>
+      <h2>{{currentMunicipality}}</h2>
       <p>
         <span ng-if="howManyAds == '0'"><b>Inga</b> annonser</span>
         <span ng-if="howManyAds == '1'"><b>{{howManyAds}}</b> annons</span>
         <span ng-if="howManyAds > '1'"><b>{{howManyAds}}</b> annonser</span>
-        i {{currentLocation}}
+        i {{currentMunicipality}}
       </p>
     </div> <!-- end of col -->
 
@@ -61,7 +61,7 @@
         <span ng-if="howManyAdsNear == '0'"><b>Inga</b> annonser</span>
         <span ng-if="howManyAdsNear == '1'"><b>{{howManyAdsNear}}</b> annons</span>
         <span ng-if="howManyAdsNear > '1'"><b>{{howManyAdsNear}}</b> annonser</span>
-        i angränsning till {{currentLocation}}
+        i angränsning till {{currentMunicipality}}
       </p>
     </div> <!-- end of col -->
 

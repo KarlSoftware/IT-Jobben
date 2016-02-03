@@ -9,7 +9,7 @@ angular
 
 
       // fetch current location
-      $scope.currentLocation = LocationState.getLocation();
+      $scope.currentMunicipality = LocationState.getMunicipality();
 
       $http.get('http://localhost:1339/location/municipality/' + municipalityID)
       .then(function(response) {

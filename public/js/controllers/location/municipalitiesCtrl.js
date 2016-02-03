@@ -21,7 +21,7 @@ angular
       // set locationState upon clicking a municipality
       $scope.setLocation = function(location) {
         console.log('du klickade på', location);
-        LocationState.setLocation(location);
+        LocationState.setMunicipality(location);
         console.log("Location är nu:" + location);
       }
 
