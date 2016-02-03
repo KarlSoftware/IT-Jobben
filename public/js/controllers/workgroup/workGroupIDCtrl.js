@@ -13,6 +13,7 @@ angular
       $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID)
       .then(function(response) {
         $scope.data = response;
+        console.log(response);
         $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
