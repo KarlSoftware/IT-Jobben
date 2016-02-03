@@ -12,7 +12,8 @@ angular
 
       $http.get('http://localhost:1339/api/profession/' + id)
       .then(function(response) {
-        $scope.result = response;
+        $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
+        $scope.adsSimilar = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
       })

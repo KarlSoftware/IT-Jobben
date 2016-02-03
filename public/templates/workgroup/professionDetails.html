@@ -1,7 +1,7 @@
 <div class="container" ng-controller="professionDetailsCtrl">
   <div class="row">
     <div class="col-md-4">
-      <h2>{{result.data.body.matchningslista.antal_platsannonser_exakta}}</b> annonser</h2>
+      <h2>{{adsExact}}</b> annonser</h2>
       <p>inom <b>{{currentProfession}}</b></p>
     </div> <!-- end of col -->
 
@@ -35,7 +35,7 @@
   <div class="row">
 
     <div class="col-md-4">
-      <h2>Snarlika yrken</h2>
+      <h2>{{adsSimilar}} Snarlika annonser</h2>
       <p>till <b>{{currentProfession}}</b></p>
     </div> <!-- end of col -->
 
