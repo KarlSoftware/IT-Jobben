@@ -2,7 +2,7 @@ angular
   .module('app')
 
     // Controller for search bar results
-    .controller('searchResultsCtrl', ['$scope', '$http', 'Data', function($scope, $http, Data) {
+    .controller('searchResultsCtrl', ['$scope', '$http', 'Data', 'LocationState', function($scope, $http, Data, LocationState) {
 
       console.log('searchResultCtrl working');
       console.log('Jag är searchResultCtrl. Data.searchterm är nu:' + Data.getSearchTerm());
@@ -30,6 +30,10 @@ angular
           $scope.ads = response.data.body.matchningslista.matchningdata;
         })
 
+      }
+
+      $scope.setLocation = function(municipality) {
+        LocationState.setMunicipality(municipality);
       }
 
     }]) // end of controller
