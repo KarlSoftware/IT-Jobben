@@ -1,8 +1,13 @@
 <div class="container" ng-controller="professionDetailsCtrl">
+  <ol class="breadcrumb">
+    <li><a ng-href="#/workgroups">Yrkesgrupper</a></li>
+    <li><a ng-href="#/workgroups/{{workgroupBreadcrumb}}">{{currentWorkgroup}}</a></li>
+    <li class="active">{{currentProfession}}</li>
+  </ol>
   <div class="row">
     <div class="col-md-4">
       <h2>{{adsExact}}</b> annonser</h2>
-      <p>inom <b>{{currentProfession}}</b></p>
+      <p>Inom <b>{{currentProfession}}</b></p>
     </div> <!-- end of col -->
 
   <div class="col-md-8">

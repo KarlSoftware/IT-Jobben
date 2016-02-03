@@ -1,4 +1,8 @@
 <div class="container" ng-controller="workGroupIDCtrl">
+  <ol class="breadcrumb">
+    <li><a ng-href="#/workgroups">Yrkesgrupper</a></li>
+    <li class="active">{{currentWorkgroup}}</li>
+  </ol>
   <h1>Yrken inom {{currentWorkgroup}}</h1>
   <table class="table table-striped table-hover table-bordered">
     <caption>{{data.data.body.soklista.totalt_antal_ledigajobb}} lediga jobb inom {{currentWorkgroup}}</caption>
@@ -11,7 +15,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="yrke in workgroup">
-      <td><a ng-href="#/profession/{{yrke.id}}" ng-click="setProfession(yrke.namn)">{{yrke.namn}}</a></td>
+      <td><a ng-href="#/profession/{{yrke.id}}" ng-click="setProfession(yrke.namn, yrke.id)">{{yrke.namn}}</a></td>
       <td>{{yrke.antal_platsannonser}} st</td>
       <td>{{yrke.antal_ledigajobb}} st</td>
     </tr>

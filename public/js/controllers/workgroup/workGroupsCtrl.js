@@ -2,7 +2,7 @@ angular
   .module('app')
 
     // controller to view all the workgroups
-    .controller('workGroupsCtrl', ['$scope', '$http', 'WorkGroupState', function($scope, $http, WorkGroupState) {
+    .controller('workGroupsCtrl', ['$scope', '$http', 'WorkGroupState', 'BreadcrumbState', function($scope, $http, WorkGroupState, BreadcrumbState) {
 
       console.log('workGroupsCtrl is working');
 
@@ -13,9 +13,11 @@ angular
       })
 
       // change current state of workgroup
-      $scope.setWorkgroup = function(workgroup) {
+      $scope.setWorkgroup = function(workgroup, breadcrumb) {
         console.log('du klickade på', workgroup);
         WorkGroupState.setWorkgroup(workgroup);
+        BreadcrumbState.setWorkgroupBreadcrumb(breadcrumb);
+        console.log(BreadcrumbState.getWorkgroupBreadcrumb());
         console.log("Workgroupstate är nu:" + workgroup);
       }
     }]) // end of controller

@@ -2,13 +2,16 @@ angular
   .module('app')
 
     // Controller to all professions in a workgroup
-    .controller('workGroupIDCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', function($scope, $http, $stateParams, WorkGroupState) {
+    .controller('workGroupIDCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', 'BreadcrumbState', function($scope, $http, $stateParams, WorkGroupState, BreadcrumbState) {
 
       // Create variable from param
       var workGroupID = $stateParams.workgroupID;
 
       // fetch current workgroup
       $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
+
+      // fetch breadcrumb for workgroup and assign to scope
+      $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
 
       $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID)
       .then(function(response) {
@@ -18,9 +21,10 @@ angular
       })
 
       // change current state of workgroup
-      $scope.setProfession = function(yrke) {
+      $scope.setProfession = function(yrke, breadcrumb) {
         console.log('du klickade på', yrke);
         WorkGroupState.setProfession(yrke);
+        BreadcrumbState.setProfessionBreadcrumb(breadcrumb);
         console.log("Workgroupstate är nu:" + yrke);
       }
 

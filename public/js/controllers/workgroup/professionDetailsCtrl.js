@@ -2,13 +2,19 @@ angular
   .module('app')
 
     // Controller to all ads in a profession
-    .controller('professionDetailsCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', 'LocationState', function($scope, $http, $stateParams, WorkGroupState, LocationState) {
+    .controller('professionDetailsCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', 'LocationState', 'BreadcrumbState', function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState) {
 
       // Create variable from param
       var id = $stateParams.professionID;
 
+      // fetch current workgroup
+      $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
+
       // fetch current profession
       $scope.currentProfession = WorkGroupState.getProfession();
+
+      // fetch breadcrumb for workgroup and assign to scope
+      $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
 
       $http.get('http://localhost:1339/api/profession/' + id)
       .then(function(response) {
