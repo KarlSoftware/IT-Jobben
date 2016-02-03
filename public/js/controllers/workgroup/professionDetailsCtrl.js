@@ -24,11 +24,11 @@ angular
         console.log(response);
       })
 
-      // set locationState upon clicking a county
-      $scope.setLocation = function(location) {
-        console.log('du klickade på', location);
-        LocationState.setLocation(location);
-        console.log("Location är nu:" + location);
-      }
+      // // set locationState upon clicking a county
+      // $scope.setLocation = function(location) {
+      //   console.log('du klickade på', location);
+      //   LocationState.setLocation(location);
+      //   console.log("Location är nu:" + location);
+      // }
 
     }])

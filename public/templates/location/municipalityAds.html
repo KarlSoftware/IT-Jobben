@@ -1,6 +1,6 @@
 <div class="container" ng-controller="municipalityAdsCtrl">
   <ol class="breadcrumb">
-    <li><a ng-href="#/county">Yrkesgrupper</a></li>
+    <li><a ng-href="#/counties">Län</a></li>
     <li><a ng-href="#/municipalities/{{currentCountyBreadcrumb}}">{{currentCounty}}</a></li>
     <li class="active">{{currentMunicipality}}</li>
   </ol>
@@ -74,7 +74,7 @@
                   <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                   <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
                   <span ng-if="ad.antalPlatserVisa == '0'">ingen info</span><br>
-                  <a ng-href="#/municipality/{{ad.kommunkod}}/ads" ng-click="setLocation(ad.kommunnamn)"><i class="fa fa-map-marker"> {{ad.kommunnamn}}</a></i>
+                  <i class="fa fa-map-marker"> {{ad.kommunnamn}}</i>
                   <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
                   <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
                 </span>
@@ -84,7 +84,7 @@
         </table>
       </div>
     </div> <!-- end of col -->
-    
+
   </div> <!-- end of row -->
 
 </div> <!-- end of container and controller -->

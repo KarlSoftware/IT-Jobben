@@ -27,11 +27,13 @@ angular
         // $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
-      // set locationState upon clicking a county
-      $scope.setLocation = function(location) {
-        console.log('du klickade på', location);
-        LocationState.setLocation(location);
-        console.log("Location är nu:" + location);
-      }
+      // // set locationState upon clicking a county
+      // $scope.setLocation = function(location, breadcrumb) {
+      //   console.log('du klickade på', location);
+      //   LocationState.setLocation(location);
+      //   BreadcrumbState.setMunicipalityBreadcrumb(breadcrumb);
+      //   $scope.currentMunicipality = location;
+      //   console.log("Location är nu:" + location);
+      // }
 
     }])

@@ -32,8 +32,8 @@ angular
 
       }
 
-      $scope.setLocation = function(municipality) {
-        LocationState.setMunicipality(municipality);
-      }
+      // $scope.setLocation = function(municipality) {
+      //   LocationState.setMunicipality(municipality);
+      // }
 
     }]) // end of controller
