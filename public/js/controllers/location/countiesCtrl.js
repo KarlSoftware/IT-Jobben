@@ -2,7 +2,7 @@ angular
   .module('app')
 
     // Controller to view all counties
-    .controller('countiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', function($scope, $http, $stateParams, LocationState) {
+    .controller('countiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', 'BreadcrumbState', function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
 
 
 
@@ -13,10 +13,12 @@ angular
       })
 
       // set locationState upon clicking a county
-      $scope.setLocation = function(location) {
+      $scope.setLocation = function(location, breadcrumb) {
         console.log('du klickade på', location);
+        // set factory states
         LocationState.setCounty(location);
-        console.log("Location är nu:" + location);
+        BreadcrumbState.setCountyBreadcrumb(breadcrumb);
+
       }
 
     }])

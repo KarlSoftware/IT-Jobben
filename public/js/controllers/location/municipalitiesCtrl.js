@@ -2,7 +2,7 @@ angular
   .module('app')
 
     // Controller to get all municipalities in a municipality
-    .controller('municipalitiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', function($scope, $http, $stateParams, LocationState) {
+    .controller('municipalitiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', 'BreadcrumbState', function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
 
       // Create variable from param
       var countyID = $stateParams.countyID;
@@ -11,6 +11,9 @@ angular
       // fetch current location
       $scope.currentCounty = LocationState.getCounty();
 
+      // fetch current breadcrumb state for active countyID
+      $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
+
       $http.get('http://localhost:1339/location/municipalities/' + countyID)
       .then(function(response) {
         $scope.municipalities = response.data.body.soklista.sokdata;
@@ -18,11 +21,11 @@ angular
         // $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
-      // set locationState upon clicking a municipality
-      $scope.setLocation = function(location) {
-        console.log('du klickade på', location);
+      // set locationState and breadcrumb state upon clicking a municipality
+      $scope.setLocation = function(location, breadcrumb) {
+        // set factory states
         LocationState.setMunicipality(location);
-        console.log("Location är nu:" + location);
+        BreadcrumbState.setMunicipalityBreadcrumb(breadcrumb)
       }
 
     }])

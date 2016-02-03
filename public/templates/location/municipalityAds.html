@@ -1,4 +1,9 @@
 <div class="container" ng-controller="municipalityAdsCtrl">
+  <ol class="breadcrumb">
+    <li><a ng-href="#/county">Yrkesgrupper</a></li>
+    <li><a ng-href="#/municipalities/{{currentCountyBreadcrumb}}">{{currentCounty}}</a></li>
+    <li class="active">{{currentMunicipality}}</li>
+  </ol>
   <div class="row">
 
     <div class="col-md-4">

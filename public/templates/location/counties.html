@@ -1,22 +1,25 @@
 <div class="container" ng-controller="countiesCtrl">
+  <ol class="breadcrumb">
+    <li class="active">Län</li>
+  </ol>
   <h1>Län</h1>
   <p>Klicka på ett län för att komma vidare och se alla kommuner i det valda länet</p>
 
   <div class="row">
     <div ng-repeat="county in counties" class="col-sm-6 col-md-4">
       <div class="thumbnail" ng-controller="countyChildCtrl">
-        <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href="#/municipalities/{{county.id}}" ng-click="setLocation(county.namn)">
+        <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href="#/municipalities/{{county.id}}" ng-click="setLocation(county.namn, county.id)">
           <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{county.namn}}&size=640x400&zoom=6&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
         </a>
-        <a ng-if="county.namn == 'Ospecificerad arbetsort'" ng-href="#/municipality/9090/ads" ng-click="setLocation(county.namn)">
+        <a ng-if="county.namn == 'Ospecificerad arbetsort'" ng-href="#/municipality/9090/ads" ng-click="setLocation(county.namn, county.id)">
           <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center=sweden&size=640x400&zoom=5&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
         </a>
         <div class="caption">
           <h3>{{county.namn}}</h3>
           <p class="text-muted"><i class="fa fa-briefcase"></i> {{adsInCounty}} </p>
           <p>
-            <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href="#/municipalities/{{county.id}}" ng-click="setLocation(county.namn)" class="btn btn-info btn-sm" role="button">Visa kommuner</a>
-            <a ng-if="county.namn == 'Ospecificerad arbetsort'" ng-href="#/municipality/9090/ads" ng-click="setLocation(county.namn)" class="btn btn-info btn-sm" role="button">Visa</a>
+            <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href="#/municipalities/{{county.id}}" ng-click="setLocation(county.namn, county.id)" class="btn btn-info btn-sm" role="button">Visa kommuner</a>
+            <a ng-if="county.namn == 'Ospecificerad arbetsort'" ng-href="#/municipality/9090/ads" ng-click="setLocation(county.namn, county.id)" class="btn btn-info btn-sm" role="button">Visa</a>
           </p>
         </div>
       </div>
