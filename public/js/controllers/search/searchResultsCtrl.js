@@ -17,20 +17,19 @@ angular
 
       // function to search again
       $scope.search = function () {
-        console.log('sök sök efter', $scope.searchterm);
         // set searchterm
         Data.setSearchTerm($scope.searchterm);
         console.log('search term factory är nu', Data.getSearchTerm());
         $scope.searchTerm = Data.getSearchTerm();
 
-        // do http req once more
+        // do http req with new search term
         $http.get('http://localhost:1339/api/search/' + Data.getSearchTerm())
         .then(function(response) {
           console.log(response);
           $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
           $scope.ads = response.data.body.matchningslista.matchningdata;
         })
-        
+
       }
 
     }]) // end of controller
