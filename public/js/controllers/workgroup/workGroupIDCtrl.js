@@ -8,7 +8,7 @@ angular
       var workGroupID = $stateParams.workgroupID;
 
       // fetch current workgroup
-      $scope.currentWorkgroup = WorkGroupState.getSetWorkgroup();
+      $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
 
       $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID)
       .then(function(response) {

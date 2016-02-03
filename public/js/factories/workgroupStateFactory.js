@@ -9,7 +9,7 @@ angular
     };
 
     return {
-        getSetWorkgroup: function () {
+        getWorkgroup: function () {
             return data.WorkgroupState;
         },
         setWorkgroup: function (workgroup) {
