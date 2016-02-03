@@ -4,16 +4,16 @@ angular
   .factory('LocationState', function () {
 
     var data = {
-        LocationState: '',
+        CountyState: '',
         MunicipalityState: ''
     };
 
     return {
-        getLocation: function () {
-            return data.LocationState;
+        getCounty: function () {
+            return data.CountyState;
         },
-        setLocation: function (location) {
-            data.LocationState = location;
+        setCounty: function (location) {
+            data.CountyState = location;
         },
         getMunicipality: function () {
           return data.MunicipalityState;
