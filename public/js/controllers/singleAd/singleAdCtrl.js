@@ -7,10 +7,22 @@ angular
       // Create variable from param
       var ad = $stateParams.adID;
 
+      // array for random image class to use with jumbotron image
+      var randomImage = [
+        'code1',
+        'code2',
+        'code3',
+        'code4',
+        'code5'
+      ]
+      // get a random item from image array and assign to scope variables
+      $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
+      console.log($scope.randomImgClass);
 
       $http.get('http://localhost:1339/api/singleAd/' + ad + '')
       .then(function(response) {
         console.log(response);
+        // attach response to scope variables
         $scope.adDetails =      response;
         $scope.annons =         response.data.body.platsannons.annons;
         $scope.ansokan =        response.data.body.platsannons.ansokan;
