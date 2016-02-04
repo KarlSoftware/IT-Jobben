@@ -1,11 +1,61 @@
 *, *:before, *:after {box-sizing:  border-box !important;}
 
-
-
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
+  box-shadow: 0 0 1px #000000;
+
 }
+
+/*fix for navbar gap*/
+.navbar-gap-fix {
+  margin-top: -21px;
+}
+
+/*Ad image class*/
+.ad-image {
+  height: 75vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 2px #000000;
+}
+
+.ad-image div {
+  /*margin-top: 60px;*/
+}
+
+.code1 {
+  background: url('../img/randomAds/code1.jpg') no-repeat center center;
+  background-size: cover;
+	background-repeat:  no-repeat;
+	background-position: center center;
+}
+.code2 {
+  background: url('../img/randomAds/code2.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+.code3 {
+  background: url('../img/randomAds/code3.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+.code4 {
+  background: url('../img/randomAds/code4.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+.code5 {
+  background: url('../img/randomAds/code5.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+
 
 .row-special {
  -moz-column-width: 18em;
