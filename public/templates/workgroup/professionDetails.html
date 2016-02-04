@@ -6,7 +6,10 @@
   </ol>
   <div class="row">
     <div class="col-md-4">
-      <h2>{{adsExact}}</b> annonser</h2>
+      <h2>{{adsExact}}
+        <span ng-if="adsExact != '1'">annonser</span>
+        <span ng-if="adsExact == '1'">annons</span>
+      </h2>
       <p>Inom <b>{{currentProfession}}</b></p>
     </div> <!-- end of col -->
 
