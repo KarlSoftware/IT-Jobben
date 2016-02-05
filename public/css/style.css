@@ -10,7 +10,7 @@ td a {
 
 /* make bold text stand out a bit more */
 b {
-  font-size: 1.1em;
+  font-size: 1.05em;
 }
 /*reset navbar border radius*/
 .navbar {
@@ -128,4 +128,12 @@ b {
 /* give breadcrumbs some margin */
 .breadcrumb {
   margin-top: 15px;
+}
+
+.header-underline {
+  width: 50px;
+  border-top: 3px solid white;
+  display: inline-block;
+  position: relative;
+  bottom: 4px;
 }
