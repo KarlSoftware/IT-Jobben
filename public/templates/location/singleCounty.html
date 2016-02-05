@@ -1,16 +1,16 @@
 <div class="container-fluid">
   <div class="container white-subtle-shadow" ng-controller="municipalitiesCtrl">
     <ol class="breadcrumb">
-      <li><a ng-href="#/counties">Län</a></li>
+      <li><a ng-href="#/lan">Län</a></li>
       <li class="active">{{currentCounty}}</li>
     </ol>
     <h1>Kommuner i {{currentCounty}}</h1>
-    <p>Klicka på en kommun för att se alla annonser i det länet</p>
+    <p>Klicka på en kommun för att se alla annonser i kommunen</p>
 
     <div class="row">
       <div ng-repeat="municipality in municipalities" class="col-sm-6 col-md-4">
         <div class="thumbnail" ng-if="municipality.namn != 'Ospecificerad arbetsort'" ng-controller="municipalityChildCtrl">
-          <a ng-href="#/municipality/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn, municipality.id)">
+          <a ng-href="#/kommun/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn, municipality.id)">
             <img ng-if="municipality.namn != 'Salem'" ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{municipality.namn}}&size=640x400&zoom=9&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
             <img ng-if="municipality.namn == 'Salem'" ng-src="http://maps.googleapis.com/maps/api/staticmap?center=Salem+Stockholm&size=640x400&zoom=9&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
 
@@ -18,7 +18,7 @@
           <div class="caption">
             <h3>{{municipality.namn}}</h3>
             <p class="text-muted"><i class="fa fa-briefcase"></i> {{adsInMunicipality}}</p>
-            <p><a ng-href="#/municipality/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn, municipality.id)" class="btn btn-info btn-sm" role="button">Visa annonser</a></p>
+            <p><a ng-href="#/kommun/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn, municipality.id)" class="btn btn-info btn-sm" role="button">Visa annonser</a></p>
           </div>
         </div>
       </div>
