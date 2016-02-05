@@ -9,19 +9,17 @@
     </div>
   </div>
 
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-8">
-        <h1>Om tjänsten</h1>
-        <p class="preserve-newline">{{annons.annonstext}}</p>
-        <br>
-      </div> <!-- end of col -->
-    </div> <!-- end of row -->
-
-
-
-  </div> <!-- end of container -->
+  <div class="container-fluid container-gray container-fluid-fix">
+    <div class="container">
+      <div class="row margin-top-bottom white-subtle-shadow">
+        <div class="col-lg-12">
+          <h1 class="text-center">Om tjänsten</h1>
+          <p class="preserve-newline">{{annons.annonstext}}</p>
+          <br>
+        </div> <!-- end of col -->
+      </div> <!-- end of row -->
+    </div> <!-- end of container -->
+  </div> <!-- end of fluid container -->
 
   <div class="container-fluid ad-info">
     <div class="container">
@@ -29,7 +27,7 @@
         <div class="col col-lg-5 col-sm-5">
           <h1>Ansökan</h1>
         </div>
-        <div class="col-lg-5 col-sm-5">
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-sm-offset-2">
           <br>
           <p>Lediga tjänster: <b>{{annons.antal_platser}}</b></p>
           <p>Tjänsten finns i <b>{{annons.kommunnamn}}</b></p>
@@ -46,7 +44,7 @@
         <div class="col col-lg-5 col-sm-5">
           <h1>Arbetsplats</h1>
         </div>
-        <div class="col-lg-5 col-sm-5">
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
           <br>
           <h4>{{arbetsplats.arbetsplatsnamn}}</h4>
           <p>Postnummer <b>{{arbetsplats.postnummer}}</b></p>
@@ -62,7 +60,7 @@
         <div class="col col-lg-5 col-sm-5">
           <h1>Krav</h1>
         </div>
-        <div class="col-lg-5 col-sm-5">
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
           <br>
           <p ng-if="krav.egenbil == false">Inget krav om egen bil</p>
           <p ng-if="krav.egenbil == true">Annonsen kräver egen bil</p>
@@ -75,13 +73,13 @@
         <div class="col col-lg-5 col-sm-5">
           <h1>Villkor</h1>
         </div>
-        <div class="col-lg-5 col-sm-5">
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
           <br>
-          <p ng-if="villkor.varaktighet">Varaktighet:<b>{{villkor.varaktighet}}</b></p>
-          <p ng-if="villkor.arbetstid">Arbetstider: <b>{{villkor.arbetstid}}</b></p>
-          <p ng-if="villkor.arbetstidvaraktighet">Arbetstidvaraktighet: <b>{{villkor.arbetstidvaraktighet}}</b></p>
-          <p ng-if="villkor.lonetyp">Lönetyp: <b>{{villkor.lonetyp}}</b></p>
-          <p ng-if="villkor.loneform">Löneform: <b>{{villkor.loneform}}</b></p>
+          <p ng-if="villkor.varaktighet">Varaktighet <b>{{villkor.varaktighet}}</b></p>
+          <p ng-if="villkor.arbetstid">Arbetstider <b>{{villkor.arbetstid}}</b></p>
+          <p ng-if="villkor.arbetstidvaraktighet">Arbetstidvaraktighet <b>{{villkor.arbetstidvaraktighet}}</b></p>
+          <p ng-if="villkor.lonetyp">Lönetyp <b>{{villkor.lonetyp}}</b></p>
+          <p ng-if="villkor.loneform">Löneform <b>{{villkor.loneform}}</b></p>
 
         </div>
       </div> <!-- end of row -->

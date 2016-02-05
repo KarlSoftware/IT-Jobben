@@ -1,64 +1,66 @@
-<div class="container" ng-controller="searchResultsCtrl">
+<div class="container-fluid">
+  <div class="container white-subtle-shadow" ng-controller="searchResultsCtrl">
 
-  <div class="row">
-    <div class="col-md-4">
-      <h3 class="text-center">Sökresultat för {{searchTerm}}</h3>
-      <form ng-submit="search()" autocomplete="off">
-        <div class="input-group">
-            <input type="text" ng-model='searchterm' class="form-control" ng-enter="search()" placeholder="Sök på nytt efter..." id='search'>
-            <span class="input-group-btn">
-              <button class="btn btn-default" id='seachButton' ng-click="search()" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
-            </span>
-        </div><!-- /input-group -->
-      </form>
-      <br>
-      <div class="panel panel-success">
-        <div class="panel-heading">Filtrera sökresultat</div>
-        <div class="panel-body">
-          <label>Efter nyckelord: <input ng-model="searchText" class="form-control"></label>
-          <br>
-          <p class="text-muted" ng-if="searchText">{{filterLength.length}}
-            <span ng-if="filterLength.length != '1'">annonser</span>
-            <span ng-if="filterLength.length == '1'">annons</span>
-            matchar din filtrering</p>
-        </div>
-      </div> <!-- end of panel -->
-
-    </div> <!-- end of column -->
-
-
-    <div class="col-md-6 col-md-offset-1">
-      <br>
-      <table class="table table-striped table-hover table-bordered">
-        <caption>
-          <b>{{searchResults}}</b> annonser totalt matchar din sökning efter <b>{{searchTerm}}</b>.<br>
-          <span ng-if="searchResults > 75"> Precisera eller filtrera din sökning ytterligare för bättre resultat</span>
-
-        </caption>
-        <thead>
-          <tr>
-            <th>Annons</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="ad in ads | filter: searchText as filterLength">
-            <td><a ng-href="#/annonsid/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
-              <span class="text-muted">
-                <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
-                <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
-                <span ng-if="ad.antalplatser == '0'">ingen info</span><br>
-                <i class="fa fa-map-marker"> {{ad.kommunnamn}}</i>
-                <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
-                <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="text-center">Sökresultat för {{searchTerm}}</h3>
+        <form ng-submit="search()" autocomplete="off">
+          <div class="input-group">
+              <input type="text" ng-model='searchterm' class="form-control" ng-enter="search()" placeholder="Sök på nytt efter..." id='search'>
+              <span class="input-group-btn">
+                <button class="btn btn-default" id='seachButton' ng-click="search()" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></button>
               </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div> <!-- end of column -->
+          </div><!-- /input-group -->
+        </form>
+        <br>
+        <div class="panel panel-success">
+          <div class="panel-heading">Filtrera sökresultat</div>
+          <div class="panel-body">
+            <label>Efter nyckelord: <input ng-model="searchText" class="form-control"></label>
+            <br>
+            <p class="text-muted" ng-if="searchText">{{filterLength.length}}
+              <span ng-if="filterLength.length != '1'">annonser</span>
+              <span ng-if="filterLength.length == '1'">annons</span>
+              matchar din filtrering</p>
+          </div>
+        </div> <!-- end of panel -->
+
+      </div> <!-- end of column -->
 
 
-  </div> <!-- end of row -->
+      <div class="col-md-6 col-md-offset-1">
+        <br>
+        <table class="table table-striped table-hover table-bordered">
+          <caption>
+            <b>{{searchResults}}</b> annonser totalt matchar din sökning efter <b>{{searchTerm}}</b>.<br>
+            <span ng-if="searchResults > 75"> Precisera eller filtrera din sökning ytterligare för bättre resultat</span>
+
+          </caption>
+          <thead>
+            <tr>
+              <th>Annons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="ad in ads | filter: searchText as filterLength">
+              <td><a ng-href="#/annonsid/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
+                <span class="text-muted">
+                  <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
+                  <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
+                  <span ng-if="ad.antalplatser == '0'">ingen info</span><br>
+                  <i class="fa fa-map-marker"> {{ad.kommunnamn}}</i>
+                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
+                  <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!-- end of column -->
 
 
+    </div> <!-- end of row -->
+
+
+  </div>
 </div>

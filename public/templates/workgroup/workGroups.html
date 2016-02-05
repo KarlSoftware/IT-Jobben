@@ -1,23 +1,26 @@
-<div class="container" ng-controller="workGroupsCtrl">
-  <ol class="breadcrumb">
-    <li class="active">Yrkesgrupper</li>
-  </ol>
-  <h1>Yrkesgrupper</h1>
-  <table class="table table-striped table-hover table-bordered">
-    <caption>{{result.data.body.soklista.totalt_antal_ledigajobb}} lediga jobb utgör yrkesgrupperna</caption>
-  <thead>
-    <tr>
-      <th>Yrkesgrupp</th>
-      <th>Antal annonser</th>
-      <th>Lediga jobb</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="workgroup in workgroups">
-        <td><a ng-href="#/workgroups/{{workgroup.id}}" ng-click="setWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
-        <td>{{workgroup.antal_platsannonser}} st</td>
-        <td>{{workgroup.antal_ledigajobb}} st</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid container-gray">
+  <div class="container white-subtle-shadow" ng-controller="workGroupsCtrl">
+    <ol class="breadcrumb">
+      <li class="active">Yrkesgrupper</li>
+    </ol>
+    <h1>Yrkesgrupper</h1>
+    <table class="table table-striped table-hover table-bordered">
+      <caption>{{result.data.body.soklista.totalt_antal_ledigajobb}} lediga jobb utgör yrkesgrupperna</caption>
+    <thead>
+      <tr>
+        <th>Yrkesgrupp</th>
+        <th>Antal annonser</th>
+        <th>Lediga jobb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="workgroup in workgroups">
+          <td><a ng-href="#/workgroups/{{workgroup.id}}" ng-click="setWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
+          <td>{{workgroup.antal_platsannonser}} st</td>
+          <td>{{workgroup.antal_ledigajobb}} st</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
 </div>
