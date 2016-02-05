@@ -34,10 +34,13 @@
           <p>Lediga tjänster: <b>{{annons.antal_platser}}</b></p>
           <p>Tjänsten finns i <b>{{annons.kommunnamn}}</b></p>
           <p>Annonsen publicerades <b>{{annons.publiceraddatum | amCalendar}}</b></p>
-          <p ng-if="ansokan.sista_ansokningsdag !=''">Sista ansökningsdag är <b>{{ansokan.sista_ansokningsdag | amCalendar}}</b></p>
+          <p ng-if="ansokan.sista_ansokningsdag">
+            <span ng-if="ansokan.sista_ansokningsdag != ''">Sista ansökningsdag är <b>{{ansokan.sista_ansokningsdag | amCalendar}}</b></span>
+            <span ng-if="ansokan.sista_ansokningsdag == ''">Ingen info om sista ansökningsdag</span>
+          </p>
           <p ng-if="ansokan.referens">Referens för annonsen är <b>{{ansokan.referens}}</b></p>
           <p ng-if="ansokan.epostadress">Epost: {{ansokan.epostadress}}</p>
-          <a ng-if="ansokan.webbplats !=''" class="btn btn-primary btn-sm" ng-href="{{annons.platsannonsUrl}}">Annonsens webbplats</a>
+          <a ng-if="ansokan.webbplats !=''" class="btn btn-primary btn-sm" ng-href="{{annons.platsannonsUrl}}">Arbetsförmedlingen</a>
           <!-- {{ansokan}} -->
         </div>
       </div> <!-- end or row -->
@@ -50,11 +53,11 @@
         <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
           <br>
           <h4>{{arbetsplats.arbetsplatsnamn}}</h4>
-          <p>Postnummer <b>{{arbetsplats.postnummer}}</b></p>
-          <p>Postadress <b>{{arbetsplats.postadress}}</b></p>
-          <p>Postort <b>{{arbetsplats.postort}}</b></p>
-          <p><b>{{arbetsplats.land}}</b></p>
-          <p>Besöksadress <b>{{arbetsplats.besoksadress}}</b></p>
+          <p ng-if="arbetsplats.postnummer">Postnummer <b>{{arbetsplats.postnummer}}</b></p>
+          <p ng-if="arbetsplats.postadress">Postadress <b>{{arbetsplats.postadress}}</b></p>
+          <p ng-if="arbetsplats.postort">Postort <b>{{arbetsplats.postort}}</b></p>
+          <p ng-if="arbetsplats.land"><b>{{arbetsplats.land}}</b></p>
+          <p ng-if="arbetsplats.besoksadress">Besöksadress <b>{{arbetsplats.besoksadress}}</b></p>
           <a ng-if="arbetsplats.hemsida" class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}">Arbetsplatsens hemsida</a>
         </div>
       </div> <!-- end of row -->
