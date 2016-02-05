@@ -1,5 +1,17 @@
 *, *:before, *:after {box-sizing:  border-box !important;}
 
+body {
+  background-color: #F1F1F1;
+}
+
+td a {
+  text-decoration: none !important;
+}
+
+/* make bold text stand out a bit more */
+b {
+  font-size: 1.1em;
+}
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
@@ -25,6 +37,9 @@
   /*margin-top: 60px;*/
 }
 
+/*
+* Style for diffrent code classes. Used at random with the help of angular code
+*/
 .code1 {
   background: url('../img/randomAds/code1.jpg') no-repeat center center;
   background-size: cover;
@@ -69,34 +84,48 @@
 
 }
 
+/* Give ad-info box and ad-image shadowing */
 .ad-info, .ad-image {
   box-shadow: 0 0 2px #3f3f3f;
 
 }
-.row-special {
- -moz-column-width: 18em;
- -webkit-column-width: 18em;
- -moz-column-gap: 1em;
- -webkit-column-gap: 1em;
 
-}
-
-.menu-category {
- display: inline-block;
- margin:  0.25rem;
- padding:  1rem;
- width:  100%;
-}
-
-td a {
-  text-decoration: none !important;
-}
-
+/* helper class to better format annonstext since they often contain newlines and such */
 .preserve-newline {
     white-space: pre-wrap;
 }
 
 
-.btn-padding-right {
-  margin-right: 20px;
+/* Helper class for containers / rows that need white background and a suble shadow */
+.white-subtle-shadow {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 1px #D3D3D3;
+}
+
+/* helper class to make a container light gray */
+.container-gray {
+  background-color: #F1F1F1;
+}
+
+/* helper class to push a container fluid up, used on single ad page */
+.container-fluid-fix {
+  margin-top: -29px;
+  z-index: -1;
+}
+
+
+/* helper class to add custom margin top and bottom to containers */
+.margin-top-bottom {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/*Helper class used with pushing down tables a bit*/
+.margin-top {
+  margin-top: 20px;
+}
+
+/* give breadcrumbs some margin */
+.breadcrumb {
+  margin-top: 15px;
 }
