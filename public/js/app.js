@@ -50,14 +50,14 @@ angular
         templateUrl: 'templates/location/counties.html'
       })
 
-        templateUrl: 'templates/location/municipalities.html'
       .state('singleCounty', {
         url: '/lan/:countyID',
+        templateUrl: 'templates/location/singleCounty.html'
       })
 
       .state('municipalityAds', {
-        templateUrl: 'templates/location/municipalityAds.html'
         url: '/kommun/:municipalityID/ads',
+        templateUrl: 'templates/location/adsInMunicipality.html'
       })
 
 
