@@ -138,3 +138,7 @@ b {
   position: relative;
   bottom: 4px;
 }
+
+.ad-yrkesbenamning {
+  letter-spacing: 0.1em;
+}
