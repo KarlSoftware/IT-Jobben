@@ -35,8 +35,7 @@ angular
         templateUrl: 'templates/workgroup/workGroups.html'
       })
 
-      .state('workgroupsID', {
-        templateUrl: 'templates/workgroup/workGroupID.html'
+      .state('singleWorkgroup', {
         url: '/yrkesgrupper/:workgroupID',
         templateUrl: 'templates/workgroup/singleWorkgroup.html'
       })
@@ -51,8 +50,8 @@ angular
         templateUrl: 'templates/location/counties.html'
       })
 
-      .state('municipalities', {
         templateUrl: 'templates/location/municipalities.html'
+      .state('singleCounty', {
         url: '/lan/:countyID',
       })
 
