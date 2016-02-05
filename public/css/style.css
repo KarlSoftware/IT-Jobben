@@ -3,7 +3,7 @@
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
-  box-shadow: 0 0 1px #000000;
+  box-shadow: 0 0 1px #3f3f3f;
 
 }
 
@@ -18,7 +18,7 @@
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 2px #000000;
+  box-shadow: 0 0 4px #3f3f3f;
 }
 
 .ad-image div {
@@ -66,10 +66,13 @@
   background: -ms-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
   background: linear-gradient(to right, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
   color: white;
-  box-shadow: 0 0 2px #000000;
 
 }
 
+.ad-info, .ad-image {
+  box-shadow: 0 0 2px #3f3f3f;
+
+}
 .row-special {
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
