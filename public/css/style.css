@@ -130,6 +130,7 @@ b {
   margin-top: 15px;
 }
 
+/* class to give headers a little underline */
 .header-underline {
   width: 50px;
   border-top: 3px solid white;
