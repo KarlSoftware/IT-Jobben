@@ -21,7 +21,7 @@ angular
       })
 
       .state('singleAd', {
-        url: '/annonsid/:adID',
+        url: '/annons/:adID',
         templateUrl: 'templates/singleAd/singleAd.html'
       })
 
@@ -31,33 +31,34 @@ angular
       })
 
       .state('workgroups', {
-        url: '/workgroups',
+        url: '/yrkesgrupper',
         templateUrl: 'templates/workgroup/workGroups.html'
       })
 
       .state('workgroupsID', {
-        url: '/workgroups/:workgroupID',
         templateUrl: 'templates/workgroup/workGroupID.html'
+        url: '/yrkesgrupper/:workgroupID',
+        templateUrl: 'templates/workgroup/singleWorkgroup.html'
       })
 
       .state('yrkeDetail', {
-        url: '/profession/:professionID',
+        url: '/yrke/:professionID',
         templateUrl: 'templates/workgroup/professionDetails.html'
       })
 
       .state('counties', {
-        url: '/counties',
+        url: '/lan',
         templateUrl: 'templates/location/counties.html'
       })
 
       .state('municipalities', {
-        url: '/municipalities/:countyID',
         templateUrl: 'templates/location/municipalities.html'
+        url: '/lan/:countyID',
       })
 
       .state('municipalityAds', {
-        url: '/municipality/:municipalityID/ads',
         templateUrl: 'templates/location/municipalityAds.html'
+        url: '/kommun/:municipalityID/ads',
       })
 
 
