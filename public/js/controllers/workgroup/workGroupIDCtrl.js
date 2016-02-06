@@ -20,6 +20,10 @@ angular
         $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
+      // set sorting
+      $scope.sortType = 'namn'; // default sorting
+      $scope.sortReverse = false; // default to a-z, 1-9 etc
+
       // change current state of workgroup
       $scope.setProfession = function(yrke, breadcrumb) {
         console.log('du klickade på', yrke);

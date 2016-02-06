@@ -9,13 +9,31 @@
       <caption>{{data.data.body.soklista.totalt_antal_ledigajobb}} lediga jobb inom {{currentWorkgroup}}</caption>
     <thead>
       <tr>
-        <th>Yrke</th>
-        <th>Antal annonser</th>
-        <th>Lediga jobb</th>
+        <td>
+          <a ng-click="sortType = 'namn'; sortReverse = !sortReverse">
+            Yrke
+            <span ng-show="sortType == 'namn' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'namn' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a ng-click="sortType = 'antal_platsannonser'; sortReverse = !sortReverse">
+            Antal annonser
+            <span ng-show="sortType == 'antal_platsannonser' && !sortReverse" class="fa fa-caret-dow"></span>
+            <span ng-show="sortType == 'antal_platsannonser' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a ng-click="sortType = 'antal_ledigajobb'; sortReverse = !sortReverse">
+            Lediga jobb
+            <span ng-show="sortType == 'antal_ledigajobb' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'antal_ledigajobb' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="yrke in workgroup">
+      <tr ng-repeat="yrke in workgroup | orderBy:sortType:sortReverse">
         <td><a ng-href="#/yrke/{{yrke.id}}" ng-click="setProfession(yrke.namn, yrke.id)">{{yrke.namn}}</a></td>
         <td>{{yrke.antal_platsannonser}} st</td>
         <td>{{yrke.antal_ledigajobb}} st</td>

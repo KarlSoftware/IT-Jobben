@@ -9,8 +9,14 @@ angular
       $http.get('http://localhost:1339/api/yrkesgrupper/')
       .then(function(response) {
         $scope.result = response;
+        console.log(response);
         $scope.workgroups = response.data.body.soklista.sokdata;
       })
+
+      // set sorting
+      $scope.sortType = 'namn'; // default sorting
+      $scope.sortReverse = false; // default to a-z, 1-9 etc
+
 
       // change current state of workgroup
       $scope.setWorkgroup = function(workgroup, breadcrumb) {
