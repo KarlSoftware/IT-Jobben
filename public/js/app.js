@@ -6,7 +6,8 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
-    'simplePagination'
+    'simplePagination',
+    'angularUtils.directives.dirPagination'
   ])
 
   // change Moment language
@@ -14,9 +15,15 @@ angular
     amMoment.changeLocale('sv');
   })
 
-  .config(['$urlRouterProvider', '$stateProvider', 'cfpLoadingBarProvider', function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider) {
+  .config([
+    '$urlRouterProvider',
+    '$stateProvider',
+    'cfpLoadingBarProvider',
+    'paginationTemplateProvider',
+    function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider, paginationTemplateProvider) {
     $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
+    paginationTemplateProvider.setPath('../templates/dirPagination.tpl.html');
 
 
     $stateProvider
