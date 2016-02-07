@@ -6,7 +6,9 @@ angular
 
       console.log('workGroupsCtrl is working');
 
-      $http.get('http://localhost:1339/api/yrkesgrupper/')
+      $http.get('http://localhost:1339/api/yrkesgrupper/', {
+        ignoreLoadingBar: true
+      })
       .then(function(response) {
         $scope.result = response;
         console.log(response);

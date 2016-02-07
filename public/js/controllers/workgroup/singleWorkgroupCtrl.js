@@ -13,7 +13,9 @@ angular
       // fetch breadcrumb for workgroup and assign to scope
       $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
 
-      $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID)
+      $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID, {
+        ignoreLoadingBar: true
+      })
       .then(function(response) {
         $scope.data = response;
         console.log(response);

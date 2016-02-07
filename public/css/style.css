@@ -142,3 +142,8 @@ b {
 .ad-yrkesbenamning {
   letter-spacing: 0.1em;
 }
+
+#loading-bar .bar {
+background: #F1F1F1;
+height: 2px;
+}

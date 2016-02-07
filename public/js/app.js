@@ -3,7 +3,8 @@
 angular
   .module('app', [
     'ui.router',
-    'angularMoment'
+    'angularMoment',
+    'angular-loading-bar'
   ])
 
   // change Moment language
@@ -11,8 +12,10 @@ angular
     amMoment.changeLocale('sv');
   })
 
-  .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
+  .config(['$urlRouterProvider', '$stateProvider', 'cfpLoadingBarProvider', function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider) {
     $urlRouterProvider.otherwise('/');
+    cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
+
 
     $stateProvider
       .state('home', {

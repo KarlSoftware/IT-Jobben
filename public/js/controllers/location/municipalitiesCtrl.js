@@ -14,7 +14,9 @@ angular
       // fetch current breadcrumb state for active countyID
       $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
 
-      $http.get('http://localhost:1339/location/municipalities/' + countyID)
+      $http.get('http://localhost:1339/location/municipalities/' + countyID, {
+        ignoreLoadingBar: true
+      })
       .then(function(response) {
         $scope.municipalities = response.data.body.soklista.sokdata;
         console.log(response);
@@ -33,7 +35,9 @@ angular
     // Child Controller to get number of ads in a municipality
     .controller('municipalityChildCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
 
-      $http.get('http://localhost:1339/location/match/municipality/' + $scope.municipality.id +'')
+      $http.get('http://localhost:1339/location/match/municipality/' + $scope.municipality.id +'', {
+        ignoreLoadingBar: true
+      })
       .then(function(response) {
         $scope.adsInMunicipality = response.data.body.matchningslista.antal_platsannonser_exakta;
       })
