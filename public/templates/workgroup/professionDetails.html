@@ -22,10 +22,9 @@
           </tr>
         </thead>
         <tbody>
-          <!-- infinite scroll -->
-          <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-            <tr ng-repeat="ad in data">
-              <td ng-if="ad.relevans == '100'"><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
+
+            <tr dir-paginate="ad in ads | itemsPerPage:20">
+              <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                 <span class="text-muted">
                   <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                   <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
@@ -35,23 +34,24 @@
                 </span>
               </td>
             </tr>
-          </div> <!-- end of infinite scroll -->
+
 
         </tbody>
       </table>
+      <dir-pagination-controls></dir-pagination-controls>
+
     </div> <!-- end of col -->
 
     </div> <!-- end of row -->
 
   </div>
-  <div class="container white-subtle-shadow margin-top-bottom">
+  <!-- <div class="container white-subtle-shadow margin-top-bottom">
     <div class="row">
 
       <div class="col-md-4">
         <h2>{{adsSimilar}} snarlika annonser</h2>
         <p>till <b>{{currentProfession}}</b></p>
-      </div> <!-- end of col -->
-
+      </div>
       <div class="col-md-8">
         <table class="table margin-top margin-top table-striped table-hover table-bordered">
           <thead>
@@ -60,9 +60,8 @@
             </tr>
           </thead>
           <tbody>
-            <!-- infinite scroll -->
-            <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-              <tr ng-repeat="ad in data">
+
+              <tr ng-repeat="ad in ads">
                 <td ng-if="ad.relevans < '100'"><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                   <span class="text-muted">
                     <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
@@ -77,11 +76,8 @@
             </div>
           </tbody>
         </table>
-      </div> <!-- end of col -->
+      </div>
 
-    </div> <!-- end of row -->
-  </div>
+    </div>  -->
 
-
-  </div> <!-- end of controller and container -->
 </div>

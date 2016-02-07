@@ -6,7 +6,6 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
-    'simplePagination',
     'angularUtils.directives.dirPagination'
   ])
 

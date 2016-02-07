@@ -7,8 +7,7 @@ angular
       '$http',
       'Data',
       'LocationState',
-      'Pagination',
-      function($scope, $http, Data, LocationState, Pagination) {
+      function($scope, $http, Data, LocationState) {
 
         console.log('searchResultCtrl working');
         console.log('Jag är searchResultCtrl. Data.searchterm är nu:' + Data.getSearchTerm());
