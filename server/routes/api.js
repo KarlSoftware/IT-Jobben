@@ -66,19 +66,6 @@ module.exports = function(app) {
 
   }) // end of router
 
-  // route to get all ads in a profession
-  router.get('/profession/:id', function(req, res) {
-
-    var Request = unirest.get('http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?yrkesid=' + req.params.id + '');
-    Request.headers({
-      'Accept': 'application/json',
-      'Accept-Language': 'sv'
-    }).end(function (response) {
-      res.send(response);
-    })
-
-  }) // end of router
-
   // get overview of a specifik yrkesgrupp
   router.get('/yrkesgrupp/:id', function(req, res) {
 
@@ -91,6 +78,21 @@ module.exports = function(app) {
     })
 
   }) // end of router
+
+  // route to get all ads in a profession
+  router.get('/yrke/:id', function(req, res) {
+
+    var Request = unirest.get('http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?yrkesid=' + req.params.id + '&antalrader=10000');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
+
+  }) // end of router
+
+
 
 
 
