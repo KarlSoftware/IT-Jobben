@@ -2,7 +2,13 @@ angular
   .module('app')
 
     // Controller to view all counties
-    .controller('countiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', 'BreadcrumbState', function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
+    .controller('countiesCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      'LocationState',
+      'BreadcrumbState',
+      function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
 
 
 

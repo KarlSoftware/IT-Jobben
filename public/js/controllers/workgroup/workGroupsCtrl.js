@@ -2,7 +2,12 @@ angular
   .module('app')
 
     // controller to view all the workgroups
-    .controller('workGroupsCtrl', ['$scope', '$http', 'WorkGroupState', 'BreadcrumbState', function($scope, $http, WorkGroupState, BreadcrumbState) {
+    .controller('workGroupsCtrl', [
+      '$scope',
+      '$http',
+      'WorkGroupState',
+      'BreadcrumbState',
+      function($scope, $http, WorkGroupState, BreadcrumbState) {
 
       console.log('workGroupsCtrl is working');
 

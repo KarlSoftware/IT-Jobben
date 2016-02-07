@@ -2,7 +2,14 @@ angular
   .module('app')
 
     // Controller to all ads in a profession
-    .controller('professionDetailsCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', 'LocationState', 'BreadcrumbState', function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState) {
+    .controller('professionDetailsCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      'WorkGroupState',
+      'LocationState',
+      'BreadcrumbState',
+      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState) {
 
       // Create variable from param
       var id = $stateParams.professionID;

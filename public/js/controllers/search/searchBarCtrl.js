@@ -2,7 +2,12 @@ angular
   .module('app')
 
     // Controller for search bar
-    .controller('searchBarCtrl', ['$scope', '$http', '$stateParams', 'Data', function($scope, $http, $stateParams, Data) {
+    .controller('searchBarCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      'Data',
+      function($scope, $http, $stateParams, Data) {
 
       console.log('searchBarCtrl');
 

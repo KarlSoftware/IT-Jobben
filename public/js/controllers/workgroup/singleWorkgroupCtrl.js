@@ -2,7 +2,13 @@ angular
   .module('app')
 
     // Controller to all professions in a workgroup
-    .controller('workGroupIDCtrl', ['$scope', '$http', '$stateParams', 'WorkGroupState', 'BreadcrumbState', function($scope, $http, $stateParams, WorkGroupState, BreadcrumbState) {
+    .controller('workGroupIDCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      'WorkGroupState',
+      'BreadcrumbState',
+      function($scope, $http, $stateParams, WorkGroupState, BreadcrumbState) {
 
       // Create variable from param
       var workGroupID = $stateParams.workgroupID;

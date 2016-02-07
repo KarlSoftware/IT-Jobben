@@ -2,7 +2,11 @@ angular
   .module('app')
 
     // Controller for viewing single ad
-    .controller('singleAdCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+    .controller('singleAdCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      function($scope, $http, $stateParams) {
 
       // Create variable from param
       var ad = $stateParams.adID;

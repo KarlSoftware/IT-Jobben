@@ -2,7 +2,13 @@ angular
   .module('app')
 
     // Controller to get all municipalities in a municipality
-    .controller('municipalitiesCtrl', ['$scope', '$http', '$stateParams', 'LocationState', 'BreadcrumbState', function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
+    .controller('municipalitiesCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      'LocationState',
+      'BreadcrumbState',
+      function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
 
       // Create variable from param
       var countyID = $stateParams.countyID;
