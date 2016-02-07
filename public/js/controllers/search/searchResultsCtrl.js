@@ -13,7 +13,16 @@ angular
         console.log(response);
         $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
         $scope.ads = response.data.body.matchningslista.matchningdata;
+        $scope.data = $scope.ads.slice(0, 10);
       })
+
+
+
+
+
+      $scope.loadMore = function() {
+        $scope.data = $scope.ads.slice(0, $scope.data.length + 10);
+      }
 
       // function to search again
       $scope.search = function () {
@@ -28,12 +37,10 @@ angular
           console.log(response);
           $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
           $scope.ads = response.data.body.matchningslista.matchningdata;
+          $scope.data = $scope.ads.slice(0, 10);
         })
 
       }
 
-      // $scope.setLocation = function(municipality) {
-      //   LocationState.setMunicipality(municipality);
-      // }
 
     }]) // end of controller
