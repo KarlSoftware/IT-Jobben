@@ -23,17 +23,16 @@ angular
         $scope.howManyAdsNear = response.data.body.matchningslista.antal_platsannonser_narliggande;
         console.log($scope.howManyAdsNear);
         $scope.ads = response.data.body.matchningslista.matchningdata;
+        $scope.data = $scope.ads.slice(0, 10);
         console.log(response);
         // $scope.workgroup = response.data.body.soklista.sokdata;
       })
 
-      // // set locationState upon clicking a county
-      // $scope.setLocation = function(location, breadcrumb) {
-      //   console.log('du klickade på', location);
-      //   LocationState.setLocation(location);
-      //   BreadcrumbState.setMunicipalityBreadcrumb(breadcrumb);
-      //   $scope.currentMunicipality = location;
-      //   console.log("Location är nu:" + location);
-      // }
+      // infinite scroll function to load more results
+      $scope.loadMore = function() {
+        $scope.data = $scope.ads.slice(0, $scope.data.length + 10); // set result
+      }
+
+
 
     }])
