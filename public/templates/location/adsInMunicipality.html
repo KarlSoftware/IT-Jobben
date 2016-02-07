@@ -20,28 +20,29 @@
       <div class="col-md-8">
         <div class="table-responsive">
           <table class="table margin-top table-striped table-hover table-bordered">
-            <thead>
-              <tr>
-                <th>Annons</th>
+          <thead>
+            <tr>
+              <th>Annons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- infinite scroll -->
+            <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+              <tr ng-repeat="ad in data">
+                  <td ng-if="ad.relevans == '100'"><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
+                    <span class="text-muted">
+                      <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
+                      <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                      <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}} </span>
+                      <span ng-if="ad.antalPlatserVisa == '0'">ingen info </span><br>
+                      <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
+                    </span>
+                  </td>
               </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="ad in ads">
-                    <td ng-if="ad.relevans == '100'"><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
-                      <span class="text-muted">
-                        <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
-                        <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
-                        <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}} </span>
-                        <span ng-if="ad.antalPlatserVisa == '0'">ingen info </span><br>
-                        <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
-                      </span>
-                    </td>
-                </tr>
-            </tbody>
+            </div> <!-- end of infinite scroll -->
+          </tbody>
           </table>
-
         </div>
-
       </div> <!-- end of col -->
 
     </div> <!-- end of row -->
@@ -49,6 +50,7 @@
 
   <div class="container white-subtle-shadow margin-top-bottom">
 
+    <!-- row for ads nearby -->
     <div class="row">
 
       <div class="col-md-4">
@@ -59,19 +61,21 @@
           <span ng-if="howManyAdsNear > '1'"><b>{{howManyAdsNear}}</b> annonser</span>
           i angränsning till {{currentMunicipality}}
         </p>
-      </div>
+      </div> <!-- end of col -->
 
       <div class="col-md-8">
         <div class="table-responsive margin-top">
           <table class="table table-striped table-hover table-bordered">
-            <thead>
-              <tr>
-                <th>Annons</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr dir-paginate="ad in ads | itemsPerPage:20" ng-if="ad.relevans != '100'">
-                  <td ><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
+          <thead>
+            <tr>
+              <th>Annons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- infinite scroll -->
+            <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+              <tr ng-repeat="ad in data">
+                  <td ng-if="ad.relevans != '100'"><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                       <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
@@ -82,13 +86,13 @@
                     </span>
                   </td>
               </tr>
-            </tbody>
+            </div>
+          </tbody>
           </table>
         </div>
+      </div> <!-- end of col -->
 
-      </div>
-
-     </div>
+    </div> <!-- end of row -->
   </div>
 
 </div> <!-- end of container and controller -->

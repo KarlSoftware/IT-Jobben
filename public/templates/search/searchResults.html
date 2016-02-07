@@ -21,8 +21,7 @@
             <p class="text-muted" ng-if="searchText">{{filterLength.length}}
               <span ng-if="filterLength.length != '1'">annonser</span>
               <span ng-if="filterLength.length == '1'">annons</span>
-              matchar din filtrering
-            </p>
+              matchar din filtrering</p>
           </div>
         </div> <!-- end of panel -->
 
@@ -41,7 +40,9 @@
             </tr>
           </thead>
           <tbody>
-              <tr dir-paginate="ad in ads | itemsPerPage:20 | filter: searchText as filterLength">
+            <!-- infinite scroll -->
+            <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+              <tr ng-repeat="ad in data | filter: searchText as filterLength">
                 <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                   <span class="text-muted">
                     <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
@@ -53,19 +54,13 @@
                   </span>
                 </td>
               </tr>
+            </div>
           </tbody>
         </table>
-
-        <dir-pagination-controls></dir-pagination-controls>
-
       </div> <!-- end of column -->
 
-    </div> <!-- end of row -->
-    <div class="row margin-bottom">
-      <div class="col-md-12 col-lg-12 text-center">
 
-      </div>
-    </div>
+    </div> <!-- end of row -->
 
 
   </div>

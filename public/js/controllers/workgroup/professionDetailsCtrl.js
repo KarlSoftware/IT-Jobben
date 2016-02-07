@@ -21,7 +21,13 @@ angular
         $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
         $scope.adsSimilar = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
+        $scope.data = $scope.ads.slice(0, 10); // set initial results
         console.log(response);
       })
+
+      // infinite scroll function to load more results
+      $scope.loadMore = function() {
+        $scope.data = $scope.ads.slice(0, $scope.data.length + 10); // set result
+      }
 
     }])
