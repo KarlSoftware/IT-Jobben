@@ -22,6 +22,8 @@
               <span ng-if="filterLength.length != '1'">annonser</span>
               <span ng-if="filterLength.length == '1'">annons</span>
               matchar din filtrering</p>
+              <button class="btn btn-default btn-success" ng-hide="pagination.page == 0" ng-click="pagination.prevPage()">Föregående</button>
+              <button class="btn btn-default btn-success" ng-hide="pagination.page + 1 >= pagination.numPages" ng-click="pagination.nextPage()">Nästa</button>
           </div>
         </div> <!-- end of panel -->
 
@@ -40,9 +42,7 @@
             </tr>
           </thead>
           <tbody>
-            <!-- infinite scroll -->
-            <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-              <tr ng-repeat="ad in data | filter: searchText as filterLength">
+              <tr ng-repeat="ad in ads | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage | filter: searchText as filterLength">
                 <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                   <span class="text-muted">
                     <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
@@ -54,13 +54,26 @@
                   </span>
                 </td>
               </tr>
-            </div>
           </tbody>
         </table>
+        <button class="btn btn-default btn-success" ng-hide="pagination.page == 0" ng-click="pagination.prevPage()">Föregående</button>
+        <button class="btn btn-default btn-success" ng-hide="pagination.page + 1 >= pagination.numPages" ng-click="pagination.nextPage()">Nästa</button>
+
       </div> <!-- end of column -->
 
-
     </div> <!-- end of row -->
+    <div class="row margin-bottom">
+      <div class="col-md-12 col-lg-12 text-center">
+
+        <ul class="pagination">
+          <li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+            <li ng-repeat="n in [] | range: pagination.numPages | limitTo: pagination.page + 5" ng-class="{active: n == pagination.page}">
+            <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+            </li>
+            <li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+          </ul>
+      </div>
+    </div>
 
 
   </div>

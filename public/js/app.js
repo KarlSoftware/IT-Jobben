@@ -5,7 +5,8 @@ angular
     'ui.router',
     'angularMoment',
     'angular-loading-bar',
-    'infinite-scroll'
+    'infinite-scroll',
+    'simplePagination'
   ])
 
   // change Moment language
