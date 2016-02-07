@@ -13,13 +13,13 @@ angular
         console.log(response);
         $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
         $scope.ads = response.data.body.matchningslista.matchningdata;
-        $scope.data = $scope.ads.slice(0, 10);
+        $scope.data = $scope.ads.slice(0, 10); // set initial length of search results to display
       })
 
 
 
 
-
+      // infinite scroll function to load more results
       $scope.loadMore = function() {
         $scope.data = $scope.ads.slice(0, $scope.data.length + 10);
       }
@@ -37,7 +37,7 @@ angular
           console.log(response);
           $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
           $scope.ads = response.data.body.matchningslista.matchningdata;
-          $scope.data = $scope.ads.slice(0, 10);
+          $scope.data = $scope.ads.slice(0, 10); // set initial length of search results to display
         })
 
       }
