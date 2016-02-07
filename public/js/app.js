@@ -4,7 +4,8 @@ angular
   .module('app', [
     'ui.router',
     'angularMoment',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'infinite-scroll'
   ])
 
   // change Moment language
