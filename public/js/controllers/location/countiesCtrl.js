@@ -39,6 +39,11 @@ angular
       })
       .then(function(response) {
         $scope.adsInCounty = response.data.body.matchningslista.antal_platsannonser_exakta;
+        if ($scope.adsInCounty == 1) {
+          $scope.ads = '1 annons';
+        } else {
+          $scope.ads = $scope.adsInCounty + ' annonser';
+        }
       })
 
     }])
