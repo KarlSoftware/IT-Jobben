@@ -1,0 +1,100 @@
+<div ng-controller="singleAdCtrl">
+
+  <div class="jumbotron navbar-gap-fix ad-image {{randomImgClass}} vertical-center">
+    <div class="container text-center">
+      <div class="row animated bounceInUp">
+        <h1>{{annons.annonsrubrik}}</h1>
+        <h3><b class="ad-yrkesbenamning">{{annons.yrkesbenamning}}</b></h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid container-gray container-fluid-fix">
+    <div class="container">
+      <div class="row margin-top-bottom white-subtle-shadow">
+        <div class="col-lg-12">
+          <h1 class="text-center">Om tjänsten</h1>
+          <p class="preserve-newline">{{annons.annonstext}}</p>
+          <br>
+        </div> <!-- end of col -->
+      </div> <!-- end of row -->
+    </div> <!-- end of container -->
+  </div> <!-- end of fluid container -->
+
+  <!-- Container with other info about the ad -->
+  <div class="container-fluid ad-info">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-5 col-sm-5">
+          <h1>Ansökan</h1>
+          <div class="header-underline"></div>
+        </div>
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-sm-offset-2">
+          <br>
+          <p>Lediga tjänster <b>{{annons.antal_platser}}</b></p>
+          <p>Tjänsten finns i <b>{{annons.kommunnamn}}</b></p>
+          <p>Yrkesbenämning  <b>{{annons.yrkesbenamning}}</b></p>
+          <p>Annonsen publicerades <b>{{annons.publiceraddatum | amCalendar}}</b></p>
+          <p>Sista ansökningsdag <b>{{sista_ansokningsdag}}</b>
+          </p>
+          <p>Annonsens referens  <b>{{referens}}</b></p>
+          <p>Epost <b>{{epost}}</b></p>
+          <a ng-if="ansokan.webbplats !=''" class="btn btn-primary btn-sm" ng-href="{{annons.platsannonsUrl}}">Arbetsförmedlingen</a>
+          <!-- {{ansokan}} -->
+        </div>
+      </div> <!-- end or row -->
+      <br>
+      <div class="row">
+        <div class="col col-lg-5 col-sm-5">
+          <h1>Arbetsplats</h1>
+          <div class="header-underline"></div>
+        </div>
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+          <br>
+          <h4>{{arbetsplats.arbetsplatsnamn}}</h4>
+          <p ng-if="arbetsplats.postnummer">Postnummer <b>{{arbetsplats.postnummer}}</b></p>
+          <p ng-if="arbetsplats.postadress">Postadress <b>{{arbetsplats.postadress}}</b></p>
+          <p ng-if="arbetsplats.postort">Postort <b>{{arbetsplats.postort}}</b></p>
+          <p ng-if="arbetsplats.land"><b>{{arbetsplats.land}}</b></p>
+          <p ng-if="arbetsplats.besoksadress">Besöksadress <b>{{arbetsplats.besoksadress}}</b></p>
+          <a ng-if="arbetsplats.hemsida" class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}">Arbetsplatsens hemsida</a>
+        </div>
+      </div> <!-- end of row -->
+      <br>
+      <div class="row">
+        <div class="col col-lg-5 col-sm-5">
+          <h1>Krav</h1>
+          <div class="header-underline"></div>
+        </div>
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+          <br>
+          <p>{{bil}}</p>
+          <p ng-repeat="license in driverslicenseList.korkortstyp">
+            Krav om {{license}} körkort
+          </p>
+
+        </div>
+      </div> <!-- end of row -->
+
+      <br>
+      <div class="row">
+        <div class="col col-lg-5 col-sm-5">
+          <h1>Villkor</h1>
+          <div class="header-underline"></div>
+        </div>
+        <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+          <br>
+          <p ng-if="villkor.varaktighet">Varaktighet <b>{{villkor.varaktighet}}</b></p>
+          <p ng-if="villkor.arbetstid">Arbetstid <b>{{villkor.arbetstid}}</b></p>
+          <p ng-if="villkor.arbetstidvaraktighet"><b>{{villkor.arbetstidvaraktighet}}</b></p>
+          <p ng-if="villkor.lonetyp">Lönetyp <b>{{villkor.lonetyp}}</b></p>
+          <p ng-if="villkor.loneform">Löneform <b>{{villkor.loneform}}</b></p>
+
+        </div>
+      </div> <!-- end of row -->
+      <br>
+    </div> <!-- end of container -->
+
+  </div>
+
+</div>

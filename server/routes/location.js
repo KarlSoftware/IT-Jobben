@@ -9,17 +9,13 @@ var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 
 
 
-
-
 module.exports = function(app) {
 
   // Declare router
   var router = express.Router();
 
   // delcare prefix url for api
-  app.use('/api', router);
-
-
+  app.use('/location', router);
 
   // Routes
   router.get('/help', function (req, res) {
@@ -28,10 +24,10 @@ module.exports = function(app) {
       });
   });
 
-  // route to get single ad
-  router.get('/singleAd/:annonsid', function (req, res) {
+  // route to get a list of all the countys (län)
+  router.get('/counties', function (req, res) {
 
-    var Request = unirest.get(baseURL + req.params.annonsid + '');
+    var Request = unirest.get(baseURL + 'soklista/lan');
     Request.headers({
       'Accept': 'application/json',
       'Accept-Language': 'sv'
@@ -41,22 +37,10 @@ module.exports = function(app) {
 
   });
 
-  // route for searching
-  router.get('/search/:searchTerm', function (req, res) {
+  // route to get a list of all municipalities (kommuner) in a county (län)
+  router.get('/municipalities/:countyID', function (req, res) {
 
-    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&nyckelord=' +req.params.searchTerm + '&antalrader=10000');
-    Request.headers({
-      'Accept': 'application/json',
-      'Accept-Language': 'sv'
-    }).end(function (response) {
-      res.send(response);
-    })
-  })
-
-  // route to get yrkesgrupper
-  router.get('/yrkesgrupper', function(req, res) {
-
-    var Request = unirest.get(baseURL + 'soklista/yrkesgrupper?yrkesomradeid=3');
+    var Request = unirest.get(baseURL + 'soklista/kommuner?lanid=' + req.params.countyID + '');
     Request.headers({
       'Accept': 'application/json',
       'Accept-Language': 'sv'
@@ -64,12 +48,12 @@ module.exports = function(app) {
       res.send(response);
     })
 
-  }) // end of router
+  });
 
-  // get overview of a specifik yrkesgrupp
-  router.get('/yrkesgrupp/:id', function(req, res) {
+  // route to get a matching list of all ads in a municipality
+  router.get('/municipality/:municipalityID', function (req, res) {
 
-    var Request = unirest.get(baseURL + 'soklista/yrken?yrkesgruppid=' + req.params.id + '');
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&kommunid=' + req.params.municipalityID + '&antalrader=10000');
     Request.headers({
       'Accept': 'application/json',
       'Accept-Language': 'sv'
@@ -77,12 +61,12 @@ module.exports = function(app) {
       res.send(response);
     })
 
-  }) // end of router
+  });
 
-  // route to get all ads in a profession
-  router.get('/yrke/:id', function(req, res) {
+  // route to match all ads in a county. Use this primarily to get total ad nr in a county
+  router.get('/match/county/:countyID', function (req, res) {
 
-    var Request = unirest.get('http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?yrkesid=' + req.params.id + '&antalrader=10000');
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&lanid=' + req.params.countyID + '');
     Request.headers({
       'Accept': 'application/json',
       'Accept-Language': 'sv'
@@ -90,10 +74,19 @@ module.exports = function(app) {
       res.send(response);
     })
 
-  }) // end of router
+  });
 
+  // route to match all ads in a municipality. Use this primarily to get total ad nr in a municipality
+  router.get('/match/municipality/:municipalityID', function (req, res) {
 
+    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&kommunid=' + req.params.municipalityID + '');
+    Request.headers({
+      'Accept': 'application/json',
+      'Accept-Language': 'sv'
+    }).end(function (response) {
+      res.send(response);
+    })
 
-
+  });
 
 }

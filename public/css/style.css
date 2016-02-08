@@ -1,4 +1,152 @@
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+body {
+  background-color: #F1F1F1;
+}
+
+td a {
+  text-decoration: none !important;
+}
+
+/* make bold text stand out a bit more */
+b {
+  font-size: 1.05em;
+}
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
+  box-shadow: 0 0 1px #3f3f3f;
+
+}
+
+/*fix for navbar gap*/
+.navbar-gap-fix {
+  margin-top: -21px;
+}
+
+/*Ad image class*/
+.ad-image {
+  height: 80vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 4px #3f3f3f;
+}
+
+.ad-image div {
+  /*margin-top: 60px;*/
+}
+
+/*
+* Style for diffrent code classes. Used at random with the help of angular code
+*/
+.code1 {
+  background: url('../img/randomAds/code1.jpg') no-repeat center center;
+  background-size: cover;
+	background-repeat:  no-repeat;
+	background-position: center center;
+}
+.code2 {
+  background: url('../img/randomAds/code2.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+.code3 {
+  background: url('../img/randomAds/code3.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+.code4 {
+  background: url('../img/randomAds/code4.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+.code5 {
+  background: url('../img/randomAds/code5.jpg') no-repeat center center;
+  background-size: cover;
+  background-repeat:  no-repeat;
+  background-position: center center;
+}
+
+/*styling for info block on single ad page*/
+.ad-info {
+  background: rgba(25,188,156,1);
+  background: -moz-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(25,188,156,1)), color-stop(100%, rgba(36,196,198,1)));
+  background: -webkit-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
+  background: -o-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
+  background: -ms-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
+  background: linear-gradient(to right, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
+  color: white;
+
+}
+
+/* Give ad-info box and ad-image shadowing */
+.ad-info, .ad-image {
+  box-shadow: 2px 0 2px 0 #3f3f3f;
+
+}
+
+/* helper class to better format annonstext since they often contain newlines and such */
+.preserve-newline {
+    white-space: pre-wrap;
+}
+
+
+/* Helper class for containers / rows that need white background and a suble shadow */
+.white-subtle-shadow {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 1px #D3D3D3;
+}
+
+/* helper class to make a container light gray */
+.container-gray {
+  background-color: #F1F1F1;
+}
+
+/* helper class to push a container fluid up, used on single ad page */
+.container-fluid-fix {
+  margin-top: -29px;
+  z-index: -1;
+}
+
+
+/* helper class to add custom margin top and bottom to containers */
+.margin-top-bottom {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/*Helper class used with pushing down tables a bit*/
+.margin-top {
+  margin-top: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+/* give breadcrumbs some margin */
+.breadcrumb {
+  margin-top: 15px;
+}
+
+/* class to give headers a little underline */
+.header-underline {
+  width: 50px;
+  border-top: 3px solid white;
+  display: inline-block;
+  position: relative;
+  bottom: 4px;
+}
+
+.ad-yrkesbenamning {
+  letter-spacing: 0.1em;
+}
+
+#loading-bar .bar {
+background: #F1F1F1;
+height: 2px;
 }
