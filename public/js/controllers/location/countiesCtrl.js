@@ -26,8 +26,8 @@ angular
         // set factory states
         LocationState.setCounty(location);
         BreadcrumbState.setCountyBreadcrumb(breadcrumb);
-
       }
+
 
     }])
 
