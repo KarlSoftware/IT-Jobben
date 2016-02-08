@@ -36,6 +36,15 @@ angular
         $scope.krav =           response.data.body.platsannons.krav;
         $scope.villkor =        response.data.body.platsannons.villkor;
         console.log($scope.adDetails);
+
+        // do logic depending on what the response contains
+        if ($scope.ansokan.sista_ansokningsdag) {
+          if ($scope.ansokan.sista_ansokningsdag == '') {
+            $scope.sista_ansokningsdagDone = 'ingen info';
+          } else {
+            $scope.sista_ansokningsdagDone = moment($scope.ansokan.sista_ansokningsdag).format("dddd, Do MMMM, h:mm");
+          }
+        }
       })
 
     }])

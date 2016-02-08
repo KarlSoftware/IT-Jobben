@@ -34,9 +34,7 @@
           <p>Lediga tjänster: <b>{{annons.antal_platser}}</b></p>
           <p>Tjänsten finns i <b>{{annons.kommunnamn}}</b></p>
           <p>Annonsen publicerades <b>{{annons.publiceraddatum | amCalendar}}</b></p>
-          <p ng-if="ansokan.sista_ansokningsdag">
-            <span ng-if="ansokan.sista_ansokningsdag != ''">Sista ansökningsdag är <b>{{ansokan.sista_ansokningsdag | amCalendar}}</b></span>
-            <span ng-if="ansokan.sista_ansokningsdag == ''">Ingen info om sista ansökningsdag</span>
+          <p>Sista ansökningsdag <b>{{sista_ansokningsdagDone}}</b>
           </p>
           <p ng-if="ansokan.referens">Referens för annonsen är <b>{{ansokan.referens}}</b></p>
           <p ng-if="ansokan.epostadress">Epost: {{ansokan.epostadress}}</p>
