@@ -12,6 +12,12 @@ td a {
 b {
   font-size: 1.05em;
 }
+
+canvas {
+  margin: 0;
+  padding: 0;
+  width: 99% !important;
+}
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
@@ -149,4 +155,22 @@ b {
 #loading-bar .bar {
 background: #F1F1F1;
 height: 2px;
+}
+
+.tc-chart-js-legend {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.tc-chart-js-legend li {
+  display: block;
+  float: left;
+  clear:both;
+  padding:10px;
+}
+.tc-chart-js-legend li span {
+  width:25px;
+  height:25px;
+  display:block;
+  float:left;
+  margin-right:10px;
 }

@@ -6,6 +6,9 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
+    'googlechart',
+    'chart.js',
+    'tc.chartjs'
   ])
 
   // change Moment language

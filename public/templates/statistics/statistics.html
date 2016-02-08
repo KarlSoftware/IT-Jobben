@@ -1,8 +1,20 @@
 <div class="container-fluid" ng-controller="statisticsCtrl">
 
   <div class="container white-subtle-shadow">
-    <h2>Statistik för yrkesgrupper</h2>
-    {{workgroups}}
-  </div>
+    <h1 class="text-center">Statistik för yrkesgrupper</h1>
+    <div class="row">
+      <div class="col-md-8 col-lg-8">
+        <canvas class="img-responsive" tc-chartjs-bar chart-options="options" chart-data="data" auto-legend></canvas>
+      </div>
+      <div class="col-md-4">
+        <h3>Nummerförklaring</h3>
+        <ol>
+          <li ng-repeat="workgroup in workgroupLabels">{{workgroup}}</li>
+        </ol>
+      </div>
+    </div>
 
+
+
+  </div>
 </div>
