@@ -31,7 +31,18 @@ angular
         $scope.ads = response.data.body.matchningslista.matchningdata;
         $scope.data = $scope.ads.slice(0, 10);
         console.log(response);
-        // $scope.workgroup = response.data.body.soklista.sokdata;
+
+        // do logic depending on how many ads
+        if ($scope.howManyAds == 1) {
+          $scope.adsNr = '1 annons';
+        } else {
+          $scope.adsNr = $scope.howManyAds + ' annonser';
+        }
+        if ($scope.howManyAdsNear == 1) {
+          $scope.adsNrNear = '1 annons';
+        } else {
+          $scope.adsNrNear = $scope.howManyAdsNear + ' annonser';
+        }
       })
 
       // infinite scroll function to load more results
