@@ -30,6 +30,18 @@ angular
         $scope.ads = response.data.body.matchningslista.matchningdata;
         $scope.data = $scope.ads.slice(0, 10); // set initial results
         console.log(response);
+
+        // do logic depending on how many ads
+        if ($scope.adsExact == 1) {
+          $scope.adsNrExact = '1 annons';
+        } else {
+          $scope.adsNrExact = $scope.adsExact + ' annonser';
+        }
+        if ($scope.adsSimilar == 1) {
+          $scope.adsNrSimilar = '1 snarlik annons';
+        } else {
+          $scope.adsNrSimilar = $scope.adsSimilar + ' snarlika annonser';
+        }
       })
 
       // infinite scroll function to load more results
