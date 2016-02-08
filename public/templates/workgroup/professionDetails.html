@@ -12,6 +12,14 @@
           <span ng-if="adsExact == '1'">annons</span>
         </h2>
         <p>Inom <b>{{currentProfession}}</b></p>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">Filtrera annonserna</div>
+          <div class="panel-body">
+            <label>Efter nyckelord: <input ng-model="searchText" class="form-control"></label>          
+          </div>
+        </div> <!-- end of panel -->
+
       </div> <!-- end of col -->
 
     <div class="col-md-8">
@@ -23,9 +31,9 @@
         </thead>
         <tbody>
           <!-- infinite scroll -->
-          <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-            <tr ng-repeat="ad in data">
-              <td ng-if="ad.relevans == '100'"><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
+          <div infinite-scroll='loadMore()' infinite-scroll-distance='5'>
+            <tr ng-repeat="ad in data | filter: searchText as filterLength" ng-if="ad.relevans == '100'">
+              <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                 <span class="text-muted">
                   <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                   <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
