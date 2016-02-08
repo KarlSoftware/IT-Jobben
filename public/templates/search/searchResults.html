@@ -13,15 +13,10 @@
           </div><!-- /input-group -->
         </form>
         <br>
-        <div class="panel panel-success">
+        <div class="panel panel-default">
           <div class="panel-heading">Filtrera sökresultat</div>
           <div class="panel-body">
             <label>Efter nyckelord: <input ng-model="searchText" class="form-control"></label>
-            <br>
-            <p class="text-muted" ng-if="searchText">{{filterLength.length}}
-              <span ng-if="filterLength.length != '1'">annonser</span>
-              <span ng-if="filterLength.length == '1'">annons</span>
-              matchar din filtrering</p>
           </div>
         </div> <!-- end of panel -->
 
@@ -63,5 +58,5 @@
     </div> <!-- end of row -->
 
 
-  </div>
+  </div> <!-- end of container fixed and controller -->
 </div>
