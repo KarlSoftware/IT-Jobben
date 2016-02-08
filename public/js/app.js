@@ -68,5 +68,10 @@ angular
         templateUrl: 'templates/location/adsInMunicipality.html'
       })
 
+      .state('statistics', {
+        url: '/statistik',
+        templateUrl: 'templates/statistics/statistics.html'
+      })
+
 
   }]);
