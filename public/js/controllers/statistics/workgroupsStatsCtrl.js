@@ -5,6 +5,8 @@ angular
     .controller('workgroupsStatsCtrl', [
       '$scope',
       '$http',
+      'WorkgroupState',
+      'BreadcrumbState',
       function($scope, $http) {
 
         // empty arrays to be filled up in a for-loop
@@ -12,13 +14,14 @@ angular
         var labelNumbers = [] // numbering for the labels
         var dataAds = []; // the numbers for actual ads
         var dataJobs = []; // the numbers for how many jobs
+        var workgroupIds = [];
 
         // Make http request
         $http.get('http://localhost:1339/api/yrkesgrupper/', {
 
         })
         .then(function(response) {
-          // console.log(response);
+          console.log(response);
           $scope.workgroups = response.data.body.soklista.sokdata;
 
           // loop through response to fill out all the arrays to use for the chart
@@ -27,10 +30,15 @@ angular
             theLabels.push($scope.workgroups[i].namn);
             dataJobs.push($scope.workgroups[i].antal_ledigajobb);
             dataAds.push($scope.workgroups[i].antal_platsannonser);
+            workgroupIds.push($scope.workgroups[i].id);
           }
+          console.log(workgroupIds);
 
           // set workgroup label scope
           $scope.workgroupLabels = theLabels;
+
+          // set scope linking
+          $scope.links = workgroupIds;
 
           // Chart.js Data
           $scope.data = {
