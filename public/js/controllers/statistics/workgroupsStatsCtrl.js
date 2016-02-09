@@ -2,13 +2,10 @@ angular
   .module('app')
 
     // Controller for viewing single ad
-    .controller('statisticsCtrl', [
+    .controller('workgroupsStatsCtrl', [
       '$scope',
       '$http',
       function($scope, $http) {
-
-        console.log('statisticsCtrl working');
-
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
@@ -21,7 +18,7 @@ angular
 
         })
         .then(function(response) {
-          console.log(response);
+          // console.log(response);
           $scope.workgroups = response.data.body.soklista.sokdata;
 
           // loop through response to fill out all the arrays to use for the chart
@@ -92,20 +89,6 @@ angular
             legendTemplate : '<ul class="tc-chart-js-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
           };
 
-
-          // console.log(labels);
-          // console.log('annonser', dataAds);
-          // console.log('datajobs', dataJobs);
-          // $scope.labels2 = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-          // $scope.series2 = ['Series A', 'Series B'];
-          //
-          // $scope.data2 = [
-          //   [65, 59, 80, 81, 56, 55, 40],
-          //   [28, 48, 40, 19, 86, 27, 90]
-          // ];
-          //  $scope.data3 = [dataAds, dataJobs];
-          //  $scope.labels3 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-          //  $scope.series3 = ['Antal platsannonser', 'Antal lediga jobb'];
 
         })
 
