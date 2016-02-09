@@ -10,32 +10,34 @@ angular
         console.log('statisticsCtrl working');
 
 
+        // empty arrays to be filled up in a for-loop
+        var theLabels = []; // actual labels. workgroups and such
+        var labelNumbers = [] // numbering for the labels
+        var dataAds = []; // the numbers for actual ads
+        var dataJobs = []; // the numbers for how many jobs
 
-        var theLabels = [];
-        var dataAds = [];
-        var dataJobs = [];
-        var fakeLebels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-
-
+        // Make http request
         $http.get('http://localhost:1339/api/yrkesgrupper/', {
-          ignoreLoadingBar: true
+
         })
         .then(function(response) {
           console.log(response);
           $scope.workgroups = response.data.body.soklista.sokdata;
 
-          // loop through response to get chart labels
+          // loop through response to fill out all the arrays to use for the chart
           for (i = 0; i < $scope.workgroups.length; i++) {
-             theLabels.push($scope.workgroups[i].namn);
-             dataAds.push($scope.workgroups[i].antal_platsannonser);
-             dataJobs.push($scope.workgroups[i].antal_ledigajobb);
+            labelNumbers.push(i + 1);
+            theLabels.push($scope.workgroups[i].namn);
+            dataJobs.push($scope.workgroups[i].antal_ledigajobb);
+            dataAds.push($scope.workgroups[i].antal_platsannonser);
           }
 
-          // set scope as labels
+          // set workgroup label scope
           $scope.workgroupLabels = theLabels;
+
           // Chart.js Data
           $scope.data = {
-            labels: fakeLebels,
+            labels: labelNumbers,
             datasets: [
               {
                 label: 'Antal platsannonser',
@@ -92,8 +94,8 @@ angular
 
 
           // console.log(labels);
-          console.log('annonser', dataAds);
-          console.log('datajobs', dataJobs);
+          // console.log('annonser', dataAds);
+          // console.log('datajobs', dataJobs);
           // $scope.labels2 = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
           // $scope.series2 = ['Series A', 'Series B'];
           //
