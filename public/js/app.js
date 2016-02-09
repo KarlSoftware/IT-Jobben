@@ -73,7 +73,12 @@ angular
 
       .state('statistics', {
         url: '/statistik',
-        templateUrl: 'templates/statistics/statistics.html'
+        templateUrl: 'templates/statistics/workgroupsStats.html'
+      })
+
+      .state('singleWorkgroupStats', {
+        url: '/statistik/:id',
+        templateUrl: 'templates/statistics/singleWorkgroupStats.html'
       })
 
 
