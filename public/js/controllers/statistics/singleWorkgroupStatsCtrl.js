@@ -101,7 +101,7 @@ angular
             barStrokeWidth : 2,
 
             //Number - Spacing between each of the X value sets
-            barValueSpacing : 1,
+            barValueSpacing : 3,
 
             //Number - Spacing between data sets within X values
             barDatasetSpacing : 1,
