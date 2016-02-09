@@ -5,9 +5,9 @@ angular
     .controller('workgroupsStatsCtrl', [
       '$scope',
       '$http',
-      'WorkgroupState',
+      'WorkGroupState',
       'BreadcrumbState',
-      function($scope, $http) {
+      function($scope, $http, WorkGroupState, BreadcrumbState) {
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
@@ -39,6 +39,14 @@ angular
 
           // set scope linking
           $scope.links = workgroupIds;
+
+          // click function to set workgroup and BreadcrumbState
+          $scope.setWorkgroup = function(workgroup, breadcrumb) {
+            WorkGroupState.setWorkgroup(workgroup);
+            BreadcrumbState.setWorkgroupBreadcrumb(breadcrumb);
+            console.log(BreadcrumbState.getWorkgroupBreadcrumb());
+            console.log("Workgroupstate är nu:" + workgroup);
+          }
 
           // Chart.js Data
           $scope.data = {

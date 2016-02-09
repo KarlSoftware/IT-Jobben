@@ -5,11 +5,14 @@ angular
     .controller('singleWorkgroupStatsCtrl', [
       '$scope',
       '$http',
-      'WorkgroupState',
+      'WorkGroupState',
       'BreadcrumbState',
-      function($scope, $http) {
+      function($scope, $http, WorkGroupState, BreadcrumbState) {
 
         console.log('working')
+        // set current workgroup
+        $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
+        $scope.currentBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
         // // empty arrays to be filled up in a for-loop
         // var theLabels = []; // actual labels. workgroups and such
         // var labelNumbers = [] // numbering for the labels
