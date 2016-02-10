@@ -21,6 +21,7 @@ angular
     '$stateProvider',
     'cfpLoadingBarProvider',
     function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider) {
+      
     $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
 
