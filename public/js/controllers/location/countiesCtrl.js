@@ -32,18 +32,22 @@ angular
     }])
 
     // Child Controller to get number of ads in a county
-    .controller('countyChildCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+    .controller('countyChildCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      function($scope, $http, $stateParams) {
 
-      $http.get('http://localhost:1339/location/match/county/' + $scope.county.id +'', {
-        ignoreLoadingBar: true
-      })
-      .then(function(response) {
-        $scope.adsInCounty = response.data.body.matchningslista.antal_platsannonser_exakta;
-        if ($scope.adsInCounty == 1) {
-          $scope.ads = '1 annons';
-        } else {
-          $scope.ads = $scope.adsInCounty + ' annonser';
-        }
-      })
+        $http.get('http://localhost:1339/location/match/county/' + $scope.county.id +'', {
+          ignoreLoadingBar: true
+        })
+        .then(function(response) {
+          $scope.adsInCounty = response.data.body.matchningslista.antal_platsannonser_exakta;
+          if ($scope.adsInCounty == 1) {
+            $scope.ads = '1 annons';
+          } else {
+            $scope.ads = $scope.adsInCounty + ' annonser';
+          }
+        })
 
     }])
