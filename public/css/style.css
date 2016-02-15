@@ -87,6 +87,10 @@ canvas {
   background: -ms-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
   background: linear-gradient(to right, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
   color: white;
+}
+
+#push-up {
+  margin-top: -100px;
 
 }
 
