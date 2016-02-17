@@ -6,8 +6,6 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
-    'googlechart',
-    'chart.js',
     'tc.chartjs'
   ])
 
@@ -21,7 +19,7 @@ angular
     '$stateProvider',
     'cfpLoadingBarProvider',
     function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider) {
-      
+
     $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
 
