@@ -21,7 +21,6 @@ angular
       ]
       // get a random item from image array and assign to scope variables
       $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
-      console.log($scope.randomImgClass);
 
       $http.get('http://localhost:1339/api/singleAd/' + ad + '', {
         ignoreLoadingBar: true
@@ -78,7 +77,7 @@ angular
           } else {
             $scope.bil = 'Inget krav om egen bil';
           }
-        
+
 
 
 

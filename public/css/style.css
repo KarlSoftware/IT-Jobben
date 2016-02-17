@@ -12,6 +12,12 @@ td a {
 b {
   font-size: 1.05em;
 }
+
+canvas {
+  margin: 0;
+  padding: 0;
+  width: 99% !important;
+}
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
@@ -26,7 +32,7 @@ b {
 
 /*Ad image class*/
 .ad-image {
-  height: 80vh;
+  height: 85vh;
   color: white;
   display: flex;
   align-items: center;
@@ -81,6 +87,10 @@ b {
   background: -ms-linear-gradient(left, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
   background: linear-gradient(to right, rgba(25,188,156,1) 0%, rgba(36,196,198,1) 100%);
   color: white;
+}
+
+#push-up {
+  margin-top: -100px;
 
 }
 
@@ -116,8 +126,8 @@ b {
 
 /* helper class to add custom margin top and bottom to containers */
 .margin-top-bottom {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /*Helper class used with pushing down tables a bit*/
@@ -149,4 +159,22 @@ b {
 #loading-bar .bar {
 background: #F1F1F1;
 height: 2px;
+}
+
+.tc-chart-js-legend {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.tc-chart-js-legend li {
+  display: block;
+  float: left;
+  clear:both;
+  padding:10px;
+}
+.tc-chart-js-legend li span {
+  width:25px;
+  height:25px;
+  display:block;
+  float:left;
+  margin-right:10px;
 }

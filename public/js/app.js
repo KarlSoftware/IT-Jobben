@@ -6,6 +6,7 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
+    'tc.chartjs'
   ])
 
   // change Moment language
@@ -18,6 +19,7 @@ angular
     '$stateProvider',
     'cfpLoadingBarProvider',
     function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider) {
+
     $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
 
@@ -66,6 +68,16 @@ angular
       .state('municipalityAds', {
         url: '/kommun/:municipalityID/ads',
         templateUrl: 'templates/location/adsInMunicipality.html'
+      })
+
+      .state('statistics', {
+        url: '/statistik',
+        templateUrl: 'templates/statistics/workgroupsStats.html'
+      })
+
+      .state('singleWorkgroupStats', {
+        url: '/statistik/:id',
+        templateUrl: 'templates/statistics/singleWorkgroupStats.html'
       })
 
 

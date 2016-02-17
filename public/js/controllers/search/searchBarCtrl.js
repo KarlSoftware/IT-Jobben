@@ -9,7 +9,6 @@ angular
       'Data',
       function($scope, $http, $stateParams, Data) {
 
-      console.log('searchBarCtrl');
 
       $scope.doSearch = function () {
         console.log('söker efter', $scope.searchterm);
