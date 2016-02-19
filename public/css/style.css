@@ -39,6 +39,10 @@ canvas {
   box-shadow: 0 0 4px #3f3f3f;
 }
 
+.full-viewhight {
+  height: 100vh;
+}
+
 .ad-image div {
   /*margin-top: 60px;*/
 }
