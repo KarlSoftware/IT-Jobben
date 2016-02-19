@@ -18,6 +18,10 @@ canvas {
   padding: 0;
   width: 99% !important;
 }
+
+.jumbotron {
+  margin-bottom: 0px;
+}
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
@@ -190,6 +194,7 @@ height: 2px;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
+    color: rgba(25,188,156,1);
 }
 @keyframes blink{
     0% { opacity:1; }
@@ -213,8 +218,14 @@ height: 2px;
   letter-spacing: 0.1em;
 }
 
-.colored-icon {
+.green-icon {
   color: rgba(25,188,156,1);
+}
+.gray-icon {
+  color: gray;
+}
+.white-icon {
+  color: white;
 }
 
 /* Styling for arrow on front page */
@@ -224,4 +235,72 @@ height: 2px;
 
 .padding-bottom {
   padding-bottom: 20px;
+}
+
+/* Styling for index blocks */
+.popout-block {
+  min-height: 400px;
+}
+
+.block-title {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+.block-text {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+.white {
+  background-color: white;
+  color: black;
+}
+
+.gray {
+  background-color: gray;
+  color: white;
+}
+
+.green {
+  background-color: rgba(25,188,156,1);
+  color: white;
+}
+
+.blue {
+  background-color: #09A9BF;
+  color: white;
+}
+
+
+
+.push-down {
+  margin-top: 50px;
+}
+.index-button {
+  margin-top: 25px;
+}
+
+.down-arrow {
+  margin 0 auto;
+  border-left:50px solid transparent;
+  border-right:50px solid transparent;
+  margin-top: 0px;
+  margin-left:60%;
+  float: left;
+}
+.down-arrow-2 {
+  margin 0 auto;
+  border-left:50px solid transparent;
+  border-right:50px solid transparent;
+  margin-top: 0px;
+  margin-left:30%;
+  float: left;
+}
+.green-arrow {
+  border-top:50px solid rgba(25,188,156,1);
+}
+.gray-arrow {
+  border-top:50px solid gray;
+}
+.green-arrow {
+  border-top:50px solid rgba(25,188,156,1);
 }
