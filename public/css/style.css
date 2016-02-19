@@ -178,3 +178,46 @@ height: 2px;
   float:left;
   margin-right:10px;
 }
+
+
+/* Styling for typed.js */
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+/* Styling for typed.js container on index-page */
+.bold-text {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.colored-icon {
+  color: rgba(25,188,156,1);
+}
+
+/* Styling for arrow on front page */
+.fa-arrow-circle-o-down {
+  margin-top: 100px;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
+}

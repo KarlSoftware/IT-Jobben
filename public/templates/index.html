@@ -1,3 +1,41 @@
-<h1>Hello from index template</h1>
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-success-outline">Success</button>
+<div ng-controller="indexCtrl">
+
+  <!-- full width jumbotron -->
+  <section class="jumbotron navbar-gap-fix ad-image code3 vertical-center">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col col-md-12 col-lg-12 col-sm-12 col-xs-12 typed-container">
+          <h1>Hitta ditt nästa <span class="bold-text">drömyrke</span> som</h1>
+          <h2> <span class="typed"></span></h2>
+        </div>
+        <div class="arrow col col-md12 col-lg-12 col-sm-12 col-xs-12">
+          <i class="fa fa-3x fa-arrow-circle-o-down"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid">
+    <div class="container">
+      <div class="row white-subtle-shadow margin-bottom padding-bottom">
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <h2><i class="colored-icon fa fa-briefcase"></i> Yrken</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ex. Iste vitae suscipit, excepturi dolor animi vero, et nisi quasi adipisci expedita illum ducimus magnam itaque hic nulla perferendis beatae.</p>
+          <a ng-href="#/yrkesgrupper" class="btn btn-success">Visa yrken</a>
+        </div>
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <h2><i class="colored-icon fa fa-map-marker"></i> Län och kommuner</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, ex. Iste vitae suscipit, excepturi dolor animi vero, et nisi quasi adipisci expedita illum ducimus magnam itaque hic nulla perferendis beatae.</p>
+          <a ng-href="#/lan" class="btn btn-success">Visa län</a>
+        </div>
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <h2><i class="colored-icon fa fa-bar-chart"></i> Statistik</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id delectus libero saepe accusamus dicta maxime, neque voluptas provident, beatae, mollitia fuga rerum quasi vero hic esse blanditiis minima, ut voluptatem!</p>
+          <a ng-href="#/statistik" class="btn btn-success">Se statistik</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
