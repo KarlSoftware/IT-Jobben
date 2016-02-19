@@ -20,7 +20,8 @@ angular
                     "Programmerare"
                     ],
           typeSpeed: 0.6,
-          backDelay: 1000
+          backDelay: 1000,
+          startDelay: 1000
         });
 
 
