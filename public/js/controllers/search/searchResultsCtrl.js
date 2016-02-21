@@ -9,28 +9,33 @@ angular
       'LocationState',
       function($scope, $http, Data, LocationState) {
 
-      console.log('searchResultCtrl working');
       console.log('Jag är searchResultCtrl. Data.searchterm är nu:' + Data.getSearchTerm());
       $scope.searchTerm = Data.getSearchTerm();
+
+      // set empty array to fill up with ads matching above 75%
+      adsAbove75 = []
 
       $http.get('http://localhost:1339/api/search/' + Data.getSearchTerm())
       .then(function(response) {
         console.log(response);
-        $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
         $scope.ads = response.data.body.matchningslista.matchningdata;
-        $scope.data = $scope.ads.slice(0, 10);
+        // loop through ads to get 100% matches
+        for (i = 0; i < $scope.ads.length; i++) {
+          if ($scope.ads[i].relevans == 100) {
+            console.log('relevans som är 100')
+            adsAbove75.push($scope.ads[i]);
+          }
+        }
+
+        $scope.ads75 = adsAbove75
       })
 
 
 
-
-
-      $scope.loadMore = function() {
-        $scope.data = $scope.ads.slice(0, $scope.data.length + 10);
-      }
-
       // function to search again
       $scope.search = function () {
+        // set empty array to fill up with ads matching above 75%
+        adsAbove75 = []
         // set searchterm
         Data.setSearchTerm($scope.searchterm);
         console.log('search term factory är nu', Data.getSearchTerm());
@@ -40,9 +45,16 @@ angular
         $http.get('http://localhost:1339/api/search/' + Data.getSearchTerm())
         .then(function(response) {
           console.log(response);
-          $scope.searchResults = response.data.body.matchningslista.antal_platsannonser;
           $scope.ads = response.data.body.matchningslista.matchningdata;
-          $scope.data = $scope.ads.slice(0, 10);
+          // loop through ads to get 100% matches
+          for (i = 0; i < $scope.ads.length; i++) {
+            if ($scope.ads[i].relevans == 100) {
+              console.log('relevans som är 100')
+              adsAbove75.push($scope.ads[i]);
+            }
+          }
+
+          $scope.ads75 = adsAbove75
         })
 
       }
