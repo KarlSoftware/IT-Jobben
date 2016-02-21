@@ -10,12 +10,11 @@
       <div class="col-md-4">
         <h2>{{currentMunicipality}}</h2>
         <p>{{adsNr}} i {{currentMunicipality}}</p>
-        <div ng-if="adsNr > 10" class="panel panel-default">
-          <div class="panel-heading">Filtrera annonserna</div>
-          <div class="panel-body">
-            <label>Efter nyckelord: <input type="text" ng-model="searchText.$" class="form-control"></label>
-          </div>
+        <div class="well">
+          <p>Filtrera annonser</p>
+          <label>Efter nyckelord: <input type="text" ng-model="searchText.$" class="form-control"></label>
         </div> <!-- end of panel -->
+
         <div class="text-center">
           <dir-pagination-controls max-size="6"></dir-pagination-controls>
         </div>
