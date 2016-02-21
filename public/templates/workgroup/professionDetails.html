@@ -6,16 +6,13 @@
       <li class="active">{{currentProfession}}</li>
     </ol>
 
-    <div class="row">
       <div class="col-md-4">
-        <h2>{{adsNrExact}}</h2>
+        <h1>{{adsNrExact}}</h1>
         <p>Inom <b>{{currentProfession}}</b></p>
         <br>
-        <div ng-if="realAds.length > 10" class="panel panel-default">
-          <div class="panel-heading">Filtrera annonserna</div>
-          <div class="panel-body">
+        <div ng-if="realAds.length > 10" class="well">
+          <p>Filtrera annonser</p>
             <label>Efter nyckelord: <input type="text" ng-model="searchText.$" class="form-control"></label>
-          </div>
         </div> <!-- end of panel -->
         <div class="text-center">
           <dir-pagination-controls max-size="6"></dir-pagination-controls>
