@@ -11,7 +11,7 @@
         <h2>{{adsNrExact}}</h2>
         <p>Inom <b>{{currentProfession}}</b></p>
         <br>
-        <div class="panel panel-default">
+        <div ng-if="realAds.length > 10" class="panel panel-default">
           <div class="panel-heading">Filtrera annonserna</div>
           <div class="panel-body">
             <label>Efter nyckelord: <input type="text" ng-model="searchText.$" class="form-control"></label>
