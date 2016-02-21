@@ -25,7 +25,7 @@ canvas {
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
-  box-shadow: 0 0 1px #3f3f3f;
+  /*box-shadow: 0 0 1px #3f3f3f;*/
 
 }
 
@@ -40,7 +40,7 @@ canvas {
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 4px #3f3f3f;
+  /*box-shadow: 0 0 4px #3f3f3f;*/
 }
 
 .full-viewhight {
@@ -104,7 +104,7 @@ canvas {
 
 /* Give ad-info box and ad-image shadowing */
 .ad-info, .ad-image {
-  box-shadow: 2px 0 2px 0 #3f3f3f;
+  /*box-shadow: 2px 0 2px 0 #3f3f3f;*/
 
 }
 
@@ -117,7 +117,7 @@ canvas {
 /* Helper class for containers / rows that need white background and a suble shadow */
 .white-subtle-shadow {
   background-color: #FFFFFF;
-  box-shadow: 0 0 1px #D3D3D3;
+  /*box-shadow: 0 0 1px #D3D3D3;*/
 }
 
 /* helper class to make a container light gray */
@@ -273,10 +273,11 @@ height: 2px;
 
 
 .push-down {
-  margin-top: 50px;
+  margin-top: 30px;
 }
+
 .index-button {
-  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 .down-arrow {
