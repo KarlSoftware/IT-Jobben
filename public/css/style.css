@@ -19,6 +19,16 @@ canvas {
   width: 99% !important;
 }
 
+h1, h2, h3{
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+
+
 .jumbotron {
   margin-bottom: 0px;
 }
