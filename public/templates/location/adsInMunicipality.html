@@ -30,7 +30,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 8">
+              <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 15">
                   <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
