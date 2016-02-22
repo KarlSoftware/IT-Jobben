@@ -2,6 +2,7 @@
 
 body {
   background-color: #F1F1F1;
+  margin-top: 70px;
 }
 
 td a {
@@ -18,10 +19,24 @@ canvas {
   padding: 0;
   width: 99% !important;
 }
+
+h1, h2, h3, p{
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+
+
+.jumbotron {
+  margin-bottom: 0px;
+}
 /*reset navbar border radius*/
 .navbar {
   border-radius: 0px;
-  box-shadow: 0 0 1px #3f3f3f;
+  box-shadow: 0 0 1px #3f3f3f;*/
 
 }
 
@@ -36,7 +51,11 @@ canvas {
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 4px #3f3f3f;
+  /*box-shadow: 0 0 4px #3f3f3f;*/
+}
+
+.full-viewhight {
+  height: 100vh;
 }
 
 .ad-image div {
@@ -96,20 +115,21 @@ canvas {
 
 /* Give ad-info box and ad-image shadowing */
 .ad-info, .ad-image {
-  box-shadow: 2px 0 2px 0 #3f3f3f;
+  /*box-shadow: 2px 0 2px 0 #3f3f3f;*/
 
 }
 
 /* helper class to better format annonstext since they often contain newlines and such */
 .preserve-newline {
     white-space: pre-wrap;
+    line-height: 1.8em;
 }
 
 
 /* Helper class for containers / rows that need white background and a suble shadow */
 .white-subtle-shadow {
   background-color: #FFFFFF;
-  box-shadow: 0 0 1px #D3D3D3;
+  /*box-shadow: 0 0 1px #D3D3D3;*/
 }
 
 /* helper class to make a container light gray */
@@ -177,4 +197,123 @@ height: 2px;
   display:block;
   float:left;
   margin-right:10px;
+}
+
+
+/* Styling for typed.js */
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+    color: rgba(25,188,156,1);
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+/* Styling for typed.js container on index-page */
+.bold-text {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.green-icon {
+  color: rgba(25,188,156,1);
+}
+.gray-icon {
+  color: gray;
+}
+.white-icon {
+  color: white;
+}
+
+/* Styling for arrow on front page */
+.fa-arrow-circle-o-down {
+  margin-top: 100px;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
+}
+
+/* Styling for index blocks */
+.popout-block {
+  min-height: 400px;
+}
+
+.block-title {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+.block-text {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+.white {
+  background-color: white;
+  color: black;
+}
+
+.gray {
+  background-color: gray;
+  color: white;
+}
+
+.green {
+  background-color: rgba(25,188,156,1);
+  color: white;
+}
+
+.blue {
+  background-color: #09A9BF;
+  color: white;
+}
+
+
+
+.push-down {
+  margin-top: 30px;
+}
+
+.index-button {
+  margin-bottom: 15px;
+}
+
+.down-arrow {
+  margin 0 auto;
+  border-left:50px solid transparent;
+  border-right:50px solid transparent;
+  margin-top: 0px;
+  margin-left:60%;
+  float: left;
+}
+.down-arrow-2 {
+  margin 0 auto;
+  border-left:50px solid transparent;
+  border-right:50px solid transparent;
+  margin-top: 0px;
+  margin-left:30%;
+  float: left;
+}
+.green-arrow {
+  border-top:50px solid rgba(25,188,156,1);
+}
+.gray-arrow {
+  border-top:50px solid gray;
+}
+.green-arrow {
+  border-top:50px solid rgba(25,188,156,1);
 }

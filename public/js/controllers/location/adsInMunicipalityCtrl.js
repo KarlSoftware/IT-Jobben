@@ -6,50 +6,59 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'LocationState',
-      'BreadcrumbState',
-      function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
+      function($scope, $http, $stateParams) {
 
       // Create variable from param
       var municipalityID = $stateParams.municipalityID;
 
-
       // fetch current municipality name and county name
-      $scope.currentMunicipality = LocationState.getMunicipality();
-      $scope.currentCounty = LocationState.getCounty();
+      $scope.currentMunicipality = sessionStorage.getItem("municipalityName");
+      $scope.currentCounty = sessionStorage.getItem("countyName");
 
       // fetch current municipality and county breadcrumbs
-      $scope.currentMunicipalityBreadcrumb = BreadcrumbState.getMunicipalityBreadcrumb();
-      $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
+      $scope.currentMunicipalityBreadcrumb = sessionStorage.getItem("municipalityBread");
+      $scope.currentCountyBreadcrumb = sessionStorage.getItem("countyBread");
 
-      // make http req
-      $http.get('http://localhost:1339/location/municipality/' + municipalityID)
-      .then(function(response) {
-        $scope.howManyAds = response.data.body.matchningslista.antal_platsannonser_exakta;
-        $scope.howManyAdsNear = response.data.body.matchningslista.antal_platsannonser_narliggande;
-        console.log($scope.howManyAdsNear);
-        $scope.ads = response.data.body.matchningslista.matchningdata;
-        $scope.data = $scope.ads.slice(0, 10);
-        console.log(response);
-
-        // do logic depending on how many ads
-        if ($scope.howManyAds == 1) {
-          $scope.adsNr = '1 annons';
-        } else {
-          $scope.adsNr = $scope.howManyAds + ' annonser';
-        }
-        if ($scope.howManyAdsNear == 1) {
-          $scope.adsNrNear = '1 annons';
-        } else {
-          $scope.adsNrNear = $scope.howManyAdsNear + ' annonser';
-        }
-      })
-
-      // infinite scroll function to load more results
-      $scope.loadMore = function() {
-        $scope.data = $scope.ads.slice(0, $scope.data.length + 10); // set result
+      // fetch current pagination page. Defaults to 1
+      if (sessionStorage.getItem("paginationMunicipality") === null) {
+        $scope.paginationPage = '1';
+      } else {
+        $scope.paginationPage = sessionStorage.getItem("paginationMunicipality");
       }
 
+      // set empty array to fill up with 100% matching ads
+      adsArrayExact = []
 
+      // make http req
+      $http.get('http://localhost:1339/location/match/lan/' + sessionStorage.getItem("countyBread"))
+      .then(function(response) {
+        $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
+        $scope.ads = response.data.body.matchningslista.matchningdata;
+        console.log(response);
+
+        // loop through ads to get 100% matches
+        for (i = 0; i < $scope.ads.length; i++) {
+          if ($scope.ads[i].kommunnamn == sessionStorage.getItem("municipalityName")) {
+            adsArrayExact.push($scope.ads[i]);
+          }
+        }
+
+        // attach 100% ads array to scope
+        $scope.realAds = adsArrayExact;
+
+        // do logic depending on how many ads
+        if ($scope.realAds.length == 1) {
+          $scope.adsNrExact = '1 annons';
+        } else {
+          $scope.adsNrExact = $scope.realAds.length + ' annonser';
+        }
+      }) // end of then
+
+      // dir-pagination-controls function to change current pagination page
+      $scope.changePagination = function(newPageNumber, oldPageNumber) {
+        // set sessionStorage
+        sessionStorage.setItem("paginationMunicipality", newPageNumber);
+        $scope.paginationPage = newPageNumber;
+      }
 
     }])

@@ -6,7 +6,8 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
-    'tc.chartjs'
+    'tc.chartjs',
+    'angularUtils.directives.dirPagination'
   ])
 
   // change Moment language
@@ -76,8 +77,13 @@ angular
       })
 
       .state('singleWorkgroupStats', {
-        url: '/statistik/:id',
+        url: '/statistik/yrkesgrupp/:id',
         templateUrl: 'templates/statistics/singleWorkgroupStats.html'
+      })
+
+      .state('statisticsDetails', {
+        url: '/statistik/yrke/:id',
+        templateUrl: 'templates/statistics/professionStatsDetails.html'
       })
 
 
