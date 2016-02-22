@@ -48,9 +48,9 @@ angular
 
         // do logic depending on how many ads
         if ($scope.realAds.length == 1) {
-          $scope.adsNrExact = '1 annons';
+          $scope.adsNrExact = '1 Annons';
         } else {
-          $scope.adsNrExact = $scope.realAds.length + ' annonser';
+          $scope.adsNrExact = $scope.realAds.length + ' Annonser';
         }
       }) // end of then
 

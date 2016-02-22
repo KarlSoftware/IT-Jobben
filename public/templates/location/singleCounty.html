@@ -4,9 +4,11 @@
       <li><a ng-href="#/lan">Län</a></li>
       <li class="active">{{currentCounty}}</li>
     </ol>
-    <h1>Kommuner i {{currentCounty}}</h1>
-    <p>Klicka på en kommun för att se alla annonser i kommunen</p>
-
+    <div class="text-center">
+      <h1>Kommuner</h1>
+      <p class="text-muted lead"><i class="fa fa-map-marker"></i> {{currentCounty}}</p>
+      <p class="text-muted">Klicka på en kommun för att se alla annonser i kommunen</p>
+    </div>
     <div class="row">
       <div ng-repeat="municipality in municipalities" class="col-sm-6 col-md-4">
         <div class="thumbnail" ng-if="municipality.namn != 'Ospecificerad arbetsort'" ng-controller="municipalityChildCtrl">

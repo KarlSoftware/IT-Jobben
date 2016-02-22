@@ -4,9 +4,13 @@
       <li><a ng-href="#/yrkesgrupper">Yrkesgrupper</a></li>
       <li class="active">{{currentWorkgroup}}</li>
     </ol>
-    <h1>Yrken inom {{currentWorkgroup}}</h1>
+    <div class="text-center">
+      <h1>Yrken</h1>
+      <p class="lead text-muted"><span class="fa fa-users"></span> {{currentWorkgroup}}</p>
+    </div>
+
     <table class="table table-striped table-hover table-bordered">
-      <caption>{{data.data.body.soklista.totalt_antal_ledigajobb}} lediga jobb inom {{currentWorkgroup}}</caption>
+      <caption class="text-center">{{data.data.body.soklista.totalt_antal_ledigajobb}} lediga jobb inom {{currentWorkgroup}}. Här nedan ser du alla yrken inom {{currentWorkgroup}}</caption>
     <thead>
       <tr>
         <td>
