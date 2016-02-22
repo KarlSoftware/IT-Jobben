@@ -20,7 +20,7 @@ canvas {
   width: 99% !important;
 }
 
-h1, h2, h3{
+h1, h2, h3, p{
      word-wrap: break-word;
      -webkit-hyphens: auto;
      -moz-hyphens: auto;
