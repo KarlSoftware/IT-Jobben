@@ -12,6 +12,9 @@ angular
         $scope.currentWorkgroup = sessionStorage.getItem("workgroupStatsName");
         $scope.currentBreadcrumb = sessionStorage.getItem("workgroupStatsBread");
 
+        // set pagination session too 1
+        sessionStorage.setItem("paginationProfession", '1');
+
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
         var labelNumbers = [] // numbering for the labels

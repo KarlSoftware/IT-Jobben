@@ -17,6 +17,9 @@ angular
       // fetch current breadcrumb state for active countyID
       $scope.currentCountyBreadcrumb = sessionStorage.getItem("countyBread");
 
+      // set pagination too 1
+      sessionStorage.setItem("paginationMunicipality", '1');
+
       $http.get('http://localhost:1339/location/municipalities/' + countyID, {
         ignoreLoadingBar: true
       })
