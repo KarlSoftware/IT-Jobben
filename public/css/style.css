@@ -19,6 +19,16 @@ canvas {
   width: 99% !important;
 }
 
+h1, h2, h3{
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+
+
 .jumbotron {
   margin-bottom: 0px;
 }
@@ -111,6 +121,7 @@ canvas {
 /* helper class to better format annonstext since they often contain newlines and such */
 .preserve-newline {
     white-space: pre-wrap;
+    line-height: 1.5em;
 }
 
 

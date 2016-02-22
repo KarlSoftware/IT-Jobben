@@ -9,7 +9,8 @@ angular
       'WorkGroupState',
       'LocationState',
       'BreadcrumbState',
-      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState) {
+      'PaginationState',
+      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState, PaginationState) {
 
       // Create variable from param
       var id = $stateParams.professionID;
@@ -23,13 +24,33 @@ angular
       // fetch breadcrumb for workgroup and assign to scope
       $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
 
+      // fetch current pagination page. Defaults to 1
+      if (PaginationState.getPagination() == 0) {
+        $scope.paginationPage = 1;
+      } else {
+        $scope.paginationPage = PaginationState.getPagination();
+      }
+
+
+      // set empty array to fill up with 100% matching ads
+      adsArrayExact = []
+
       $http.get('http://localhost:1339/api/yrke/' + id)
       .then(function(response) {
         $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
         $scope.adsSimilar = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
-        $scope.data = $scope.ads.slice(0, 10); // set initial results
         console.log(response);
+
+        // loop through ads to get 100% matches
+        for (i = 0; i < $scope.ads.length; i++) {
+          if ($scope.ads[i].relevans == 100) {
+            adsArrayExact.push($scope.ads[i]);
+          }
+        }
+
+        // attach 100% ads array to scope
+        $scope.realAds = adsArrayExact;
 
         // do logic depending on how many ads
         if ($scope.adsExact == 1) {
@@ -42,11 +63,12 @@ angular
         } else {
           $scope.adsNrSimilar = $scope.adsSimilar + ' snarlika annonser';
         }
-      })
+      }) // end of then
 
-      // infinite scroll function to load more results
-      $scope.loadMore = function() {
-        $scope.data = $scope.ads.slice(0, $scope.data.length + 10); // set result
+      // dir-pagination-controls function to change current pagination page
+      $scope.changePagination = function(newPageNumber, oldPageNumber) {
+        PaginationState.setPagination(newPageNumber);
+        $scope.paginationPage = newPageNumber;
       }
 
     }])

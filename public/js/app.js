@@ -6,7 +6,8 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'infinite-scroll',
-    'tc.chartjs'
+    'tc.chartjs',
+    'angularUtils.directives.dirPagination'
   ])
 
   // change Moment language
