@@ -10,11 +10,11 @@
       <div class="col-md-4">
         <h2>{{currentMunicipality}}</h2>
         <p>{{howManyAds}} {{adText}} i {{currentMunicipality}}</p>
-        <div ng-show="realAds.length > 10" class="well">
+        <div ng-show="realAds.length > 10">
           <label>Filtrera efter ord: <input type="text" ng-model="searchText.$" class="form-control"></label>
         </div> <!-- end of panel -->
 
-        <div class="text-center">
+        <div>
           <dir-pagination-controls max-size="6" on-page-change="changePagination(newPageNumber, oldPageNumber)"></dir-pagination-controls>
         </div>
       </div> <!-- end of col -->
