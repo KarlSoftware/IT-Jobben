@@ -6,27 +6,24 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'LocationState',
-      'BreadcrumbState',
-      'PaginationState',
-      function($scope, $http, $stateParams, LocationState, BreadcrumbState, PaginationState) {
+      function($scope, $http, $stateParams) {
 
       // Create variable from param
       var municipalityID = $stateParams.municipalityID;
 
       // fetch current municipality name and county name
-      $scope.currentMunicipality = LocationState.getMunicipality();
-      $scope.currentCounty = LocationState.getCounty();
+      $scope.currentMunicipality = sessionStorage.getItem("municipalityName");
+      $scope.currentCounty = sessionStorage.getItem("countyName");
 
       // fetch current municipality and county breadcrumbs
-      $scope.currentMunicipalityBreadcrumb = BreadcrumbState.getMunicipalityBreadcrumb();
-      $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
+      $scope.currentMunicipalityBreadcrumb = sessionStorage.getItem("municipalityBread");
+      $scope.currentCountyBreadcrumb = sessionStorage.getItem("countyBread");
 
       // fetch current pagination page. Defaults to 1
-      if (PaginationState.getPagination() == 0) {
-        $scope.paginationPage = 1;
+      if (sessionStorage.getItem("paginationMunicipality") === null) {
+        $scope.paginationPage = '1';
       } else {
-        $scope.paginationPage = PaginationState.getPagination();
+        $scope.paginationPage = sessionStorage.getItem("paginationMunicipality");
       }
 
       // set empty array to fill up with 100% matching ads
@@ -36,7 +33,6 @@ angular
       $http.get('http://localhost:1339/location/municipality/' + municipalityID)
       .then(function(response) {
         $scope.howManyAds = response.data.body.matchningslista.antal_platsannonser_exakta;
-        $scope.howManyAdsNear = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
         // loop through ads to get 100% matches
@@ -45,26 +41,21 @@ angular
             adsArrayExact.push($scope.ads[i]);
           }
         }
-
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
         // do logic depending on how many ads
         if ($scope.howManyAds == 1) {
-          $scope.adsNr = '1 annons';
+          $scope.adText = 'Annons';
         } else {
-          $scope.adsNr = $scope.howManyAds + ' annonser';
-        }
-        if ($scope.howManyAdsNear == 1) {
-          $scope.adsNrNear = '1 annons';
-        } else {
-          $scope.adsNrNear = $scope.howManyAdsNear + ' annonser';
+          $scope.adText = 'Annonser';
         }
       }) // end of then
 
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
-        PaginationState.setPagination(newPageNumber);
+        // set sessionStorage
+        sessionStorage.setItem("paginationMunicipality", newPageNumber);
         $scope.paginationPage = newPageNumber;
       }
 

@@ -6,29 +6,25 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'WorkGroupState',
-      'LocationState',
-      'BreadcrumbState',
-      'PaginationState',
-      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState, PaginationState) {
+      function($scope, $http, $stateParams) {
 
       // Create variable from param
       var id = $stateParams.professionID;
 
       // fetch current workgroup
-      $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
+      $scope.currentWorkgroup = sessionStorage.getItem("workgroupName");
 
       // fetch current profession
-      $scope.currentProfession = WorkGroupState.getProfession();
+      $scope.currentProfession = sessionStorage.getItem("professionName");
 
       // fetch breadcrumb for workgroup and assign to scope
-      $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
+      $scope.workgroupBreadcrumb = sessionStorage.getItem("workgroupBread");
 
       // fetch current pagination page. Defaults to 1
-      if (PaginationState.getPagination() == 0) {
-        $scope.paginationPage = 1;
+      if (sessionStorage.getItem("paginationProfession") === null) {
+        $scope.paginationPage = '1';
       } else {
-        $scope.paginationPage = PaginationState.getPagination();
+        $scope.paginationPage = sessionStorage.getItem("paginationProfession");
       }
 
 
@@ -38,7 +34,6 @@ angular
       $http.get('http://localhost:1339/api/yrke/' + id)
       .then(function(response) {
         $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
-        $scope.adsSimilar = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
 
@@ -58,17 +53,13 @@ angular
         } else {
           $scope.adsNrExact = $scope.adsExact + ' annonser';
         }
-        if ($scope.adsSimilar == 1) {
-          $scope.adsNrSimilar = '1 snarlik annons';
-        } else {
-          $scope.adsNrSimilar = $scope.adsSimilar + ' snarlika annonser';
-        }
       }) // end of then
 
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
-        PaginationState.setPagination(newPageNumber);
-        $scope.paginationPage = newPageNumber;
+        // set sessionStorage
+        sessionStorage.setItem("paginationProfession", newPageNumber);
+        $scope.paginationPage = sessionStorage.getItem("paginationProfession");
       }
 
     }])
