@@ -34,7 +34,6 @@ angular
       $http.get('http://localhost:1339/api/yrke/' + id)
       .then(function(response) {
         $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
-        $scope.adsSimilar = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
 
@@ -53,11 +52,6 @@ angular
           $scope.adsNrExact = '1 annons';
         } else {
           $scope.adsNrExact = $scope.adsExact + ' annonser';
-        }
-        if ($scope.adsSimilar == 1) {
-          $scope.adsNrSimilar = '1 snarlik annons';
-        } else {
-          $scope.adsNrSimilar = $scope.adsSimilar + ' snarlika annonser';
         }
       }) // end of then
 
