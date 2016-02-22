@@ -33,7 +33,6 @@ angular
       $http.get('http://localhost:1339/location/municipality/' + municipalityID)
       .then(function(response) {
         $scope.howManyAds = response.data.body.matchningslista.antal_platsannonser_exakta;
-        $scope.howManyAdsNear = response.data.body.matchningslista.antal_platsannonser_narliggande;
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
         // loop through ads to get 100% matches
@@ -42,20 +41,14 @@ angular
             adsArrayExact.push($scope.ads[i]);
           }
         }
-
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
         // do logic depending on how many ads
         if ($scope.howManyAds == 1) {
-          $scope.adsNr = '1 annons';
+          $scope.adText = 'Annons';
         } else {
-          $scope.adsNr = $scope.howManyAds + ' annonser';
-        }
-        if ($scope.howManyAdsNear == 1) {
-          $scope.adsNrNear = '1 annons';
-        } else {
-          $scope.adsNrNear = $scope.howManyAdsNear + ' annonser';
+          $scope.adText = 'Annonser';
         }
       }) // end of then
 
