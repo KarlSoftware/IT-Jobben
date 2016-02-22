@@ -36,14 +36,16 @@
             </thead>
             <tbody>
               <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
-                  <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
-                    <span class="text-muted">
-                      <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
-                      <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
-                      <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}} </span>
-                      <span ng-if="ad.antalPlatserVisa == '0'">ingen info </span><br>
-                      <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
-                    </span>
+                  <td>
+                    <a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
+                      <span class="text-muted">
+                        <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
+                        <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                        <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}} </span>
+                        <span ng-if="ad.antalPlatserVisa == '0'">ingen info </span><br>
+                        <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
+                      </span>
+                    </a>
                   </td>
               </tr>
             </tbody>

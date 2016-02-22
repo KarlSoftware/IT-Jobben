@@ -7,6 +7,8 @@ body {
 
 td a {
   text-decoration: none !important;
+  width:100%;
+  display:block;
 }
 
 /* make bold text stand out a bit more */
