@@ -25,10 +25,10 @@ angular
       $scope.workgroupBreadcrumb = sessionStorage.getItem("workgroupBread");
 
       // fetch current pagination page. Defaults to 1
-      if (PaginationState.getPagination() == 0) {
-        $scope.paginationPage = 1;
+      if (sessionStorage.getItem("paginationProfession") === null) {
+        $scope.paginationPage = '1';
       } else {
-        $scope.paginationPage = PaginationState.getPagination();
+        $scope.paginationPage = sessionStorage.getItem("paginationProfession");
       }
 
 
@@ -69,6 +69,9 @@ angular
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
         PaginationState.setPagination(newPageNumber);
         $scope.paginationPage = newPageNumber;
+        // set sessionStorage
+        sessionStorage.setItem("paginationProfession", newPageNumber);
+        $scope.paginationPage = sessionStorage.getItem("paginationProfession");
       }
 
     }])

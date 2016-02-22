@@ -13,10 +13,10 @@ angular
       $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
       // fetch current pagination page. Defaults to 1
-      if (sessionStorage.getItem("pagination") == '0') {
+      if (sessionStorage.getItem("paginationSearch") === null) {
         sessionStorage.setItem("") = '1';
       } else {
-        $scope.paginationPage = sessionStorage.getItem("pagination");
+        $scope.paginationPage = sessionStorage.getItem("paginationSearch");
       }
 
       // set empty array to fill up with ads matching above 75%
@@ -42,8 +42,8 @@ angular
         PaginationState.setPagination(newPageNumber);
         $scope.paginationPage = newPageNumber;
         // set sessionStorage
-        sessionStorage.setItem("pagination", newPageNumber);
-        $scope.paginationPage = sessionStorage.getItem("pagination");
+        sessionStorage.setItem("paginationSearch", newPageNumber);
+        $scope.paginationPage = sessionStorage.getItem("paginationSearch");
       }
 
 

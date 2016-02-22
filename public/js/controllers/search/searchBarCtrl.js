@@ -15,7 +15,7 @@ angular
         Data.setSearchTerm($scope.searchterm);
         // set sessionStorage
         sessionStorage.setItem("searchTerm", $scope.searchterm);
-        sessionStorage.setItem("pagination", '1');
+        sessionStorage.setItem("paginationSearch", '1');
       }
 
     }])

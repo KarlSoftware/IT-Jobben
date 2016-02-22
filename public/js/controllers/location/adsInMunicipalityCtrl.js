@@ -23,10 +23,10 @@ angular
       $scope.currentCountyBreadcrumb = sessionStorage.getItem("countyBread");
 
       // fetch current pagination page. Defaults to 1
-      if (PaginationState.getPagination() == 0) {
-        $scope.paginationPage = 1;
+      if (sessionStorage.getItem("paginationMunicipality") === null) {
+        $scope.paginationPage = '1';
       } else {
-        $scope.paginationPage = PaginationState.getPagination();
+        $scope.paginationPage = sessionStorage.getItem("paginationMunicipality");
       }
 
       // set empty array to fill up with 100% matching ads
@@ -65,6 +65,9 @@ angular
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
         PaginationState.setPagination(newPageNumber);
+        $scope.paginationPage = newPageNumber;
+        // set sessionStorage
+        sessionStorage.setItem("paginationMunicipality", newPageNumber);
         $scope.paginationPage = newPageNumber;
       }
 
