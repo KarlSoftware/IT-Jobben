@@ -121,6 +121,7 @@ h1, h2, h3{
 /* helper class to better format annonstext since they often contain newlines and such */
 .preserve-newline {
     white-space: pre-wrap;
+    line-height: 1.5em;
 }
 
 
