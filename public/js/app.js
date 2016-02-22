@@ -77,8 +77,13 @@ angular
       })
 
       .state('singleWorkgroupStats', {
-        url: '/statistik/:id',
+        url: '/statistik/yrkesgrupp/:id',
         templateUrl: 'templates/statistics/singleWorkgroupStats.html'
+      })
+
+      .state('statisticsDetails', {
+        url: '/statistik/yrke/:id',
+        templateUrl: 'templates/statistics/professionStatsDetails.html'
       })
 
 

@@ -13,7 +13,7 @@ angular
         $scope.currentBreadcrumb = sessionStorage.getItem("workgroupStatsBread");
 
         // set pagination session too 1
-        sessionStorage.setItem("paginationProfession", '1');
+        sessionStorage.setItem("paginationStatsProfession", '1');
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
@@ -49,8 +49,8 @@ angular
           // change current state of workgroup
           $scope.setProfession = function(yrke, breadcrumb) {
             // set sessionStorage
-            sessionStorage.setItem("professionName", yrke);
-            sessionStorage.setItem("professionBread", breadcrumb);
+            sessionStorage.setItem("professionStatsName", yrke);
+            sessionStorage.setItem("professionStatsBread", breadcrumb);
           }
 
           // Chart.js Data

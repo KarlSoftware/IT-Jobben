@@ -4,7 +4,7 @@
     <ol class="breadcrumb">
       <li class="active">Statistik</li>
     </ol>
-    <h1 class="text-center">Yrkesgrupper</h1>
+    <h1 class="text-center">Statistik över yrkesgrupper</h1>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
         <canvas class="img-responsive" tc-chartjs-bar chart-options="options" chart-data="data" auto-legend></canvas>
@@ -12,7 +12,7 @@
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <h4>Nummerförklaring</h4>
         <ol>
-          <li ng-repeat="workgroup in workgroupLabels"><a ng-href="#/statistik/{{links[$index]}}" ng-click="setWorkgroup(workgroup, links[$index])">{{workgroup}}</a></li>
+          <li ng-repeat="workgroup in workgroupLabels"><a ng-href="#/statistik/yrkesgrupp/{{links[$index]}}" ng-click="setWorkgroup(workgroup, links[$index])">{{workgroup}}</a></li>
         </ol>
 
       </div>
