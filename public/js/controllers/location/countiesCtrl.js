@@ -26,6 +26,10 @@ angular
         // set factory states
         LocationState.setCounty(location);
         BreadcrumbState.setCountyBreadcrumb(breadcrumb);
+        // set sessionStorage
+        sessionStorage.setItem("countyName", location);
+        sessionStorage.setItem("countyBread", breadcrumb);
+
       }
 
 

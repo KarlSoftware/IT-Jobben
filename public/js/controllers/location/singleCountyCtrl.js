@@ -15,10 +15,10 @@ angular
 
 
       // fetch current location
-      $scope.currentCounty = LocationState.getCounty();
+      $scope.currentCounty = sessionStorage.getItem("countyName");
 
       // fetch current breadcrumb state for active countyID
-      $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
+      $scope.currentCountyBreadcrumb = sessionStorage.getItem("countyBread");
 
       $http.get('http://localhost:1339/location/municipalities/' + countyID, {
         ignoreLoadingBar: true
@@ -34,6 +34,10 @@ angular
         // set factory states
         LocationState.setMunicipality(location);
         BreadcrumbState.setMunicipalityBreadcrumb(breadcrumb)
+
+        // set sessionStorage
+        sessionStorage.setItem("municipalityName", location);
+        sessionStorage.setItem("municipalityBread", breadcrumb);
       }
 
     }])

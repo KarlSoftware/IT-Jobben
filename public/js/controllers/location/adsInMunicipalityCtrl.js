@@ -15,12 +15,12 @@ angular
       var municipalityID = $stateParams.municipalityID;
 
       // fetch current municipality name and county name
-      $scope.currentMunicipality = LocationState.getMunicipality();
-      $scope.currentCounty = LocationState.getCounty();
+      $scope.currentMunicipality = sessionStorage.getItem("municipalityName");
+      $scope.currentCounty = sessionStorage.getItem("countyName");
 
       // fetch current municipality and county breadcrumbs
-      $scope.currentMunicipalityBreadcrumb = BreadcrumbState.getMunicipalityBreadcrumb();
-      $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
+      $scope.currentMunicipalityBreadcrumb = sessionStorage.getItem("municipalityBread");
+      $scope.currentCountyBreadcrumb = sessionStorage.getItem("countyBread");
 
       // fetch current pagination page. Defaults to 1
       if (PaginationState.getPagination() == 0) {
