@@ -6,9 +6,7 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'LocationState',
-      'BreadcrumbState',
-      function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
+      function($scope, $http, $stateParams) {
 
 
 
@@ -23,16 +21,10 @@ angular
       // set locationState upon clicking a county
       $scope.setLocation = function(location, breadcrumb) {
         console.log('du klickade på', location);
-        // set factory states
-        LocationState.setCounty(location);
-        BreadcrumbState.setCountyBreadcrumb(breadcrumb);
         // set sessionStorage
         sessionStorage.setItem("countyName", location);
         sessionStorage.setItem("countyBread", breadcrumb);
-
       }
-
-
     }])
 
     // Child Controller to get number of ads in a county

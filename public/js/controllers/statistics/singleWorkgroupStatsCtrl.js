@@ -5,9 +5,7 @@ angular
     .controller('singleWorkgroupStatsCtrl', [
       '$scope',
       '$http',
-      'WorkGroupState',
-      'BreadcrumbState',
-      function($scope, $http, WorkGroupState, BreadcrumbState) {
+      function($scope, $http) {
 
         console.log('working')
         // set current workgroup
@@ -47,10 +45,9 @@ angular
 
           // change current state of workgroup
           $scope.setProfession = function(yrke, breadcrumb) {
-            console.log('du klickade på', yrke);
-            WorkGroupState.setProfession(yrke);
-            BreadcrumbState.setProfessionBreadcrumb(breadcrumb);
-            console.log("Workgroupstate är nu:" + yrke);
+            // set sessionStorage
+            sessionStorage.setItem("professionName", yrke);
+            sessionStorage.setItem("professionBread", breadcrumb);
           }
 
           // Chart.js Data

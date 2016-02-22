@@ -6,13 +6,10 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'LocationState',
-      'BreadcrumbState',
-      function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
+      function($scope, $http, $stateParams) {
 
       // Create variable from param
       var countyID = $stateParams.countyID;
-
 
       // fetch current location
       $scope.currentCounty = sessionStorage.getItem("countyName");
@@ -31,10 +28,6 @@ angular
 
       // set locationState and breadcrumb state upon clicking a municipality
       $scope.setLocation = function(location, breadcrumb) {
-        // set factory states
-        LocationState.setMunicipality(location);
-        BreadcrumbState.setMunicipalityBreadcrumb(breadcrumb)
-
         // set sessionStorage
         sessionStorage.setItem("municipalityName", location);
         sessionStorage.setItem("municipalityBread", breadcrumb);

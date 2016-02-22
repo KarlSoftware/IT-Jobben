@@ -6,11 +6,7 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'WorkGroupState',
-      'LocationState',
-      'BreadcrumbState',
-      'PaginationState',
-      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState, PaginationState) {
+      function($scope, $http, $stateParams) {
 
       // Create variable from param
       var id = $stateParams.professionID;
@@ -67,8 +63,6 @@ angular
 
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
-        PaginationState.setPagination(newPageNumber);
-        $scope.paginationPage = newPageNumber;
         // set sessionStorage
         sessionStorage.setItem("paginationProfession", newPageNumber);
         $scope.paginationPage = sessionStorage.getItem("paginationProfession");

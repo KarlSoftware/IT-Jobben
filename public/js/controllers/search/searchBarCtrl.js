@@ -6,13 +6,10 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      'Data',
-      function($scope, $http, $stateParams, Data) {
+      function($scope, $http, $stateParams) {
 
 
       $scope.doSearch = function () {
-        console.log('söker efter', $scope.searchterm);
-        Data.setSearchTerm($scope.searchterm);
         // set sessionStorage
         sessionStorage.setItem("searchTerm", $scope.searchterm);
         sessionStorage.setItem("paginationSearch", '1');

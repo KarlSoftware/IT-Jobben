@@ -5,10 +5,7 @@ angular
     .controller('searchResultsCtrl', [
       '$scope',
       '$http',
-      'Data',
-      'LocationState',
-      'PaginationState',
-      function($scope, $http, Data, LocationState, PaginationState) {
+      function($scope, $http) {
 
       $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
@@ -29,7 +26,6 @@ angular
         // loop through ads to get 100% matches
         for (i = 0; i < $scope.ads.length; i++) {
           if ($scope.ads[i].relevans == 100) {
-            console.log('relevans som är 100')
             adsAbove75.push($scope.ads[i]);
           }
         }
@@ -39,7 +35,6 @@ angular
 
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
-        PaginationState.setPagination(newPageNumber);
         $scope.paginationPage = newPageNumber;
         // set sessionStorage
         sessionStorage.setItem("paginationSearch", newPageNumber);
@@ -58,7 +53,6 @@ angular
         $scope.paginationPage = '1';
 
         // set searchterm
-        Data.setSearchTerm($scope.searchterm);
         sessionStorage.setItem("searchTerm", $scope.searchterm);
         $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
@@ -71,7 +65,6 @@ angular
           // loop through ads to get 100% matches
           for (i = 0; i < $scope.ads.length; i++) {
             if ($scope.ads[i].relevans == 100) {
-              console.log('relevans som är 100')
               adsAbove75.push($scope.ads[i]);
             }
           }
