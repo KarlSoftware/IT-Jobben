@@ -16,13 +16,13 @@ angular
       var id = $stateParams.professionID;
 
       // fetch current workgroup
-      $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
+      $scope.currentWorkgroup = sessionStorage.getItem("workgroupName");
 
       // fetch current profession
-      $scope.currentProfession = WorkGroupState.getProfession();
+      $scope.currentProfession = sessionStorage.getItem("professionName");
 
       // fetch breadcrumb for workgroup and assign to scope
-      $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
+      $scope.workgroupBreadcrumb = sessionStorage.getItem("workgroupBread");
 
       // fetch current pagination page. Defaults to 1
       if (PaginationState.getPagination() == 0) {

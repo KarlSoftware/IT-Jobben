@@ -32,5 +32,8 @@ angular
         BreadcrumbState.setWorkgroupBreadcrumb(breadcrumb);
         console.log(BreadcrumbState.getWorkgroupBreadcrumb());
         console.log("Workgroupstate är nu:" + workgroup);
+        // set sessionStorage
+        sessionStorage.setItem("workgroupName", workgroup);
+        sessionStorage.setItem("workgroupBread", breadcrumb);
       }
     }]) // end of controller

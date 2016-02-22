@@ -14,10 +14,10 @@ angular
       var workGroupID = $stateParams.workgroupID;
 
       // fetch current workgroup
-      $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
+      $scope.currentWorkgroup = sessionStorage.getItem("workgroupName");
 
       // fetch breadcrumb for workgroup and assign to scope
-      $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
+      $scope.workgroupBreadcrumb = sessionStorage.getItem("workgroupBread");
 
       $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID, {
         ignoreLoadingBar: true
@@ -38,6 +38,9 @@ angular
         WorkGroupState.setProfession(yrke);
         BreadcrumbState.setProfessionBreadcrumb(breadcrumb);
         console.log("Workgroupstate är nu:" + yrke);
+        // set sessionStorage
+        sessionStorage.setItem("professionName", yrke);
+        sessionStorage.setItem("professionBread", breadcrumb);
       }
 
     }])
