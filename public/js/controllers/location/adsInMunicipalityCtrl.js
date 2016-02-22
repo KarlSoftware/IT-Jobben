@@ -30,25 +30,27 @@ angular
       adsArrayExact = []
 
       // make http req
-      $http.get('http://localhost:1339/location/municipality/' + municipalityID)
+      $http.get('http://localhost:1339/location/match/lan/' + sessionStorage.getItem("countyBread"))
       .then(function(response) {
-        $scope.howManyAds = response.data.body.matchningslista.antal_platsannonser_exakta;
+        $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
         $scope.ads = response.data.body.matchningslista.matchningdata;
         console.log(response);
+
         // loop through ads to get 100% matches
         for (i = 0; i < $scope.ads.length; i++) {
-          if ($scope.ads[i].relevans == 100) {
+          if ($scope.ads[i].kommunnamn == sessionStorage.getItem("municipalityName")) {
             adsArrayExact.push($scope.ads[i]);
           }
         }
+
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
         // do logic depending on how many ads
-        if ($scope.howManyAds == 1) {
-          $scope.adText = 'Annons';
+        if ($scope.realAds.length == 1) {
+          $scope.adsNrExact = '1 annons';
         } else {
-          $scope.adText = 'Annonser';
+          $scope.adsNrExact = $scope.realAds.length + ' annonser';
         }
       }) // end of then
 
