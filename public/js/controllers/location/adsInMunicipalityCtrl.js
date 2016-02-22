@@ -8,7 +8,8 @@ angular
       '$stateParams',
       'LocationState',
       'BreadcrumbState',
-      function($scope, $http, $stateParams, LocationState, BreadcrumbState) {
+      'PaginationState',
+      function($scope, $http, $stateParams, LocationState, BreadcrumbState, PaginationState) {
 
       // Create variable from param
       var municipalityID = $stateParams.municipalityID;
@@ -20,6 +21,13 @@ angular
       // fetch current municipality and county breadcrumbs
       $scope.currentMunicipalityBreadcrumb = BreadcrumbState.getMunicipalityBreadcrumb();
       $scope.currentCountyBreadcrumb = BreadcrumbState.getCountyBreadcrumb();
+
+      // fetch current pagination page. Defaults to 1
+      if (PaginationState.getPagination() == 0) {
+        $scope.paginationPage = 1;
+      } else {
+        $scope.paginationPage = PaginationState.getPagination();
+      }
 
       // set empty array to fill up with 100% matching ads
       adsArrayExact = []
@@ -52,6 +60,12 @@ angular
         } else {
           $scope.adsNrNear = $scope.howManyAdsNear + ' annonser';
         }
-      })
+      }) // end of then
+
+      // dir-pagination-controls function to change current pagination page
+      $scope.changePagination = function(newPageNumber, oldPageNumber) {
+        PaginationState.setPagination(newPageNumber);
+        $scope.paginationPage = newPageNumber;
+      }
 
     }])

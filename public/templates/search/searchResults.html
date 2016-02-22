@@ -20,7 +20,7 @@
           </div>
         </div> <!-- end of panel -->
         <div class="text-center">
-          <dir-pagination-controls max-size="6"></dir-pagination-controls>
+          <dir-pagination-controls max-size="6" on-page-change="changePagination(newPageNumber, oldPageNumber)"></dir-pagination-controls>
         </div>
       </div> <!-- end of column -->
 
@@ -37,7 +37,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr dir-paginate="ad in ads75 | filter:searchText | itemsPerPage: 15">
+            <tr dir-paginate="ad in ads75 | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
               <td><a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}</a><br>
                 <span class="text-muted">
                   <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}

@@ -9,7 +9,8 @@ angular
       'WorkGroupState',
       'LocationState',
       'BreadcrumbState',
-      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState) {
+      'PaginationState',
+      function($scope, $http, $stateParams, WorkGroupState, LocationState, BreadcrumbState, PaginationState) {
 
       // Create variable from param
       var id = $stateParams.professionID;
@@ -22,6 +23,14 @@ angular
 
       // fetch breadcrumb for workgroup and assign to scope
       $scope.workgroupBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
+
+      // fetch current pagination page. Defaults to 1
+      if (PaginationState.getPagination() == 0) {
+        $scope.paginationPage = 1;
+      } else {
+        $scope.paginationPage = PaginationState.getPagination();
+      }
+
 
       // set empty array to fill up with 100% matching ads
       adsArrayExact = []
@@ -54,6 +63,12 @@ angular
         } else {
           $scope.adsNrSimilar = $scope.adsSimilar + ' snarlika annonser';
         }
-      })
+      }) // end of then
+
+      // dir-pagination-controls function to change current pagination page
+      $scope.changePagination = function(newPageNumber, oldPageNumber) {
+        PaginationState.setPagination(newPageNumber);
+        $scope.paginationPage = newPageNumber;
+      }
 
     }])
