@@ -44,6 +44,9 @@ angular
           $scope.setWorkgroup = function(workgroup, breadcrumb) {
             WorkGroupState.setWorkgroup(workgroup);
             BreadcrumbState.setWorkgroupBreadcrumb(breadcrumb);
+            // set sessionStorage
+            sessionStorage.setItem("workgroupStatsName", workgroup);
+            sessionStorage.setItem("workgroupStatsBread", breadcrumb);
             console.log(BreadcrumbState.getWorkgroupBreadcrumb());
             console.log("Workgroupstate är nu:" + workgroup);
           }

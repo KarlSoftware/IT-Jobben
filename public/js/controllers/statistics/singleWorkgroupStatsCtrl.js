@@ -11,8 +11,8 @@ angular
 
         console.log('working')
         // set current workgroup
-        $scope.currentWorkgroup = WorkGroupState.getWorkgroup();
-        $scope.currentBreadcrumb = BreadcrumbState.getWorkgroupBreadcrumb();
+        $scope.currentWorkgroup = sessionStorage.getItem("workgroupStatsName");
+        $scope.currentBreadcrumb = sessionStorage.getItem("workgroupStatsBread");
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
