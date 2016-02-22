@@ -5,9 +5,6 @@ angular
     .controller('workgroupsStatsCtrl', [
       '$scope',
       '$http',
-      'WorkGroupState',
-      'BreadcrumbState',
-      function($scope, $http, WorkGroupState, BreadcrumbState) {
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
