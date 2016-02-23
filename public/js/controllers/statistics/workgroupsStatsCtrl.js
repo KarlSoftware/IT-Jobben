@@ -9,7 +9,7 @@ angular
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
-        var labelNumbers = [] // numbering for the labels
+        var labelNumbers = []; // numbering for the labels
         var dataAds = []; // the numbers for actual ads
         var dataJobs = []; // the numbers for how many jobs
         var workgroupIds = [];
@@ -43,7 +43,7 @@ angular
             // set sessionStorage
             sessionStorage.setItem("workgroupStatsName", workgroup);
             sessionStorage.setItem("workgroupStatsBread", breadcrumb);
-          }
+          };
 
           // Chart.js Data
           $scope.data = {
@@ -103,6 +103,6 @@ angular
           };
 
 
-        })
+        });
 
-    }])
+    }]);

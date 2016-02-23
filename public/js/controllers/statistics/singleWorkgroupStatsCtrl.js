@@ -7,7 +7,6 @@ angular
       '$http',
       function($scope, $http) {
 
-        console.log('working')
         // set current workgroup
         $scope.currentWorkgroup = sessionStorage.getItem("workgroupStatsName");
         $scope.currentBreadcrumb = sessionStorage.getItem("workgroupStatsBread");
@@ -17,7 +16,7 @@ angular
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
-        var labelNumbers = [] // numbering for the labels
+        var labelNumbers = []; // numbering for the labels
         var dataAds = []; // the numbers for actual ads
         var dataJobs = []; // the numbers for how many jobs
         var workgroupIds = [];
@@ -51,7 +50,7 @@ angular
             // set sessionStorage
             sessionStorage.setItem("professionStatsName", yrke);
             sessionStorage.setItem("professionStatsBread", breadcrumb);
-          }
+          };
 
           // Chart.js Data
           $scope.data = {
@@ -111,6 +110,6 @@ angular
           };
 
 
-        })
+        });
 
-    }])
+    }]);

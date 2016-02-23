@@ -13,6 +13,6 @@ angular
         // set sessionStorage
         sessionStorage.setItem("searchTerm", $scope.searchterm);
         sessionStorage.setItem("paginationSearch", '1');
-      }
+      };
 
-    }])
+    }]);

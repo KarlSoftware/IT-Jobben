@@ -18,7 +18,7 @@ angular
         'code3',
         'code4',
         'code5'
-      ]
+      ];
       // get a random item from image array and assign to scope variables
       $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
 
@@ -40,7 +40,7 @@ angular
         // do logic depending on what the response contains
         // logic for sista ansökningsdag
         if ($scope.ansokan.sista_ansokningsdag) {
-          if ($scope.ansokan.sista_ansokningsdag == '') {
+          if ($scope.ansokan.sista_ansokningsdag === '') {
             $scope.sista_ansokningsdag = 'ingen info';
           } else {
             $scope.sista_ansokningsdag = moment($scope.ansokan.sista_ansokningsdag).format("dddd, Do MMMM, h:mm");
@@ -51,7 +51,7 @@ angular
 
         // logic for referens
         if ($scope.ansokan.referens) {
-          if ($scope.ansokan.referens == '') {
+          if ($scope.ansokan.referens === '') {
             $scope.referens = 'ingen info';
           } else {
             $scope.referens = $scope.ansokan.referens;
@@ -62,7 +62,7 @@ angular
 
         // logic for email
         if ($scope.ansokan.epostadress) {
-          if ($scope.ansokan.epostadress == '') {
+          if ($scope.ansokan.epostadress === '') {
             $scope.epost = 'ingen info';
           } else {
             $scope.epost = $scope.ansokan.epostadress;
@@ -81,6 +81,6 @@ angular
 
 
 
-      }) // end of http then
+      }); // end of http then
 
-    }])
+    }]);

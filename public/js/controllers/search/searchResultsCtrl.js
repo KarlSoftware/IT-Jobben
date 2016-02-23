@@ -11,13 +11,13 @@ angular
 
       // fetch current pagination page. Defaults to 1
       if (sessionStorage.getItem("paginationSearch") === null) {
-        sessionStorage.setItem("") = '1';
+        sessionStorage.setItem("paginationSearch") = '1';
       } else {
         $scope.paginationPage = sessionStorage.getItem("paginationSearch");
       }
 
       // set empty array to fill up with ads matching above 75%
-      adsAbove75 = []
+      adsAbove75 = [];
 
       $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"))
       .then(function(response) {
@@ -31,7 +31,7 @@ angular
         }
 
         $scope.ads75 = adsAbove75;
-      }) // end of then
+      }); // end of then
 
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
@@ -39,7 +39,7 @@ angular
         // set sessionStorage
         sessionStorage.setItem("paginationSearch", newPageNumber);
         $scope.paginationPage = sessionStorage.getItem("paginationSearch");
-      }
+      };
 
 
 
