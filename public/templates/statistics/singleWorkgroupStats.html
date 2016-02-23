@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="container white-subtle-shadow margin-bottom" ng-controller="singleWorkgroupStatsCtrl">
-    
+
     <!-- Breadcrumbs -->
     <ol class="breadcrumb">
       <li><a ng-href="#/statistik">Statistik</a></li>
@@ -18,6 +18,7 @@
       <!-- Info about numbers in the charts -->
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <h4>Nummerförklaring</h4>
+        <p class="text-muted">Klicka på ett yrke för att se alla annonser inom yrket.</p>
         <ol>
           <li ng-repeat="workgroup in workgroupLabels"><a ng-href="#/statistik/yrke/{{links[$index]}}" ng-click="setProfession(workgroup, links[$index])">{{workgroup}}</a></li>
         </ol>

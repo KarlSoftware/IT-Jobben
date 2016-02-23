@@ -17,6 +17,7 @@
       <!-- Info about numbers in chart -->
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <h4>Nummerförklaring</h4>
+        <p class="text-muted">Klicka på en yrkesgrupp för att se en överblick över yrken i gruppen.</p>
         <ol>
           <li ng-repeat="workgroup in workgroupLabels"><a ng-href="#/statistik/yrkesgrupp/{{links[$index]}}" ng-click="setWorkgroup(workgroup, links[$index])">{{workgroup}}</a></li>
         </ol>
