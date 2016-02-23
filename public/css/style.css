@@ -292,5 +292,10 @@ height: 2px;
   margin-bottom: 15px;
 }
 
+.heading-spaced {
+  letter-spacing: 0.2em;
 }
+
+.p-line-heigth {
+  line-height: 2em;
 }
