@@ -1,20 +1,26 @@
 <div class="container white-subtle-shadow margin-bottom" ng-controller="singleWorkgroupStatsCtrl">
 
+  <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a ng-href="#/statistik">Statistik</a></li>
     <li class="active">{{currentWorkgroup}}</li>
   </ol>
+
+  <!-- Info text -->
   <h1 class="text-center">{{currentWorkgroup}}</h1>
+
+  <!-- Row with results -->
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
       <canvas class="img-responsive" tc-chartjs-bar chart-options="options" chart-data="data" auto-legend></canvas>
     </div>
+    <!-- Info about numbers in the charts -->
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
       <h4>Nummerförklaring</h4>
       <ol>
         <li ng-repeat="workgroup in workgroupLabels"><a ng-href="#/statistik/yrke/{{links[$index]}}" ng-click="setProfession(workgroup, links[$index])">{{workgroup}}</a></li>
       </ol>
-
     </div>
-  </div>
-</div>
+  </div> <!-- end of row -->
+
+</div> <!-- end of container and controller -->

@@ -1,14 +1,21 @@
 <div class="container-fluid">
+  <!-- Container with controller -->
   <div class="container white-subtle-shadow" ng-controller="municipalitiesCtrl">
+
+    <!-- Breadcrumbs -->
     <ol class="breadcrumb">
       <li><a ng-href="#/lan">Län</a></li>
       <li class="active">{{currentCounty}}</li>
     </ol>
+
+    <!-- Info text -->
     <div class="text-center">
       <h1>Kommuner</h1>
       <p class="text-muted lead"><i class="fa fa-map-marker"></i> {{currentCounty}}</p>
       <p class="text-muted">Klicka på en kommun för att se alla annonser i kommunen</p>
     </div>
+
+    <!-- Row with results -->
     <div class="row">
       <div ng-repeat="municipality in municipalities" class="col-sm-6 col-md-4">
         <div class="thumbnail" ng-if="municipality.namn != 'Ospecificerad arbetsort'" ng-controller="municipalityChildCtrl">
@@ -20,11 +27,10 @@
             <p>
               <a ng-if="adsInMunicipality != '1'" ng-href="#/kommun/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn, municipality.id)" class="btn btn-info btn-sm" role="button">Annonser <span class="badge">{{adsInMunicipality}}</span></a>
               <a ng-if="adsInMunicipality == '1'" ng-href="#/kommun/{{municipality.id}}/ads" ng-click="setLocation(municipality.namn, municipality.id)" class="btn btn-info btn-sm" role="button">Annons <span class="badge">{{adsInMunicipality}}</span></a>
-
             </p>
           </div>
-        </div>
-      </div>
+        </div> <!-- end of thumbnail -->
+      </div> <!-- end of ng-repet col -->
     </div> <!-- end of row -->
 
 

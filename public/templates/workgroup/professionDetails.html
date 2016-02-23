@@ -1,10 +1,13 @@
 <div class="container-fluid" ng-controller="professionDetailsCtrl">
+  <!-- Container -->
   <div class="container white-subtle-shadow">
+    <!-- Breadcrumbs -->
     <ol class="breadcrumb">
       <li><a ng-href="#/yrkesgrupper">Yrkesgrupper</a></li>
       <li><a ng-href="#/yrkesgrupper/{{workgroupBreadcrumb}}">{{currentWorkgroup}}</a></li>
       <li class="active">{{currentProfession}}</li>
     </ol>
+    <!-- Info text -->
     <div class="text-center">
       <h1>{{adsNrExact}}</h1>
       <p class="text-muted lead"><span class="fa fa-briefcase"></span> {{currentProfession}}</p>
@@ -24,7 +27,6 @@
         </div>
       </div>
     </div>
-
     <!-- Ad results -->
     <div class="row">
       <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1">
@@ -52,11 +54,11 @@
               </tr> <!-- end of pagination content -->
             </tbody>
           </table>
-        </div>
+        </div> <!-- end of responsive table -->
       </div> <!-- end of col -->
-    </div>
-
-  </div>
+    </div> <!-- end of paginated results -->
+  </div> <!-- end of container -->
+  <!-- Pagination -->
   <div class="container white-subtle-shadow margin-top-bottom text-center">
     <dir-pagination-controls max-size="7" current-page="paginationPage"></dir-pagination-controls>
   </div>

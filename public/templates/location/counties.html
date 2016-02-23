@@ -1,13 +1,19 @@
 <div class="container-fluid container-gray">
+  <!-- Container -->
   <div class="container white-subtle-shadow" ng-controller="countiesCtrl">
+
+    <!-- Breadcrumbs -->
     <ol class="breadcrumb">
       <li class="active">Län</li>
     </ol>
+
+    <!-- Info text -->
     <div class="text-center">
       <h1>Län</h1>
       <p class="text-muted">Klicka på ett län för att komma vidare och se alla kommuner i det valda länet</p>
     </div>
 
+    <!-- Row containing results -->
     <div class="row">
       <div ng-repeat="county in counties" class="col-sm-6 col-md-4">
         <div ng-if="county.namn != 'Ospecificerad arbetsort'" class="thumbnail" ng-controller="countyChildCtrl">
@@ -20,8 +26,9 @@
               <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href="#/lan/{{county.id}}" ng-click="setLocation(county.namn, county.id)" class="btn btn-info btn-sm" role="button">Annonser <span class="badge">{{adsInCounty}}</span></a>
             </p>
           </div>
-        </div>
-      </div>
+        </div> <!-- end of thumbnail -->
+      </div> <!-- end of ng-repeat -->
     </div> <!-- end of row -->
+    
   </div> <!-- end of container and controller -->
-</div>
+</div> <!-- end of fluid container -->
