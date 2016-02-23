@@ -292,28 +292,5 @@ height: 2px;
   margin-bottom: 15px;
 }
 
-.down-arrow {
-  margin 0 auto;
-  border-left:50px solid transparent;
-  border-right:50px solid transparent;
-  margin-top: 0px;
-  margin-left:60%;
-  float: left;
 }
-.down-arrow-2 {
-  margin 0 auto;
-  border-left:50px solid transparent;
-  border-right:50px solid transparent;
-  margin-top: 0px;
-  margin-left:30%;
-  float: left;
-}
-.green-arrow {
-  border-top:50px solid rgba(25,188,156,1);
-}
-.gray-arrow {
-  border-top:50px solid gray;
-}
-.green-arrow {
-  border-top:50px solid rgba(25,188,156,1);
 }
