@@ -206,7 +206,7 @@ height: 2px;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
-    color: rgba(25,188,156,1);
+    color: white;
 }
 @keyframes blink{
     0% { opacity:1; }
