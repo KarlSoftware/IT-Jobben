@@ -33,7 +33,7 @@ h1, h2, h3, p{
 
 
 .jumbotron {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 /*reset navbar border radius*/
 .navbar {
@@ -108,9 +108,9 @@ h1, h2, h3, p{
   color: white;
 }
 
+/* push a container up */
 #push-up {
   margin-top: -100px;
-
 }
 
 /* Give ad-info box and ad-image shadowing */
