@@ -29,7 +29,7 @@ angular
         $scope.nrOfAds = response.data.body.soklista.totalt_antal_platsannonser;
         console.log(response);
         $scope.workgroup = response.data.body.soklista.sokdata;
-      })
+      });
 
       // set sorting
       $scope.sortType = 'namn'; // default sorting
@@ -40,6 +40,6 @@ angular
         // set sessionStorage
         sessionStorage.setItem("professionName", yrke);
         sessionStorage.setItem("professionBread", breadcrumb);
-      }
+      };
 
-    }])
+    }]);

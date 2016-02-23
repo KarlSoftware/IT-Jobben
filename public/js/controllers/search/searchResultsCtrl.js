@@ -47,7 +47,7 @@ angular
       $scope.search = function () {
 
         // set empty array to fill up with ads matching above 75%
-        adsAbove75 = []
+        adsAbove75 = [];
 
         // reset pagination page to Defaults
         $scope.paginationPage = '1';
@@ -69,10 +69,10 @@ angular
             }
           }
 
-          $scope.ads75 = adsAbove75
-        })
+          $scope.ads75 = adsAbove75;
+        });
 
-      }
+      };
 
 
-    }]) // end of controller
+    }]); // end of controller

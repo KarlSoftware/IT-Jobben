@@ -1,6 +1,5 @@
 angular
   .module('app')
-
     // Controller for viewing single ad
     .controller('singleAdCtrl', [
       '$scope',
@@ -77,9 +76,6 @@ angular
           } else {
             $scope.bil = 'Inget krav om egen bil';
           }
-
-
-
 
       }); // end of http then
 

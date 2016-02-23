@@ -15,7 +15,7 @@ angular
         $scope.nrOfJobs = response.data.body.soklista.totalt_antal_platsannonser;
         console.log(response);
         $scope.workgroups = response.data.body.soklista.sokdata;
-      })
+      });
 
       // set sorting
       $scope.sortType = 'namn'; // default sorting
@@ -26,5 +26,5 @@ angular
         // set sessionStorage
         sessionStorage.setItem("workgroupName", workgroup);
         sessionStorage.setItem("workgroupBread", breadcrumb);
-      }
-    }]) // end of controller
+      };
+    }]); // end of controller
