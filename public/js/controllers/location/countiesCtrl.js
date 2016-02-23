@@ -16,7 +16,7 @@ angular
       .then(function(response) {
         $scope.counties = response.data.body.soklista.sokdata;
         console.log(response);
-      })
+      });
 
       // set locationState upon clicking a county
       $scope.setLocation = function(location, breadcrumb) {
@@ -24,7 +24,7 @@ angular
         // set sessionStorage
         sessionStorage.setItem("countyName", location);
         sessionStorage.setItem("countyBread", breadcrumb);
-      }
+      };
     }])
 
     // Child Controller to get number of ads in a county
@@ -44,6 +44,6 @@ angular
           } else {
             $scope.ads = $scope.adsInCounty + ' annonser';
           }
-        })
+        });
 
-    }])
+    }]);

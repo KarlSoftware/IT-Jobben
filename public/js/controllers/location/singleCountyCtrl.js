@@ -27,14 +27,14 @@ angular
         $scope.municipalities = response.data.body.soklista.sokdata;
         console.log(response);
         // $scope.workgroup = response.data.body.soklista.sokdata;
-      })
+      });
 
       // set locationState and breadcrumb state upon clicking a municipality
       $scope.setLocation = function(location, breadcrumb) {
         // set sessionStorage
         sessionStorage.setItem("municipalityName", location);
         sessionStorage.setItem("municipalityBread", breadcrumb);
-      }
+      };
 
     }])
 
@@ -51,6 +51,6 @@ angular
         } else {
           $scope.ads = $scope.adsInMunicipality + ' annonser';
         }
-      })
+      });
 
-    }])
+    }]);

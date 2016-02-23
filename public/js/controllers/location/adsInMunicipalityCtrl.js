@@ -27,7 +27,7 @@ angular
       }
 
       // set empty array to fill up with 100% matching ads
-      adsArrayExact = []
+      adsArrayExact = [];
 
       // make http req
       $http.get('http://localhost:1339/location/match/lan/' + sessionStorage.getItem("countyBread"))
@@ -52,13 +52,13 @@ angular
         } else {
           $scope.adsNrExact = $scope.realAds.length + ' Annonser';
         }
-      }) // end of then
+      }); // end of then
 
       // dir-pagination-controls function to change current pagination page
       $scope.changePagination = function(newPageNumber, oldPageNumber) {
         // set sessionStorage
         sessionStorage.setItem("paginationMunicipality", newPageNumber);
         $scope.paginationPage = newPageNumber;
-      }
+      };
 
-    }])
+    }]);

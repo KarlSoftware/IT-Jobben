@@ -1,5 +1,3 @@
-'use strict';
-
 angular
   .module('app', [
     'ui.router',
@@ -84,7 +82,7 @@ angular
       .state('statisticsDetails', {
         url: '/statistik/yrke/:id',
         templateUrl: 'templates/statistics/professionStatsDetails.html'
-      })
+      });
 
 
   }]);

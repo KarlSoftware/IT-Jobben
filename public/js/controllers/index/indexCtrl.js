@@ -26,4 +26,4 @@ angular
         new WOW().init();
 
 
-    }])
+    }]);
