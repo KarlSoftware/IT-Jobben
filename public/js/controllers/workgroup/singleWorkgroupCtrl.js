@@ -25,6 +25,8 @@ angular
       })
       .then(function(response) {
         $scope.data = response;
+        $scope.nrOfJobs = response.data.body.soklista.totalt_antal_ledigajobb;
+        $scope.nrOfAds = response.data.body.soklista.totalt_antal_platsannonser;
         console.log(response);
         $scope.workgroup = response.data.body.soklista.sokdata;
       })
