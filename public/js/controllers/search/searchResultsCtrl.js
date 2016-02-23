@@ -11,7 +11,7 @@ angular
 
       // fetch current pagination page. Defaults to 1
       if (sessionStorage.getItem("paginationSearch") === null) {
-        sessionStorage.setItem("paginationSearch") = '1';
+        $scope.pagination = '1';
       } else {
         $scope.paginationPage = sessionStorage.getItem("paginationSearch");
       }
