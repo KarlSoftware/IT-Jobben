@@ -147,7 +147,7 @@ h1, h2, h3, p{
 /* helper class to add custom margin top and bottom to containers */
 .margin-top-bottom {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /*Helper class used with pushing down tables a bit*/
