@@ -262,26 +262,11 @@ height: 2px;
   font-size: 1.2em;
   line-height: 2em;
 }
-.white {
-  background-color: white;
-  color: black;
-}
 
-.gray {
-  background-color: gray;
-  color: white;
-}
-
+/* helper class for example used to turn icons green */
 .green {
-  background-color: rgba(25,188,156,1);
-  color: white;
+  color: rgba(25,188,156,1);
 }
-
-.blue {
-  background-color: #09A9BF;
-  color: white;
-}
-
 
 
 .push-down {
@@ -298,4 +283,5 @@ height: 2px;
 
 .p-line-heigth {
   line-height: 2em;
+  font-size: 1.09em;
 }
