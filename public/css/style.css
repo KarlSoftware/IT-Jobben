@@ -33,7 +33,7 @@ h1, h2, h3, p{
 
 
 .jumbotron {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 /*reset navbar border radius*/
 .navbar {
@@ -52,7 +52,6 @@ h1, h2, h3, p{
   color: white;
   display: flex;
   align-items: center;
-  /*box-shadow: 0 0 4px #3f3f3f;*/
 }
 
 .full-viewhight {
@@ -109,14 +108,14 @@ h1, h2, h3, p{
   color: white;
 }
 
+/* push a container up */
 #push-up {
   margin-top: -100px;
-
 }
 
 /* Give ad-info box and ad-image shadowing */
 .ad-info, .ad-image {
-  /*box-shadow: 2px 0 2px 0 #3f3f3f;*/
+  box-shadow: 2px 0 2px 0 #3f3f3f;
 
 }
 
@@ -130,7 +129,7 @@ h1, h2, h3, p{
 /* Helper class for containers / rows that need white background and a suble shadow */
 .white-subtle-shadow {
   background-color: #FFFFFF;
-  /*box-shadow: 0 0 1px #D3D3D3;*/
+  box-shadow: 0 0 1px #D3D3D3;
 }
 
 /* helper class to make a container light gray */
@@ -148,7 +147,7 @@ h1, h2, h3, p{
 /* helper class to add custom margin top and bottom to containers */
 .margin-top-bottom {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /*Helper class used with pushing down tables a bit*/
@@ -207,7 +206,7 @@ height: 2px;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
-    color: rgba(25,188,156,1);
+    color: white;
 }
 @keyframes blink{
     0% { opacity:1; }
@@ -263,26 +262,11 @@ height: 2px;
   font-size: 1.2em;
   line-height: 2em;
 }
-.white {
-  background-color: white;
-  color: black;
-}
 
-.gray {
-  background-color: gray;
-  color: white;
-}
-
+/* helper class for example used to turn icons green */
 .green {
-  background-color: rgba(25,188,156,1);
-  color: white;
+  color: rgba(25,188,156,1);
 }
-
-.blue {
-  background-color: #09A9BF;
-  color: white;
-}
-
 
 
 .push-down {
@@ -293,28 +277,11 @@ height: 2px;
   margin-bottom: 15px;
 }
 
-.down-arrow {
-  margin 0 auto;
-  border-left:50px solid transparent;
-  border-right:50px solid transparent;
-  margin-top: 0px;
-  margin-left:60%;
-  float: left;
+.heading-spaced {
+  letter-spacing: 0.2em;
 }
-.down-arrow-2 {
-  margin 0 auto;
-  border-left:50px solid transparent;
-  border-right:50px solid transparent;
-  margin-top: 0px;
-  margin-left:30%;
-  float: left;
-}
-.green-arrow {
-  border-top:50px solid rgba(25,188,156,1);
-}
-.gray-arrow {
-  border-top:50px solid gray;
-}
-.green-arrow {
-  border-top:50px solid rgba(25,188,156,1);
+
+.p-line-heigth {
+  line-height: 2em;
+  font-size: 1.09em;
 }

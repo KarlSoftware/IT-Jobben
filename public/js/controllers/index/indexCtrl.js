@@ -12,16 +12,15 @@ angular
         console.log('hello from index');
 
         $(".typed").typed({
-          strings: ["Frontend-utvecklare",
-                    "Dataoperatör",
-                    "Användbarhetsdesigner",
-                    "Nätverkstekniker",
-                    "Civilingenjör",
-                    "Programmerare"
+          strings: ["Som frontend-utvecklare",
+                    "Som användbarhetsdesigner",
+                    "Som civilingenjör",
+                    "Inom IT helt enkelt",
                     ],
           typeSpeed: 0.6,
-          backDelay: 1000,
-          startDelay: 1000
+          backDelay: 500,
+          startDelay: 1000,
+          cursorChar: "|"
         });
 
         new WOW().init();

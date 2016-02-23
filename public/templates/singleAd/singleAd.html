@@ -1,5 +1,6 @@
 <div ng-controller="singleAdCtrl">
 
+  <!-- Img jumbotron with ad heading -->
   <div class="jumbotron navbar-gap-fix ad-image {{randomImgClass}} vertical-center">
     <div class="container text-center">
       <div class="row animated bounceInUp">
@@ -7,12 +8,12 @@
           <h1>{{annons.annonsrubrik}}</h1>
           <h3><b class="ad-yrkesbenamning">{{annons.yrkesbenamning}}</b></h3>
         </div>
-
       </div>
     </div>
-  </div>
+  </div> <!-- end of img jumbotron -->
 
-  <div id="push-up" class="container-fluid container-fluid-fix">
+  <!-- Container with ad text. Pushed up with the help of #push-up -->
+  <div class="container-fluid container-fluid-fix">
     <div class="container">
       <div class="row margin-top-bottom white-subtle-shadow">
         <div class="col-lg-12">
@@ -27,6 +28,8 @@
   <!-- Container with other info about the ad -->
   <div class="container-fluid ad-info">
     <div class="container">
+
+      <!-- Row with info about Ansökan -->
       <div class="row">
         <div class="col col-lg-5 col-sm-5">
           <h1>Ansökan</h1>
@@ -46,6 +49,8 @@
         </div>
       </div> <!-- end or row -->
       <br>
+
+      <!-- Row with info about Arbetsplats -->
       <div class="row">
         <div class="col col-lg-5 col-sm-5">
           <h1>Arbetsplats</h1>
@@ -63,6 +68,8 @@
         </div>
       </div> <!-- end of row -->
       <br>
+
+      <!-- Row with info about Krav -->
       <div class="row">
         <div class="col col-lg-5 col-sm-5">
           <h1>Krav</h1>
@@ -74,11 +81,11 @@
           <p ng-repeat="license in driverslicenseList.korkortstyp">
             Krav om {{license}} körkort
           </p>
-
         </div>
       </div> <!-- end of row -->
-
       <br>
+
+      <!-- Row with info about Villkor -->
       <div class="row">
         <div class="col col-lg-5 col-sm-5">
           <h1>Villkor</h1>
@@ -91,12 +98,10 @@
           <p ng-if="villkor.arbetstidvaraktighet"><b>{{villkor.arbetstidvaraktighet}}</b></p>
           <p ng-if="villkor.lonetyp">Lönetyp <b>{{villkor.lonetyp}}</b></p>
           <p ng-if="villkor.loneform">Löneform <b>{{villkor.loneform}}</b></p>
-
         </div>
       </div> <!-- end of row -->
-      <br>
+
     </div> <!-- end of container -->
+  </div> <!-- end of container fluid -->
 
-  </div>
-
-</div>
+</div> <!-- end of controller -->

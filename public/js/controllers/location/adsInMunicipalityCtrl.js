@@ -2,7 +2,7 @@ angular
   .module('app')
 
     // Controller to get all municipalities in a county
-    .controller('municipalityAdsCtrl', [
+    .controller('adsInMunicipalityCtrl', [
       '$scope',
       '$http',
       '$stateParams',
