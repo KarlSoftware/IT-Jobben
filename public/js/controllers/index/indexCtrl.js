@@ -15,11 +15,12 @@ angular
           strings: ["Som frontend-utvecklare",
                     "Som användbarhetsdesigner",
                     "Som civilingenjör",
-                    "Inom IT",
+                    "Inom IT helt enkelt",
                     ],
           typeSpeed: 0.6,
-          backDelay: 1000,
+          backDelay: 500,
           startDelay: 1000,
+          cursorChar: "|"
         });
 
         new WOW().init();
