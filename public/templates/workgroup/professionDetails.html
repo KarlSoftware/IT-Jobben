@@ -28,29 +28,31 @@
     <!-- Ad results -->
     <div class="row">
       <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1">
-        <table class="table margin-top table-striped table-hover table-bordered">
-          <thead>
-            <tr>
-              <th>Annons</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Pagination content -->
-            <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
-              <td>
-                <a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
-                  <span class="text-muted">
-                    <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
-                    <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
-                    <span ng-if="ad.antalplatser == '0'">ingen info</span><br>
-                    <i class="fa fa-map-marker"> {{ad.kommunnamn}}</i>
-                    <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
-                  </span>
-                </a>
-              </td>
-            </tr> <!-- end of pagination content -->
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table margin-top table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>Annons</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Pagination content -->
+              <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
+                <td>
+                  <a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
+                    <span class="text-muted">
+                      <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
+                      <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
+                      <span ng-if="ad.antalplatser == '0'">ingen info</span><br>
+                      <i class="fa fa-map-marker"> {{ad.kommunnamn}}</i>
+                      <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                    </span>
+                  </a>
+                </td>
+              </tr> <!-- end of pagination content -->
+            </tbody>
+          </table>
+        </div>
       </div> <!-- end of col -->
     </div>
 
