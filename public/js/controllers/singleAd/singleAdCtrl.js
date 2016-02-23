@@ -18,6 +18,7 @@ angular
         'code4',
         'code5'
       ];
+
       // get a random item from image array and assign to scope variables
       $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
 
@@ -27,14 +28,13 @@ angular
       .then(function(response) {
         console.log(response);
         // attach response to scope variables
-        $scope.adDetails =      response;
-        $scope.annons =         response.data.body.platsannons.annons;
-        $scope.ansokan =        response.data.body.platsannons.ansokan;
-        $scope.arbetsplats =    response.data.body.platsannons.arbetsplats;
-        $scope.krav =           response.data.body.platsannons.krav;
+        $scope.adDetails = response;
+        $scope.annons = response.data.body.platsannons.annons;
+        $scope.ansokan = response.data.body.platsannons.ansokan;
+        $scope.arbetsplats = response.data.body.platsannons.arbetsplats;
+        $scope.krav = response.data.body.platsannons.krav;
         $scope.driverslicenseList = response.data.body.platsannons.krav.korkortslista;
-        $scope.villkor =        response.data.body.platsannons.villkor;
-        console.log($scope.adDetails);
+        $scope.villkor = response.data.body.platsannons.villkor;
 
         // do logic depending on what the response contains
         // logic for sista ansökningsdag
