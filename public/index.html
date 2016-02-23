@@ -15,7 +15,6 @@
   <!-- Angular app -->
   <div>
     <div ng-include="'templates/navbar.html'"></div>
-
     <div ui-view autoscroll="true"></div>
   </div>
 
@@ -70,13 +69,12 @@
 <!-- index page -->
 <script src="js/controllers/index/indexCtrl.js"></script>
 
-
 <script>
-  // get bootstrap navbar to collapse on click
-  $(document).on('click', function(){
-    $('.collapse').collapse('hide');
-  });
+$(document).on('click','.navbar-collapse.in',function(e) {
+  if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+      $(this).collapse('hide');
+  }
+});
 </script>
-
 </body>
 </html>
