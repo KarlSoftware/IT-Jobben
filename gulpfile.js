@@ -13,11 +13,6 @@ var gulp = require('gulp'),
 // variable for output directory
 var outputDir = './dist/'
 
-gulp.task('default', function() {
-  console.log('Gulp working!');
-
-});
-
 
 /*********************************************************************************
 * JAVASCRIPT
