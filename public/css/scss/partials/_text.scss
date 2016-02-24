@@ -1,0 +1,62 @@
+/* make bold text stand out a bit more */
+b {
+  font-size: 1.05em;
+}
+
+h1, h2, h3, p{
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+
+td a {
+  text-decoration: none !important;
+  width:100%;
+  display:block;
+}
+
+/* helper class to better format annonstext since they often contain newlines and such */
+.preserve-newline {
+    white-space: pre-wrap;
+    line-height: 1.9em;
+}
+
+/* class to give headers a little underline */
+.header-underline {
+  width: 50px;
+  border-top: 3px solid white;
+  display: inline-block;
+  position: relative;
+  bottom: 4px;
+}
+
+.ad-yrkesbenamning {
+  letter-spacing: 0.1em;
+}
+
+/* Styling for container on index-page */
+.bold-text {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.block-title {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+.block-text {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+.heading-spaced {
+  letter-spacing: 0.2em;
+}
+
+.p-line-heigth {
+  line-height: 2em;
+  font-size: 1.09em;
+}
