@@ -12,8 +12,8 @@ angular
         ignoreLoadingBar: true
         })
         .then(function(response) {
-        $scope.nrOfAds = response.data.body.soklista.totalt_antal_ledigajobb;
-        $scope.nrOfJobs = response.data.body.soklista.totalt_antal_platsannonser;
+        $scope.nrOfJobs = response.data.body.soklista.totalt_antal_ledigajobb;
+        $scope.nrOfAds = response.data.body.soklista.totalt_antal_platsannonser;
         console.log(response);
         $scope.workgroups = response.data.body.soklista.sokdata;
         });
