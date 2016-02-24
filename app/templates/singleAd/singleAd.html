@@ -67,8 +67,10 @@
           <br>
           <div ng-show="arbetsplats.kontaktpersonlista" ng-repeat="kontaktperson in kontaktpersoner">
             <h4>Kontaktperson</h4>
-            <!-- {{kontaktperson}} -->
-            <p>Namn <b>{{kontaktperson.namn}}</b></p>
+            {{kontaktperson}}
+            <p ng-if="kontaktperson.namn">Namn <b>{{kontaktperson.namn}}</b></p>
+            <p ng-if="kontaktperson.titel">Titel <b>{{kontaktperson.titel}}</b></p>
+
             <span ng-if="kontaktperson.telefonnummer">
               <p ng-if="kontaktperson.telefonnummer != ''">Telefonnummer <b>{{kontaktperson.telefonnummer}}</b></p>
             </span>
