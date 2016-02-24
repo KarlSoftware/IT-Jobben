@@ -6,13 +6,18 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$location',
+      function($scope, $http, $stateParams, $location) {
+
+        $scope.isActive = function (viewLocation) {
+          return viewLocation === $location.path().substring(0, 5);
+        };
 
 
-      $scope.doSearch = function () {
-        // set sessionStorage
-        sessionStorage.setItem("searchTerm", $scope.searchterm);
-        sessionStorage.setItem("paginationSearch", '1');
-      };
+        $scope.doSearch = function () {
+          // set sessionStorage
+          sessionStorage.setItem("searchTerm", $scope.searchterm);
+          sessionStorage.setItem("paginationSearch", '1');
+        };
 
     }]);

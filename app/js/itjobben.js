@@ -64,17 +64,17 @@ angular
       })
 
       .state('counties', {
-        url: '/lan',
+        url: '/plats/lan',
         templateUrl: 'templates/location/counties.html'
       })
 
       .state('singleCounty', {
-        url: '/lan/:countyID',
+        url: '/plats/lan/:countyID',
         templateUrl: 'templates/location/singleCounty.html'
       })
 
       .state('municipalityAds', {
-        url: '/kommun/:municipalityID/ads',
+        url: '/plats/kommun/:municipalityID/ads',
         templateUrl: 'templates/location/adsInMunicipality.html'
       })
 
@@ -95,36 +95,6 @@ angular
 
 
   }]);
-
-angular
-  .module('app')
-
-    // Controller to view all counties
-    .controller('indexCtrl', [
-      '$scope',
-      '$http',
-      '$stateParams',
-      function($scope, $http, $stateParams) {
-
-
-        console.log('hello from index');
-
-        $(".typed").typed({
-          strings: ["Som frontend-utvecklare",
-                    "Som användbarhetsdesigner",
-                    "Som civilingenjör",
-                    "Inom IT helt enkelt",
-                    ],
-          typeSpeed: 0.6,
-          backDelay: 500,
-          startDelay: 1000,
-          cursorChar: "|"
-        });
-
-        new WOW().init();
-
-
-    }]);
 
 angular
   .module('app')
@@ -300,19 +270,54 @@ angular
 angular
   .module('app')
 
-    // Controller for search bar
-    .controller('searchBarCtrl', [
+    // Controller to view all counties
+    .controller('indexCtrl', [
       '$scope',
       '$http',
       '$stateParams',
       function($scope, $http, $stateParams) {
 
 
-      $scope.doSearch = function () {
-        // set sessionStorage
-        sessionStorage.setItem("searchTerm", $scope.searchterm);
-        sessionStorage.setItem("paginationSearch", '1');
-      };
+        console.log('hello from index');
+
+        $(".typed").typed({
+          strings: ["Som frontend-utvecklare",
+                    "Som användbarhetsdesigner",
+                    "Som civilingenjör",
+                    "Inom IT helt enkelt",
+                    ],
+          typeSpeed: 0.6,
+          backDelay: 500,
+          startDelay: 1000,
+          cursorChar: "|"
+        });
+
+        new WOW().init();
+
+
+    }]);
+
+angular
+  .module('app')
+
+    // Controller for search bar
+    .controller('searchBarCtrl', [
+      '$scope',
+      '$http',
+      '$stateParams',
+      '$location',
+      function($scope, $http, $stateParams, $location) {
+
+        $scope.isActive = function (viewLocation) {
+          return viewLocation === $location.path().substring(0, 5);
+        };
+
+
+        $scope.doSearch = function () {
+          // set sessionStorage
+          sessionStorage.setItem("searchTerm", $scope.searchterm);
+          sessionStorage.setItem("paginationSearch", '1');
+        };
 
     }]);
 
@@ -890,24 +895,25 @@ angular
       '$http',
       function($scope, $http) {
 
-      $http.get('http://localhost:1339/api/yrkesgrupper/', {
+
+        $http.get('http://localhost:1339/api/yrkesgrupper/', {
         ignoreLoadingBar: true
-      })
-      .then(function(response) {
+        })
+        .then(function(response) {
         $scope.nrOfAds = response.data.body.soklista.totalt_antal_ledigajobb;
         $scope.nrOfJobs = response.data.body.soklista.totalt_antal_platsannonser;
         console.log(response);
         $scope.workgroups = response.data.body.soklista.sokdata;
-      });
+        });
 
-      // set sorting
-      $scope.sortType = 'namn'; // default sorting
-      $scope.sortReverse = false; // default to a-z, 1-9 etc
+        // set sorting
+        $scope.sortType = 'namn'; // default sorting
+        $scope.sortReverse = false; // default to a-z, 1-9 etc
 
-      // change current state of workgroup
-      $scope.setWorkgroup = function(workgroup, breadcrumb) {
+        // change current state of workgroup
+        $scope.setWorkgroup = function(workgroup, breadcrumb) {
         // set sessionStorage
         sessionStorage.setItem("workgroupName", workgroup);
         sessionStorage.setItem("workgroupBread", breadcrumb);
-      };
+        };
     }]); // end of controller

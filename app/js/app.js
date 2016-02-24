@@ -64,17 +64,17 @@ angular
       })
 
       .state('counties', {
-        url: '/lan',
+        url: '/plats/lan',
         templateUrl: 'templates/location/counties.html'
       })
 
       .state('singleCounty', {
-        url: '/lan/:countyID',
+        url: '/plats/lan/:countyID',
         templateUrl: 'templates/location/singleCounty.html'
       })
 
       .state('municipalityAds', {
-        url: '/kommun/:municipalityID/ads',
+        url: '/plats/kommun/:municipalityID/ads',
         templateUrl: 'templates/location/adsInMunicipality.html'
       })
 
