@@ -41,6 +41,10 @@ angular
 
           // set workgroup label scope
           $scope.workgroupLabels = theLabels;
+          // set dataJobs and dataAds to scope
+          $scope.dataJobs = dataJobs;
+          $scope.dataAds = dataAds;
+
 
           // set scope linking
           $scope.links = workgroupIds;

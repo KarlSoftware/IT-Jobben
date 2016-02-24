@@ -30,10 +30,12 @@ angular
             dataAds.push($scope.workgroups[i].antal_platsannonser);
             workgroupIds.push($scope.workgroups[i].id);
           }
-          console.log(workgroupIds);
 
           // set workgroup label scope
           $scope.workgroupLabels = theLabels;
+
+          $scope.dataJobs = dataJobs;
+          $scope.dataAds = dataAds;
 
           // set scope linking
           $scope.links = workgroupIds;
