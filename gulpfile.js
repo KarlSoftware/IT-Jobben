@@ -88,6 +88,17 @@ gulp.task('sass', function() {
 });
 
 /*
+* compress regular stylesheet
+*/
+gulp.task('compress-css', function() {
+  return gulp.src('public/css/style.css')
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(gulp.dest(outputDir + 'css'))
+});
+
+/*
 * Gulp watch
 */
 gulp.task('watch', function() {
@@ -101,6 +112,8 @@ gulp.task('watch', function() {
   gulp.watch('public/img/randomAds/*', ['images-randomAds']);
   // watch scss
   gulp.watch(['public/css/scss/*.scss', 'public/css/scss/partials/*.scss'], ['sass']);
+  // watch regular css for changes and compress
+  gulp.watch('public/css/style.css', ['compress-css']);
 });
 
 /*
