@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     jsmin = require('gulp-jsmin'),
     htmlmin = require('gulp-htmlmin'),
     removeHtmlComments = require('gulp-remove-html-comments'),
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber'),
+    image = require('gulp-image');
 
 gulp.task('default', function() {
   console.log('Gulp working!');
@@ -65,6 +66,15 @@ gulp.task('minify-html-templates-folders', function() {
 });
 
 /*
+* Optimize images
+*/
+gulp.task('images-randomAds', function() {
+  return gulp.src('public/img/randomAds/*.jpg')
+    .pipe(image())
+    .pipe(gulp.dest('./dist/img/randomAds/'))
+})
+
+/*
 * Gulp watch
 */
 gulp.task('watch', function() {
@@ -74,6 +84,8 @@ gulp.task('watch', function() {
   gulp.watch('public/index.html', ['minify-html-index']);
   gulp.watch('public/templates/*', ['minify-html-template-root']);
   gulp.watch('public/templates/*/*.html', ['minify-html-templates-folders']);
+  // watch randomAds images
+  gulp.watch('public/img/randomAds/*', ['images-randomAds']);
 })
 
 /*
