@@ -23,7 +23,7 @@ angular
       $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
 
       $http.get('http://localhost:1339/api/singleAd/' + ad + '', {
-        ignoreLoadingBar: true
+        ignoreLoadingBar: false
       })
       .then(function(response) {
         console.log(response);
@@ -76,6 +76,16 @@ angular
           } else {
             $scope.bil = 'Inget krav om egen bil';
           }
+
+        // logic for kontaktperson
+        if ($scope.arbetsplats.kontaktpersonlista) {
+          console.log('kontaktpersonlista finns');
+          $scope.kontaktpersoner = $scope.arbetsplats.kontaktpersonlista.kontaktpersondata;
+          $scope.kontaktNamn = $scope.arbetsplats.kontaktpersonlista.kontaktpersondata.namn;
+          console.log($scope.kontaktperson);
+        } else {
+          $scope.kontaktperson = 'Ingen info';
+        }
 
       }); // end of http then
 
