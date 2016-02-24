@@ -1,8 +1,8 @@
 .bowerrc
 node_modules/
-public/lib/
-public/img/code*
+app/lib/
+app/img/code*
 lib/
 dist/
-public/js/itjobben.js
-public/css/style.css
+app/js/itjobben.js
+app/css/style.css
