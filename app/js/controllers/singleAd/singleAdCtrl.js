@@ -23,7 +23,7 @@ angular
       $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
 
       $http.get('http://localhost:1339/api/singleAd/' + ad + '', {
-        ignoreLoadingBar: true
+        ignoreLoadingBar: false
       })
       .then(function(response) {
         console.log(response);
