@@ -1,3 +1,6 @@
+/*********************************************************************************
+* REQUIRE
+/********************************************************************************/
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     jsmin = require('gulp-jsmin'),
@@ -14,6 +17,11 @@ gulp.task('default', function() {
   console.log('Gulp working!');
 
 });
+
+
+/*********************************************************************************
+* JAVASCRIPT
+/********************************************************************************/
 
 /*
 * Concat and uglify .js files to output directory
@@ -36,6 +44,10 @@ gulp.task('js-dev', function() {
     .pipe(concat('itjobben.js'))
     .pipe(gulp.dest('./app/js'));
 });
+
+/*********************************************************************************
+* HTML
+/********************************************************************************/
 
 /*
 * Minify and remove comments from html index page
@@ -70,6 +82,10 @@ gulp.task('minify-html-templates-folders', function() {
     .pipe(gulp.dest(outputDir + 'templates'))
 });
 
+/*********************************************************************************
+* IMAGES
+/********************************************************************************/
+
 /*
 * Optimize images
 * Outputs to dist directory
@@ -79,6 +95,10 @@ gulp.task('images-randomAds', function() {
     .pipe(image())
     .pipe(gulp.dest(outputDir + 'img/randomAds/'))
 });
+
+/*********************************************************************************
+* STYLES
+/********************************************************************************/
 
 /*
 * Sass task
@@ -103,6 +123,11 @@ gulp.task('compress-css', function() {
     .pipe(gulp.dest(outputDir + 'css'))
 });
 
+
+/*********************************************************************************
+* WATCH
+/********************************************************************************/
+
 /*
 * Gulp watch
 */
@@ -120,6 +145,10 @@ gulp.task('watch', function() {
   // watch regular css for changes and compress
   gulp.watch('app/css/style.css', ['compress-css']);
 });
+
+/*********************************************************************************
+* DEFAULT
+/********************************************************************************/
 
 /*
 * Gulp default
