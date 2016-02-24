@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     jsmin = require('gulp-jsmin'),
     htmlmin = require('gulp-htmlmin'),
-    removeHtmlComments = require('gulp-remove-html-comments');
+    removeHtmlComments = require('gulp-remove-html-comments'),
+    plumber = require('gulp-plumber');
 
 gulp.task('default', function() {
   console.log('Gulp working!');
@@ -16,6 +17,7 @@ gulp.task('default', function() {
 */
 gulp.task('js-dist', function() {
   return gulp.src(['public/js/app.js', 'public/js/controllers/*/*.js'])
+    .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(jsmin())
     .pipe(gulp.dest('./dist/js'));
@@ -27,6 +29,7 @@ gulp.task('js-dist', function() {
 */
 gulp.task('js-dev', function() {
   return gulp.src(['public/js/app.js', 'public/js/controllers/*/*.js'])
+    .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(gulp.dest('./public/js'));
 });
