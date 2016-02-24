@@ -42,7 +42,7 @@ angular
     .controller('municipalityChildCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
 
       $http.get('http://localhost:1339/location/match/municipality/' + $scope.municipality.id +'', {
-        ignoreLoadingBar: true
+        ignoreLoadingBar: false
       })
       .then(function(response) {
         $scope.adsInMunicipality = response.data.body.matchningslista.antal_platsannonser_exakta;

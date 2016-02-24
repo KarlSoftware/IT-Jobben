@@ -35,7 +35,7 @@ angular
       function($scope, $http, $stateParams) {
 
         $http.get('http://localhost:1339/location/match/county/' + $scope.county.id +'', {
-          ignoreLoadingBar: true
+          ignoreLoadingBar: false
         })
         .then(function(response) {
           $scope.adsInCounty = response.data.body.matchningslista.antal_platsannonser_exakta;
