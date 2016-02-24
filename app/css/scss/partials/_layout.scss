@@ -1,0 +1,126 @@
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+body {
+  background-color: #F1F1F1;
+  margin-top: 70px;
+}
+
+canvas {
+  margin: 0;
+  padding: 0;
+  width: 99% !important;
+}
+
+.jumbotron {
+  margin-bottom: 20px;
+}
+
+
+/*Ad image class*/
+.ad-image {
+  height: 85vh;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.full-viewhight {
+  height: 100vh;
+}
+
+/* helper class to push a container fluid up, used on single ad page */
+.container-fluid-fix {
+  margin-top: -29px;
+  z-index: -1;
+}
+
+/* helper class to add custom margin top and bottom to containers */
+.margin-top-bottom {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/*Helper class used with pushing down tables a bit*/
+.margin-top {
+  margin-top: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+/* give breadcrumbs some margin */
+.breadcrumb {
+  margin-top: 15px;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
+}
+
+/* Styling for index blocks */
+.popout-block {
+  min-height: 400px;
+}
+
+
+.push-down {
+  margin-top: 30px;
+}
+
+
+/*styling for info block on single ad page*/
+.ad-info {
+  @include gradiant-bg();
+}
+
+
+/* push a container up */
+#push-up {
+  margin-top: -100px;
+}
+
+/* Helper class for containers / rows that need white background and a suble shadow */
+.white-subtle-shadow {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 1px #D3D3D3;
+}
+
+/* helper class to make a container light gray */
+.container-gray {
+  background-color: #F1F1F1;
+}
+
+#loading-bar .bar {
+background: #F1F1F1;
+height: 2px;
+}
+
+/* helper class for example used to turn icons green */
+.green {
+  color: $primary-color;
+}
+
+
+/* Give ad-info box and ad-image shadowing */
+.ad-info, .ad-image {
+  box-shadow: 2px 0 2px 0 #3f3f3f;
+}
+
+/*
+* Style for diffrent code classes. Used at random with the help of angular code
+*/
+.code1 {
+  @include code-image('code1');
+}
+.code2 {
+  @include code-image('code2');
+}
+.code3 {
+  @include code-image('code3');
+}
+.code4 {
+  @include code-image('code4');
+}
+.code5 {
+  @include code-image('code5');
+}

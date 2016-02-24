@@ -27,7 +27,7 @@ module.exports = function(app) {
 
 
   // serve static files
-  app.use(express.static(__dirname + './../public'));
+  app.use(express.static(__dirname + './../dist'));
   app.use('/lib', express.static(__dirname + './../lib'));
   app.use('/node_modules', express.static(__dirname + './../node_modules'));
 
