@@ -6,9 +6,6 @@ var express = require('express'),
 // Base URL from arbetsförmedlingen
 var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 
-
-
-
 module.exports = function(app) {
 
   // Declare router
@@ -101,7 +98,5 @@ module.exports = function(app) {
     })
 
   });
-
-
 
 }

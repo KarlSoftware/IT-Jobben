@@ -1,0 +1,19 @@
+// mixin for code block images
+@mixin code-image($img-name) {
+  background: url('../img/randomAds/' + $img-name + '.jpg') no-repeat center center;
+  background-size: cover;
+	background-repeat:  no-repeat;
+	background-position: center center;
+}
+
+// mixin for gradiant ad info block
+@mixin gradiant-bg() {
+  background: $primary-color;
+  background: -moz-linear-gradient(left, $primary-color 0%, $gradiant-color 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, $primary-color), color-stop(100%, $gradiant-color));
+  background: -webkit-linear-gradient(left, $primary-color 0%, $gradiant-color 100%);
+  background: -o-linear-gradient(left, $primary-color 0%, $gradiant-color 100%);
+  background: -ms-linear-gradient(left, $primary-color 0%, $gradiant-color 100%);
+  background: linear-gradient(to right, $primary-color 0%, $gradiant-color 100%);
+  color: white;
+}

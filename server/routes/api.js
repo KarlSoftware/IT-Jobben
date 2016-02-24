@@ -6,11 +6,6 @@ var express = require('express'),
 // Base URL from arbetsförmedlingen
 var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 
-
-
-
-
-
 module.exports = function(app) {
 
   // Declare router
@@ -18,8 +13,6 @@ module.exports = function(app) {
 
   // delcare prefix url for api
   app.use('/api', router);
-
-
 
   // Routes
   router.get('/help', function (req, res) {
@@ -91,9 +84,5 @@ module.exports = function(app) {
     })
 
   }) // end of router
-
-
-
-
 
 }
