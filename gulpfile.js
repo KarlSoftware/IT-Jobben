@@ -16,8 +16,7 @@ gulp.task('default', function() {
 */
 gulp.task('js-dist', function() {
   return gulp.src(['public/js/app.js', 'public/js/controllers/*/*.js'])
-    .pipe(concat('itjobben.js', {
-    }))
+    .pipe(concat('itjobben.js'))
     .pipe(jsmin())
     .pipe(gulp.dest('./dist/js'));
 });
@@ -28,8 +27,7 @@ gulp.task('js-dist', function() {
 */
 gulp.task('js-dev', function() {
   return gulp.src(['public/js/app.js', 'public/js/controllers/*/*.js'])
-    .pipe(concat('itjobben.js', {
-    }))
+    .pipe(concat('itjobben.js'))
     .pipe(gulp.dest('./public/js'));
 });
 
