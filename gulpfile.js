@@ -5,13 +5,16 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     removeHtmlComments = require('gulp-remove-html-comments'),
     plumber = require('gulp-plumber'),
-    image = require('gulp-image');
+    image = require('gulp-image'),
+    sass = require('gulp-sass');
+
+// variable for output directory
+var outputDir = './dist/'
 
 gulp.task('default', function() {
   console.log('Gulp working!');
 
 });
-
 
 /*
 * Concat and uglify .js files
@@ -21,7 +24,7 @@ gulp.task('js-dist', function() {
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(jsmin())
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest(outputDir + 'js'));
 });
 
 /*
@@ -42,7 +45,7 @@ gulp.task('minify-html-index', function() {
   return gulp.src('public/index.html')
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(outputDir))
 });
 
 /*
@@ -52,7 +55,7 @@ gulp.task('minify-html-template-root', function() {
   return gulp.src('public/templates/*.html')
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./dist/templates/'))
+    .pipe(gulp.dest(outputDir + 'templates'))
 });
 
 /*
@@ -62,7 +65,7 @@ gulp.task('minify-html-templates-folders', function() {
   return gulp.src('public/templates/*/*.html')
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./dist/templates/'))
+    .pipe(gulp.dest(outputDir + 'templates'))
 });
 
 /*
@@ -71,8 +74,18 @@ gulp.task('minify-html-templates-folders', function() {
 gulp.task('images-randomAds', function() {
   return gulp.src('public/img/randomAds/*.jpg')
     .pipe(image())
-    .pipe(gulp.dest('./dist/img/randomAds/'))
-})
+    .pipe(gulp.dest(outputDir + 'img/randomAds/'))
+});
+
+/*
+* Sass task
+*/
+gulp.task('sass', function() {
+  return gulp.src(['public/css/scss/*.scss', 'public/css/scss/partials/*.scss'])
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(gulp.dest('public/css/'))
+});
 
 /*
 * Gulp watch
@@ -86,7 +99,9 @@ gulp.task('watch', function() {
   gulp.watch('public/templates/*/*.html', ['minify-html-templates-folders']);
   // watch randomAds images
   gulp.watch('public/img/randomAds/*', ['images-randomAds']);
-})
+  // watch scss
+  gulp.watch(['public/css/scss/*.scss', 'public/css/scss/partials/*.scss'], ['sass']);
+});
 
 /*
 * Gulp default
