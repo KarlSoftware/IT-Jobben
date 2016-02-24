@@ -26,7 +26,6 @@ angular
       .then(function(response) {
         $scope.municipalities = response.data.body.soklista.sokdata;
         console.log(response);
-        // $scope.workgroup = response.data.body.soklista.sokdata;
       });
 
       // set locationState and breadcrumb state upon clicking a municipality

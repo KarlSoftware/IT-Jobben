@@ -17,10 +17,10 @@ gulp.task('default', function() {
 });
 
 /*
-* Concat and uglify .js files
+* Concat and uglify .js files to output directory
 */
 gulp.task('js-dist', function() {
-  return gulp.src(['public/js/app.js', 'public/js/controllers/*/*.js'])
+  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js'])
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(jsmin())
@@ -29,20 +29,21 @@ gulp.task('js-dist', function() {
 
 /*
 * Concat and uglify .js files
-* Outputs in public directory for use while development
+* Outputs in app directory for use while development
 */
 gulp.task('js-dev', function() {
-  return gulp.src(['public/js/app.js', 'public/js/controllers/*/*.js'])
+  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js'])
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
-    .pipe(gulp.dest('./public/js'));
+    .pipe(gulp.dest('./app/js'));
 });
 
 /*
 * Minify and remove comments from html index page
+* Outputs to dist directory
 */
 gulp.task('minify-html-index', function() {
-  return gulp.src('public/index.html')
+  return gulp.src('app/index.html')
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(outputDir))
@@ -50,9 +51,10 @@ gulp.task('minify-html-index', function() {
 
 /*
 * Minify and remove comments from html template root page
+* Outputs to dist directory
 */
 gulp.task('minify-html-template-root', function() {
-  return gulp.src('public/templates/*.html')
+  return gulp.src('app/templates/*.html')
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(outputDir + 'templates'))
@@ -60,9 +62,10 @@ gulp.task('minify-html-template-root', function() {
 
 /*
 * Minify and remove comments from html template root page
+* Outputs to dist directory
 */
 gulp.task('minify-html-templates-folders', function() {
-  return gulp.src('public/templates/*/*.html')
+  return gulp.src('app/templates/*/*.html')
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(outputDir + 'templates'))
@@ -70,28 +73,31 @@ gulp.task('minify-html-templates-folders', function() {
 
 /*
 * Optimize images
+* Outputs to dist directory
 */
 gulp.task('images-randomAds', function() {
-  return gulp.src('public/img/randomAds/*.jpg')
+  return gulp.src('app/img/randomAds/*.jpg')
     .pipe(image())
     .pipe(gulp.dest(outputDir + 'img/randomAds/'))
 });
 
 /*
 * Sass task
+* Outputs to app directory
 */
 gulp.task('sass', function() {
-  return gulp.src(['public/css/scss/*.scss', 'public/css/scss/partials/*.scss'])
+  return gulp.src(['app/css/scss/*.scss', 'app/css/scss/partials/*.scss'])
     .pipe(plumber())
     .pipe(sass())
-    .pipe(gulp.dest('public/css/'))
+    .pipe(gulp.dest('app/css/'))
 });
 
 /*
 * compress regular stylesheet
+* Outputs to dist directory
 */
 gulp.task('compress-css', function() {
-  return gulp.src('public/css/style.css')
+  return gulp.src('app/css/style.css')
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
@@ -103,17 +109,17 @@ gulp.task('compress-css', function() {
 */
 gulp.task('watch', function() {
   // watch js
-  gulp.watch(['public/js/app.js', 'public/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
+  gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
   // watch html
-  gulp.watch('public/index.html', ['minify-html-index']);
-  gulp.watch('public/templates/*', ['minify-html-template-root']);
-  gulp.watch('public/templates/*/*.html', ['minify-html-templates-folders']);
+  gulp.watch('app/index.html', ['minify-html-index']);
+  gulp.watch('app/templates/*', ['minify-html-template-root']);
+  gulp.watch('app/templates/*/*.html', ['minify-html-templates-folders']);
   // watch randomAds images
-  gulp.watch('public/img/randomAds/*', ['images-randomAds']);
+  gulp.watch('app/img/randomAds/*', ['images-randomAds']);
   // watch scss
-  gulp.watch(['public/css/scss/*.scss', 'public/css/scss/partials/*.scss'], ['sass']);
+  gulp.watch(['app/css/scss/*.scss', 'app/css/scss/partials/*.scss'], ['sass']);
   // watch regular css for changes and compress
-  gulp.watch('public/css/style.css', ['compress-css']);
+  gulp.watch('app/css/style.css', ['compress-css']);
 });
 
 /*
