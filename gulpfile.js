@@ -65,8 +65,12 @@ gulp.task('minify-html-templates-folders', function() {
 * Gulp watch
 */
 gulp.task('watch', function() {
+  // watch js
   gulp.watch(['public/js/app.js', 'public/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
-  gulp.watch(['public/index.html', 'public/templates/*', 'public/templates/*/*.html'], ['minify-html-index', 'minify-html-template-root', 'minify-html-templates-folders'])
+  // watch html
+  gulp.watch('public/index.html', ['minify-html-index']);
+  gulp.watch('public/templates/*', ['minify-html-template-root']);
+  gulp.watch('public/templates/*/*.html', ['minify-html-templates-folders']);
 })
 
 /*
