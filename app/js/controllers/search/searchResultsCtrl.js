@@ -9,7 +9,7 @@ angular
 
       $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
-      // fetch current pagination page. Defaults to 1
+      // fetch current pagination page. Defaults to 1 if pagination sessionStorage isn't set yet
       if (sessionStorage.getItem("paginationSearch") === null) {
         $scope.pagination = '1';
       } else {
