@@ -17,9 +17,9 @@
        <li ng-class="{ active: isActive('/stat') }"><a ui-sref='statistics'>Statistik</a></li>
 
      </ul>
-     <form class="navbar-form navbar-right" role="search">
+     <form class="navbar-form navbar-right" ng-submit="doSearch()" role="search">
         <div class="form-group">
-          <input type="text" ng-model="searchterm" class="form-control" placeholder="Sök efter...">
+          <input type="text" ng-model="navbarSearchTerm" class="form-control" placeholder="Sök efter..." id="searchBar">
         </div>
         <a type="submit" ng-click="doSearch()" ng-href="#/sökning" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
       </form>
