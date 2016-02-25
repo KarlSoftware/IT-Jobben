@@ -44,7 +44,7 @@ angular
       })
 
       .state('searchresults', {
-        url: '/searchresults',
+        url: '/sökning',
         templateUrl: 'templates/search/searchResults.html'
       })
 
