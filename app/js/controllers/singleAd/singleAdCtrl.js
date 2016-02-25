@@ -79,10 +79,8 @@ angular
 
         // logic for kontaktperson
         if ($scope.arbetsplats.kontaktpersonlista) {
-          console.log('kontaktpersonlista finns');
           $scope.kontaktpersoner = $scope.arbetsplats.kontaktpersonlista.kontaktpersondata;
           $scope.kontaktNamn = $scope.arbetsplats.kontaktpersonlista.kontaktpersondata.namn;
-          console.log($scope.kontaktperson);
         } else {
           $scope.kontaktperson = 'Ingen info';
         }
