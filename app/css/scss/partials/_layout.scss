@@ -1,8 +1,14 @@
 *, *:before, *:after {box-sizing:  border-box !important;}
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: #F1F1F1;
   margin-top: 70px;
+  margin-bottom: 60px;
 }
 
 canvas {
