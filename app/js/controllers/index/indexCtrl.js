@@ -8,9 +8,6 @@ angular
       '$stateParams',
       function($scope, $http, $stateParams) {
 
-
-        console.log('hello from index');
-
         $(".typed").typed({
           strings: ["Som frontend-utvecklare",
                     "Som användbarhetsdesigner",
