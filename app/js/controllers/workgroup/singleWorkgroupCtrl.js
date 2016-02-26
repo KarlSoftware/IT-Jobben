@@ -21,7 +21,7 @@ angular
       sessionStorage.setItem("paginationProfession", '1');
 
       $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID, {
-        ignoreLoadingBar: true
+        ignoreLoadingBar: false
       })
       .then(function(response) {
         $scope.data = response;

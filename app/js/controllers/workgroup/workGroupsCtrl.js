@@ -9,7 +9,7 @@ angular
 
 
         $http.get('http://localhost:1339/api/yrkesgrupper/', {
-        ignoreLoadingBar: true
+        ignoreLoadingBar: false
         })
         .then(function(response) {
         $scope.nrOfJobs = response.data.body.soklista.totalt_antal_ledigajobb;

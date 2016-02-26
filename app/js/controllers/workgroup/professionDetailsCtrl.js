@@ -31,7 +31,9 @@ angular
       // set empty array to fill up with 100% matching ads
       adsArrayExact = [];
 
-      $http.get('http://localhost:1339/api/yrke/' + id)
+      $http.get('http://localhost:1339/api/yrke/' + id, {
+        ignoreLoadingBar: false
+      })
       .then(function(response) {
         $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
         $scope.ads = response.data.body.matchningslista.matchningdata;
