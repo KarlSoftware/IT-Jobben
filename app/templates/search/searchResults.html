@@ -1,6 +1,6 @@
 <div class="container-fluid" ng-controller="searchResultsCtrl">
   <!-- Container with search Bar -->
-  <div class="container white-subtle-shadow padding-bottom">
+  <div class="container white-subtle-shadow margin-bottom">
     <div class="row">
       <br>
       <!-- Search bar -->
@@ -58,7 +58,7 @@
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                       <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
                       <span ng-if="ad.antalplatser == '0'">ingen info</span><br>
-                      <i class="fa fa-map-marker"> </i> {{ad.kommunnamn}} 
+                      <i class="fa fa-map-marker"> </i> {{ad.kommunnamn}}
                       <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}} <br>
                       <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
                     </span>
