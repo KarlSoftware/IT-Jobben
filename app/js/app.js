@@ -38,6 +38,11 @@ angular
         templateUrl: 'templates/index.html'
       })
 
+      .state('about', {
+        url: '/about',
+        templateUrl: 'templates/about.html'
+      })
+
       .state('singleAd', {
         url: '/annons/:adID',
         templateUrl: 'templates/singleAd/singleAd.html'
