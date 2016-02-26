@@ -6,7 +6,7 @@
       <div class="row animated bounceInUp">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h1>{{annons.annonsrubrik}}</h1>
-          <h3><b class="ad-yrkesbenamning">{{annons.yrkesbenamning}}</b></h3>
+          <h3><b class="ad-yrkesbenamning">{{annons.yrkesbenamning}}</strong></h3>
         </div>
       </div>
     </div>
@@ -37,14 +37,14 @@
         </div>
         <div class="col-lg-5 col-sm-5 col-md-offset-2 col-sm-offset-2">
           <br>
-          <p>Lediga tjänster <b>{{annons.antal_platser}}</b></p>
-          <p>Tjänsten finns i <b>{{annons.kommunnamn}}</b></p>
-          <p>Yrkesbenämning <b>{{annons.yrkesbenamning}}</b></p>
-          <p>Annonsen publicerades <b>{{annons.publiceraddatum | amCalendar}}</b></p>
-          <p>Sista ansökningsdag <b>{{sista_ansokningsdag}}</b>
+          <p>Lediga tjänster <strong>{{annons.antal_platser}}</strong></p>
+          <p>Tjänsten finns i <strong>{{annons.kommunnamn}}</strong></p>
+          <p>Yrkesbenämning <strong>{{annons.yrkesbenamning}}</strong></p>
+          <p>Annonsen publicerades <strong>{{annons.publiceraddatum | amCalendar}}</strong></p>
+          <p>Sista ansökningsdag <strong>{{sista_ansokningsdag}}</strong>
           </p>
-          <p>Annonsens referens <b>{{referens}}</b></p>
-          <p>Epost <b>{{epost}}</b></p>
+          <p>Annonsens referens <strong>{{referens}}</strong></p>
+          <p>Epost <strong>{{epost}}</strong></p>
           <br>
           <a ng-if="ansokan.webbplats !=''" class="btn btn-primary btn-sm" ng-href="{{annons.platsannonsUrl}}">Arbetsförmedlingen</a>
         </div>
@@ -59,23 +59,23 @@
         <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
           <br>
           <h4>{{arbetsplats.arbetsplatsnamn}}</h4>
-          <p ng-if="arbetsplats.postnummer">Postnummer <b>{{arbetsplats.postnummer}}</b></p>
-          <p ng-if="arbetsplats.postadress">Postadress <b>{{arbetsplats.postadress}}</b></p>
-          <p ng-if="arbetsplats.postort">Postort <b>{{arbetsplats.postort}}</b></p>
-          <p ng-if="arbetsplats.land"><b>{{arbetsplats.land}}</b></p>
-          <p ng-if="arbetsplats.besoksadress">Besöksadress <b>{{arbetsplats.besoksadress}}</b></p>
+          <p ng-if="arbetsplats.postnummer">Postnummer <strong>{{arbetsplats.postnummer}}</strong></p>
+          <p ng-if="arbetsplats.postadress">Postadress <strong>{{arbetsplats.postadress}}</strong></p>
+          <p ng-if="arbetsplats.postort">Postort <strong>{{arbetsplats.postort}}</strong></p>
+          <p ng-if="arbetsplats.land"><strong>{{arbetsplats.land}}</strong></p>
+          <p ng-if="arbetsplats.besoksadress">Besöksadress <strong>{{arbetsplats.besoksadress}}</strong></p>
           <br>
           <div ng-show="arbetsplats.kontaktpersonlista" ng-repeat="kontaktperson in kontaktpersoner">
             <h4>Kontaktperson</h4>
-            <p ng-if="kontaktperson.namn">Namn <b>{{kontaktperson.namn}}</b></p>
-            <p ng-if="kontaktperson.titel">Titel <b>{{kontaktperson.titel}}</b></p>
+            <p ng-if="kontaktperson.namn">Namn <strong>{{kontaktperson.namn}}</strong></p>
+            <p ng-if="kontaktperson.titel">Titel <strong>{{kontaktperson.titel}}</strong></p>
 
             <span ng-if="kontaktperson.telefonnummer">
-              <p ng-if="kontaktperson.telefonnummer != ''">Telefonnummer <b>{{kontaktperson.telefonnummer}}</b></p>
+              <p ng-if="kontaktperson.telefonnummer != ''">Telefonnummer <strong>{{kontaktperson.telefonnummer}}</strong></p>
             </span>
             <span ng-if="kontaktperson.epostadress">
-              <p ng-if="kontaktperson.epostadress != ''">Epost <b>{{kontaktperson.epostadress}}</b></p>
-              <p ng-if="kontaktperson.epostadress == ''">Epost <b>Ingen info</b></p>
+              <p ng-if="kontaktperson.epostadress != ''">Epost <strong>{{kontaktperson.epostadress}}</strong></p>
+              <p ng-if="kontaktperson.epostadress == ''">Epost <strong>Ingen info</strong></p>
             </span>
           </div>
           <a ng-if="arbetsplats.hemsida" class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}">Arbetsplatsens hemsida</a>
@@ -107,11 +107,11 @@
         </div>
         <div class="col-lg-5 col-sm-5 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
           <br>
-          <p ng-if="villkor.varaktighet">Varaktighet <b>{{villkor.varaktighet}}</b></p>
-          <p ng-if="villkor.arbetstid">Arbetstid <b>{{villkor.arbetstid}}</b></p>
-          <p ng-if="villkor.arbetstidvaraktighet"><b>{{villkor.arbetstidvaraktighet}}</b></p>
-          <p ng-if="villkor.lonetyp">Lönetyp <b>{{villkor.lonetyp}}</b></p>
-          <p ng-if="villkor.loneform">Löneform <b>{{villkor.loneform}}</b></p>
+          <p ng-if="villkor.varaktighet">Varaktighet <strong>{{villkor.varaktighet}}</strong></p>
+          <p ng-if="villkor.arbetstid">Arbetstid <strong>{{villkor.arbetstid}}</strong></p>
+          <p ng-if="villkor.arbetstidvaraktighet"><strong>{{villkor.arbetstidvaraktighet}}</strong></p>
+          <p ng-if="villkor.lonetyp">Lönetyp <strong>{{villkor.lonetyp}}</strong></p>
+          <p ng-if="villkor.loneform">Löneform <strong>{{villkor.loneform}}</strong></p>
         </div>
       </div> <!-- end of row -->
 
