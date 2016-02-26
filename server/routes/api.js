@@ -37,12 +37,20 @@ module.exports = function(app) {
   // route for searching
   router.get('/search/:searchTerm', function (req, res) {
 
-    var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&nyckelord=' +req.params.searchTerm + '&antalrader=10000');
-    Request.headers({
-      'Accept': 'application/json',
-      'Accept-Language': 'sv'
-    }).end(function (response) {
-      res.send(response);
+    // make request
+    request(
+      {
+        uri: 'http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?yrkesomradeid=3&nyckelord=' + encodeURIComponent(req.params.searchTerm) + '&antalrader=10000',
+        method: 'GET',
+        encoding: 'UTF-8',
+        headers : {
+          'Accept': 'application/json',
+          'Accept-language': 'sv',
+          'Charset': 'UTF-8'
+        },
+      },
+      function (error, response, body) {
+        res.send(body);
     })
   })
 

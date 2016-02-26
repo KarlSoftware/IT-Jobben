@@ -17,12 +17,14 @@ angular
       }
 
       // set empty array to fill up with ads matching above 75%
-      adsAbove75 = [];
+      var adsAbove75 = [];
 
-      $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"))
+      $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"), {
+        ignoreLoadingBar: false,
+      })
       .then(function(response) {
         console.log(response);
-        $scope.ads = response.data.body.matchningslista.matchningdata;
+        $scope.ads = response.data.matchningslista.matchningdata;
         // loop through ads to get 100% matches
         for (i = 0; i < $scope.ads.length; i++) {
           if ($scope.ads[i].relevans == 100) {
@@ -46,7 +48,7 @@ angular
       // function to search again
       $scope.search = function () {
 
-        // set empty array to fill up with ads matching above 75%
+        // reset results array
         adsAbove75 = [];
 
         // reset pagination page to Defaults
@@ -58,10 +60,12 @@ angular
 
 
         // do http req with new search term
-        $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"))
+        $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"), {
+          ignoreLoadingBar: false,
+        })
         .then(function(response) {
           console.log(response);
-          $scope.ads = response.data.body.matchningslista.matchningdata;
+          $scope.ads = response.data.matchningslista.matchningdata;
           // loop through ads to get 100% matches
           for (i = 0; i < $scope.ads.length; i++) {
             if ($scope.ads[i].relevans == 100) {
