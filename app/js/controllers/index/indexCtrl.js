@@ -1,15 +1,16 @@
 angular
   .module('app')
 
-    // Controller to view all counties
+    // Controller for index page
     .controller('indexCtrl', [
       '$scope',
       '$http',
+      '$rootScope',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      function($scope, $http, $rootScope, $stateParams) {
 
-
-        console.log('hello from index');
+        // set header title
+        $rootScope.header = 'IT Jobben';
 
         $(".typed").typed({
           strings: ["Som frontend-utvecklare",

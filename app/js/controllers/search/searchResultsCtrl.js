@@ -1,12 +1,14 @@
 angular
   .module('app')
 
-    // Controller for search bar results
+    // Controller for search results
     .controller('searchResultsCtrl', [
       '$scope',
       '$http',
-      function($scope, $http) {
+      '$rootScope',
+      function($scope, $http, $rootScope) {
 
+      $rootScope.header = 'Sökning - IT Jobben'
       $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
       // fetch current pagination page. Defaults to 1 if pagination sessionStorage isn't set yet

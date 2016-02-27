@@ -1,11 +1,15 @@
 angular
   .module('app')
 
-    // Controller for viewing single ad
+    // Controller for viewing stats about the workgroups
     .controller('workgroupsStatsCtrl', [
       '$scope',
       '$http',
-      function($scope, $http) {
+      '$rootScope',
+      function($scope, $http, $rootScope) {
+
+        // set page title
+        $rootScope.header = 'Statistik - IT Jobben'
 
         // empty arrays to be filled up in a for-loop
         var theLabels = []; // actual labels. workgroups and such
