@@ -1,13 +1,16 @@
 angular
   .module('app')
 
-    // Controller to get all municipalities in a municipality
+    // Controller to get all municipalities in a county
     .controller('municipalitiesCtrl', [
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$rootScope',
+      function($scope, $http, $stateParams, $rootScope) {
 
+      // set page title
+      $rootScope.header = sessionStorage.getItem("countyName") + ' - IT Jobben';
       // Create variable from param
       var countyID = $stateParams.countyID;
 

@@ -1,11 +1,15 @@
 angular
   .module('app')
 
-    // Controller for viewing single ad
+    // Controller for viewing stats within a workgroup
     .controller('singleWorkgroupStatsCtrl', [
       '$scope',
       '$http',
-      function($scope, $http) {
+      '$rootScope',
+      function($scope, $http, $rootScope) {
+
+        // set page title
+        $rootScope.header = 'Statistik för ' + sessionStorage.getItem("workgroupStatsName") + ' - IT Jobben';
 
         // set current workgroup
         $scope.currentWorkgroup = sessionStorage.getItem("workgroupStatsName");

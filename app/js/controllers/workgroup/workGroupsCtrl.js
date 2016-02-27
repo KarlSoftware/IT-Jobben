@@ -5,8 +5,11 @@ angular
     .controller('workGroupsCtrl', [
       '$scope',
       '$http',
-      function($scope, $http) {
+      '$rootScope',
+      function($scope, $http, $rootScope) {
 
+        // set page title
+        $rootScope.header = 'Yrkesgrupper - IT Jobben';
 
         $http.get('http://localhost:1339/api/yrkesgrupper/', {
         ignoreLoadingBar: false

@@ -6,8 +6,12 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$rootScope',
+      function($scope, $http, $stateParams, $rootScope) {
 
+      // set page title
+      $rootScope.header = sessionStorage.getItem("professionStatsName") + ' - IT Jobben';
+      
       // Create variable from param
       var id = $stateParams.id;
 

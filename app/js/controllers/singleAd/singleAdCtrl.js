@@ -5,7 +5,11 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$rootScope',
+      function($scope, $http, $stateParams, $rootScope) {
+
+      // set page title
+      $rootScope.header = 'Annons - IT Jobben';
 
       // Create variable from param
       var ad = $stateParams.adID;

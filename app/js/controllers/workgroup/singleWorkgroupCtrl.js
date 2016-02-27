@@ -6,7 +6,11 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$rootScope',
+      function($scope, $http, $stateParams, $rootScope) {
+
+      // set page title
+      $rootScope.header = sessionStorage.getItem("workgroupName") + ' - IT Jobben';
 
       // Create variable from param
       var workGroupID = $stateParams.workgroupID;

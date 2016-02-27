@@ -6,25 +6,27 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$rootScope',
+      function($scope, $http, $stateParams, $rootScope) {
 
+        // set page title
+        $rootScope.header = 'Län - IT Jobben';
 
+        $http.get('http://localhost:1339/location/counties', {
+          ignoreLoadingBar: true
+        })
+        .then(function(response) {
+          $scope.counties = response.data.body.soklista.sokdata;
+          console.log(response);
+        });
 
-      $http.get('http://localhost:1339/location/counties', {
-        ignoreLoadingBar: true
-      })
-      .then(function(response) {
-        $scope.counties = response.data.body.soklista.sokdata;
-        console.log(response);
-      });
-
-      // set locationState upon clicking a county
-      $scope.setLocation = function(location, breadcrumb) {
-        console.log('du klickade på', location);
-        // set sessionStorage
-        sessionStorage.setItem("countyName", location);
-        sessionStorage.setItem("countyBread", breadcrumb);
-      };
+        // set locationState upon clicking a county
+        $scope.setLocation = function(location, breadcrumb) {
+          console.log('du klickade på', location);
+          // set sessionStorage
+          sessionStorage.setItem("countyName", location);
+          sessionStorage.setItem("countyBread", breadcrumb);
+        };
     }])
 
     // Child Controller to get number of ads in a county

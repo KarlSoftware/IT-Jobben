@@ -6,10 +6,14 @@ angular
       '$scope',
       '$http',
       '$stateParams',
-      function($scope, $http, $stateParams) {
+      '$rootScope',
+      function($scope, $http, $stateParams, $rootScope) {
 
       // Create variable from param
       var id = $stateParams.professionID;
+
+      // set page title
+      $rootScope.header = sessionStorage.getItem("professionName") + ' - IT Jobben';
 
       // fetch current workgroup
       $scope.currentWorkgroup = sessionStorage.getItem("workgroupName");
