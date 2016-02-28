@@ -5,15 +5,15 @@ angular
     .controller('adsInMunicipalityCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
+      '$routeParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $routeParams, $rootScope) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("municipalityName") + ' - IT Jobben';
 
       // Create variable from param
-      var municipalityID = $stateParams.municipalityID;
+      var municipalityID = $routeParams.municipalityID;
 
       // fetch current municipality name and county name
       $scope.currentMunicipality = sessionStorage.getItem("municipalityName");

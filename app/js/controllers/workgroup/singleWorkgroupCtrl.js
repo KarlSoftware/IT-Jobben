@@ -5,15 +5,15 @@ angular
     .controller('workGroupIDCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
+      '$routeParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $routeParams, $rootScope) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("workgroupName") + ' - IT Jobben';
 
       // Create variable from param
-      var workGroupID = $stateParams.workgroupID;
+      var workGroupID = $routeParams.workgroupID;
 
       // fetch current workgroup
       $scope.currentWorkgroup = sessionStorage.getItem("workgroupName");

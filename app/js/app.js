@@ -13,7 +13,8 @@ angular
     'angularMoment',
     'angular-loading-bar',
     'tc.chartjs',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
+    'ngRoute'
   ])
 
   // change Moment language
@@ -25,76 +26,69 @@ angular
     '$urlRouterProvider',
     '$stateProvider',
     'cfpLoadingBarProvider',
-    function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider) {
+    '$routeProvider',
+    function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider, $routeProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    // $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
 
 
-    $stateProvider
-      .state('home', {
-        url: '/',
+    $routeProvider
+      .when('/', {
         templateUrl: 'templates/index.html'
       })
-
-      .state('about', {
-        url: '/about',
+      // about page
+      .when('/about', {
         templateUrl: 'templates/about.html'
       })
-
-      .state('singleAd', {
-        url: '/annons/:adID',
+      // single ad
+      .when('/annons/:adID', {
         templateUrl: 'templates/singleAd/singleAd.html'
       })
-
-      .state('searchresults', {
-        url: '/sökning',
+      // search results
+      .when('/sökning', {
         templateUrl: 'templates/search/searchResults.html'
       })
-
-      .state('workgroups', {
-        url: '/yrkesgrupper',
+      // workgroups
+      .when('/yrkesgrupper', {
         templateUrl: 'templates/workgroup/workGroups.html'
       })
-
-      .state('singleWorkgroup', {
-        url: '/yrkesgrupper/:workgroupID',
+      // workgroups
+      .when('/yrkesgrupper/:workgroupID', {
         templateUrl: 'templates/workgroup/singleWorkgroup.html'
       })
-
-      .state('yrkeDetail', {
-        url: '/yrke/:professionID',
+      // workgroups
+      .when('/yrke/:professionID', {
         templateUrl: 'templates/workgroup/professionDetails.html'
       })
-
-      .state('counties', {
-        url: '/plats/lan',
+      // places. Län, kommuner
+      .when('/plats/lan', {
         templateUrl: 'templates/location/counties.html'
       })
-
-      .state('singleCounty', {
-        url: '/plats/lan/:countyID',
+      // places. Län, kommuner
+      .when('/plats/lan/:countyID', {
         templateUrl: 'templates/location/singleCounty.html'
       })
-
-      .state('municipalityAds', {
-        url: '/plats/kommun/:municipalityID/ads',
+      // places. Län, kommuner
+      .when('/plats/kommun/:municipalityID/ads', {
         templateUrl: 'templates/location/adsInMunicipality.html'
       })
-
-      .state('statistics', {
-        url: '/statistik',
+      // statistics
+      .when('/statistik', {
         templateUrl: 'templates/statistics/workgroupsStats.html'
       })
-
-      .state('singleWorkgroupStats', {
-        url: '/statistik/yrkesgrupp/:id',
+      // statistics
+      .when( '/statistik/yrkesgrupp/:id', {
         templateUrl: 'templates/statistics/singleWorkgroupStats.html'
       })
-
-      .state('statisticsDetails', {
-        url: '/statistik/yrke/:id',
+      // statistics
+      .when('/statistik/yrke/:id', {
         templateUrl: 'templates/statistics/professionStatsDetails.html'
+      })
+
+      // all other routes return home page
+      .otherwise({
+        redirectTo: '/'
       });
 
 
