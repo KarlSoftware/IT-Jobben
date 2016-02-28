@@ -12,7 +12,6 @@ angular
     'ui.router',
     'angularMoment',
     'angular-loading-bar',
-    'infinite-scroll',
     'tc.chartjs',
     'angularUtils.directives.dirPagination'
   ])
