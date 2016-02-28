@@ -80,6 +80,7 @@ canvas {
 /*styling for info block on single ad page*/
 .ad-info {
   @include gradiant-bg();
+  margin-bottom: 80px;
 }
 
 
