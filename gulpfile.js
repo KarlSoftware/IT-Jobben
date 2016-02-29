@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     uglify = require('gulp-uglify'),
     rev = require('gulp-rev'),
+    autoprefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass');
 
 // variable for output directory
@@ -119,6 +120,10 @@ gulp.task('compress-css', function() {
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
+    .pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
     .pipe(gulp.dest(outputDir + 'css'))
 });
 
@@ -153,7 +158,7 @@ gulp.task('watch', function() {
   // watch randomAds images
   gulp.watch('app/img/randomAds/*', ['images-randomAds']);
   // watch scss
-  gulp.watch(['app/css/scss/*.scss', 'app/css/scss/partials/*.scss'], ['sass']);
+  gulp.watch(['app/css/scss/*.scss', 'app/css/scss/partials/*.scss'], ['sass', 'compress-css']);
   // watch regular css for changes and compress
   gulp.watch('app/css/style.css', ['compress-css']);
 });
