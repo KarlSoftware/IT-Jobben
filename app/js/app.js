@@ -27,7 +27,8 @@ angular
     '$stateProvider',
     'cfpLoadingBarProvider',
     '$routeProvider',
-    function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider, $routeProvider) {
+    '$locationProvider',
+    function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider, $routeProvider, $locationProvider) {
 
     // $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
@@ -38,7 +39,7 @@ angular
         templateUrl: 'templates/index.html'
       })
       // about page
-      .when('/about', {
+      .when('/om', {
         templateUrl: 'templates/about.html'
       })
       // single ad
@@ -90,6 +91,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+      // use the HTML5 History API
+      $locationProvider.html5Mode(true);
 
 
   }]);

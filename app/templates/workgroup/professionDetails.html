@@ -3,8 +3,8 @@
   <div class="container white-subtle-shadow margin-bottom">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb">
-      <li><a ng-href="#/yrkesgrupper">Yrkesgrupper</a></li>
-      <li><a ng-href="#/yrkesgrupper/{{workgroupBreadcrumb}}">{{currentWorkgroup}}</a></li>
+      <li><a ng-href=" /yrkesgrupper">Yrkesgrupper</a></li>
+      <li><a ng-href=" /yrkesgrupper/{{workgroupBreadcrumb}}">{{currentWorkgroup}}</a></li>
       <li class="active">{{currentProfession}}</li>
     </ol>
     <!-- Info text -->
@@ -42,7 +42,7 @@
               <!-- Pagination content -->
               <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
                 <td>
-                  <a ng-href="#/annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
+                  <a ng-href=" /annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                       <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>

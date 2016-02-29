@@ -17,13 +17,13 @@
     <div class="row">
       <div ng-repeat="county in counties" class="col-sm-6 col-md-4">
         <div ng-if="county.namn != 'Ospecificerad arbetsort'" class="thumbnail" ng-controller="countyChildCtrl">
-          <a ng-href="#/plats/lan/{{county.id}}" ng-click="setLocation(county.namn, county.id)">
+          <a ng-href=" /plats/lan/{{county.id}}" ng-click="setLocation(county.namn, county.id)">
             <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{county.namn}}&size=640x400&zoom=6&key=AIzaSyCpk8vXluY8ZMOTZaf5vX_cS14IZ3J3NdE" alt="Karta">
           </a>
           <div class="caption">
             <h3>{{county.namn}}</h3>
             <p>
-              <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href="#/plats/lan/{{county.id}}" ng-click="setLocation(county.namn, county.id)" class="btn btn-info btn-sm" role="button">Annonser <span class="badge">{{adsInCounty}}</span></a>
+              <a ng-if="county.namn != 'Ospecificerad arbetsort'" ng-href=" /plats/lan/{{county.id}}" ng-click="setLocation(county.namn, county.id)" class="btn btn-info btn-sm" role="button">Annonser <span class="badge">{{adsInCounty}}</span></a>
             </p>
           </div>
         </div> <!-- end of thumbnail -->
