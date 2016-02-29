@@ -5,9 +5,8 @@ angular
     .controller('countiesCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $rootScope) {
 
         // set page title
         $rootScope.header = 'Län - IT Jobben';
@@ -33,8 +32,7 @@ angular
     .controller('countyChildCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
-      function($scope, $http, $stateParams) {
+      function($scope, $http) {
 
         $http.get('http://localhost:1339/location/match/county/' + $scope.county.id +'', {
           ignoreLoadingBar: false

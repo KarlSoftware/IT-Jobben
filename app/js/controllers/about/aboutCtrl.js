@@ -5,9 +5,8 @@ angular
     .controller('aboutCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $rootScope) {
 
         // set page title
         $rootScope.header = 'Om - IT Jobben';
