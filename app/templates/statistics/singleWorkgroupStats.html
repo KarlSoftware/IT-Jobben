@@ -3,7 +3,7 @@
 
     <!-- Breadcrumbs -->
     <ol class="breadcrumb">
-      <li><a ng-href="#/statistik">Statistik</a></li>
+      <li><a ng-href=" /statistik">Statistik</a></li>
       <li class="active">{{currentWorkgroup}}</li>
     </ol>
 
@@ -22,7 +22,7 @@
         <ol>
           <li ng-repeat="workgroup in workgroupLabels">
             <h5>
-              <a ng-href="#/statistik/yrke/{{links[$index]}}" ng-click="setProfession(workgroup, links[$index])">
+              <a ng-href=" /statistik/yrke/{{links[$index]}}" ng-click="setProfession(workgroup, links[$index])">
                 {{workgroup}}
                 <p class="text-muted">
                   {{dataAds[$index]}} annonser och {{dataJobs[$index]}} jobb

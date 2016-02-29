@@ -2,6 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
+  <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="lib/bootswatch/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="lib/animate.css/animate.min.css">
@@ -15,7 +16,7 @@
   <!-- Angular app -->
   <div>
     <div ng-include="'templates/navbar.html'"></div>
-    <div ui-view autoscroll="true"></div>
+    <div ng-view autoscroll="true"></div>
     <div ng-include="'templates/footer.html'"></div>
   </div>
 
@@ -23,6 +24,7 @@
 <script src="lib/jquery/dist/jquery.js"></script>
 <script src="lib/typed.js/dist/typed.min.js"></script>
 <script src="node_modules/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.min.js"></script>
 <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 <script src="lib/wow/dist/wow.min.js"></script>
@@ -31,9 +33,6 @@
 <script src="lib/moment/moment.js"></script>
 <script src="lib/moment/locale/sv.js"></script>
 <script src="lib/angular-moment/angular-moment.js"></script>
-
-<!-- angular infinity scroll -->
-<script src="lib/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
 
 <!-- angular loading bar -->
 <script src='lib/angular-loading-bar/build/loading-bar.min.js'></script>

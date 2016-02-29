@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express(),
     http = require('http'),
+    path = require('path'),
     port = 1339;
 
 
@@ -8,6 +9,11 @@ var express = require('express'),
 var config =  require('./config')(app);
 var api =     require('./routes/api')(app);
 var location =     require('./routes/location')(app);
+
+app.get('*', function(req, res) {
+    // send the index.html for other files to support HTML5Mode
+    res.sendFile(path.resolve('dist/index.html'));
+});
 
 
 var server = http.createServer(app);

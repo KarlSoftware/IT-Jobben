@@ -5,14 +5,14 @@ angular
     .controller('municipalitiesCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
+      '$routeParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $routeParams, $rootScope) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("countyName") + ' - IT Jobben';
       // Create variable from param
-      var countyID = $stateParams.countyID;
+      var countyID = $routeParams.countyID;
 
       // fetch current location
       $scope.currentCounty = sessionStorage.getItem("countyName");

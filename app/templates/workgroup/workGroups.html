@@ -43,7 +43,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="workgroup in workgroups | orderBy:sortType:sortReverse">
-              <td><a ng-href="#/yrkesgrupper/{{workgroup.id}}" ng-click="setWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
+              <td><a ng-href=" /yrkesgrupper/{{workgroup.id}}" ng-click="setWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
               <td>{{workgroup.antal_platsannonser}} st</td>
               <td>{{workgroup.antal_ledigajobb}} st</td>
           </tr>

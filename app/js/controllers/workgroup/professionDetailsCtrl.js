@@ -5,12 +5,12 @@ angular
     .controller('professionDetailsCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
+      '$routeParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $routeParams, $rootScope) {
 
       // Create variable from param
-      var id = $stateParams.professionID;
+      var id = $routeParams.professionID;
 
       // set page title
       $rootScope.header = sessionStorage.getItem("professionName") + ' - IT Jobben';

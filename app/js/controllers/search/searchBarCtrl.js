@@ -7,10 +7,12 @@ angular
       '$http',
       '$stateParams',
       '$location',
-      '$state',
-      function($scope, $http, $stateParams, $location, $state) {
+      '$route',
+      function($scope, $http, $stateParams, $location, $route) {
 
-        // scope function to set active state. Used to assign active class to navbar links
+        console.log($route.current.$$route.originalPath);
+
+        // scope function to set active route. Used to assign active class to navbar links
         $scope.isActive = function (viewLocation) {
           return viewLocation === $location.path().substring(0, 5);
         };
@@ -22,13 +24,15 @@ angular
           sessionStorage.setItem("paginationSearch", '1');
 
           // go to searchresults page if not already there
-          if ($state.current.name != 'searchresults') {
-            $state.go('searchresults'); // change $state
+          if ($route.current.$$route.originalPath != '/sökning') {
+            console.log('du är inte på sökning');
+            $location.path('sökning'); // change $route
           }
 
-          // reload view if current $state is searchResults
-          if ($state.current.name == 'searchresults') {
-            $state.reload(); // reload $state
+          // reload view if current $route is searchResults
+          if ($route.current.$$route.originalPath == '/sökning') {
+            console.log('du är på sökning');
+            $route.reload(); // reload $route
           }
 
         };

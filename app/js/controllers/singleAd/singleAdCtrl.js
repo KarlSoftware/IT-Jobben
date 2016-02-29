@@ -4,15 +4,15 @@ angular
     .controller('singleAdCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
+      '$routeParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $routeParams, $rootScope) {
 
       // set page title
       $rootScope.header = 'Annons - IT Jobben';
 
       // Create variable from param
-      var ad = $stateParams.adID;
+      var ad = $routeParams.adID;
 
       // array for random image class to use with jumbotron image
       var randomImage = [
