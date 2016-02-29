@@ -50,8 +50,9 @@
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>
                       <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
-                      <span ng-if="ad.antalPlatserVisa != '0'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}} </span>
-                      <span ng-if="ad.antalPlatserVisa == '0'">ingen info </span><br>
+                      <span ng-if="'ad.antalplatser' > 'ad.antalPlatserVisa'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
+                      <span ng-if="'ad.antalplatser' < 'ad.antalPlatserVisa'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
+                      <br>
                       <i class="fa fa-briefcase"></i> {{ad.yrkesbenamning}}
                     </span>
                   </a>
