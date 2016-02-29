@@ -8,6 +8,10 @@ var gulp = require('gulp'),
     removeHtmlComments = require('gulp-remove-html-comments'),
     plumber = require('gulp-plumber'),
     image = require('gulp-image'),
+    usemin = require('gulp-usemin'),
+    cleanCSS = require('gulp-clean-css'),
+    uglify = require('gulp-uglify'),
+    rev = require('gulp-rev'),
     sass = require('gulp-sass');
 
 // variable for output directory
@@ -118,6 +122,19 @@ gulp.task('compress-css', function() {
     .pipe(gulp.dest(outputDir + 'css'))
 });
 
+/*********************************************************************************
+* USEMIN
+/********************************************************************************/
+gulp.task('usemin', function() {
+  return gulp.src('app/index.html')
+    .pipe(usemin({
+      assetsDir: './../ITjobben',
+      css: [rev()],
+      js: [jsmin() ,rev()]
+    }))
+    .pipe(gulp.dest(outputDir));
+});
+
 
 /*********************************************************************************
 * WATCH
@@ -130,7 +147,7 @@ gulp.task('watch', function() {
   // watch js
   gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
   // watch html
-  gulp.watch('app/index.html', ['minify-html-index']);
+  gulp.watch('app/index.html', ['usemin']);
   gulp.watch('app/templates/*', ['minify-html-template-root']);
   gulp.watch('app/templates/*/*.html', ['minify-html-templates-folders']);
   // watch randomAds images
