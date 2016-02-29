@@ -9,7 +9,6 @@ $(document).on('click','.navbar-collapse.in',function(e) {
 
 angular
   .module('app', [
-    'ui.router',
     'angularMoment',
     'angular-loading-bar',
     'tc.chartjs',
@@ -23,12 +22,10 @@ angular
   })
 
   .config([
-    '$urlRouterProvider',
-    '$stateProvider',
     'cfpLoadingBarProvider',
     '$routeProvider',
     '$locationProvider',
-    function($urlRouterProvider, $stateProvider, cfpLoadingBarProvider, $routeProvider, $locationProvider) {
+    function(cfpLoadingBarProvider, $routeProvider, $locationProvider) {
 
     // $urlRouterProvider.otherwise('/');
     cfpLoadingBarProvider.includeSpinner = false; // config for loading bar spinner.
@@ -71,7 +68,7 @@ angular
         templateUrl: 'templates/location/singleCounty.html'
       })
       // places. Län, kommuner
-      .when('/plats/kommun/:municipalityID/ads', {
+      .when('/plats/kommun/:municipalityID/annonser', {
         templateUrl: 'templates/location/adsInMunicipality.html'
       })
       // statistics

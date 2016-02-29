@@ -65,20 +65,27 @@
           <p ng-if="arbetsplats.land"><strong>{{arbetsplats.land}}</strong></p>
           <p ng-if="arbetsplats.besoksadress">Besöksadress <strong>{{arbetsplats.besoksadress}}</strong></p>
           <br>
-          <div ng-show="arbetsplats.kontaktpersonlista" ng-repeat="kontaktperson in kontaktpersoner">
-            <h4>Kontaktperson</h4>
-            <p ng-if="kontaktperson.namn">Namn <strong>{{kontaktperson.namn}}</strong></p>
-            <p ng-if="kontaktperson.titel">Titel <strong>{{kontaktperson.titel}}</strong></p>
+          <div ng-show="arbetsplats.kontaktpersonlista">
+            <h4>Kontakt</h4>
+            <div ng-repeat="kontaktperson in kontaktpersoner">
+              <p ng-if="kontaktperson.namn">Namn <strong>{{kontaktperson.namn}}</strong></p>
+              <p ng-if="kontaktperson.titel">Titel <strong>{{kontaktperson.titel}}</strong></p>
 
-            <span ng-if="kontaktperson.telefonnummer">
-              <p ng-if="kontaktperson.telefonnummer != ''">Telefonnummer <strong>{{kontaktperson.telefonnummer}}</strong></p>
-            </span>
-            <span ng-if="kontaktperson.epostadress">
-              <p ng-if="kontaktperson.epostadress != ''">Epost <strong>{{kontaktperson.epostadress}}</strong></p>
-              <p ng-if="kontaktperson.epostadress == ''">Epost <strong>Ingen info</strong></p>
-            </span>
+              <span ng-if="kontaktperson.telefonnummer">
+                <p ng-if="kontaktperson.telefonnummer != ''">Telefonnummer <strong>{{kontaktperson.telefonnummer}}</strong></p>
+              </span>
+              <span ng-if="kontaktperson.epostadress">
+                <p ng-if="kontaktperson.epostadress != ''">Epost <strong>{{kontaktperson.epostadress}}</strong></p>
+                <p ng-if="kontaktperson.epostadress == ''">Epost <strong>Ingen info</strong></p>
+              </span>
+              <span ng-if="$last == false"><hr></span>
+            </div>
           </div>
-          <a ng-if="arbetsplats.hemsida" class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}">Arbetsplatsens hemsida</a>
+          <div ng-if="arbetsplats.hemsida">
+            <br>
+            <a class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}">Arbetsplatsens hemsida</a>  
+          </div>
+
         </div>
       </div> <!-- end of row -->
       <br>

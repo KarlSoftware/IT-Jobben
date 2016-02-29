@@ -5,8 +5,7 @@ angular
     .controller('footerCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
-      function($scope, $http, $stateParams) {
+      function($scope, $http) {
 
         // get current date to use in copyright context
         $scope.date = new Date();

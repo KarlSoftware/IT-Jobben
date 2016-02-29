@@ -49,8 +49,9 @@
                   <a ng-href=" /annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
-                      <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
-                      <span ng-if="ad.antalplatser == '0'"></span> ingen info<br>
+                      <span ng-if="'ad.antalplatser' > 'ad.antalPlatserVisa'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
+                      <span ng-if="'ad.antalplatser' < 'ad.antalPlatserVisa'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
+                      <br>
                       <i class="fa fa-map-marker"></i> {{ad.kommunnamn}}
                       <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
                     </span>

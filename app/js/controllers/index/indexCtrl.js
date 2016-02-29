@@ -6,8 +6,7 @@ angular
       '$scope',
       '$http',
       '$rootScope',
-      '$stateParams',
-      function($scope, $http, $rootScope, $stateParams) {
+      function($scope, $http, $rootScope) {
 
         // set header title
         $rootScope.header = 'IT Jobben';

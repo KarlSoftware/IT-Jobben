@@ -5,10 +5,9 @@ angular
     .controller('searchBarCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
       '$location',
       '$route',
-      function($scope, $http, $stateParams, $location, $route) {
+      function($scope, $http, $location, $route) {
 
         console.log($route.current.$$route.originalPath);
 

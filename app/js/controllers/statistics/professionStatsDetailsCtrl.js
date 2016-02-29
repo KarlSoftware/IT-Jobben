@@ -5,15 +5,15 @@ angular
     .controller('professionStatsDetailsCtrl', [
       '$scope',
       '$http',
-      '$stateParams',
+      '$routeParams',
       '$rootScope',
-      function($scope, $http, $stateParams, $rootScope) {
+      function($scope, $http, $routeParams, $rootScope) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("professionStatsName") + ' - IT Jobben';
-      
+
       // Create variable from param
-      var id = $stateParams.id;
+      var id = $routeParams.id;
 
       // fetch current workgroup
       $scope.currentWorkgroup = sessionStorage.getItem("workgroupStatsName");

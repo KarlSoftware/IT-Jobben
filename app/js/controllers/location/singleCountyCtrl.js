@@ -41,7 +41,7 @@ angular
     }])
 
     // Child Controller to get number of ads in a municipality
-    .controller('municipalityChildCtrl', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+    .controller('municipalityChildCtrl', ['$scope', '$http', function($scope, $http) {
 
       $http.get('http://localhost:1339/location/match/municipality/' + $scope.municipality.id +'', {
         ignoreLoadingBar: false
