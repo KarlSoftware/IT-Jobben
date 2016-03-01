@@ -46,7 +46,7 @@
           <p>Annonsens referens <strong>{{referens}}</strong></p>
           <p>Epost <strong>{{epost}}</strong></p>
           <br>
-          <a ng-if="ansokan.webbplats !=''" class="btn btn-primary btn-sm" ng-href="{{annons.platsannonsUrl}}">Arbetsförmedlingen</a>
+          <a ng-if="ansokan.webbplats !=''" class="btn btn-primary btn-sm" ng-href="{{annons.platsannonsUrl}}" target="_blank">Arbetsförmedlingen</a>
         </div>
       </div> <!-- end or row -->
       <br>
@@ -83,7 +83,7 @@
           </div>
           <div ng-if="arbetsplats.hemsida">
             <br>
-            <a class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}">Arbetsplatsens hemsida</a>  
+            <a class="btn btn-primary btn-sm" ng-href="{{arbetsplats.hemsida}}" target="_blank">Arbetsplatsens hemsida</a>
           </div>
 
         </div>
