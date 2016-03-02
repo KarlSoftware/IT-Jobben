@@ -2,20 +2,20 @@
 * REQUIRE
 /********************************************************************************/
 var gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    jsmin = require('gulp-jsmin'),
-    htmlmin = require('gulp-htmlmin'),
-    removeHtmlComments = require('gulp-remove-html-comments'),
-    plumber = require('gulp-plumber'),
-    image = require('gulp-image'),
-    usemin = require('gulp-usemin'),
-    cleanCSS = require('gulp-clean-css'),
-    uglify = require('gulp-uglify'),
-    rev = require('gulp-rev'),
-    autoprefixer = require('gulp-autoprefixer'),
-    git = require('gulp-git'),
-    stripDebug = require('gulp-strip-debug'),
-    sass = require('gulp-sass');
+    concat = require('gulp-concat'),                                  // Concat files
+    jsmin = require('gulp-jsmin'),                                    // Minify JS files
+    htmlmin = require('gulp-htmlmin'),                                // Minify html files
+    removeHtmlComments = require('gulp-remove-html-comments'),        // Remove html comments
+    plumber = require('gulp-plumber'),                                // Prevent pipe breaking caused by errors from other plugins
+    image = require('gulp-image'),                                    // Optimize images
+    usemin = require('gulp-usemin'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
+    cleanCSS = require('gulp-clean-css'),                             // Minify css
+    uglify = require('gulp-uglify'),                                  // Uglify Code
+    rev = require('gulp-rev'),                                        // static asset revisioning by appending content hash to filenames
+    autoprefixer = require('gulp-autoprefixer'),                      // add browser prefixed to css code (ex -moz )
+    git = require('gulp-git'),                                        // Run git commands
+    stripDebug = require('gulp-strip-debug'),                         // Remove debugging (console.log) from js Code
+    sass = require('gulp-sass');                                      // Handle SASS
 
 // variable for output directory
 var outputDir = './dist/';
