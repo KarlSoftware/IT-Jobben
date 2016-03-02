@@ -154,7 +154,7 @@ gulp.task('checkout-digitalocean', function(){
 });
 
 //2. Update branch from origin master
-gulp.task('update-branch', ['checkout-digitalocean'], function() {
+gulp.task('update-branch', function() {
   git.pull('.', 'master', {args: '--rebase'}, function (err) {
      if (err) throw err;
    });
@@ -162,8 +162,6 @@ gulp.task('update-branch', ['checkout-digitalocean'], function() {
 
 //3. Build dist folder according to update-branch changes
 gulp.task('build-dist', [
-  'update-branch',
-  'checkout-digitalocean',
   'js-dist',
   'minify-html-template-root',
   'minify-html-templates-folders',
@@ -173,25 +171,18 @@ gulp.task('build-dist', [
 ]);
 
 //4. Commit changes
-gulp.task('commit', ['build-dist', 'update-branch', 'checkout-digitalocean'], function(){
+gulp.task('commit', function(){
   return gulp.src('./dist/*')
     .pipe(git.commit('Changes to dist-folder'));
 });
 
 
 //5. Push to VPS Server
-gulp.task('push-vps', ['commit', 'build-dist', 'update-branch', 'checkout-digitalocean'], function(){
+gulp.task('push-vps', function(){
   git.push('live', 'digitalocean', {args: " -f"}, function (err) {
     if (err) throw err;
   });
 });
-
-// Task to do all git stuff and finally push to vps server
-gulp.task('deploy', ['checkout-digitalocean', 'update-branch', 'build-dist', 'commit', 'push-vps']);
-
-
-
-
 
 /*********************************************************************************
 * WATCH
