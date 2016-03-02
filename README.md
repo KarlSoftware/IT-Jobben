@@ -39,10 +39,24 @@ För att starta servern på VPS-servern ska istället förslagsvis npm-paketet `
 $ NODE_ENV=production forever start server/app.js
 ```
 
+När servern sen är igång är det bara öppna en webbläsare och gå till `http://LOKAL-IP:1339`
+
 
 
 ## Klientsidan
-(Text kommer...)
+
+Angular.js används som grund för klientsidan och klientkoden finns  i `app/`.
+
+Bower används för att installera frontend bibliotek och när dessa installeras hamnar de i `lib/` tack vare inställningarna i `.bowerrc`.
+
+### Angular controllers
+I `app/js/controllers/` finns en hel del controller-filer som gör httqp requests med servern och binder resultat till $scope.
+### Angular templates
+I `app/templates/` finns olika templates som är knutna till respektive controllers i controllers-mappen.
+### SCSS och CSS
+SCSS används med hjälp av gulp.js för att skriva styling enklare och kompilera SCC till CSS kod.
+
+I `app/css/scss/style.scss` görs olika imports till filer i `app/css/scss/partials/_PARTIAL-NAME.SCSS` där bland annat filer för variabler, mixins och allmän layout finns.
 
 ## Användning av Gulp.js
 
