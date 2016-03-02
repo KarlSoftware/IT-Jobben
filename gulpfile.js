@@ -142,6 +142,21 @@ gulp.task('usemin', function() {
 });
 
 /*********************************************************************************
+* UPDATE DIST FOLDER
+* FOR USE ON DIGITALOCEAN BRANCH
+/********************************************************************************/
+gulp.task('build-dist', [
+  'js-dist',
+  'minify-html-template-root',
+  'minify-html-templates-folders',
+  'image-randomAds',
+  'compress-css',
+  'usemin'
+]);
+
+
+
+/*********************************************************************************
 * DEPLOY TO VPS-SERVER USING GIT
 /********************************************************************************/
 
@@ -174,8 +189,12 @@ gulp.task('push-vps', function(){
   });
 });
 
+
+
 // deploy
 gulp.task('deploy', ['checkout-master']);
+
+
 
 
 
