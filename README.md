@@ -80,7 +80,7 @@ I Följande ordning ska gulp kommandona exekveras:
 $ gulp checkout-digitalocean
 
 // update branch with new code from master
-$ gulp update-dist
+$ gulp update-branch
 
 // build dist folder from the new code
 $ gulp build-dist
