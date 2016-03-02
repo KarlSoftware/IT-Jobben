@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rev = require('gulp-rev'),
     autoprefixer = require('gulp-autoprefixer'),
+    git = require('gulp-git'),
     sass = require('gulp-sass');
 
 // variable for output directory
@@ -139,6 +140,43 @@ gulp.task('usemin', function() {
     }))
     .pipe(gulp.dest(outputDir));
 });
+
+/*********************************************************************************
+* DEPLOY TO VPS-SERVER USING GIT
+/********************************************************************************/
+
+// Checkout digitalocean
+gulp.task('checkout-digitalocean', function(){
+  git.checkout('digitalocean', function (err) {
+    if (err) throw err;
+  });
+
+});
+
+// Checkout Master
+gulp.task('checkout-master', function(){
+  git.checkout('master', function (err) {
+    if (err) throw err;
+  });
+});
+
+// Update branch from origin master
+gulp.task('update-branch', function() {
+  git.pull('origin', 'master', {args: '--rebase'}, function (err) {
+     if (err) throw err;
+   });
+})
+
+// Push to VPS Server
+gulp.task('push-vps', function(){
+  git.push('live', 'digitalocean', {args: " -f"}, function (err) {
+    if (err) throw err;
+  });
+});
+
+// deploy
+gulp.task('deploy', ['checkout-master']);
+
 
 
 /*********************************************************************************
