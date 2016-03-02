@@ -145,25 +145,36 @@ gulp.task('usemin', function() {
 * DEPLOY TO VPS-SERVER USING GIT
 /********************************************************************************/
 
+// Checkout digitalocean
 gulp.task('checkout-digitalocean', function(){
   git.checkout('digitalocean', function (err) {
     if (err) throw err;
   });
-  // git.pull('origin', 'master', {args: '--rebase'}, function (err) {
-  //   if (err) throw err;
-  // });
+
 });
 
+// Checkout Master
 gulp.task('checkout-master', function(){
   git.checkout('master', function (err) {
     if (err) throw err;
   });
-  // git.pull('origin', 'master', {args: '--rebase'}, function (err) {
-  //   if (err) throw err;
-  // });
 });
 
+// Update branch from origin master
+gulp.task('update-branch', function() {
+  git.pull('origin', 'master', {args: '--rebase'}, function (err) {
+     if (err) throw err;
+   });
+})
 
+// Push to VPS Server
+gulp.task('push-vps', function(){
+  git.push('live', 'digitalocean', {args: " -f"}, function (err) {
+    if (err) throw err;
+  });
+});
+
+// deploy
 gulp.task('deploy', ['checkout-master']);
 
 
