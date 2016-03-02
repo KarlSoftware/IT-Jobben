@@ -162,7 +162,7 @@ gulp.task('checkout-master', function(){
 
 // Update branch from origin master
 gulp.task('update-branch', function() {
-  git.pull('origin', 'master', {args: '--rebase'}, function (err) {
+  git.pull('.', 'master', {args: '--rebase'}, function (err) {
      if (err) throw err;
    });
 })
