@@ -154,7 +154,7 @@ gulp.task('checkout-digitalocean', function(){
   // });
 });
 
-gulp.task('checkout-master',['checkout-digitalocean'], function(){
+gulp.task('checkout-master', function(){
   git.checkout('master', function (err) {
     if (err) throw err;
   });
