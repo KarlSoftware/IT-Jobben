@@ -196,9 +196,8 @@ gulp.task('push-vps', function(){
 });
 
 
-
-// deploy
-gulp.task('deploy', ['checkout-master']);
+// Task to do all git stuff and finally push to vps server
+gulp.task('deploy', ['checkout-digitalocean', 'update-branch', 'build-dist', 'commit', 'push-vps']);
 
 
 
