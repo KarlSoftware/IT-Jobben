@@ -149,6 +149,12 @@ gulp.task('deploy', function(){
   git.checkout('digitalocean', function (err) {
     if (err) throw err;
   });
+  // git.pull('origin', 'master', {args: '--rebase'}, function (err) {
+  //   if (err) throw err;
+  // });
+  git.checkout('master', function (err) {
+    if (err) throw err;
+  });
 });
 
 
