@@ -7,6 +7,6 @@ angular
       '$http',
       function($scope, $http) {
 
-        // get current date to use in copyright context
+        // get current date to use in copyright text
         $scope.date = new Date();
     }]);
