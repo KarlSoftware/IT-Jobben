@@ -14,10 +14,11 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     autoprefixer = require('gulp-autoprefixer'),
     git = require('gulp-git'),
+    stripDebug = require('gulp-strip-debug'),
     sass = require('gulp-sass');
 
 // variable for output directory
-var outputDir = './dist/'
+var outputDir = './dist/';
 
 
 /*********************************************************************************
@@ -32,6 +33,7 @@ gulp.task('js-dist', function() {
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(jsmin())
+    .pipe(stripDebug())
     .pipe(gulp.dest(outputDir + 'js'));
 });
 
