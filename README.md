@@ -1,5 +1,5 @@
 # IT Jobben
-Detta är ett git repo för [Bla](http://www.example.com)
+Detta är ett git repo för [Bla bla](http://www.example.com)
 IT Jobben är en webb applikation som använder öppen data ifrån [Arbetsförmedlingens API](https://api.arbetsformedlingen.se) för att hitta lediga IT-jobb i Sverige.
 
 På IT Jobben kan man hitta lediga jobb inom specifikt yrke, hitta jobb i kommuner, söka efter lediga jobb eller se enklare statistik över hur arbetsmarknaden ser ut för IT-sektorn.
