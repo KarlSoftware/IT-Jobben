@@ -8,7 +8,7 @@ angular
       '$rootScope',
       function($scope, $http, $rootScope) {
 
-        // set page title
+        // set page header title
         $rootScope.header = 'Om - IT Jobben';
 
     }]);
