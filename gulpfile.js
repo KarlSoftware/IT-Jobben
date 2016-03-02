@@ -209,4 +209,4 @@ gulp.task('watch', function() {
 * Gulp default
 * this will do everything
 */
-gulp.task('default', ['js-dev', 'js-dist', 'watch'])
+gulp.task('default', ['watch'])
