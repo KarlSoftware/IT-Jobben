@@ -175,6 +175,12 @@ gulp.task('checkout-master', function(){
   });
 });
 
+// commit changes
+gulp.task('commit', function(){
+  return gulp.src('./dist/*')
+    .pipe(git.commit('Changes to dist-folder'));
+});
+
 // Update branch from origin master
 gulp.task('update-branch', function() {
   git.pull('.', 'master', {args: '--rebase'}, function (err) {
