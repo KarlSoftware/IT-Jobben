@@ -139,7 +139,7 @@ gulp.task('compress-css', function() {
 gulp.task('useref', function() {
   return gulp.src('app/index.html')
     .pipe(useref())
-    .pipe(gulpif('*.js', concat('assets.js')))
+    .pipe(gulpif('*.js', concat('js/assets.js')))
     .pipe(gulpif('*.css', sass()))
     .pipe(gulp.dest(outputDir));
 });
