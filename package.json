@@ -9,13 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.4.8",
-    "angular-moment": "^0.10.3",
-    "angular-ui-router": "^0.2.15",
     "express": "^4.13.3",
     "express-request-language": "^1.1.0",
     "http": "0.0.0",
-    "moment": "^2.11.1",
     "request": "^2.67.0",
     "unirest": "^0.4.2",
     "vary": "^1.1.0"
