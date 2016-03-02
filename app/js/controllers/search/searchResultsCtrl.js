@@ -8,7 +8,9 @@ angular
       '$rootScope',
       function($scope, $http, $rootScope) {
 
-      $rootScope.header = 'Sökning - IT Jobben'
+      // set page header
+      $rootScope.header = 'Sökning - IT Jobben';
+
       $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
       // fetch current pagination page. Defaults to 1 if pagination sessionStorage isn't set yet
