@@ -12,8 +12,8 @@ angular
         $rootScope.header = 'IT Jobben';
 
         $(".typed").typed({
-          strings: ["Som frontend-utvecklare",
-                    "Som användbarhetsdesigner",
+          strings: ["Som programmerare",
+                    "Som UX-expert",
                     "Som civilingenjör",
                     "Inom IT helt enkelt",
                     ],
