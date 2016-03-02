@@ -149,7 +149,7 @@ gulp.task('build-dist', [
   'js-dist',
   'minify-html-template-root',
   'minify-html-templates-folders',
-  'image-randomAds',
+  'images-randomAds',
   'compress-css',
   'usemin'
 ]);
