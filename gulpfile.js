@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rev = require('gulp-rev'),
     autoprefixer = require('gulp-autoprefixer'),
+    git = require('gulp-git'),
     sass = require('gulp-sass');
 
 // variable for output directory
@@ -139,6 +140,17 @@ gulp.task('usemin', function() {
     }))
     .pipe(gulp.dest(outputDir));
 });
+
+/*********************************************************************************
+* DEPLOY TO VPS-SERVER USING GIT
+/********************************************************************************/
+
+gulp.task('deploy', function(){
+  git.checkout('digitalocean', function (err) {
+    if (err) throw err;
+  });
+});
+
 
 
 /*********************************************************************************
