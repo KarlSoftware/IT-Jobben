@@ -11,7 +11,7 @@ angular
         // set page title
         $rootScope.header = 'Yrkesgrupper - IT Jobben';
 
-        $http.get('http://localhost:1339/api/yrkesgrupper/', {
+        $http.get('api/yrkesgrupper/', {
         ignoreLoadingBar: false
         })
         .then(function(response) {

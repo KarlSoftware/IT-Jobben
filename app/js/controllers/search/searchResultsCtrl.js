@@ -21,7 +21,7 @@ angular
       // set empty array to fill up with ads matching above 75%
       var adsAbove75 = [];
 
-      $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"), {
+      $http.get('api/search/' + sessionStorage.getItem("searchTerm"), {
         ignoreLoadingBar: false,
       })
       .then(function(response) {
@@ -62,7 +62,7 @@ angular
 
 
         // do http req with new search term
-        $http.get('http://localhost:1339/api/search/' + sessionStorage.getItem("searchTerm"), {
+        $http.get('api/search/' + sessionStorage.getItem("searchTerm"), {
           ignoreLoadingBar: false,
         })
         .then(function(response) {

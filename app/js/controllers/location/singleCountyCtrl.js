@@ -23,7 +23,7 @@ angular
       // set pagination too 1
       sessionStorage.setItem("paginationMunicipality", '1');
 
-      $http.get('http://localhost:1339/location/municipalities/' + countyID, {
+      $http.get('location/municipalities/' + countyID, {
         ignoreLoadingBar: true
       })
       .then(function(response) {
@@ -43,7 +43,7 @@ angular
     // Child Controller to get number of ads in a municipality
     .controller('municipalityChildCtrl', ['$scope', '$http', function($scope, $http) {
 
-      $http.get('http://localhost:1339/location/match/municipality/' + $scope.municipality.id +'', {
+      $http.get('location/match/municipality/' + $scope.municipality.id +'', {
         ignoreLoadingBar: false
       })
       .then(function(response) {

@@ -11,7 +11,7 @@ angular
         // set page title
         $rootScope.header = 'Län - IT Jobben';
 
-        $http.get('http://localhost:1339/location/counties', {
+        $http.get('location/counties', {
           ignoreLoadingBar: true
         })
         .then(function(response) {
@@ -34,7 +34,7 @@ angular
       '$http',
       function($scope, $http) {
 
-        $http.get('http://localhost:1339/location/match/county/' + $scope.county.id +'', {
+        $http.get('location/match/county/' + $scope.county.id +'', {
           ignoreLoadingBar: false
         })
         .then(function(response) {

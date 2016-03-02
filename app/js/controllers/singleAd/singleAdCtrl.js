@@ -26,7 +26,7 @@ angular
       // get a random item from image array and assign to scope variables
       $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
 
-      $http.get('http://localhost:1339/api/singleAd/' + ad + '', {
+      $http.get('api/singleAd/' + ad + '', {
         ignoreLoadingBar: false
       })
       .then(function(response) {

@@ -35,7 +35,7 @@ angular
       // set empty array to fill up with 100% matching ads
       adsArrayExact = [];
 
-      $http.get('http://localhost:1339/api/yrke/' + id, {
+      $http.get('api/yrke/' + id, {
         ignoreLoadingBar: false
       })
       .then(function(response) {

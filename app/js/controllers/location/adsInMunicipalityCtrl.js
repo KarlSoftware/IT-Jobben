@@ -34,7 +34,7 @@ angular
       adsArrayExact = [];
 
       // make http req
-      $http.get('http://localhost:1339/location/match/lan/' + sessionStorage.getItem("countyBread"))
+      $http.get('location/match/lan/' + sessionStorage.getItem("countyBread"))
       .then(function(response) {
         $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
         $scope.ads = response.data.body.matchningslista.matchningdata;

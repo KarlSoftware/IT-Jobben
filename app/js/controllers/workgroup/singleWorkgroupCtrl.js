@@ -24,7 +24,7 @@ angular
       // reset pagination back too 1
       sessionStorage.setItem("paginationProfession", '1');
 
-      $http.get('http://localhost:1339/api/yrkesgrupp/' + workGroupID, {
+      $http.get('api/yrkesgrupp/' + workGroupID, {
         ignoreLoadingBar: false
       })
       .then(function(response) {

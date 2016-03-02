@@ -26,7 +26,7 @@ angular
         var workgroupIds = [];
 
         // Make http request
-        $http.get('http://localhost:1339/api/yrkesgrupp/' + $scope.currentBreadcrumb + '', {
+        $http.get('api/yrkesgrupp/' + $scope.currentBreadcrumb + '', {
 
         })
         .then(function(response) {
