@@ -71,6 +71,12 @@ Gulp.js används och har en del dev-dependencies som går att se i `package.json
 
 Se `gulpfile.js` för mer info om vad det är för task som finns tillgängliga.
 
+```
+// Se till att gulp körs när du utvecklar för att watch ska kunna köras på app/
+// Gulp default task är att hålla koll på alla filer i /app så inga parametrar behöver skrivas i kommandot
+$ gulp
+```
+
 ### Deploy med gulp.js
 I `gulpfile.js` finns det 5 stycken gulp tasks som är till för att underlätta deploy till vps servern. Det handlar om tasks som uppdaterar digitalocean-grenen från master, bygger dist-mappen med nytt innehåll, committar och slutligen pushar till `live digitalocean`.
 
