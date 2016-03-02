@@ -12,7 +12,7 @@ var location =     require('./routes/location')(app);
 
 app.get('*', function(req, res) {
     // send the index.html for other files to support HTML5Mode
-    res.sendFile(path.resolve('dist/index.html'));
+    res.sendFile(path.resolve('app/index.html'));
 });
 
 
