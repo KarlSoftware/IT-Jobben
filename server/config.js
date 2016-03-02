@@ -26,9 +26,18 @@ module.exports = function(app) {
   app.use(logger);
 
 
-  // serve static files
-  app.use(express.static(__dirname + './../dist'));
-  app.use('/lib', express.static(__dirname + './../lib'));
+  // serve static files depending on environment variable
+  if (process.env.NODE_ENV == 'production') {
+    console.log('RUNNING PRODUCTION MODE');
+    app.use(express.static(__dirname + './../dist'));
+    // app.use('/lib', express.static(__dirname + './../lib'));
+  }
+  if (process.env.NODE_ENV == 'development') {
+    console.log('RUNNING DEVELOPMENT MODE');
+    app.use(express.static(__dirname + './../app'));
+    app.use('/lib', express.static(__dirname + './../lib'));
+  }
+
   // app.use('/node_modules', express.static(__dirname + './../node_modules'));
 
 
