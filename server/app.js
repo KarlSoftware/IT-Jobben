@@ -12,9 +12,11 @@ var location =     require('./routes/location')(app);
 
 app.get('*', function(req, res) {
     // send the index.html for other files to support HTML5Mode
+    // Only run this environment when on digitalocean branch
     if (process.env.NODE_ENV == 'production') {
       res.sendFile(path.resolve('dist/index.html'));
     }
+    // Only run this environemnt when on master / features branches
     if (process.env.NODE_ENV == 'development') {
       res.sendFile(path.resolve('app/index.html'));
     }
