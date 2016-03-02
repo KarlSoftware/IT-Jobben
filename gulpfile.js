@@ -15,6 +15,8 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),                      // add browser prefixed to css code (ex -moz )
     git = require('gulp-git'),                                        // Run git commands
     stripDebug = require('gulp-strip-debug'),                         // Remove debugging (console.log) from js Code
+    useref = require('gulp-useref'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
+    gulpif = require('gulp-if'),                                      // If statements
     sass = require('gulp-sass');                                      // Handle SASS
 
 // variable for output directory
@@ -130,18 +132,20 @@ gulp.task('compress-css', function() {
     .pipe(gulp.dest(outputDir + 'css'))
 });
 
+
 /*********************************************************************************
-* USEMIN
+* USEREF
 /********************************************************************************/
-gulp.task('usemin', function() {
+gulp.task('useref', function() {
   return gulp.src('app/index.html')
-    .pipe(usemin({
-      assetsDir: './../ITjobben',
-      css: [rev()],
-      js: [jsmin() ,rev()]
-    }))
+    .pipe(useref())
+    .pipe(gulpif('*.js', concat('assets.js')))
+    .pipe(gulpif('*.css', sass()))
     .pipe(gulp.dest(outputDir));
 });
+
+
+
 
 
 /*********************************************************************************
@@ -169,7 +173,7 @@ gulp.task('build-dist', [
   'minify-html-templates-folders',
   'images-randomAds',
   'compress-css',
-  'usemin'
+  'useref'
 ]);
 
 //4. Commit changes
