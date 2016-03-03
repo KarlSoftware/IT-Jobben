@@ -57,10 +57,10 @@ Bower används för att installera frontend bibliotek och när dessa installeras
 
 ### Angular.js
 
-#### Angular controllers
+#### Controllers
 I `app/js/controllers/` finns en hel del controller-filer som gör httqp requests med servern och binder resultat till $scope.
 
-#### Angular templates
+#### Templates
 I `app/templates/` finns olika templates som är knutna till respektive controllers i controllers-mappen.
 
 ### SCSS och CSS
