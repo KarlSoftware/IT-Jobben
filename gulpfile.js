@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     stripDebug = require('gulp-strip-debug'),                         // Remove debugging (console.log) from js Code
     useref = require('gulp-useref'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
     gulpif = require('gulp-if'),                                      // If statements
+    runSequence = require('run-sequence'),                            // run tasks in chain
     sass = require('gulp-sass');                                      // Handle SASS
 
 // variable for output directory
@@ -188,6 +189,18 @@ gulp.task('push-vps', function(){
   git.push('live', 'digitalocean', {args: " -f"}, function (err) {
     if (err) throw err;
   });
+});
+
+
+// Chain above tasks
+gulp.task('deploy', function(callback) {
+    runSequence(
+      'checkout-digitalocean',
+      'update-branch',
+      'build-dist',
+      'commit',
+      'callback'
+    );
 });
 
 /*********************************************************************************
