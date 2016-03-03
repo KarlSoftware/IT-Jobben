@@ -17,7 +17,7 @@ var gulp = require('gulp'),
     stripDebug = require('gulp-strip-debug'),                         // Remove debugging (console.log) from js Code
     useref = require('gulp-useref'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
     gulpif = require('gulp-if'),                                      // If statements
-    runSequence = require('run-sequence'),                            // run tasks in chain
+    runSequence = require('run-sequence').use(gulp),                            // run tasks in chain
     sass = require('gulp-sass');                                      // Handle SASS
 
 // variable for output directory
@@ -155,14 +155,14 @@ gulp.task('useref', function() {
 
 //1. Checkout digitalocean
 gulp.task('checkout-digitalocean', function(){
-  git.checkout('digitalocean', function (err) {
+  return git.checkout('digitalocean', function (err) {
     if (err) throw err;
   });
 });
 
 //2. Update branch from origin master
 gulp.task('update-branch', function() {
-  git.pull('.', 'master', {args: '--rebase'}, function (err) {
+  return git.pull('.', 'master', {args: '--rebase'}, function (err) {
      if (err) throw err;
    });
 })
@@ -186,7 +186,7 @@ gulp.task('commit', function(){
 
 //5. Push to VPS Server
 gulp.task('push-vps', function(){
-  git.push('live', 'digitalocean', {args: " -f"}, function (err) {
+  return git.push('live', 'digitalocean', {args: " -f"}, function (err) {
     if (err) throw err;
   });
 });
@@ -199,7 +199,7 @@ gulp.task('deploy', function(callback) {
       'update-branch',
       'build-dist',
       'commit',
-      'callback'
+      callback
     );
 });
 
