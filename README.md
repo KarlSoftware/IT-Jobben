@@ -52,12 +52,17 @@ När servern sen är igång är det bara öppna en webbläsare och gå till `htt
 
 Angular.js används som grund för klientsidan och klientkoden finns  i `app/`.
 
+### Bower
 Bower används för att installera frontend bibliotek och när dessa installeras hamnar de i `lib/` tack vare inställningarna i `.bowerrc`.
 
-### Angular controllers
+### Angular.js
+
+#### Angular controllers
 I `app/js/controllers/` finns en hel del controller-filer som gör httqp requests med servern och binder resultat till $scope.
-### Angular templates
+
+#### Angular templates
 I `app/templates/` finns olika templates som är knutna till respektive controllers i controllers-mappen.
+
 ### SCSS och CSS
 SCSS används med hjälp av gulp.js för att skriva styling enklare och kompilera SCC till CSS kod.
 
