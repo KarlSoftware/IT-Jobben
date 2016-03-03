@@ -191,14 +191,21 @@ gulp.task('push-vps', function(){
   });
 });
 
+gulp.task('test-1', function() {
+  return console.log('JAG ÄR TEST 1 !')
+})
+
+gulp.task('test-2', function() {
+  return console.log('JAG ÄR TEST 2 !')
+})
+
 
 // Chain above tasks
 gulp.task('deploy', function(callback) {
     runSequence(
-      'checkout-digitalocean',
-      'update-branch',
       'build-dist',
-      'commit',
+      'test-1',
+      'test-2',
       callback
     );
 });
