@@ -83,7 +83,7 @@ I `gulpfile.js` finns det 5 stycken gulp tasks som är till för att underlätta
 I Följande ordning ska gulp kommandona exekveras:
 ```
 // check out deploy branch
-$ gulp checkout-digitalocean
+$ gulp checkout
 
 // update branch with new code from master
 $ gulp update

@@ -153,7 +153,7 @@ gulp.task('useref', function() {
 /********************************************************************************/
 
 //1. Checkout digitalocean
-gulp.task('checkout-digitalocean', function(){
+gulp.task('checkout', function(){
   return git.checkout('digitalocean', function (err) {
     if (err) throw err;
   });
