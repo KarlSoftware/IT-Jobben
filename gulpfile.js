@@ -203,8 +203,8 @@ gulp.task('test-2', function() {
 // Chain above tasks
 gulp.task('deploy', function(callback) {
     runSequence(
-      'build-dist',
       'test-1',
+      'build-dist',
       'test-2',
       callback
     );
