@@ -11,4 +11,9 @@ angular
         // set page header title
         $rootScope.header = 'Om - IT Jobben';
 
+        // variable for previous URL
+        $scope.previousURL = sessionStorage.getItem('previousURL');
+
+
+
     }]);
