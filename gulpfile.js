@@ -201,7 +201,7 @@ gulp.task('watch', function() {
   // watch js
   gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
   // watch html
-  gulp.watch('app/index.html', ['usemin']);
+  gulp.watch('app/index.html', ['useref']);
   gulp.watch('app/templates/*', ['minify-html-template-root']);
   gulp.watch('app/templates/*/*.html', ['minify-html-templates-folders']);
   // watch randomAds images
