@@ -126,4 +126,3 @@ Antingen kan du följa detta arbetsflöde eller använda dig av de Gulp tasks so
 
 ## TODO
 * Skriv klart README
-* Försök göra deploy med gulp enklare med hjälp av en chain av gulp tasks
