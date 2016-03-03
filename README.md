@@ -6,7 +6,7 @@ På IT Jobben kan man hitta lediga jobb inom specifikt yrke, hitta jobb i kommun
 
 IT Jobben består av en Node server och Angular kod på frontend sidan som pratar med Node servern (som i sin tur pratar med Arbetsförmedlingens API) och visar lediga IT-jobb.
 
-## Info om Servern
+## Backend
 Som backend till denna webbapp används Node och Express. Javascript används alltså både på backend och frontend.
 
 `server/app.js` är själva huvudfilen där servern skapas. Denna fil importerar först en config fil `server/config.js` och slutligen route filerna `server/routes/api.js` och `server/routes/location.js`.
@@ -48,7 +48,7 @@ När servern sen är igång är det bara öppna en webbläsare och gå till `htt
 
 
 
-## Klientsidan
+## Frontend
 
 Angular.js används som grund för klientsidan och klientkoden finns  i `app/`.
 
