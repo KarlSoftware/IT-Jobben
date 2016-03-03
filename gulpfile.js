@@ -204,6 +204,8 @@ gulp.task('test-2', function() {
 gulp.task('deploy', function(callback) {
     runSequence(
       'test-1',
+      'checkout-digitalocean',
+      'update-branch',
       'build-dist',
       'test-2',
       callback
