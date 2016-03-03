@@ -86,16 +86,16 @@ I Följande ordning ska gulp kommandona exekveras:
 $ gulp checkout-digitalocean
 
 // update branch with new code from master
-$ gulp update-branch
+$ gulp update
 
 // build dist folder from the new code
-$ gulp build-dist
+$ gulp build
 
 // commit code
 $ gulp commit
 
 // finally push to VPS-server
-$ gulp push-vps
+$ gulp push
 ```
 
 

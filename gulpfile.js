@@ -160,14 +160,14 @@ gulp.task('checkout-digitalocean', function(){
 });
 
 //2. Update branch from origin master
-gulp.task('update-branch', function() {
+gulp.task('update', function() {
   return git.pull('.', 'master', {args: '--rebase'}, function (err) {
      if (err) throw err;
    });
 })
 
 //3. Build dist folder according to update-branch changes
-gulp.task('build-dist', [
+gulp.task('build', [
   'js-dist',
   'minify-html-template-root',
   'minify-html-templates-folders',
@@ -184,7 +184,7 @@ gulp.task('commit', function(){
 
 
 //5. Push to VPS Server
-gulp.task('push-vps', function(){
+gulp.task('push', function(){
   return git.push('live', 'digitalocean', {args: " -f"}, function (err) {
     if (err) throw err;
   });
