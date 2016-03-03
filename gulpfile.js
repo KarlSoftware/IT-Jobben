@@ -168,6 +168,7 @@ gulp.task('update-branch', function() {
 
 //3. Build dist folder according to update-branch changes
 gulp.task('build-dist', [
+  'update-branch', // update branch has to finish first
   'js-dist',
   'minify-html-template-root',
   'minify-html-templates-folders',
@@ -184,11 +185,37 @@ gulp.task('commit', function(){
 
 
 //5. Push to VPS Server
-gulp.task('push-vps', function(){
+gulp.task('push-vps', ['commit'], function(){
   return git.push('live', 'digitalocean', {args: " -f"}, function (err) {
     if (err) throw err;
   });
 });
+
+
+gulp.task('update', ['update-branch', 'build-dist']);
+
+gulp.task('deploy', ['commit', 'push-vps']);
+
+// example on how to sync tasks
+gulp.task('test-1', function(cb) {
+  console.log('RUNNING TEST ONE');
+  // setTimeout could be any async task
+    setTimeout(function () {
+        console.log('TEST 1 HAS FINISHED WAITING')
+        cb();
+    }, 5000);
+});
+
+gulp.task('test-2', ['test-1'], function(cb) {
+  console.log('RUNNING TEST TWO');
+  // setTimeout could be any async task
+    setTimeout(function () {
+        console.log('TEST 2 HAS FINISHED WAITING')
+        cb();
+    }, 5000);
+});
+
+gulp.task('run-test', ['test-1', 'test-2'])
 
 
 /*********************************************************************************
