@@ -86,7 +86,7 @@ module.exports = function(app) {
 
   });
 
-  // route to match all ads in a municipality. Use this primarily to get total ad nr in a municipality
+  // route to match all ads in a county. Use this primarily to get total ad nr in a county
   router.get('/match/lan/:lanID', function (req, res) {
 
     var Request = unirest.get(baseURL + 'matchning?yrkesomradeid=3&lanid=' + req.params.lanID + '&antalrader=10000');
