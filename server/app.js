@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),
     http = require('http'),
     path = require('path'),
-    port = 1339;
+    port = process.env.PORT || 1339;
 
 
 // Require other modules (files)
