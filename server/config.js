@@ -1,6 +1,5 @@
 var express = require('express'),
     requestLanguage = require('express-request-language'),
-    vary = require('vary'),
     app = express();
 
 
