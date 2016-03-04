@@ -20,24 +20,27 @@ module.exports = function(app) {
     next();
   }
 
-  // Use the logger middleware
+  // Use the logger and CORS middleware
   app.use(allowCrossDomain);
   app.use(logger);
 
 
-  // serve static files depending on environment variable
+  /*
+  * serve static files depending on environment variable
+  */
+  
+  // serving produciton files
   if (process.env.NODE_ENV == 'production') {
     console.log('RUNNING PRODUCTION MODE');
     app.use(express.static(__dirname + './../dist'));
-    // app.use('/lib', express.static(__dirname + './../lib'));
   }
+  // serving development files
   if (process.env.NODE_ENV == 'development') {
     console.log('RUNNING DEVELOPMENT MODE');
     app.use(express.static(__dirname + './../app'));
     app.use('/lib', express.static(__dirname + './../lib'));
   }
 
-  // app.use('/node_modules', express.static(__dirname + './../node_modules'));
 
 
 }
