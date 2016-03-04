@@ -23,7 +23,6 @@ angular
           cursorChar: "|"
         });
 
-        new WOW().init();
 
 
     }]);
