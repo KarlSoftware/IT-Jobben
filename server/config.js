@@ -38,6 +38,8 @@ module.exports = function(app) {
   if (process.env.NODE_ENV == 'development') {
     console.log('RUNNING DEVELOPMENT MODE');
     app.use(express.static(__dirname + './../app'));
+    // have to serve bower lib folder in development mode since app/index.html depend on it
+    // no need to serve it in production since gulp task useref takes care of assets in /lib
     app.use('/lib', express.static(__dirname + './../lib'));
   }
 
