@@ -61,7 +61,7 @@ angular
         var mostRecentAdDate = adsArrayExact[0].publiceraddatum;
         console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
 
-        // Variable for date of the last ad
+        // Variable for date of the oldest ad
         var lastAdDate = adsArrayExact[adsArrayExact.length -1].publiceraddatum;
         console.log('lastAdDate', lastAdDate, 'typeof', typeof(lastAdDate));
 
@@ -72,7 +72,25 @@ angular
           console.log('Senaste annonsen (mostRecentAdDate)  är äldre än testDate');
         }
 
-        $scope.oldDate = lastAdDate;
+        /*
+        * Save most Recent date to localStorage
+        */
+        // if localStorage already exist
+        if (localStorage['itjobben-date-municipality' + municipalityID]) {
+          console.log('localStorage finns redan');
+          console.log('uppdaterar localStorage...');
+          // update localStorage with the most recent ad date
+          localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
+        } else {
+          console.log('localStorage finns inte än');
+          console.log('sätter localStorage som äldsta datum');
+          // set localStorage as the date of the oldest ad
+          // this will result in that all ads get a 'new badge' thing
+          localStorage['itjobben-date-municipality' + municipalityID] = lastAdDate;
+        }
+
+        // attach the date from localStorage to scope
+        $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
 
 
 
