@@ -50,6 +50,32 @@ angular
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
+        /*
+        * BADGE STUFF HERE
+        */
+
+        var testDate = "2016-02-03T14:47:00+01:00";
+        console.log('testDate', testDate, typeof(testDate));
+
+        // variable for date of most recent ad
+        var mostRecentAdDate = adsArrayExact[0].publiceraddatum;
+        console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
+
+        // Variable for date of the last ad
+        var lastAdDate = adsArrayExact[adsArrayExact.length -1].publiceraddatum;
+        console.log('lastAdDate', lastAdDate, 'typeof', typeof(lastAdDate));
+
+        if (mostRecentAdDate > testDate) {
+          console.log('Senaste annonsen (mostRecentAdDate) är nyare än testDate');
+        }
+        if (mostRecentAdDate < testDate) {
+          console.log('Senaste annonsen (mostRecentAdDate)  är äldre än testDate');
+        }
+
+        $scope.oldDate = lastAdDate;
+
+
+
         // do logic depending on how many ads
         if ($scope.realAds.length == 1) {
           $scope.adsNrExact = '1 Annons';
