@@ -71,7 +71,6 @@ angular
           localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
           // attach it to scope after you have set localstorage
           $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
-
         }
 
 
