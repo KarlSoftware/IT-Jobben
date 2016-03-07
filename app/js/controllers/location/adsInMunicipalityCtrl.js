@@ -50,48 +50,29 @@ angular
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
+
+
         /*
-        * BADGE STUFF HERE
+        * Save most Recent date to localStorage
+        * Used so template can display a badge for new ad since user last visited
         */
-
-        var testDate = "2016-02-03T14:47:00+01:00";
-        console.log('testDate', testDate, typeof(testDate));
-
         // variable for date of most recent ad
         var mostRecentAdDate = adsArrayExact[0].publiceraddatum;
         console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
 
-        // Variable for date of the oldest ad
-        var lastAdDate = adsArrayExact[adsArrayExact.length -1].publiceraddatum;
-        console.log('lastAdDate', lastAdDate, 'typeof', typeof(lastAdDate));
-
-        if (mostRecentAdDate > testDate) {
-          console.log('Senaste annonsen (mostRecentAdDate) är nyare än testDate');
-        }
-        if (mostRecentAdDate < testDate) {
-          console.log('Senaste annonsen (mostRecentAdDate)  är äldre än testDate');
-        }
-
-        /*
-        * Save most Recent date to localStorage
-        */
         // if localStorage already exist
         if (localStorage['itjobben-date-municipality' + municipalityID]) {
-          console.log('localStorage finns redan');
-          console.log('uppdaterar localStorage...');
+          // attach the date from localStorage to scope BEFORE we update localStorage with new date
+          $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
           // update localStorage with the most recent ad date
           localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
         } else {
-          console.log('localStorage finns inte än');
-          console.log('sätter localStorage som äldsta datum');
           // set localStorage as the date of the oldest ad
-          // this will result in that all ads get a 'new badge' thing
-          localStorage['itjobben-date-municipality' + municipalityID] = lastAdDate;
+          localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
+          // attach it to scope after you have set localstorage
+          $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
+
         }
-
-        // attach the date from localStorage to scope
-        $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
-
 
 
         // do logic depending on how many ads
