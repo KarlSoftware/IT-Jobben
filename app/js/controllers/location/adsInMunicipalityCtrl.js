@@ -50,6 +50,30 @@ angular
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
+
+
+        /*
+        * Save most Recent date to localStorage
+        * Used so template can display a badge for new ad since user last visited
+        */
+        // variable for date of most recent ad
+        var mostRecentAdDate = adsArrayExact[0].publiceraddatum;
+        console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
+
+        // if localStorage already exist
+        if (localStorage['itjobben-date-municipality' + municipalityID]) {
+          // attach the date from localStorage to scope BEFORE we update localStorage with new date
+          $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
+          // update localStorage with the most recent ad date
+          localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
+        } else {
+          // set localStorage as the date of the oldest ad
+          localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
+          // attach it to scope after you have set localstorage
+          $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
+        }
+
+
         // do logic depending on how many ads
         if ($scope.realAds.length == 1) {
           $scope.adsNrExact = '1 Annons';
