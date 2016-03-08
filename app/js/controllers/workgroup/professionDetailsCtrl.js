@@ -68,7 +68,7 @@ angular
           // update localStorage with the most recent ad date
           localStorage['itjobben-date-profession' + id] = mostRecentAdDate;
         } else {
-          // set localStorage as the date of the oldest ad
+          // update localStorage with the most recent ad date
           localStorage['itjobben-date-profession' + id] = mostRecentAdDate;
           // attach it to scope after you have set localstorage
           $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + id]);
