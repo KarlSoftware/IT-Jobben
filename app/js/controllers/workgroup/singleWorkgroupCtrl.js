@@ -29,8 +29,7 @@ angular
       })
       .then(function(response) {
         $scope.data = response;
-        $scope.nrOfJobs = response.data.body.soklista.totalt_antal_ledigajobb;
-        $scope.nrOfAds = response.data.body.soklista.totalt_antal_platsannonser;
+        $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser och ' + response.data.body.soklista.totalt_antal_platsannonser + ' jobb'
         console.log(response);
         $scope.workgroup = response.data.body.soklista.sokdata;
       });
