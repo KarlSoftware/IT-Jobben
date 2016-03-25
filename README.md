@@ -79,7 +79,7 @@ Se `gulpfile.js` för mer info om vad det är för task som finns tillgängliga.
 ```
 // Se till att gulp körs när du utvecklar för att watch ska kunna köras på app/
 // Gulp default task är att hålla koll på alla filer i /app så inga parametrar behöver skrivas i kommandot
-$ gulp
+$ gulp // starta gulp default task med watch
 ```
 
 ### Deploy med gulp.js
