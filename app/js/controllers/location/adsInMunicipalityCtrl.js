@@ -50,8 +50,6 @@ angular
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
-
-
         /*
         * Save most Recent date to localStorage
         * Used so template can display a badge for new ad since user last visited
