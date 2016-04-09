@@ -40,7 +40,7 @@ angular
         // set page header
         $rootScope.header = 'Sökning - IT Jobben';
 
-        // set searchTerm to scope
+        // attach searchTerm to scope
         $scope.searchTerm = sessionStorage.getItem("searchTerm");
 
         // fetch current pagination page. Defaults to 1 if pagination sessionStorage isn't set yet
@@ -51,7 +51,7 @@ angular
         }
 
         /*
-        * Call the search function
+        * Call the search function with sessionStorage as param
         */
         search(sessionStorage.getItem("searchTerm"));
 
@@ -72,9 +72,11 @@ angular
           $scope.paginationPage = '1';
           // set searchterm
           sessionStorage.setItem("searchTerm", $scope.searchterm);
+          // attach searchterm to scope
           $scope.searchTerm = sessionStorage.getItem("searchTerm");
+
           /*
-          * Do the search with search function
+          * Call the search function with sessionStorage as param
           */
           search(sessionStorage.getItem("searchTerm"));
         };
