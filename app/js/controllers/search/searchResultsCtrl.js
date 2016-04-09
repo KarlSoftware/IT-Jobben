@@ -8,6 +8,33 @@ angular
       '$rootScope',
       function($scope, $http, $rootScope) {
 
+        /* Function to perform http request and fetch search results
+        *
+        * param searchFor string The string to search for
+        */
+        function search(searchFor) {
+
+          var relevantAds = []; // empty array to be used later in iteration
+
+          // do http request
+          $http.get('api/search/' + searchFor, {
+            ignoreLoadingBar: false,
+          })
+          .then(function(response) {
+            $scope.ads = response.data.matchningslista.matchningdata;
+            // loop through ads
+            for (i = 0; i < $scope.ads.length; i++) {
+              // only push 100% matching ads to relevantAds array
+              if ($scope.ads[i].relevans == 100) {
+                relevantAds.push($scope.ads[i]);
+              }
+            }
+            // attach relevant ads to scope
+            $scope.ads75 = relevantAds;
+          }); // end of then
+
+        } // end of search function
+
 
 
         // set page header
@@ -23,24 +50,10 @@ angular
           $scope.paginationPage = sessionStorage.getItem("paginationSearch");
         }
 
-        // set empty array to fill up with ads matching above 75%
-        var adsAbove75 = [];
-
-        $http.get('api/search/' + sessionStorage.getItem("searchTerm"), {
-          ignoreLoadingBar: false,
-        })
-        .then(function(response) {
-          console.log(response);
-          $scope.ads = response.data.matchningslista.matchningdata;
-          // loop through ads to get 100% matches
-          for (i = 0; i < $scope.ads.length; i++) {
-            if ($scope.ads[i].relevans == 100) {
-              adsAbove75.push($scope.ads[i]);
-            }
-          }
-
-          $scope.ads75 = adsAbove75;
-        }); // end of then
+        /*
+        * Call the search function
+        */
+        search(sessionStorage.getItem("searchTerm"));
 
         // dir-pagination-controls function to change current pagination page
         $scope.changePagination = function(newPageNumber, oldPageNumber) {
@@ -55,34 +68,15 @@ angular
         // function to search again
         $scope.search = function () {
 
-          // reset results array
-          adsAbove75 = [];
-
           // reset pagination page to Defaults
           $scope.paginationPage = '1';
-
           // set searchterm
           sessionStorage.setItem("searchTerm", $scope.searchterm);
           $scope.searchTerm = sessionStorage.getItem("searchTerm");
-
-
-          // do http req with new search term
-          $http.get('api/search/' + sessionStorage.getItem("searchTerm"), {
-            ignoreLoadingBar: false,
-          })
-          .then(function(response) {
-            console.log(response);
-            $scope.ads = response.data.matchningslista.matchningdata;
-            // loop through ads to get 100% matches
-            for (i = 0; i < $scope.ads.length; i++) {
-              if ($scope.ads[i].relevans == 100) {
-                adsAbove75.push($scope.ads[i]);
-              }
-            }
-
-            $scope.ads75 = adsAbove75;
-          });
-
+          /*
+          * Do the search with search function
+          */
+          search(sessionStorage.getItem("searchTerm"));
         };
 
 
