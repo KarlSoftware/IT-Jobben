@@ -10,7 +10,7 @@ angular
 
         /* Function to perform http request and fetch search results
         *
-        * param searchFor string The string to search for
+        * @param {String} searchFor The string to search for
         */
         function search(searchFor) {
 
