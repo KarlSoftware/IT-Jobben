@@ -3,6 +3,14 @@ b {
   font-size: 1.05em;
 }
 
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
 h1, h2, h3, p{
      word-wrap: break-word;
      -webkit-hyphens: auto;
@@ -52,11 +60,7 @@ td a {
   line-height: 2em;
 }
 
-.heading-spaced {
-  letter-spacing: 0.2em;
-}
 
 .p-line-heigth {
   line-height: 2em;
-  font-size: 1.09em;
 }
