@@ -29,7 +29,7 @@
     "bootswatch": "3.3.6+2",
     "font-awesome": "4.5.0",
     "jquery": "2.2.0",
-    "chartjs": ">= 1.0.1-beta.4",
+    "chartjs": "2.1.6",
     "moment": "2.11.1",
     "typed.js": "~1.1.1",
     "wow": "wow.js#~1.1.2",
