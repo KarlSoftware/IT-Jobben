@@ -8,7 +8,6 @@ var gulp = require('gulp'),
     removeHtmlComments = require('gulp-remove-html-comments'),        // Remove html comments
     plumber = require('gulp-plumber'),                                // Prevent pipe breaking caused by errors from other plugins
     image = require('gulp-image'),                                    // Optimize images
-    usemin = require('gulp-usemin'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
     cleanCSS = require('gulp-clean-css'),                             // Minify css
     uglify = require('gulp-uglify'),                                  // Uglify Code
     rev = require('gulp-rev'),                                        // static asset revisioning by appending content hash to filenames
