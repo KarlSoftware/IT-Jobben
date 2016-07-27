@@ -127,7 +127,7 @@ gulp.task('build-sass', function() {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest(outputDir + 'css/style.css'))
+    .pipe(gulp.dest(outputDir + 'css/'))
 });
 
 
@@ -204,6 +204,20 @@ gulp.task('push', function(){
     if (err) throw err;
   });
 });
+
+
+/*
+Build for heroku production mode
+ */
+gulp.task('build-heroku', [
+  'js-dist',
+  'minify-html-template-root',
+  'minify-html-templates-folders',
+  'images-randomAds',
+  'build-sass',
+  'useref'
+]);
+
 
 
 /*********************************************************************************
