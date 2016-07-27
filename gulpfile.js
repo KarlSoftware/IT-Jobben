@@ -116,6 +116,22 @@ gulp.task('sass', function() {
 });
 
 /*
+* Sass task
+* output all scss files to single css file in /dist
+*/
+gulp.task('build-sass', function() {
+  return gulp.src(['app/css/scss/*.scss', 'app/css/scss/partials/*.scss'])
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest(outputDir + 'css/style.css'))
+});
+
+
+/*
 * compress regular stylesheet
 * Outputs to dist directory
 */
