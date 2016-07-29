@@ -23,6 +23,8 @@ angular
         };
 
         $scope.doSearch = function () {
+
+          $location.search({term: $scope.navbarSearchTerm});
           // set sessionStorage
           sessionStorage.setItem("searchTerm", $scope.navbarSearchTerm);
           console.log($scope.navbarSearchTerm)
@@ -30,13 +32,11 @@ angular
 
           // go to searchresults page if not already there
           if ($route.current.$$route.originalPath != '/sökning') {
-            console.log('du är inte på sökning');
             $location.path('sökning'); // change $route
           }
 
           // reload view if current $route is searchResults
           if ($route.current.$$route.originalPath == '/sökning') {
-            console.log('du är på sökning');
             $route.reload(); // reload $route
           }
 

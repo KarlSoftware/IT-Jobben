@@ -6,7 +6,10 @@ angular
       '$scope',
       '$http',
       '$rootScope',
-      function($scope, $http, $rootScope) {
+      '$location',
+      function($scope, $http, $rootScope, $location) {
+
+        var searchTerm = $location.search().term;
 
         /* Function to perform http request and fetch search results
         *
@@ -50,10 +53,11 @@ angular
           $scope.paginationPage = sessionStorage.getItem("paginationSearch");
         }
 
+        console.log(searchTerm);
         /*
         * Call the search function with sessionStorage as param
         */
-        search(sessionStorage.getItem("searchTerm"));
+        search(searchTerm);
 
         // dir-pagination-controls function to change current pagination page
         $scope.changePagination = function(newPageNumber, oldPageNumber) {
@@ -68,6 +72,8 @@ angular
         // function to search again
         $scope.search = function () {
 
+          $location.search({term: $scope.searchterm});
+
           // reset pagination page to Defaults
           $scope.paginationPage = '1';
           // set searchterm
@@ -78,7 +84,7 @@ angular
           /*
           * Call the search function with sessionStorage as param
           */
-          search(sessionStorage.getItem("searchTerm"));
+          search($scope.searchterm);
         };
 
 
