@@ -28,16 +28,15 @@ angular
         ignoreLoadingBar: false
       })
       .then(function(response) {
-        console.log(response);
+        var adInfo = response.data.body;
         // attach response to scope variables
-        $scope.adDetails = response;
-        $scope.annons = response.data.body.platsannons.annons;
-        $scope.ansokan = response.data.body.platsannons.ansokan;
-        $scope.arbetsplats = response.data.body.platsannons.arbetsplats;
-        $scope.krav = response.data.body.platsannons.krav;
-        $scope.driverslicenseList = response.data.body.platsannons.krav.korkortslista;
-        $scope.villkor = response.data.body.platsannons.villkor;
         $rootScope.header         = adInfo.platsannons.annons.annonsrubrik;
+        $scope.annons             = adInfo.platsannons.annons;
+        $scope.ansokan            = adInfo.platsannons.ansokan;
+        $scope.arbetsplats        = adInfo.platsannons.arbetsplats;
+        $scope.krav               = adInfo.platsannons.krav;
+        $scope.driverslicenseList = adInfo.platsannons.krav.korkortslista;
+        $scope.villkor            = adInfo.platsannons.villkor;
 
         // do logic depending on what the response contains
         // logic for sista ansökningsdag
