@@ -84,6 +84,11 @@ angular
       .when('/statistik/yrke/:id', {
         templateUrl: 'templates/statistics/professionStatsDetails.html'
       })
+      // profil
+      .when('/profil', {
+        templateUrl: 'templates/profile/profile.html',
+        controller: 'profileCtrl'
+      })
 
       // all other routes return home page
       .otherwise({
