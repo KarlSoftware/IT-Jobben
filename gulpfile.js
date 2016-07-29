@@ -30,7 +30,7 @@ var outputDir = './dist/';
 * Concat and uglify .js files to output directory
 */
 gulp.task('js-dist', function() {
-  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js'])
+  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'])
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(jsmin())
@@ -43,7 +43,7 @@ gulp.task('js-dist', function() {
 * Outputs in app directory for use while development
 */
 gulp.task('js-dev', function() {
-  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js'])
+  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'])
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(gulp.dest('./app/js'));
@@ -229,7 +229,7 @@ gulp.task('build-heroku', [
 */
 gulp.task('watch', function() {
   // watch js
-  gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
+  gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'], ['js-dist', 'js-dev']);
   // watch html
   gulp.watch('app/index.html', ['useref']);
   gulp.watch('app/templates/*', ['minify-html-template-root']);
