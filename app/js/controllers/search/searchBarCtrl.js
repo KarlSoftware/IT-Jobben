@@ -8,7 +8,14 @@ angular
       '$location',
       '$route',
       '$firebaseAuth',
-      function($scope, $http, $location, $route, $firebaseAuth) {
+      'Auth',
+      function($scope, $http, $location, $route, $firebaseAuth, Auth) {
+
+        Auth.$onAuth(function(authData) {
+          if (authData) {
+            $scope.user = true;
+          }
+        })
 
         // scope function to set active route. Used to assign active class to navbar links
         $scope.isActive = function (viewLocation) {
