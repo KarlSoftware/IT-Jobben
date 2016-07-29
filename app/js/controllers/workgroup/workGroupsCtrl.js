@@ -51,7 +51,7 @@ angular
         })
         .then(function(response) {
           $scope.data = response;
-          $scope.AdsinGroup = response.data.body.soklista.totalt_antal_platsannonser + ' annonser och ' + response.data.body.soklista.totalt_antal_platsannonser + ' jobb'
+          $scope.AdsinGroup = response.data.body.soklista.totalt_antal_platsannonser + ' annonser'
           console.log(response);
           $scope.workgroup = response.data.body.soklista.sokdata;
         });
