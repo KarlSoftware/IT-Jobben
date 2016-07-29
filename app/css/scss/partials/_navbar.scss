@@ -7,3 +7,8 @@
 .navbar-gap-fix {
   margin-top: -21px;
 }
+
+// "remove" border-color of toggled navbar hamburger icon
+.navbar-inverse .navbar-toggle {
+    border-color: $primary-color;
+}
