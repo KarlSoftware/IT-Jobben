@@ -14,7 +14,8 @@ angular
     'tc.chartjs',
     'angularUtils.directives.dirPagination',
     'ngRoute',
-    'firebase'
+    'firebase',
+    'duScroll'
   ])
 
   // change Moment language
@@ -56,8 +57,10 @@ angular
         templateUrl: 'templates/search/searchResults.html'
       })
       // workgroups
-      .when('/yrkesgrupper', {
-        templateUrl: 'templates/workgroup/workGroups.html'
+      .when('/yrken', {
+        templateUrl: 'templates/workgroup/workGroups.html',
+        reloadOnSearch: false
+
       })
       // workgroups
       .when('/yrkesgrupper/:workgroupID', {

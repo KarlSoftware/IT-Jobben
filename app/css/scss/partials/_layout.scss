@@ -111,8 +111,8 @@ canvas {
 }
 
 #loading-bar .bar {
-background: #F1F1F1;
-height: 2px;
+background: $primary-color;
+height: 2.5px;
 }
 
 /* helper class for example used to turn icons green */

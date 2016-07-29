@@ -17,7 +17,9 @@ var gulp = require('gulp'),
     useref = require('gulp-useref'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
     gulpif = require('gulp-if'),                                      // If statements
     sass = require('gulp-sass'),                                      // Handle SASS
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    sourcemaps = require('gulp-sourcemaps');
+
 
 
 // variable for output directory
@@ -48,11 +50,12 @@ gulp.task('js-dist', function() {
 */
 gulp.task('js-dev', function() {
   return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'])
-    .pipe(plumber())
-    .pipe(concat('itjobben.js'))
-    .pipe(gulp.dest('./app/js'))
-    .pipe(livereload());
-
+    .pipe(sourcemaps.init())
+      .pipe(plumber())
+      .pipe(concat('itjobben.js'))
+    .pipe(sourcemaps.write())
+      .pipe(gulp.dest('./app/js'))
+      .pipe(livereload());
 });
 
 /*********************************************************************************
