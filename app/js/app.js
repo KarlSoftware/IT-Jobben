@@ -13,7 +13,8 @@ angular
     'angular-loading-bar',
     'tc.chartjs',
     'angularUtils.directives.dirPagination',
-    'ngRoute'
+    'ngRoute',
+    'firebase'
   ])
 
   // change Moment language
