@@ -8,8 +8,6 @@ angular
       '$rootScope',
       function($scope, $http, $routeParams, $rootScope) {
 
-      // set page title
-      $rootScope.header = 'Annons - IT Jobben';
 
       // Create variable from param
       var ad = $routeParams.adID;
@@ -39,6 +37,7 @@ angular
         $scope.krav = response.data.body.platsannons.krav;
         $scope.driverslicenseList = response.data.body.platsannons.krav.korkortslista;
         $scope.villkor = response.data.body.platsannons.villkor;
+        $rootScope.header         = adInfo.platsannons.annons.annonsrubrik;
 
         // do logic depending on what the response contains
         // logic for sista ansökningsdag
