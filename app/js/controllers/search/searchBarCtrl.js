@@ -42,6 +42,7 @@ angular
 
         };
 
+        // login the user
         $scope.login = function() {
           console.log('loggar in');
           var ref = new Firebase("https://it-jobben.firebaseio.com/");
@@ -53,6 +54,14 @@ angular
           }).catch(function(error) {
             console.log("Authentication failed:", error);
           });
+        }
+
+        // Log out the user
+        $scope.logout = function() {
+          console.log('loggar ut');
+          $scope.authObj = Auth;
+          $scope.authObj.$unauth();
+          $location.path('/');
         }
 
 
