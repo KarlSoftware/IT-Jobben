@@ -12,9 +12,9 @@ angular
         $rootScope.header = 'IT Jobben';
 
         $(".typed").typed({
-          strings: ["Som programmerare",
-                    "Som UX-expert",
-                    "Som civilingenjör",
+          strings: ["Inom Frontend",
+                    "Som UX-Guru",
+                    "Som IT-konsult",
                     "Inom IT helt enkelt",
                     ],
           typeSpeed: 0.6,
