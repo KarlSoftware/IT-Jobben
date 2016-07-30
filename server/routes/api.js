@@ -35,12 +35,17 @@ module.exports = function(app) {
   function relevantJobs(object) {
     var ads = [];
 
-    // loop through ads to get 100% matches
-    for (i = 0; i < object.length; i++) {
-      if (object[i].relevans == 100) {
-        ads.push(object[i]);
+    if (object != undefined) {
+      // loop through ads to get 100% matches
+      for (i = 0; i < object.length; i++) {
+        if (object[i].relevans == 100) {
+          ads.push(object[i]);
+        }
       }
+    } else {
+      ads.push(object);
     }
+
 
     return ads;
   }
