@@ -57,7 +57,13 @@ angular
 
 
         $scope.selectProfession = function(professionName, professionID) {
-          console.log(professionName);
+
+
+          // set variables for 7 days into the future
+          // used to check if ad expires soon
+          var sevenDaysFromNow = moment().add('days', 7);
+          $scope.sevenDaysFromNow = sevenDaysFromNow.format();
+
           var currentWorkgroupID = $location.search().grupp;
 
           // set url query params
