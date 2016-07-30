@@ -43,26 +43,4 @@ angular
 
 
 
-        // function to search again
-        // on searchresult view search field
-        $scope.search = function () {
-
-          $location.search({term: $scope.searchterm});
-
-          // reset pagination page to Defaults
-          $scope.paginationPage = '1';
-          // set searchterm
-          sessionStorage.setItem("searchTerm", $scope.searchterm);
-          // attach searchterm to scope
-          $scope.searchTerm = sessionStorage.getItem("searchTerm");
-
-          // call search service and attach response to scope
-          Search.searchFor($scope.searchterm).then(function(response) {
-            $scope.ads75 = response.data;
-          })
-
-
-        };
-
-
     }]); // end of controller
