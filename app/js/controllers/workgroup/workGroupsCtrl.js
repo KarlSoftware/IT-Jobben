@@ -21,7 +21,7 @@ angular
 
         // call service that makes corrent http get request
         Job.workgroup().then(function(response) {
-        $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser och ' + response.data.body.soklista.totalt_antal_platsannonser + ' jobb'
+        $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser';
         $scope.workgroups = response.data.body.soklista.sokdata;
         });
 

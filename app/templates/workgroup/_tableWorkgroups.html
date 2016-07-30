@@ -18,20 +18,12 @@
             <span ng-show="step1SortType == 'antal_platsannonser' && step1SortReverse" class="fa fa-caret-down"></span>
           </a>
         </td>
-        <td>
-          <a ng-click="step1SortType = 'antal_ledigajobb'; step1SortReverse = !step1SortReverse">
-            Jobb
-            <span ng-show="step1SortType == 'antal_ledigajobb' && !step1SortReverse" class="fa fa-caret-up"></span>
-            <span ng-show="step1SortType == 'antal_ledigajobb' && step1SortReverse" class="fa fa-caret-down"></span>
-          </a>
-        </td>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="workgroup in workgroups | orderBy:step1SortType:step1SortReverse">
           <td><a du-smooth-scroll="workgroup" duration="1700" ng-click="selectWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
           <td>{{workgroup.antal_platsannonser}} st</td>
-          <td>{{workgroup.antal_ledigajobb}} st</td>
       </tr>
     </tbody>
   </table>
