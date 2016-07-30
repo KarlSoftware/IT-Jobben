@@ -9,7 +9,8 @@ angular
       '$route',
       '$firebaseAuth',
       'Auth',
-      function($scope, $http, $location, $route, $firebaseAuth, Auth) {
+      '$window',
+      function($scope, $http, $location, $route, $firebaseAuth, Auth, $window) {
 
         Auth.$onAuth(function(authData) {
           if (authData) {
@@ -61,7 +62,8 @@ angular
           console.log('loggar ut');
           $scope.authObj = Auth;
           $scope.authObj.$unauth();
-          $location.path('/');
+          // $location.path('/');
+          $window.location.reload();
         }
 
 
