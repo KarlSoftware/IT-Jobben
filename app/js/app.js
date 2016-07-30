@@ -13,12 +13,21 @@ angular
     'angular-loading-bar',
     'tc.chartjs',
     'angularUtils.directives.dirPagination',
-    'ngRoute'
+    'ngRoute',
+    'firebase',
+    'duScroll'
   ])
 
   // change Moment language
-  .run(function(amMoment) {
+  .run(function(amMoment, $rootScope, $location) {
     amMoment.changeLocale('sv');
+
+    $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+     if (error === "AUTH_REQUIRED") {
+       $location.path("/");
+     }
+    });
+
   })
 
   .config([
@@ -48,8 +57,10 @@ angular
         templateUrl: 'templates/search/searchResults.html'
       })
       // workgroups
-      .when('/yrkesgrupper', {
-        templateUrl: 'templates/workgroup/workGroups.html'
+      .when('/yrken', {
+        templateUrl: 'templates/workgroup/workGroups.html',
+        reloadOnSearch: false
+
       })
       // workgroups
       .when('/yrkesgrupper/:workgroupID', {
@@ -82,6 +93,16 @@ angular
       // statistics
       .when('/statistik/yrke/:id', {
         templateUrl: 'templates/statistics/professionStatsDetails.html'
+      })
+      // profil
+      .when('/profil', {
+        templateUrl: 'templates/profile/profile.html',
+        controller: 'profileCtrl',
+        resolve: {
+             "currentAuth": ["Auth", function(Auth) {
+               return Auth.$requireAuth();
+             }]
+        }
       })
 
       // all other routes return home page

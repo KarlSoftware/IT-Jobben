@@ -8,6 +8,49 @@ var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 
 module.exports = function(app) {
 
+
+  /* Function to parse search result string to object and extract 100% matching ads
+  *
+  * @param {String} string The string to parse and filter
+  */
+  function search(string) {
+
+    var relevantAds = [];
+
+    var parse = JSON.parse(string);
+    var object = parse.matchningslista.matchningdata;
+
+
+    for (i = 0; i < object.length; i++) {
+      if (object[i].relevans == 100) {
+        console.log('100 relevans');
+        relevantAds.push(object[i]);
+      }
+    }
+
+    return relevantAds;
+
+  } // end of search function
+
+  function relevantJobs(object) {
+    var ads = [];
+
+    if (object != undefined) {
+      // loop through ads to get 100% matches
+      for (i = 0; i < object.length; i++) {
+        if (object[i].relevans == 100) {
+          ads.push(object[i]);
+        }
+      }
+    } else {
+      ads.push(object);
+    }
+
+
+    return ads;
+  }
+
+
   // Declare router
   var router = express.Router();
 
@@ -50,7 +93,9 @@ module.exports = function(app) {
         },
       },
       function (error, response, body) {
-        res.send(body);
+
+        // send 100% matching ads as response with help of search filter function
+        res.send(search(body));
     })
   })
 
@@ -88,7 +133,8 @@ module.exports = function(app) {
       'Accept': 'application/json',
       'Accept-Language': 'sv'
     }).end(function (response) {
-      res.send(response);
+      // relevantJobs(response);
+      res.send(relevantJobs(response.body.matchningslista.matchningdata));
     })
 
   }) // end of router

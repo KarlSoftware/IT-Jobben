@@ -1,0 +1,56 @@
+<!-- Pagination -->
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+    <dir-pagination-controls max-size="6" on-page-change="changePagination(newPageNumber, oldPageNumber)"></dir-pagination-controls>
+  </div>
+</div>
+<!-- Filter -->
+<div class="row">
+  <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1 text-center">
+    <div class="input-group" ng-show="realAds.length > 10">
+      <div class="input-group-addon"><span class="fa fa-filter"></span></div>
+      <input type="text" ng-model="searchText.$" class="form-control" placeholder="Filtrera annonserna fritt efter nyckelord ">
+    </div>
+  </div>
+</div>
+
+<!-- Ad results -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="table-responsive">
+      <table class="table margin-top table-striped table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Annons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Pagination content -->
+          <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 10" current-page="paginationPage">
+            <td>
+              <a ng-href=" /annons/{{ad.annonsid}}">
+                <span ng-if="ad.sista_ansokningsdag < sevenDaysFromNow" class="label label-danger">Går ut snart</span>
+                <span ng-if="ad.publiceraddatum > oldDate" class="label label-default">Ny annons</span>
+                {{ad.annonsrubrik}}
+                <br>
+                <span class="text-muted">
+                  <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
+                  <span ng-if="'ad.antalplatser' > 'ad.antalPlatserVisa'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
+                  <span ng-if="'ad.antalplatser' < 'ad.antalPlatserVisa'"> <i class="fa fa-user"></i> {{ad.antalPlatserVisa}}</span>
+
+                  <!-- <span ng-if="ad.antalplatser == '0'"></span> ingen info<br> -->
+                  <br>
+                  <i class="fa fa-map-marker"></i> {{ad.kommunnamn}}
+                  <i class="fa fa-building-o"></i> {{ad.arbetsplatsnamn}}
+                </span>
+              </a>
+            </td>
+          </tr> <!-- end of pagination content -->
+        </tbody>
+      </table>
+    </div> <!-- end of responsive table -->
+  </div> <!-- end of col -->
+</div> <!-- end of paginated results -->
+</div> <!-- end of container -->
+
+</div>

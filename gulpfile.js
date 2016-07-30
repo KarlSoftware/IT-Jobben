@@ -16,7 +16,11 @@ var gulp = require('gulp'),
     stripDebug = require('gulp-strip-debug'),                         // Remove debugging (console.log) from js Code
     useref = require('gulp-useref'),                                  // Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)
     gulpif = require('gulp-if'),                                      // If statements
-    sass = require('gulp-sass');                                      // Handle SASS
+    sass = require('gulp-sass'),                                      // Handle SASS
+    livereload = require('gulp-livereload'),
+    sourcemaps = require('gulp-sourcemaps');
+
+
 
 // variable for output directory
 var outputDir = './dist/';
@@ -30,12 +34,14 @@ var outputDir = './dist/';
 * Concat and uglify .js files to output directory
 */
 gulp.task('js-dist', function() {
-  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js'])
+  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'])
     .pipe(plumber())
     .pipe(concat('itjobben.js'))
     .pipe(jsmin())
     .pipe(stripDebug())
-    .pipe(gulp.dest(outputDir + 'js'));
+    .pipe(gulp.dest(outputDir + 'js'))
+    .pipe(livereload());
+
 });
 
 /*
@@ -43,10 +49,13 @@ gulp.task('js-dist', function() {
 * Outputs in app directory for use while development
 */
 gulp.task('js-dev', function() {
-  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js'])
-    .pipe(plumber())
-    .pipe(concat('itjobben.js'))
-    .pipe(gulp.dest('./app/js'));
+  return gulp.src(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'])
+    .pipe(sourcemaps.init())
+      .pipe(plumber())
+      .pipe(concat('itjobben.js'))
+    .pipe(sourcemaps.write())
+      .pipe(gulp.dest('./app/js'))
+      .pipe(livereload());
 });
 
 /*********************************************************************************
@@ -62,6 +71,8 @@ gulp.task('minify-html-index', function() {
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(outputDir))
+    .pipe(livereload());
+
 });
 
 /*
@@ -73,6 +84,8 @@ gulp.task('minify-html-template-root', function() {
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(outputDir + 'templates'))
+    .pipe(livereload());
+
 });
 
 /*
@@ -84,6 +97,8 @@ gulp.task('minify-html-templates-folders', function() {
     .pipe(removeHtmlComments())
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(outputDir + 'templates'))
+    .pipe(livereload());
+
 });
 
 /*********************************************************************************
@@ -98,6 +113,7 @@ gulp.task('images-randomAds', function() {
   return gulp.src('app/img/randomAds/*.jpg')
     .pipe(image())
     .pipe(gulp.dest(outputDir + 'img/randomAds/'))
+
 });
 
 /*********************************************************************************
@@ -113,6 +129,8 @@ gulp.task('sass', function() {
     .pipe(plumber())
     .pipe(sass())
     .pipe(gulp.dest('app/css/'))
+    .pipe(livereload());
+
 });
 
 /*
@@ -128,6 +146,8 @@ gulp.task('build-sass', function() {
       cascade: false
     }))
     .pipe(gulp.dest(outputDir + 'css/'))
+    .pipe(livereload());
+
 });
 
 
@@ -145,6 +165,8 @@ gulp.task('compress-css', function() {
 			cascade: false
 		}))
     .pipe(gulp.dest(outputDir + 'css'))
+    .pipe(livereload());
+
 });
 
 
@@ -156,7 +178,9 @@ gulp.task('useref', function() {
     .pipe(useref())
     .pipe(gulpif('*.js', concat('js/assets.js')))
     .pipe(gulpif('*.css', sass()))
-    .pipe(gulp.dest(outputDir));
+    .pipe(gulp.dest(outputDir))
+    .pipe(livereload());
+
 });
 
 
@@ -228,8 +252,10 @@ gulp.task('build-heroku', [
 * Gulp watch
 */
 gulp.task('watch', function() {
+  livereload.listen();
+
   // watch js
-  gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js'], ['js-dist', 'js-dev']);
+  gulp.watch(['app/js/app.js', 'app/js/controllers/*/*.js', 'app/js/services/*.js'], ['js-dist', 'js-dev']);
   // watch html
   gulp.watch('app/index.html', ['useref']);
   gulp.watch('app/templates/*', ['minify-html-template-root']);

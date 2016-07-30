@@ -29,6 +29,13 @@ canvas {
   align-items: center;
 }
 
+.ad-image-sm {
+  height: 50vh;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
 .full-viewhight {
   height: 100vh;
 }
@@ -104,8 +111,8 @@ canvas {
 }
 
 #loading-bar .bar {
-background: #F1F1F1;
-height: 2px;
+background: $primary-color;
+height: 2.5px;
 }
 
 /* helper class for example used to turn icons green */
