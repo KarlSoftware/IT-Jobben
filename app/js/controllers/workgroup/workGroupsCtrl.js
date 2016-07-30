@@ -7,26 +7,21 @@ angular
       '$http',
       '$rootScope',
       '$location',
-      function($scope, $http, $rootScope, $location) {
+      'Job',
+      function($scope, $http, $rootScope, $location, Job) {
 
-        console.log($location.search());
 
         $scope.paginationPage = 1;
 
         $scope.step2 = false;
         $scope.step3 = false;
 
-
-
         // set page title
         $rootScope.header = 'Hitta jobb inom ett yrke - IT Jobben';
 
-        $http.get('api/yrkesgrupper/', {
-        ignoreLoadingBar: false
-        })
-        .then(function(response) {
+        // call service that makes corrent http get request
+        Job.workgroup().then(function(response) {
         $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser och ' + response.data.body.soklista.totalt_antal_platsannonser + ' jobb'
-        console.log(response);
         $scope.workgroups = response.data.body.soklista.sokdata;
         });
 
@@ -37,28 +32,27 @@ angular
         // select a workgroup
         $scope.selectWorkgroup = function(workgroupName, workgroupID) {
 
-        $location.search({grupp: workgroupID});
+          // set query param
+          $location.search({grupp: workgroupID});
 
-        $scope.currentWorkgroup = workgroupName;
-        // show next step in interaction
-        $scope.step2 = true;
-        // hide step3 if user has moved up and down again
-        $scope.step3 = false;
-        // console.log(workgroupID);
-        $scope.workgroupID = workgroupID;
-        $http.get('api/yrkesgrupp/' + $location.search().grupp, {
-          ignoreLoadingBar: false
-        })
-        .then(function(response) {
-          $scope.data = response;
-          $scope.AdsinGroup = response.data.body.soklista.totalt_antal_platsannonser + ' annonser'
-          console.log(response);
-          $scope.workgroup = response.data.body.soklista.sokdata;
-        });
+          $scope.currentWorkgroup = workgroupName;
+          // show next step in interaction
+          $scope.step2 = true;
+          // hide step3 if user has moved up and down again
+          $scope.step3 = false;
 
-        // set sorting
-        $scope.step2SortType = 'namn'; // default sorting
-        $scope.step2SortReverse = false; // default to a-z, 1-9 etc
+          $scope.workgroupID = workgroupID;
+
+          // call service that makes corrent http get request
+          Job.insideWorkgroup($location.search().grupp).then(function(response) {
+            var data = response.data.body;
+            $scope.AdsinGroup = data.soklista.totalt_antal_platsannonser + ' annonser'
+            $scope.workgroup = data.soklista.sokdata;
+          });
+
+          // set sorting
+          $scope.step2SortType = 'namn'; // default sorting
+          $scope.step2SortReverse = false; // default to a-z, 1-9 etc
         };
 
 
@@ -73,13 +67,11 @@ angular
           // set empty array to fill up with 100% matching ads
           adsArrayExact = [];
 
-          $http.get('api/yrke/' + $location.search().yrke, {
-            ignoreLoadingBar: false
-          })
-          .then(function(response) {
-            $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
-            $scope.ads = response.data.body.matchningslista.matchningdata;
-            console.log(response);
+          // call service that makes corrent http get request
+          Job.insideProfession($location.search().yrke).then(function(response) {
+            var data = response.data.body;
+            $scope.adsExact = data.matchningslista.antal_platsannonser_exakta;
+            $scope.ads = data.matchningslista.matchningdata;
 
             // loop through ads to get 100% matches
             for (i = 0; i < $scope.ads.length; i++) {
@@ -120,9 +112,6 @@ angular
             }
           }); // end of then
 
-
-
-
         }
 
 
@@ -130,5 +119,6 @@ angular
         $scope.changePagination = function(newPageNumber, oldPageNumber) {
 
           $scope.paginationPage = newPageNumber;
+
         };
     }]); // end of controller
