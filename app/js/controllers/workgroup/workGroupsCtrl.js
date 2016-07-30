@@ -70,25 +70,17 @@ angular
           // call service that makes corrent http get request
           Job.insideProfession($location.search().yrke).then(function(response) {
             var data = response.data.body;
-            $scope.adsExact = data.matchningslista.antal_platsannonser_exakta;
-            $scope.ads = data.matchningslista.matchningdata;
-
-            // loop through ads to get 100% matches
-            for (i = 0; i < $scope.ads.length; i++) {
-              if ($scope.ads[i].relevans == 100) {
-                adsArrayExact.push($scope.ads[i]);
-              }
-            }
-
+            console.log(response);
+            // $scope.adsExact = data.matchningslista.antal_platsannonser_exakta;
             // attach 100% ads array to scope
-            $scope.realAds = adsArrayExact;
+            $scope.realAds = response.data;
 
             /*
             * Save most Recent date to localStorage
             * Used so template can display a badge for new ad since user last visited
             */
             // variable for date of most recent ad
-            var mostRecentAdDate = adsArrayExact[0].publiceraddatum;
+            var mostRecentAdDate = response.data[0].publiceraddatum;
             console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
 
             // if localStorage already exist
@@ -105,10 +97,10 @@ angular
             }
 
             // do logic depending on how many ads
-            if ($scope.adsExact == 1) {
+            if (response.data.length == 1) {
               $scope.adsNrExact = '1 Annons';
             } else {
-              $scope.adsNrExact = $scope.adsExact + ' Annonser';
+              $scope.adsNrExact = response.data.length + ' Annonser';
             }
           }); // end of then
 

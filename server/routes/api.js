@@ -32,6 +32,19 @@ module.exports = function(app) {
 
   } // end of search function
 
+  function relevantJobs(object) {
+    var ads = [];
+
+    // loop through ads to get 100% matches
+    for (i = 0; i < object.length; i++) {
+      if (object[i].relevans == 100) {
+        ads.push(object[i]);
+      }
+    }
+
+    return ads;
+  }
+
 
   // Declare router
   var router = express.Router();
@@ -115,7 +128,8 @@ module.exports = function(app) {
       'Accept': 'application/json',
       'Accept-Language': 'sv'
     }).end(function (response) {
-      res.send(response);
+      // relevantJobs(response);
+      res.send(relevantJobs(response.body.matchningslista.matchningdata));
     })
 
   }) // end of router
