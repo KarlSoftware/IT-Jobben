@@ -44,6 +44,10 @@ angular
       .when('/', {
         templateUrl: 'templates/index.html'
       })
+      .when('/login', {
+        templateUrl: 'templates/login/login.html',
+        controller: 'loginCtrl'
+      })
       // about page
       .when('/om', {
         templateUrl: 'templates/about.html'
