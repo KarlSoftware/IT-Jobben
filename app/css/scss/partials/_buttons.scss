@@ -1,0 +1,38 @@
+// Style for outline class
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: $brand-primary;
+}
+
+.btn-success.btn-outline {
+    color: $brand_success;
+}
+
+.btn-info.btn-outline {
+    color: $brand-info;
+}
+
+.btn-warning.btn-outline {
+    color: $brand-warning;
+}
+
+.btn-danger.btn-outline {
+    color: $brand-danger;
+}
+
+.btn-white.btn-outline {
+  color: $brand-white;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
