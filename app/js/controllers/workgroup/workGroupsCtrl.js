@@ -59,6 +59,8 @@ angular
         $scope.selectProfession = function(professionName, professionID) {
           console.log(professionName);
           var currentWorkgroupID = $location.search().grupp;
+
+          // set url query params
           $location.search({grupp: currentWorkgroupID, yrke: professionID});
 
           $scope.currentProfession = professionName;
@@ -66,6 +68,11 @@ angular
           $scope.step3 = true;
           // set empty array to fill up with 100% matching ads
           adsArrayExact = [];
+
+          if (localStorage.getItem(['itjobben-date-profession' + $location.search().yrke])) {
+            $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + $location.search().yrke]);
+
+          }
 
           // call service that makes corrent http get request
           Job.insideProfession($location.search().yrke).then(function(response) {
@@ -80,28 +87,16 @@ angular
             * Used so template can display a badge for new ad since user last visited
             */
             // variable for date of most recent ad
-            var mostRecentAdDate = response.data[0].publiceraddatum;
-            console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
-
-            // if localStorage already exist
-            if (localStorage['itjobben-date-profession' + professionID]) {
-              // attach the date from localStorage to scope BEFORE we update localStorage with new date
-              $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + professionID]);
-              // update localStorage with the most recent ad date
-              localStorage['itjobben-date-profession' + professionID] = mostRecentAdDate;
+            var mostRecentAdDate = '';
+            if (response.data[0] == null) {
+              mostRecentAdDate = moment().format();
             } else {
-              // update localStorage with the most recent ad date
-              localStorage['itjobben-date-profession' + professionID] = mostRecentAdDate;
-              // attach it to scope after you have set localstorage
-              $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + professionID]);
+              mostRecentAdDate = response.data[0].publiceraddatum;
             }
 
-            // do logic depending on how many ads
-            if (response.data.length == 1) {
-              $scope.adsNrExact = '1 Annons';
-            } else {
-              $scope.adsNrExact = response.data.length + ' Annonser';
-            }
+            // call job service and determine if localstorage for the date exist or not
+            Job.determineDate(mostRecentAdDate, $location.search().yrke);
+
           }); // end of then
 
         }
