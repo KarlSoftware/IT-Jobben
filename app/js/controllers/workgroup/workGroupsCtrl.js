@@ -84,7 +84,6 @@ angular
           Job.insideProfession($location.search().yrke).then(function(response) {
             var data = response.data.body;
             console.log(response);
-            // $scope.adsExact = data.matchningslista.antal_platsannonser_exakta;
             // attach 100% ads array to scope
             $scope.realAds = response.data;
 
