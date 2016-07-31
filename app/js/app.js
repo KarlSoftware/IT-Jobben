@@ -76,7 +76,9 @@ angular
       })
       // places. Län, kommuner
       .when('/plats/lan', {
-        templateUrl: 'templates/location/counties.html'
+        templateUrl: 'templates/location/counties.html',
+        reloadOnSearch: false
+
       })
       // places. Län, kommuner
       .when('/plats/lan/:countyID', {
