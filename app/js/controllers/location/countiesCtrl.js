@@ -31,6 +31,8 @@ angular
 
           $location.search({län: id});
 
+          $scope.paginationPage = 1;
+
 
           $scope.step2 = true;
           $scope.step3 = false;
@@ -46,32 +48,32 @@ angular
 
         $scope.selectMunicipality = function(location, muniID) {
 
-          // fetch current pagination page. Defaults to 1
-          if (sessionStorage.getItem("paginationMunicipality") === null) {
-            $scope.paginationPage = '1';
-          } else {
-            $scope.paginationPage = sessionStorage.getItem("paginationMunicipality");
-          }
-
-          $scope.step3 = true;
+          // get current country id from query params
           var currentCounty = $location.search().län;
-          console.log(currentCounty);
+
+          // step3 is now visible
+          $scope.step3 = true;
+          // get current muni name
           $scope.municipality = location;
           // set new query params
-          $location.search({län: currentCounty, kommun: muniID});
+          $location.search({län: currentCounty, kommun: muniID, sida: "1"});
+
 
           $http.get('location/municipality/' + muniID)
           .then(function(response) {
-            console.log(response.data);
             $scope.ads = response.data;
           })
+
+          // set pagination from query params
+          $scope.paginationPage = "1";
+
         }
 
         // dir-pagination-controls function to change current pagination page
         $scope.changePagination = function(newPageNumber, oldPageNumber) {
-          // set sessionStorage
-          sessionStorage.setItem("paginationMunicipality", newPageNumber);
+
           $scope.paginationPage = newPageNumber;
+          $location.search({län: $location.search().län, kommun: $location.search().kommun, sida: newPageNumber});
         };
     }])
 
