@@ -11,7 +11,7 @@ angular
 
 
         // set page title
-        $rootScope.header = 'Län - IT Jobben';
+        $rootScope.header = 'Hitta jobb efter plats - IT Jobben';
 
         /*
         * function to handle the selected county
