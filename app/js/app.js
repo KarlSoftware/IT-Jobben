@@ -76,7 +76,7 @@ angular
         templateUrl: 'templates/workgroup/professionDetails.html'
       })
       // places. Län, kommuner
-      .when('/plats/lan', {
+      .when('/plats/', {
         templateUrl: 'templates/location/counties.html',
         reloadOnSearch: false
 
