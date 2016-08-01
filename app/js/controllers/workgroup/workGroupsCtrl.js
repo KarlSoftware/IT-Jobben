@@ -10,24 +10,58 @@ angular
       'Job',
       function($scope, $http, $rootScope, $location, Job) {
 
+        // set page title
+        $rootScope.header = 'Hitta jobb inom ett yrke - IT Jobben';
 
         $scope.paginationPage = 1;
 
         $scope.step2 = false;
         $scope.step3 = false;
 
-        // set page title
-        $rootScope.header = 'Hitta jobb inom ett yrke - IT Jobben';
 
-        // call service that makes corrent http get request
-        Job.workgroup().then(function(response) {
-        $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser';
-        $scope.workgroups = response.data.body.soklista.sokdata;
-        });
 
         // set sorting
-        $scope.step1SortType = 'namn'; // default sorting
+        $scope.step1SortType    = 'namn'; // default sorting
         $scope.step1SortReverse = false; // default to a-z, 1-9 etc
+        $scope.step2SortType    = 'namn'; // default sorting
+        $scope.step2SortReverse = false; // default to a-z, 1-9 etc
+
+
+        // if query param 'spara' is active use cached results and save UX state
+        if ($location.search().spara) {
+
+          // set steps to true
+          $scope.step2 = true;
+          $scope.step3 = true;
+
+          // fill up all scope values from cached sessionStorage
+          $scope.howMany           = sessionStorage.cachedHowManyAds;
+          $scope.workgroups        = JSON.parse(sessionStorage.cachedWorkgroups);
+          $scope.AdsinGroup        = sessionStorage.cachedAdsInGroup;
+          $scope.currentWorkgroup  = sessionStorage.cachedCurrentWorkgroupName;
+          $scope.workgroup         = JSON.parse(sessionStorage.cachedWorkgroup);
+          $scope.currentProfession = sessionStorage.cachedCurrentProfessionName;
+          $scope.realAds           = JSON.parse(sessionStorage.cachedProfessionAds);
+
+        } else {
+
+          console.log('inte sparad!');
+
+          // call service that makes corrent http get request
+          Job.workgroup().then(function(response) {
+          $scope.howMany    = response.data.body.soklista.totalt_antal_platsannonser + ' annonser';
+          $scope.workgroups = response.data.body.soklista.sokdata;
+
+          // cache response
+          sessionStorage.cachedHowManyAds = $scope.howMany;
+          sessionStorage.cachedWorkgroups = JSON.stringify($scope.workgroups);
+          });
+
+        }
+
+
+
+
 
         // select a workgroup
         $scope.selectWorkgroup = function(workgroupName, workgroupID) {
@@ -36,6 +70,9 @@ angular
           $location.search({grupp: workgroupID});
 
           $scope.currentWorkgroup = workgroupName;
+
+          // cache workgroup name
+          sessionStorage.cachedCurrentWorkgroupName = workgroupName;
           // show next step in interaction
           $scope.step2 = true;
           // hide step3 if user has moved up and down again
@@ -48,11 +85,14 @@ angular
             var data = response.data.body;
             $scope.AdsinGroup = data.soklista.totalt_antal_platsannonser + ' annonser'
             $scope.workgroup = data.soklista.sokdata;
+
+            // cache response
+            sessionStorage.cachedAdsInGroup = $scope.AdsinGroup;
+            sessionStorage.cachedWorkgroup = JSON.stringify($scope.workgroup);
           });
 
           // set sorting
-          $scope.step2SortType = 'namn'; // default sorting
-          $scope.step2SortReverse = false; // default to a-z, 1-9 etc
+
         };
 
 
@@ -70,10 +110,12 @@ angular
           $location.search({grupp: currentWorkgroupID, yrke: professionID});
 
           $scope.currentProfession = professionName;
+          // cache profession name
+          sessionStorage.cachedCurrentProfessionName = professionName;
           // show next step in interaction
           $scope.step3 = true;
-          // set empty array to fill up with 100% matching ads
-          adsArrayExact = [];
+
+
 
           if (localStorage.getItem(['itjobben-date-profession' + $location.search().yrke])) {
             $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + $location.search().yrke]);
@@ -86,6 +128,9 @@ angular
             console.log(response);
             // attach 100% ads array to scope
             $scope.realAds = response.data;
+
+            // cache response
+            sessionStorage.cachedProfessionAds = JSON.stringify($scope.realAds);
 
             /*
             * Save most Recent date to localStorage
@@ -104,6 +149,14 @@ angular
 
           }); // end of then
 
+        }
+
+        $scope.saveUX = function() {
+          $location.search({
+            grupp: $location.search().grupp,
+            yrke: $location.search().yrke,
+            spara: true
+          })
         }
 
 
