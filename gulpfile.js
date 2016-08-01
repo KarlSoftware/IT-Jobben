@@ -239,6 +239,7 @@ gulp.task('build-heroku', [
   'minify-html-templates-folders',
   'images-randomAds',
   'build-sass',
+  'compress-css',
   'useref'
 ]);
 
