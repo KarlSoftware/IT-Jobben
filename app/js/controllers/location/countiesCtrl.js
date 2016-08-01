@@ -131,7 +131,12 @@ angular
         $scope.saveUX = function() {
           // update query params with 'spara' value
           // for use when user returns to this view and then displays cached results
-          $location.search({län: $location.search().län, kommun: $location.search().kommun, spara: true});
+          $location.search({
+            län: $location.search().län,
+            kommun: $location.search().kommun,
+            spara: true
+          });
+
         }
 
         // dir-pagination-controls function to change current pagination page
