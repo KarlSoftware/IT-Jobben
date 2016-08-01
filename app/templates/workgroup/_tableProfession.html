@@ -1,3 +1,14 @@
+<!-- Info text -->
+<div class="text-center">
+  <a class="pull-right" du-smooth-scroll="workgroup" duration="1000"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+  <h1>{{currentProfession}}</h1>
+  <p class="lead text-muted" ng-if="realAds.length > 1">{{realAds.length}} Annonser</p>
+  <span ng-show="realAds.length == 1">
+    <p class="lead text-muted" ng-if="realAds[0] == null">Inga annonser hittades</p>
+    <p class="lead text-muted" ng-if="realAds[0] != null">1 Annons</p>
+  </span>
+</div>
+
 <!-- Pagination -->
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 text-center">
