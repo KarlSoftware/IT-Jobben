@@ -81,14 +81,6 @@ angular
         reloadOnSearch: false
 
       })
-      // places. Län, kommuner
-      .when('/plats/lan/:countyID', {
-        templateUrl: 'templates/location/singleCounty.html'
-      })
-      // places. Län, kommuner
-      .when('/plats/kommun/:municipalityID/annonser', {
-        templateUrl: 'templates/location/adsInMunicipality.html'
-      })
       // statistics
       .when('/statistik', {
         templateUrl: 'templates/statistics/workgroupsStats.html'
