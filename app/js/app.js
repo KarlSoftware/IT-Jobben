@@ -17,6 +17,7 @@ angular
     'firebase',
     'duScroll'
   ])
+  .value('duScrollOffset', 30) // offset the scroll values a bit 
 
   // change Moment language
   .run(function(amMoment, $rootScope, $location) {
