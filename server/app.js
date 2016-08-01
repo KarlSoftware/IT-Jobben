@@ -6,9 +6,10 @@ var express = require('express'),
 
 
 // Require other modules (files)
-var config =  require('./config')(app);
-var api =     require('./routes/api')(app);
-var location =     require('./routes/location')(app);
+var config   = require('./config')(app);
+var api      = require('./routes/api')(app);
+var search   = require('./routes/search')(app);
+var location = require('./routes/location')(app);
 
 app.get('*', function(req, res) {
     // send the index.html for other files to support HTML5Mode

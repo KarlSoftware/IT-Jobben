@@ -8,7 +8,7 @@ app.service(
       searchFor: function(term) {
 
         // make request to search with the query param
-        return $http.get('api/search/' + term, {
+        return $http.get('search/search/' + term, {
           ignoreLoadingBar: false,
         })
 
