@@ -1,4 +1,8 @@
 <div class="container-fluid container-gray" ng-controller="countiesCtrl">
+
+  <div ng-if="shortcut == true" ng-include="'templates/_btnShortcut.html'"></div>
+
+
   <!-- Container -->
   <div id="step1" class="container white-subtle-shadow margin-bottom">
     <div ng-include="'templates/location/_cardsCounties.html'"></div>

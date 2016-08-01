@@ -1,11 +1,15 @@
 <div class="container-fluid" ng-controller="workGroupsCtrl">
 
+  <div ng-if="shortcut == true" ng-include="'templates/_btnShortcut.html'"></div>
+
+
   <div id="step1" class="container white-subtle-shadow margin-bottom">
     <div ng-include="'templates/workgroup/_tableWorkgroups.html'"></div>
   </div> <!-- end of container and controller -->
 
 
   <div id="step2" ng-show="step2" class="container white-subtle-shadow margin-bottom animated slideInRight">
+
     <div ng-include="'templates/workgroup/_tableWorkgroup.html'"></div>
   </div>
 

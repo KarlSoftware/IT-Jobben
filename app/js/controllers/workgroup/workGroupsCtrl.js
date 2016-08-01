@@ -17,6 +17,7 @@ angular
 
         $scope.step2 = false;
         $scope.step3 = false;
+        $scope.shortcut = false;
 
         // set sorting
         $scope.step1SortType    = 'namn'; // default sorting
@@ -34,6 +35,7 @@ angular
           // set steps to true
           $scope.step2 = true;
           $scope.step3 = true;
+          $scope.shortcut = true;
 
           // fill up all scope values from cached sessionStorage
           $scope.howMany           = sessionStorage.cachedHowManyAds;

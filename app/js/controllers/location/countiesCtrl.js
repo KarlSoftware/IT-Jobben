@@ -70,6 +70,8 @@ angular
         // step2 and step3 defaults to false
         $scope.step2 = false;
         $scope.step3 = false;
+        $scope.shortcut = false;
+
 
         // logic depending on user is returning to view or not
         // check query params if 'sparad' is active
@@ -79,6 +81,7 @@ angular
 
           $scope.step2 = true;
           $scope.step3 = true;
+          $scope.shortcut = true;
 
           // get cached values from sessionStorage
           $scope.counties = JSON.parse(sessionStorage.cachedCounties);
