@@ -73,7 +73,6 @@ angular
         // else the UX steps are in place
         if ($location.search().spara) {
 
-          console.log('UX SKA SPARAS FÖR HELVETE!');
           $scope.step2 = true;
           $scope.step3 = true;
 
@@ -92,10 +91,8 @@ angular
           })
           .then(function(response) {
             $scope.counties = response.data.body.soklista.sokdata;
-
             // cache counties
             sessionStorage.cachedCounties = JSON.stringify($scope.counties);
-
           });
 
         } // end of logic depending on UX
@@ -104,7 +101,9 @@ angular
         // set locationState upon clicking a county
         $scope.selectCounty = function(location, id) {
 
+          // step 2 is visible
           $scope.step2 = true;
+          // hide step 3
           $scope.step3 = false;
 
           // cache current county name
@@ -122,6 +121,7 @@ angular
 
           // step3 is now visible
           $scope.step3 = true;
+          // cache current muni name
           sessionStorage.currentMuni = location;
           // call function that handles http req, query params and pagination
           selectedMuni(currentCounty, location, muniID);
