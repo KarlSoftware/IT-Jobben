@@ -131,5 +131,4 @@ $ git checkout master
 Antingen kan du följa detta arbetsflöde eller använda dig av de Gulp tasks som är skapde för att enklare göra en deploy till VPS-servern. Se mer under rubriken [Användning av Gulp.js](#deploy-med-gulpjs)
 
 ## TODO
-* Gå över helt från DO till Heroku för gratis enklare uptime
 * Skriv om heroku deployment
