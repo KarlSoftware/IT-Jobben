@@ -13,6 +13,9 @@ angular
         // set page title
         $rootScope.header = 'Hitta jobb efter plats - IT Jobben';
 
+        // set a variable 7 days into the future
+        var sevenDaysFromNow  = moment().add('days', 7);
+
         /*
         * function to handle the selected county
         * @param {string} location the current county
@@ -53,6 +56,8 @@ angular
           $http.get('location/municipality/' + id)
           .then(function(response) {
             $scope.ads = response.data;
+            $scope.sevenDaysFromNow  = sevenDaysFromNow.format();
+
             // cache the response
             sessionStorage.cachedAds = JSON.stringify(response.data);
 
@@ -82,6 +87,8 @@ angular
           $scope.municipality = sessionStorage.currentMuni;
           $scope.ads = JSON.parse(sessionStorage.cachedAds)
           $scope.paginationPage = "1";
+          $scope.sevenDaysFromNow  = sevenDaysFromNow.format();
+
 
         } else {
 

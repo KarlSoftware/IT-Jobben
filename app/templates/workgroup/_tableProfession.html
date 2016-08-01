@@ -1,6 +1,6 @@
 <!-- Info text -->
 <div class="text-center">
-  <a class="pull-right" du-smooth-scroll="workgroup" duration="1000"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+  <a class="pull-right" du-smooth-scroll="step2" duration="1000"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
   <h1>{{currentProfession}}</h1>
   <p class="lead text-muted" ng-if="realAds.length > 1">{{realAds.length}} Annonser</p>
   <span ng-show="realAds.length == 1">
@@ -39,7 +39,7 @@
           <!-- Pagination content -->
           <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 10" current-page="paginationPage">
             <td>
-              <a ng-href=" /annons/{{ad.annonsid}}">
+              <a ng-click="saveUX()" ng-href=" /annons/{{ad.annonsid}}">
                 <span ng-if="ad.sista_ansokningsdag < sevenDaysFromNow" class="label label-danger">Går ut snart</span>
                 <span ng-if="ad.publiceraddatum > oldDate" class="label label-default">Ny annons</span>
                 {{ad.annonsrubrik}}
