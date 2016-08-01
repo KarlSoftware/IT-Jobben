@@ -25,10 +25,8 @@ angular
 
         $scope.doSearch = function () {
 
-          $location.search({term: $scope.navbarSearchTerm});
           // set sessionStorage
           sessionStorage.setItem("searchTerm", $scope.navbarSearchTerm);
-          console.log($scope.navbarSearchTerm)
           sessionStorage.setItem("paginationSearch", '1');
 
           // go to searchresults page if not already there

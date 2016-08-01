@@ -12,7 +12,7 @@ angular
 
 
         // get searchterm from query param
-        var searchTerm = $location.search().term;
+        var searchTerm = sessionStorage.searchTerm;
 
         // call search service and attach respose to scope
         Search.searchFor(searchTerm).then(function(response) {
