@@ -19,7 +19,7 @@ angular
         * @param {int} id the id of the county
         */
         function selectedCounty(location, id) {
-          console.log('kör selectedCounty funktionen');
+
           $scope.currentCounty = location;
 
           $location.search({län: id});
@@ -45,12 +45,10 @@ angular
          */
         function selectedMuni(currentCounty, location, id) {
 
-
           // get current muni name
           $scope.municipality = location;
           // set new query params
           $location.search({län: currentCounty, kommun: id, sida: "1"});
-
 
           $http.get('location/municipality/' + id)
           .then(function(response) {
@@ -64,6 +62,7 @@ angular
           $scope.paginationPage = "1";
         }
 
+        // step2 and step3 defaults to false
         $scope.step2 = false;
         $scope.step3 = false;
 
