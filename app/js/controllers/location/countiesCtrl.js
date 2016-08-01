@@ -9,40 +9,109 @@ angular
       '$location',
       function($scope, $http, $rootScope, $location) {
 
-        $scope.step2 = false;
-        $scope.step3 = false;
 
         // set page title
         $rootScope.header = 'Län - IT Jobben';
 
-        $http.get('location/counties', {
-          ignoreLoadingBar: true
-        })
-        .then(function(response) {
-          $scope.counties = response.data.body.soklista.sokdata;
-          console.log(response);
-        });
-
-        // set locationState upon clicking a county
-        $scope.selectCounty = function(location, id) {
-          console.log('du klickade på', location);
-
+        /*
+        * function to handle the selected county
+        * @param {string} location the current county
+        * @param {int} id the id of the county
+        */
+        function selectedCounty(location, id) {
+          console.log('kör selectedCounty funktionen');
           $scope.currentCounty = location;
 
           $location.search({län: id});
 
           $scope.paginationPage = 1;
 
-
-          $scope.step2 = true;
-          $scope.step3 = false;
-
           $http.get('location/municipalities/' + $location.search().län, {
             ignoreLoadingBar: false
           })
           .then(function(response) {
             $scope.municipalities = response.data.body.soklista.sokdata;
+
+            // cache the response
+            sessionStorage.cachedMuni = JSON.stringify(response.data.body.soklista.sokdata);
           });
+        }
+
+        /*
+        * function to handle the selected municipality
+        * @param {int} currentCounty the current county id
+        * @param {string} location the current municipality name
+        * @param {int} id the current municipality id
+         */
+        function selectedMuni(currentCounty, location, id) {
+
+
+          // get current muni name
+          $scope.municipality = location;
+          // set new query params
+          $location.search({län: currentCounty, kommun: id, sida: "1"});
+
+
+          $http.get('location/municipality/' + id)
+          .then(function(response) {
+            $scope.ads = response.data;
+            // cache the response
+            sessionStorage.cachedAds = JSON.stringify(response.data);
+
+          })
+
+          // set pagination from query params
+          $scope.paginationPage = "1";
+        }
+
+        $scope.step2 = false;
+        $scope.step3 = false;
+
+        // logic depending on user is returning to view or not
+        // check query params if 'sparad' is active
+        // if it is then use cached sessionStorage values for scope variables
+        // else the UX steps are in place
+        if ($location.search().spara) {
+
+          console.log('UX SKA SPARAS FÖR HELVETE!');
+          $scope.step2 = true;
+          $scope.step3 = true;
+
+          // get cached values from sessionStorage
+          $scope.counties = JSON.parse(sessionStorage.cachedCounties);
+          $scope.currentCounty = sessionStorage.currentCounty;
+          $scope.municipalities = JSON.parse(sessionStorage.cachedMuni);
+          $scope.municipality = sessionStorage.currentMuni;
+          $scope.ads = JSON.parse(sessionStorage.cachedAds)
+          $scope.paginationPage = "1";
+
+        } else {
+
+          $http.get('location/counties', {
+            ignoreLoadingBar: true
+          })
+          .then(function(response) {
+            $scope.counties = response.data.body.soklista.sokdata;
+
+            // cache counties
+            sessionStorage.cachedCounties = JSON.stringify($scope.counties);
+
+          });
+
+        } // end of logic depending on UX
+
+
+        // set locationState upon clicking a county
+        $scope.selectCounty = function(location, id) {
+
+          $scope.step2 = true;
+          $scope.step3 = false;
+
+          // cache current county name
+          sessionStorage.currentCounty = location;
+
+          // call function that handles http req and query params
+          selectedCounty(location, id);
 
         };
 
@@ -53,20 +122,16 @@ angular
 
           // step3 is now visible
           $scope.step3 = true;
-          // get current muni name
-          $scope.municipality = location;
-          // set new query params
-          $location.search({län: currentCounty, kommun: muniID, sida: "1"});
+          sessionStorage.currentMuni = location;
+          // call function that handles http req, query params and pagination
+          selectedMuni(currentCounty, location, muniID);
 
+        }
 
-          $http.get('location/municipality/' + muniID)
-          .then(function(response) {
-            $scope.ads = response.data;
-          })
-
-          // set pagination from query params
-          $scope.paginationPage = "1";
-
+        $scope.saveUX = function() {
+          // update query params with 'spara' value
+          // for use when user returns to this view and then displays cached results
+          $location.search({län: $location.search().län, kommun: $location.search().kommun, spara: true});
         }
 
         // dir-pagination-controls function to change current pagination page

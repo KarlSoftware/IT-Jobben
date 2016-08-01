@@ -40,7 +40,7 @@
         <tbody>
           <tr dir-paginate="ad in ads | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
             <td>
-              <a ng-href=" /annons/{{ad.annonsid}}">
+              <a ng-click="saveUX()" ng-href=" /annons/{{ad.annonsid}}">
                 {{ad.annonsrubrik}}
                 <span ng-if="ad.publiceraddatum > oldDate" class="label label-default">Ny annons</span>
                 <br>
