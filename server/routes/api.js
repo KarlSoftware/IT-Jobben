@@ -23,7 +23,6 @@ module.exports = function(app) {
 
     for (i = 0; i < object.length; i++) {
       if (object[i].relevans == 100) {
-        console.log('100 relevans');
         relevantAds.push(object[i]);
       }
     }
