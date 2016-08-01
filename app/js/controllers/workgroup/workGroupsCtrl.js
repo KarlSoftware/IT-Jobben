@@ -18,13 +18,14 @@ angular
         $scope.step2 = false;
         $scope.step3 = false;
 
-
-
         // set sorting
         $scope.step1SortType    = 'namn'; // default sorting
         $scope.step1SortReverse = false; // default to a-z, 1-9 etc
         $scope.step2SortType    = 'namn'; // default sorting
         $scope.step2SortReverse = false; // default to a-z, 1-9 etc
+
+        // set a variable 7 days into the future
+        var sevenDaysFromNow  = moment().add('days', 7);
 
 
         // if query param 'spara' is active use cached results and save UX state
@@ -42,6 +43,8 @@ angular
           $scope.workgroup         = JSON.parse(sessionStorage.cachedWorkgroup);
           $scope.currentProfession = sessionStorage.cachedCurrentProfessionName;
           $scope.realAds           = JSON.parse(sessionStorage.cachedProfessionAds);
+          $scope.sevenDaysFromNow  = sevenDaysFromNow.format();
+
 
         } else {
 
@@ -99,9 +102,7 @@ angular
         $scope.selectProfession = function(professionName, professionID) {
 
 
-          // set variables for 7 days into the future
-          // used to check if ad expires soon
-          var sevenDaysFromNow = moment().add('days', 7);
+          // attach seven days from now variable to scope
           $scope.sevenDaysFromNow = sevenDaysFromNow.format();
 
           var currentWorkgroupID = $location.search().grupp;
@@ -115,17 +116,14 @@ angular
           // show next step in interaction
           $scope.step3 = true;
 
-
-
           if (localStorage.getItem(['itjobben-date-profession' + $location.search().yrke])) {
             $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + $location.search().yrke]);
-
           }
 
           // call service that makes corrent http get request
           Job.insideProfession($location.search().yrke).then(function(response) {
             var data = response.data.body;
-            console.log(response);
+
             // attach 100% ads array to scope
             $scope.realAds = response.data;
 
