@@ -9,6 +9,7 @@ var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 module.exports = function(app) {
 
 
+  // function to extract relevant jobs from an object
   function relevantJobs(object) {
     var ads = [];
 
