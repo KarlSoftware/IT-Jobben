@@ -1,7 +1,7 @@
 <!-- Info text -->
 <div class="text-center">
-  <a class="pull-right" du-smooth-scroll="workgroups" duration="1000"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
-  <h1 id="workgroup">{{currentWorkgroup}}</h1>
+  <a class="pull-right" du-smooth-scroll="step1" duration="1000"><i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i></a>
+  <h1>{{currentWorkgroup}}</h1>
   <p class="lead text-muted">{{AdsinGroup}}</p>
 </div>
 
@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="yrke in workgroup | orderBy:step2SortType:step2SortReverse">
-        <td><a du-smooth-scroll="profession" duration="1700" ng-click="selectProfession(yrke.namn, yrke.id)">{{yrke.namn}}</a></td>
+        <td><a du-smooth-scroll="step3" duration="1700" ng-click="selectProfession(yrke.namn, yrke.id)">{{yrke.namn}}</a></td>
         <td>{{yrke.antal_platsannonser}} st</td>
       </tr>
     </tbody>

@@ -1,6 +1,6 @@
 <!-- Info text -->
 <div class="text-center">
-  <h1 id="workgroups">Yrkesgrupper</h1>
+  <h1>Yrkesgrupper</h1>
   <p class="text-muted lead">{{howMany}}</p>
 </div>
 
@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="workgroup in workgroups | orderBy:step1SortType:step1SortReverse">
-          <td><a du-smooth-scroll="workgroup" duration="1700" ng-click="selectWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
+          <td><a du-smooth-scroll="step2" duration="1700" ng-click="selectWorkgroup(workgroup.namn, workgroup.id)">{{workgroup.namn}}</a></td>
           <td>{{workgroup.antal_platsannonser}} st</td>
       </tr>
     </tbody>
