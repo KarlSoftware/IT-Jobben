@@ -14,7 +14,9 @@ angular
         $rootScope.header = 'Hitta jobb efter plats - IT Jobben';
 
         // set a variable 7 days into the future
-        var sevenDaysFromNow  = moment().add('days', 7);
+        // used later on as a formated scope variable to check against
+        // to see if an ad expires soon or not
+        var sevenDaysFromNow = moment().add('days', 7);
 
         /*
         * function to handle the selected county
