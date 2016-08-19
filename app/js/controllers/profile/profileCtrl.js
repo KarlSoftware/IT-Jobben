@@ -13,11 +13,11 @@ angular
         // set page header title
         $rootScope.header = 'Min profil - IT Jobben';
 
-        Auth.$onAuth(function(authData) {
+        // get authData from current user as an object
+        var currentUser = JSON.parse(localStorage.getItem('firebase:session::it-jobben'));
+        $scope.user = currentUser.facebook.cachedUserProfile;
 
-            $scope.user = authData.facebook.cachedUserProfile;
-            console.log($scope.user);
-
-        })
+        // get all saved ads
+        $scope.savedAds = User.getSavedAdsArray(currentUser.facebook.id);
 
     }]);

@@ -37,7 +37,13 @@ var app = angular.module('app')
             } // end of if statement
           }) // end of snapshot
 
+        },
+
+        getSavedAdsArray: function(id) {
+          var adsRef = new Firebase('https://it-jobben.firebaseio.com/users/' + id + '/saved-ads');
+          return $firebaseArray(adsRef);
         }
+
       })
 
   })

@@ -6,7 +6,17 @@ angular
       '$http',
       '$routeParams',
       '$rootScope',
-      function($scope, $http, $routeParams, $rootScope) {
+      'Auth',
+      'User',
+      function($scope, $http, $routeParams, $rootScope, Auth, User) {
+
+      // determine if user is authenticated or not
+      Auth.$onAuth(function(authData) {
+        if (authData) {
+          $scope.currentUserID = authData.facebook.id;
+          $scope.auth = true;
+        }
+      })
 
 
       // Create variable from param
@@ -29,7 +39,9 @@ angular
       })
       .then(function(response) {
         var adInfo = response.data.body;
+        console.log(adInfo);
         // attach response to scope variables
+        $scope.wholeAd             = adInfo.platsannons;
         $rootScope.header         = adInfo.platsannons.annons.annonsrubrik;
         $scope.annons             = adInfo.platsannons.annons;
         $scope.ansokan            = adInfo.platsannons.ansokan;
@@ -85,6 +97,27 @@ angular
           $scope.kontaktNamn = $scope.arbetsplats.kontaktpersonlista.kontaktpersondata.namn;
         } else {
           $scope.kontaktperson = 'Ingen info';
+        }
+
+        // save ads to firebase
+        $scope.saveAd = function(ad) {
+
+          console.log(ad);
+
+          // get the firebase array
+          $scope.saveAds = User.getSavedAdsArray($scope.currentUserID);
+          // add the ad to firebase
+          $scope.saveAds.$add({
+            id: ad.annons.annonsid,
+            rubrik: ad.annons.annonsrubrik,
+            kommun: ad.annons.kommunnamn,
+            kommunkod: ad.annons.kommunkod,
+            yrke: ad.annons.yrkesbenamning,
+            yrkesid: ad.annons.yrkesid,
+            arbetsplats: ad.arbetsplats.arbetsplatsnamn,
+            sista_ansokningsdag: ad.ansokan.sista_ansokningsdag
+          });
+
         }
 
       }); // end of http then

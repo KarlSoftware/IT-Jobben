@@ -17,7 +17,13 @@
     <div class="container margin-bottom">
       <div class="row white-subtle-shadow">
         <div class="col-sm-12">
-          <h1 class="text-center">Om tjänsten</h1>
+          <h2 class="text-center">
+            Om tjänsten
+            <button
+              class="btn btn-sm btn-success"
+              ng-click="saveAd(wholeAd)"
+              ng-show="auth">Spara annonsen</button>
+          </h2>
           <p class="preserve-newline">{{annons.annonstext}}</p>
           <br>
         </div> <!-- end of col -->
