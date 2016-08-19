@@ -9,9 +9,9 @@ angular
       '$window',
       '$rootScope',
       '$location',
-      function($scope, $firebaseAuth, Auth, $window, $rootScope, $location) {
+      'User',
+      function($scope, $firebaseAuth, Auth, $window, $rootScope, $location, User) {
 
-      console.log('login page');
 
       // set page header
       $rootScope.header = 'Logga in - IT Jobben';
@@ -25,7 +25,11 @@ angular
         var auth = $firebaseAuth(ref);
         // login with Facebook
         auth.$authWithOAuthPopup("facebook").then(function(authData) {
-          console.log("Logged in as:", authData.uid);
+
+          // check if user is new or not
+          // create user if user is new with User service
+          User.checkNewUser(authData, authData.facebook.id);
+
           $location.path('/profil');
         }).catch(function(error) {
           console.log("Authentication failed:", error);

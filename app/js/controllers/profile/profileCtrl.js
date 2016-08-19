@@ -7,7 +7,8 @@ angular
       '$http',
       '$rootScope',
       'Auth',
-      function($scope, $http, $rootScope, Auth) {
+      'User',
+      function($scope, $http, $rootScope, Auth, User) {
 
         // set page header title
         $rootScope.header = 'Profil - IT Jobben';
