@@ -10,31 +10,8 @@
 </section>
 
 <div class="container-fluid">
-  <div class="container white-subtle-shadow">
-    <h2 class="text-center">Min Profil</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat ex facere eveniet praesentium debitis ipsam consequatur ratione vitae ducimus architecto quasi tempore labore saepe, magni facilis omnis error fuga neque.</p>
 
-  </div>
-  <br>
-  <div class="col-md-6">
+  <!-- Container with saved ads -->
+  <div class="container white-subtle-shadow"ng-include="'templates/profile/_savedAds.html'"></div>
 
-  </div>
-  <div class="container white-subtle-shadow">
-    <h2 class="text-center">Sparade annonser</h2>
-    <div class="col-md-8 col-md-offset-2">
-      <div class="list-group">
-        <span ng-repeat="ad in savedAds">
-          <a href="/annons/{{ad.id}}" class="list-group-item">
-            <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
-            <p class="list-group-item-text">{{ad.yrke}}</p>
-            <p class="list-group-item-text"><i class="fa fa-map-marker"></i> {{ad.kommun}}</p>
-            <p class="list-group-item-text"><i class="fa fa-building-o"></i> {{ad.arbetsplats}}</p>
-            <p class="list-group-item-text">Annonsen går ut {{ad.sista_ansokningsdag | amCalendar}}</p>
-
-          </a>
-        </span>
-      </div>
-    </div>
-
-  </div>
 </div>

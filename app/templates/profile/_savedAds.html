@@ -1,0 +1,22 @@
+<h2 class="text-center">Sparade annonser</h2>
+<p class="lead text-center text-info" ng-if="savedAds.length == 0">
+  <i class="fa fa-info-circle" aria-hidden="true"></i>
+  Du har inte sparat några annonser än.
+</p>
+<p class="text-center">När du ser en intressant annons kan du trycka på den gröna knappen för att spara den</p>
+
+<div ng-if="'savedAds.length > 0'" class="col-md-8 col-md-offset-2">
+  <div class="list-group">
+    <span ng-repeat="ad in savedAds">
+      <a href="/annons/{{ad.id}}" class="list-group-item">
+        <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
+        <p class="list-group-item-text">{{ad.yrke}}</p>
+        <p class="list-group-item-text">
+          <i class="fa fa-map-marker"></i> {{ad.kommun}}
+          <i class="fa fa-building-o"></i> {{ad.arbetsplats}}</p>
+        <p class="list-group-item-text">Annonsen går ut {{ad.sista_ansokningsdag | amCalendar}}</p>
+
+      </a>
+    </span>
+  </div>
+</div>
