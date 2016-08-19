@@ -39,6 +39,9 @@ var app = angular.module('app')
 
         },
 
+
+
+
         /*
         * Return Saved ads as a firebase array
         * @param id the user ID
@@ -47,6 +50,10 @@ var app = angular.module('app')
           var adsRef = new Firebase('https://it-jobben.firebaseio.com/users/' + id + '/saved-ads');
           return $firebaseArray(adsRef);
         },
+
+
+
+
 
         /*
         * Save an ad to firebase
@@ -74,8 +81,18 @@ var app = angular.module('app')
 
         },
 
-        checkAdSaved: function() {
-          return false;
+
+        /*
+        * Determine if ad is saved or not in firebase
+        */
+        checkAdSaved: function(userID, adID) {
+
+          var adRef = new Firebase(
+            'https://it-jobben.firebaseio.com/users/' + userID + '/saved-ads/' + adID
+          );
+
+          return adRef.once('value', function(snapshot) {
+          });
         }
 
       })

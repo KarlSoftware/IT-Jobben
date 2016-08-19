@@ -10,17 +10,30 @@ angular
       'User',
       function($scope, $http, $routeParams, $rootScope, Auth, User) {
 
-      // determine if user is authenticated or not
-      Auth.$onAuth(function(authData) {
-        if (authData) {
-          $scope.currentUserID = authData.facebook.id;
-          $scope.auth = true;
-        }
-      })
+        // Create variable from param
+        var ad = $routeParams.adID;
 
+        // determine if user is authenticated or not
+        Auth.$onAuth(function(authData) {
+          if (authData) {
+            $scope.currentUserID = authData.facebook.id;
+            $scope.auth = true;
 
-      // Create variable from param
-      var ad = $routeParams.adID;
+            // Determine if ad is saved to firebase or not
+            User.checkAdSaved($scope.currentUserID, ad)
+            .then(function(snapshot) {
+              var ad = snapshot.exists();
+              if (ad == true) {
+                $scope.isAdSaved = true;
+              } else {
+                $scope.isAdSaved = false;
+              }
+              console.log('isAdSaved', $scope.isAdSaved);
+            });
+
+          }
+        })
+
 
       // array for random image class to use with jumbotron image
       var randomImage = [
@@ -38,8 +51,9 @@ angular
         ignoreLoadingBar: false
       })
       .then(function(response) {
+
         var adInfo = response.data.body;
-        console.log(adInfo);
+
         // attach response to scope variables
         $scope.wholeAd             = adInfo.platsannons;
         $rootScope.header         = adInfo.platsannons.annons.annonsrubrik;
@@ -49,6 +63,7 @@ angular
         $scope.krav               = adInfo.platsannons.krav;
         $scope.driverslicenseList = adInfo.platsannons.krav.korkortslista;
         $scope.villkor            = adInfo.platsannons.villkor;
+
 
         // do logic depending on what the response contains
         // logic for sista ansökningsdag
