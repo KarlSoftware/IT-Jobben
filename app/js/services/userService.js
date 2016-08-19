@@ -82,6 +82,29 @@ var app = angular.module('app')
         },
 
 
+
+
+
+        /*
+        * Delete an ad from firebase
+        * @param userID the user id in question
+        * @param ad the ad object to extract info from to save
+        */
+        deleteAd: function(userID, ad) {
+
+          var usersURL = 'https://it-jobben.firebaseio.com/users/';
+
+          var adRef = new Firebase(
+            usersURL + userID + '/saved-ads/' + ad.annons.annonsid
+          );
+
+          adRef.remove();
+        },
+
+
+
+
+
         /*
         * Determine if ad is saved or not in firebase
         */

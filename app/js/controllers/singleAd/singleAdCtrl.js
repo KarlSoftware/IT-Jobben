@@ -10,6 +10,7 @@ angular
       'User',
       function($scope, $http, $routeParams, $rootScope, Auth, User) {
 
+
         // Create variable from param
         var ad = $routeParams.adID;
 
@@ -28,7 +29,8 @@ angular
               } else {
                 $scope.isAdSaved = false;
               }
-              console.log('isAdSaved', $scope.isAdSaved);
+              // force scope to re-apply itself
+              $scope.$apply()
             });
 
           }
@@ -120,7 +122,15 @@ angular
           // call user service function and pass current users id and ad object
           // this function saves a new record in db for the ad
           User.saveAd($scope.currentUserID, ad);
+          $scope.isAdSaved = true;
 
+        }
+
+        $scope.deleteAd = function(ad) {
+          // call user service function and pass current users id and ad object
+          // this function deletes a saved ad record from db
+          User.deleteAd($scope.currentUserID, ad);
+          $scope.isAdSaved = false;
         }
 
       }); // end of http then

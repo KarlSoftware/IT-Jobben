@@ -19,10 +19,22 @@
         <div class="col-sm-12">
           <h2 class="text-center">
             Om tjänsten
-            <button
-              class="btn btn-sm btn-success"
-              ng-click="saveAd(wholeAd)"
-              ng-show="auth">Spara annonsen</button>
+            <span ng-show="auth">
+              <button
+                class="btn btn-sm btn-success"
+                ng-click="saveAd(wholeAd)"
+                ng-show="!isAdSaved">
+                Spara annonsen
+              </button>
+              <button
+                class="btn btn-sm btn-danger"
+                ng-click="deleteAd(wholeAd)"
+                ng-show="isAdSaved">
+                Ta bort annonsen
+              </button>
+
+            </span>
+
           </h2>
           <p class="preserve-newline">{{annons.annonstext}}</p>
           <br>
