@@ -39,9 +39,43 @@ var app = angular.module('app')
 
         },
 
+        /*
+        * Return Saved ads as a firebase array
+        * @param id the user ID
+        */
         getSavedAdsArray: function(id) {
           var adsRef = new Firebase('https://it-jobben.firebaseio.com/users/' + id + '/saved-ads');
           return $firebaseArray(adsRef);
+        },
+
+        /*
+        * Save an ad to firebase
+        * @param userID the user id in question
+        * @param ad the ad object to extract info from to save
+        */
+        saveAd: function(userID, ad) {
+
+          var usersURL = 'https://it-jobben.firebaseio.com/users/';
+
+          var adRef = new Firebase(
+            usersURL + userID + '/saved-ads/' + ad.annons.annonsid
+          );
+
+          adRef.set({
+            id: ad.annons.annonsid,
+            rubrik: ad.annons.annonsrubrik,
+            kommun: ad.annons.kommunnamn,
+            kommunkod: ad.annons.kommunkod,
+            yrke: ad.annons.yrkesbenamning,
+            yrkesid: ad.annons.yrkesid,
+            arbetsplats: ad.arbetsplats.arbetsplatsnamn,
+            sista_ansokningsdag: ad.ansokan.sista_ansokningsdag
+          });
+
+        },
+
+        checkAdSaved: function() {
+          return false;
         }
 
       })

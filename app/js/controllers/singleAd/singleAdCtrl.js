@@ -102,21 +102,9 @@ angular
         // save ads to firebase
         $scope.saveAd = function(ad) {
 
-          console.log(ad);
-
-          // get the firebase array
-          $scope.saveAds = User.getSavedAdsArray($scope.currentUserID);
-          // add the ad to firebase
-          $scope.saveAds.$add({
-            id: ad.annons.annonsid,
-            rubrik: ad.annons.annonsrubrik,
-            kommun: ad.annons.kommunnamn,
-            kommunkod: ad.annons.kommunkod,
-            yrke: ad.annons.yrkesbenamning,
-            yrkesid: ad.annons.yrkesid,
-            arbetsplats: ad.arbetsplats.arbetsplatsnamn,
-            sista_ansokningsdag: ad.ansokan.sista_ansokningsdag
-          });
+          // call user service function and pass current users id and ad object
+          // this function saves a new record in db for the ad
+          User.saveAd($scope.currentUserID, ad);
 
         }
 
