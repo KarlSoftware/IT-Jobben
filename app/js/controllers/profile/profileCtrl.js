@@ -11,7 +11,7 @@ angular
       function($scope, $http, $rootScope, Auth, User) {
 
         // set page header title
-        $rootScope.header = 'Profil - IT Jobben';
+        $rootScope.header = 'Min profil - IT Jobben';
 
         Auth.$onAuth(function(authData) {
 
