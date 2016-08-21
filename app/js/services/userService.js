@@ -88,14 +88,14 @@ var app = angular.module('app')
         /*
         * Delete an ad from firebase
         * @param userID the user id in question
-        * @param ad the ad object to extract info from to save
+        * @param adID the ad ID in question to delete
         */
-        deleteAd: function(userID, ad) {
+        deleteAd: function(userID, adID) {
 
           var usersURL = 'https://it-jobben.firebaseio.com/users/';
 
           var adRef = new Firebase(
-            usersURL + userID + '/saved-ads/' + ad.annons.annonsid
+            usersURL + userID + '/saved-ads/' + adID
           );
 
           adRef.remove();
