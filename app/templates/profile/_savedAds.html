@@ -1,0 +1,43 @@
+<h2 class="text-center">Sparade annonser</h2>
+<div ng-if="savedAds.length == 0">
+  <p class="lead text-center text-info" >
+    <i class="fa fa-info-circle" aria-hidden="true"></i>
+    Du har inte sparat några annonser än.
+  </p>
+  <p class="text-center">När du ser en intressant annons kan du trycka på den gröna knappen för att spara den</p>
+</div>
+
+
+<div ng-if="'savedAds.length > 0'" class="col-md-8 col-md-offset-2">
+  <div class="list-group">
+    <span ng-repeat="ad in savedAds">
+
+      <!-- display if ad is passed its date -->
+      <a ng-if="ad.sista_ansokningsdag > now" href="/annons/{{ad.id}}" class="list-group-item">
+        <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
+        <span class="glyphicon glyphicon-remove pull-right"
+              aria-hidden="true"
+              ng-click="removeAd(ad, $event)"></span>
+        <p class="list-group-item-text">{{ad.yrke}}</p>
+        <p class="list-group-item-text">
+          <i class="fa fa-map-marker"></i> {{ad.kommun}}
+          <i class="fa fa-building-o"></i> {{ad.arbetsplats}}</p>
+        <p class="list-group-item-text">Annonsen går ut {{ad.sista_ansokningsdag | amCalendar}}</p>
+      </a>
+
+      <!-- display if ad is passed its date -->
+      <div ng-if="ad.sista_ansokningsdag < now" class="list-group-item clearfix">
+        <h5 class="text-danger">
+          <span class="glyphicon glyphicon-remove pull-right"
+                aria-hidden="true"
+                ng-click="removeAd(ad, $event)"></span>
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          Annonsen "{{ad.rubrik}}" har tyvärr gått ut
+        </h5>
+
+        <p></p>
+
+      </div>
+    </span>
+  </div>
+</div>

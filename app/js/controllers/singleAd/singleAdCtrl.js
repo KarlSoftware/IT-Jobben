@@ -6,11 +6,36 @@ angular
       '$http',
       '$routeParams',
       '$rootScope',
-      function($scope, $http, $routeParams, $rootScope) {
+      'Auth',
+      'User',
+      function($scope, $http, $routeParams, $rootScope, Auth, User) {
 
 
-      // Create variable from param
-      var ad = $routeParams.adID;
+        // Create variable from param
+        var ad = $routeParams.adID;
+
+        // determine if user is authenticated or not
+        Auth.$onAuth(function(authData) {
+          if (authData) {
+            $scope.currentUserID = authData.facebook.id;
+            $scope.auth = true;
+
+            // Determine if ad is saved to firebase or not
+            User.checkAdSaved($scope.currentUserID, ad)
+            .then(function(snapshot) {
+              var ad = snapshot.exists();
+              if (ad == true) {
+                $scope.isAdSaved = true;
+              } else {
+                $scope.isAdSaved = false;
+              }
+              // force scope to re-apply itself
+              $scope.$apply()
+            });
+
+          }
+        })
+
 
       // array for random image class to use with jumbotron image
       var randomImage = [
@@ -28,8 +53,11 @@ angular
         ignoreLoadingBar: false
       })
       .then(function(response) {
+
         var adInfo = response.data.body;
+
         // attach response to scope variables
+        $scope.wholeAd             = adInfo.platsannons;
         $rootScope.header         = adInfo.platsannons.annons.annonsrubrik;
         $scope.annons             = adInfo.platsannons.annons;
         $scope.ansokan            = adInfo.platsannons.ansokan;
@@ -37,6 +65,7 @@ angular
         $scope.krav               = adInfo.platsannons.krav;
         $scope.driverslicenseList = adInfo.platsannons.krav.korkortslista;
         $scope.villkor            = adInfo.platsannons.villkor;
+
 
         // do logic depending on what the response contains
         // logic for sista ansökningsdag
@@ -85,6 +114,23 @@ angular
           $scope.kontaktNamn = $scope.arbetsplats.kontaktpersonlista.kontaktpersondata.namn;
         } else {
           $scope.kontaktperson = 'Ingen info';
+        }
+
+        // save ads to firebase
+        $scope.saveAd = function(ad) {
+
+          // call user service function and pass current users id and ad object
+          // this function saves a new record in db for the ad
+          User.saveAd($scope.currentUserID, ad);
+          $scope.isAdSaved = true;
+
+        }
+
+        $scope.deleteAd = function(ad) {
+          // call user service function and pass current users id and ad object
+          // this function deletes a saved ad record from db
+          User.deleteAd($scope.currentUserID, ad.annons.annonsid);
+          $scope.isAdSaved = false;
         }
 
       }); // end of http then
