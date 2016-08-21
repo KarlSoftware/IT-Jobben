@@ -58,9 +58,10 @@ var app = angular.module('app')
         /*
         * Save an ad to firebase
         * @param userID the user id in question
-        * @param ad the ad object to extract info from to save
+        * @param ad Object to extract information from and save to firebase
         */
         saveAd: function(userID, ad) {
+
 
           var usersURL = 'https://it-jobben.firebaseio.com/users/';
 
