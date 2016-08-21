@@ -22,11 +22,22 @@ angular
         // get all saved ads
         $scope.savedAds = User.getSavedAdsArray(currentUser.facebook.id);
 
-        $scope.removeAd = function(object) {
-          console.log($scope.user.id);
-          console.log(object.id);
+        /*
+        * Funtion to remove ads from firebase
+        *
+        * @param object The ad object in question to delete
+        * @param $event Use event to prevent normal link behaviour
+        */
+        $scope.removeAd = function(object, $event) {
+          // since the delete button is wrapped inside a link for ads not yet expired
+          // a preventDefault function is needed to prevent normal link behaviour
+          // when clicking the delete button
+          $event.preventDefault();
 
+          // call function that deletes the ad
           User.deleteAd($scope.user.id, object.id);
         }
+
+
 
     }]);
