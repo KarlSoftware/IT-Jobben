@@ -129,7 +129,7 @@ angular
         $scope.deleteAd = function(ad) {
           // call user service function and pass current users id and ad object
           // this function deletes a saved ad record from db
-          User.deleteAd($scope.currentUserID, ad);
+          User.deleteAd($scope.currentUserID, ad.annons.annonsid);
           $scope.isAdSaved = false;
         }
 

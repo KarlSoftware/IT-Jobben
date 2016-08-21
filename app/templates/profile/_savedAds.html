@@ -11,15 +11,30 @@
 <div ng-if="'savedAds.length > 0'" class="col-md-8 col-md-offset-2">
   <div class="list-group">
     <span ng-repeat="ad in savedAds">
-      <a href="/annons/{{ad.id}}" class="list-group-item">
+
+      <!-- display if ad is passed its date -->
+      <a ng-if="ad.sista_ansokningsdag > now" href="/annons/{{ad.id}}" class="list-group-item">
         <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
         <p class="list-group-item-text">{{ad.yrke}}</p>
         <p class="list-group-item-text">
           <i class="fa fa-map-marker"></i> {{ad.kommun}}
           <i class="fa fa-building-o"></i> {{ad.arbetsplats}}</p>
         <p class="list-group-item-text">Annonsen går ut {{ad.sista_ansokningsdag | amCalendar}}</p>
-
       </a>
+
+      <!-- display if ad is passed its date -->
+      <div ng-if="ad.sista_ansokningsdag < now" class="list-group-item clearfix">
+        <h5 class="text-danger">
+          <span class="glyphicon glyphicon-remove pull-right"
+                aria-hidden="true"
+                ng-click="removeAd(ad)"></span>
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          Annonsen "{{ad.rubrik}}" har tyvärr gått ut
+        </h5>
+
+        <p></p>
+
+      </div>
     </span>
   </div>
 </div>
