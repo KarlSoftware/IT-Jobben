@@ -92,7 +92,7 @@ angular
           $scope.municipality = sessionStorage.currentMuni;
           $scope.ads = JSON.parse(sessionStorage.cachedAds)
           $scope.paginationPage = "1";
-          $scope.sevenDaysFromNow  = sevenDaysFromNow.format();
+          $scope.sevenDaysFromNow  = Helper.sevenDaysFromNow();
 
 
         } else {

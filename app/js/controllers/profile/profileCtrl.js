@@ -8,9 +8,13 @@ angular
       '$rootScope',
       'Auth',
       'User',
-      function($scope, $http, $rootScope, Auth, User) {
+      'Helper',
+      function($scope, $http, $rootScope, Auth, User, Helper) {
 
         $scope.now = moment().format();
+        $scope.sevenDaysFromNow  = Helper.sevenDaysFromNow();
+
+
 
         // set page header title
         $rootScope.header = 'Min profil - IT Jobben';

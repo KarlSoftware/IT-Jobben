@@ -8,7 +8,8 @@ angular
       '$rootScope',
       '$location',
       'Job',
-      function($scope, $http, $rootScope, $location, Job) {
+      'Helper',
+      function($scope, $http, $rootScope, $location, Job, Helper) {
 
         // set page title
         $rootScope.header = 'Hitta jobb inom ett yrke - IT Jobben';
@@ -45,7 +46,7 @@ angular
           $scope.workgroup         = JSON.parse(sessionStorage.cachedWorkgroup);
           $scope.currentProfession = sessionStorage.cachedCurrentProfessionName;
           $scope.realAds           = JSON.parse(sessionStorage.cachedProfessionAds);
-          $scope.sevenDaysFromNow  = sevenDaysFromNow.format();
+          $scope.sevenDaysFromNow  = Helper.sevenDaysFromNow();
 
 
         } else {
@@ -96,7 +97,6 @@ angular
             sessionStorage.cachedWorkgroup = JSON.stringify($scope.workgroup);
           });
 
-          // set sorting
 
         };
 
@@ -105,7 +105,7 @@ angular
 
 
           // attach seven days from now variable to scope
-          $scope.sevenDaysFromNow = sevenDaysFromNow.format();
+          $scope.sevenDaysFromNow = Helper.sevenDaysFromNow();
 
           var currentWorkgroupID = $location.search().grupp;
 
