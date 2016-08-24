@@ -47,8 +47,9 @@
               <tr dir-paginate="ad in realAds | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
                 <td>
                   <a ng-href=" /annons/{{ad.annonsid}}">
-                    {{ad.annonsrubrik}}
                     <span ng-if="ad.publiceraddatum > oldDate" class="label label-default">Ny annons</span>
+                    <span ng-if="ad.sista_ansokningsdag < sevenDaysFromNow" class="label label-danger">Går ut snart</span>
+                    {{ad.annonsrubrik}}
                     <br>
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}} <br>

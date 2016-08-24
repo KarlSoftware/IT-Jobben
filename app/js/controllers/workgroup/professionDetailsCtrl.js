@@ -44,7 +44,7 @@ angular
         var mostRecentAdDate = $scope.realAds[0].publiceraddatum;
 
         // call job service and determine if localstorage for the date exist or not
-        Job.determineDate(mostRecentAdDate, id);
+        Helper.determineDateProfession(mostRecentAdDate, id);
 
         // set scope variable of the latest ad since last time user visited
         $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + id]);

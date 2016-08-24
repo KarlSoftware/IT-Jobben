@@ -7,7 +7,8 @@ angular
       '$http',
       '$routeParams',
       '$rootScope',
-      function($scope, $http, $routeParams, $rootScope) {
+      'Helper',
+      function($scope, $http, $routeParams, $rootScope, Helper) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("municipalityName") + ' - IT Jobben';
@@ -50,27 +51,11 @@ angular
         // attach 100% ads array to scope
         $scope.realAds = adsArrayExact;
 
-        /*
-        * Save most Recent date to localStorage
-        * Used so template can display a badge for new ad since user last visited
-        */
-        // variable for date of most recent ad
-        var mostRecentAdDate = adsArrayExact[0].publiceraddatum;
-        console.log('mostRecentAdDate', mostRecentAdDate, typeof(mostRecentAdDate));
 
-        // if localStorage already exist
-        if (localStorage['itjobben-date-municipality' + municipalityID]) {
-          // attach the date from localStorage to scope BEFORE we update localStorage with new date
-          $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
-          // update localStorage with the most recent ad date
-          localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
-        } else {
-          // update localStorage with the most recent ad date
-          localStorage['itjobben-date-municipality' + municipalityID] = mostRecentAdDate;
-          // attach it to scope after you have set localstorage
-          $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
-        }
-
+        // Update localStorage value for most recent ad user was exosed to
+        Helper.determineDateMunicipality(adsArrayExact[0].publiceraddatum, municipalityID);
+        $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
+        $scope.sevenDaysFromNow = Helper.sevenDaysFromNow();
 
         // do logic depending on how many ads
         if ($scope.realAds.length == 1) {

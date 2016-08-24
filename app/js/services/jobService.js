@@ -22,20 +22,8 @@ app.service(
         return $http.get('api/yrke/' + profession, {
           ignoreLoadingBar: false
         })
-      }, // end of insideProfession function
+      } // end of insideProfession function
 
-      determineDate: function(recentDate, professionID) {
-        // if localStorage already exist
-        if (localStorage['itjobben-date-profession' + professionID]) {
-          console.log('localStorage for date does exists...');
-          // update localStorage with the most recent ad date
-          localStorage['itjobben-date-profession' + professionID] = recentDate;
-        } else {
-          console.log('localstorage for date doesnt not exist!');
-          // update localStorage with the most recent ad date
-          localStorage['itjobben-date-profession' + professionID] = recentDate;
-        }
-      }
     }) // end of return
 
 
