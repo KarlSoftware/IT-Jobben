@@ -13,6 +13,8 @@ angular
 
         // get searchterm from query param
         var searchTerm = sessionStorage.searchTerm;
+        $location.search({term: searchTerm});
+
 
         // call search service and attach respose to scope
         Search.searchFor(searchTerm).then(function(response) {
@@ -40,6 +42,26 @@ angular
           sessionStorage.setItem("paginationSearch", newPageNumber);
           $scope.paginationPage = sessionStorage.getItem("paginationSearch");
         };
+
+        $scope.search = function () {
+
+          $location.search({term: $scope.searchterm});
+
+          // reset pagination page to Defaults
+          $scope.paginationPage = '1';
+          // set searchterm
+          sessionStorage.setItem("searchTerm", $scope.searchterm);
+          // attach searchterm to scope
+          $scope.searchTerm = sessionStorage.getItem("searchTerm");
+
+          // call search service and attach response to scope
+          Search.searchFor($scope.searchterm).then(function(response) {
+            $scope.ads75 = response.data;
+          })
+
+
+        };
+
 
 
 

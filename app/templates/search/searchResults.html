@@ -1,5 +1,25 @@
 <div class="container-fluid" ng-controller="searchResultsCtrl">
 
+  <!-- Container with search Bar -->
+  <div class="container white-subtle-shadow margin-bottom">
+    <div class="row">
+      <br>
+      <!-- Search bar -->
+      <div class="col-lg-12 col-md-12 col-sm-12 margin-bottom">
+        <form ng-submit="search()" autocomplete="off">
+          <div class="input-group">
+              <input type="text" ng-model="searchterm" class="form-control" ng-enter="search()" placeholder="Sök på nytt efter..." id="search">
+              <span class="input-group-btn">
+                <button class="btn btn-default" id="seachButton" ng-click="search()" type="button">
+                    <span class="fa fa-search" aria-hidden="true"></span>
+                  </button>
+              </span>
+          </div><!-- /input-group -->
+        </form>
+      </div> <!-- end of search bar -->
+    </div> <!-- end of row -->
+  </div> <!-- end of container -->
+
 
 
   <!-- Container with Pagination, Filter and Search results -->

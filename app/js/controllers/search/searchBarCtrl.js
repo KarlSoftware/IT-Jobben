@@ -39,6 +39,8 @@ angular
             $route.reload(); // reload $route
           }
 
+          $scope.navbarSearchTerm = '';
+
         };
 
         // Log out the user
