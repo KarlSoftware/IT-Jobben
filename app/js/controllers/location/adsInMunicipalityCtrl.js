@@ -31,37 +31,23 @@ angular
         $scope.paginationPage = sessionStorage.getItem("paginationMunicipality");
       }
 
-      // set empty array to fill up with 100% matching ads
-      adsArrayExact = [];
 
       // make http req
-      $http.get('location/match/lan/' + sessionStorage.getItem("countyBread"))
+      $http.get('location/municipality/' + municipalityID)
       .then(function(response) {
-        $scope.adsExact = response.data.body.matchningslista.antal_platsannonser_exakta;
-        $scope.ads = response.data.body.matchningslista.matchningdata;
-        console.log(response);
-
-        // loop through ads to get 100% matches
-        for (i = 0; i < $scope.ads.length; i++) {
-          if ($scope.ads[i].kommunnamn == sessionStorage.getItem("municipalityName")) {
-            adsArrayExact.push($scope.ads[i]);
-          }
-        }
-
-        // attach 100% ads array to scope
-        $scope.realAds = adsArrayExact;
+        $scope.ads = response.data;
 
 
         // Update localStorage value for most recent ad user was exosed to
-        Helper.determineDateMunicipality(adsArrayExact[0].publiceraddatum, municipalityID);
+        Helper.determineDateMunicipality($scope.ads[0].publiceraddatum, municipalityID);
         $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
         $scope.sevenDaysFromNow = Helper.sevenDaysFromNow();
 
         // do logic depending on how many ads
-        if ($scope.realAds.length == 1) {
+        if ($scope.ads.length == 1) {
           $scope.adsNrExact = '1 Annons';
         } else {
-          $scope.adsNrExact = $scope.realAds.length + ' Annonser';
+          $scope.adsNrExact = $scope.ads.length + ' Annonser';
         }
       }); // end of then
 
