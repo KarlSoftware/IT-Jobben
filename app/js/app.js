@@ -17,7 +17,7 @@ angular
     'firebase',
     'duScroll'
   ])
-  .value('duScrollOffset', 30) // offset the scroll values a bit 
+  .value('duScrollOffset', 30) // offset the scroll values a bit
 
   // change Moment language
   .run(function(amMoment, $rootScope, $location) {
@@ -79,7 +79,18 @@ angular
       .when('/plats/', {
         templateUrl: 'templates/location/counties.html',
         reloadOnSearch: false
-
+      })
+      // places. Län, kommuner
+      .when('/plats/lan', {
+        templateUrl: 'templates/location/counties.html'
+      })
+      // places. Län, kommuner
+      .when('/plats/lan/:countyID', {
+        templateUrl: 'templates/location/singleCounty.html'
+      })
+      // places. Län, kommuner
+      .when('/plats/kommun/:municipalityID/annonser', {
+        templateUrl: 'templates/location/adsInMunicipality.html'
       })
       // statistics
       .when('/statistik', {

@@ -15,6 +15,36 @@ app.service(
 
         return sevenDaysFromNow.format();
 
+      },
+
+      determineDateProfession: function(recentDate, professionID) {
+
+        // if localStorage already exist
+        if (localStorage['itjobben-date-profession' + professionID]) {
+          console.log('localStorage for date does exists...');
+          // update localStorage with the most recent ad date
+          localStorage['itjobben-date-profession' + professionID] = recentDate;
+        } else {
+          console.log('localstorage for date doesnt not exist!');
+          // update localStorage with the most recent ad date
+          localStorage['itjobben-date-profession' + professionID] = recentDate;
+        }
+
+      },
+
+      determineDateMunicipality: function(recentDate, municipalityID) {
+
+        // if localStorage already exist
+        if (localStorage['itjobben-date-municipality' + municipalityID]) {
+          console.log('localStorage for date does exists...');
+          // update localStorage with the most recent ad date
+          localStorage['itjobben-date-municipality' + municipalityID] = recentDate;
+        } else {
+          console.log('localstorage for date doesnt not exist!');
+          // update localStorage with the most recent ad date
+          localStorage['itjobben-date-municipality' + municipalityID] = recentDate;
+        }
+
       }
     })
 

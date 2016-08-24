@@ -7,7 +7,8 @@ angular
       '$http',
       '$routeParams',
       '$rootScope',
-      function($scope, $http, $routeParams, $rootScope) {
+      'Job',
+      function($scope, $http, $routeParams, $rootScope, Job) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("workgroupName") + ' - IT Jobben';
@@ -23,13 +24,11 @@ angular
 
       // reset pagination back too 1
       sessionStorage.setItem("paginationProfession", '1');
+      workGroupID
 
-      $http.get('api/yrkesgrupp/' + workGroupID, {
-        ignoreLoadingBar: false
-      })
-      .then(function(response) {
+      Job.insideWorkgroup(workGroupID).then(function(response) {
         $scope.data = response;
-        $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser och ' + response.data.body.soklista.totalt_antal_platsannonser + ' jobb'
+        $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser';
         console.log(response);
         $scope.workgroup = response.data.body.soklista.sokdata;
       });

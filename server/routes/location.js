@@ -11,7 +11,7 @@ module.exports = function(app) {
 
   /*
   * Function to parse search result and extract 100 relevant jobs in a municipality
-  * @param {Object} object the object to filter though 
+  * @param {Object} object the object to filter though
   */
   function municipalityFiltering(object) {
 
