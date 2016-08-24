@@ -6,15 +6,13 @@ angular
       '$scope',
       '$http',
       '$rootScope',
-      function($scope, $http, $rootScope) {
+      'LocationHttp',
+      function($scope, $http, $rootScope, LocationHttp) {
 
         // set page title
         $rootScope.header = 'Län - IT Jobben';
 
-        $http.get('location/counties', {
-          ignoreLoadingBar: true
-        })
-        .then(function(response) {
+        LocationHttp.counties().then(function(response) {
           $scope.counties = response.data.body.soklista.sokdata;
         });
 

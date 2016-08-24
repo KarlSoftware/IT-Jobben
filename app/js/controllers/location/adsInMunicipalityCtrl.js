@@ -8,7 +8,8 @@ angular
       '$routeParams',
       '$rootScope',
       'Helper',
-      function($scope, $http, $routeParams, $rootScope, Helper) {
+      'LocationHttp',
+      function($scope, $http, $routeParams, $rootScope, Helper, LocationHttp) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("municipalityName") + ' - IT Jobben';
@@ -33,8 +34,7 @@ angular
 
 
       // make http req
-      $http.get('location/municipality/' + municipalityID)
-      .then(function(response) {
+      LocationHttp.municipality(municipalityID).then(function(response) {
         $scope.ads = response.data;
 
 

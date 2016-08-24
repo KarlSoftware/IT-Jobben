@@ -7,7 +7,8 @@ angular
       '$http',
       '$routeParams',
       '$rootScope',
-      function($scope, $http, $routeParams, $rootScope) {
+      'LocationHttp',
+      function($scope, $http, $routeParams, $rootScope, LocationHttp) {
 
       // set page title
       $rootScope.header = sessionStorage.getItem("countyName") + ' - IT Jobben';
@@ -23,10 +24,8 @@ angular
       // set pagination too 1
       sessionStorage.setItem("paginationMunicipality", '1');
 
-      $http.get('location/municipalities/' + countyID, {
-        ignoreLoadingBar: true
-      })
-      .then(function(response) {
+      // make http request
+      LocationHttp.county(countyID).then(function(response) {
         $scope.municipalities = response.data.body.soklista.sokdata;
         console.log(response);
       });
