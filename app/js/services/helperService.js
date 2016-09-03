@@ -17,6 +17,7 @@ app.service(
 
       },
 
+      // set the most recent ad date as localstorage for that profession
       determineDateProfession: function(recentDate, professionID) {
 
         // if localStorage already exist
@@ -32,6 +33,7 @@ app.service(
 
       },
 
+      // set the most recent ad date as localstorage for that profession
       determineDateMunicipality: function(recentDate, municipalityID) {
 
         // if localStorage already exist
