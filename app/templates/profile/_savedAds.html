@@ -21,7 +21,8 @@
         <p class="list-group-item-text">{{ad.yrke}}</p>
         <p class="list-group-item-text">
           <i class="fa fa-map-marker"></i> {{ad.kommun}}
-          <i class="fa fa-building-o"></i> {{ad.arbetsplats}}</p>
+          <i class="fa fa-building-o"></i> {{ad.arbetsplats}}
+        </p>
         <p class="list-group-item-text text-danger" ng-if="ad.sista_ansokningsdag < sevenDaysFromNow">
             Annonsen går ut {{ad.sista_ansokningsdag | amCalendar}}
         </p>
@@ -38,6 +39,13 @@
           Sista ansökningsdag har tyvärr passerat
         </h5>
         <p class="list-group-item-text text-danger">För annonsen "{{ad.rubrik}}"</p>
+        <p class="list-group-item-text text-danger">
+          <i class="fa fa-map-marker"></i> {{ad.kommun}}
+          <i class="fa fa-building-o"></i> {{ad.arbetsplats}}
+        </p>
+        <p class="list-group-item-text text-danger">
+          Annonsen gick ut {{ad.sista_ansokningsdag | amCalendar}}
+        </p>
 
         <p></p>
 
