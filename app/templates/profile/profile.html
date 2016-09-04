@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-lg-12">
         <h1>Hej {{user.first_name}}!</h1>
-        <p>Du har {{savedAds.length}} sparade annonser</p>
+        <p ng-if="savedAds.length != 0">Du har {{savedAds.length}} sparade annonser</p>
+        <p ng-if="savedAds.length == 0">Du har inga sparade annonser än</p>
+
       </div>
     </div>
   </div>
