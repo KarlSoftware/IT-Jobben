@@ -105,11 +105,10 @@ angular
       // profil
       .when('/profil', {
         templateUrl: 'templates/profile/profile.html',
-        controller: 'profileCtrl',
         resolve: {
-             "currentAuth": ["Auth", function(Auth) {
-               return Auth.$requireAuth();
-             }]
+           "currentAuth": ["Auth", function(Auth) {
+             return Auth.$requireAuth();
+           }]
         }
       })
 

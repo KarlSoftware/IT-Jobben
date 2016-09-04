@@ -4,17 +4,9 @@ angular
     // Controller for about
     .controller('profileCtrl', [
       '$scope',
-      '$http',
       '$rootScope',
-      'Auth',
       'User',
-      'Helper',
-      function($scope, $http, $rootScope, Auth, User, Helper) {
-
-        $scope.now = moment().format();
-        $scope.sevenDaysFromNow  = Helper.sevenDaysFromNow();
-
-
+      function($scope, $rootScope, User) {
 
         // set page header title
         $rootScope.header = 'Min profil - IT Jobben';
@@ -25,23 +17,6 @@ angular
 
         // get all saved ads
         $scope.savedAds = User.getSavedAdsArray(currentUser.facebook.id);
-
-        /*
-        * Funtion to remove ads from firebase
-        *
-        * @param object The ad object in question to delete
-        * @param $event Use event to prevent normal link behaviour
-        */
-        $scope.removeAd = function(object, $event) {
-          // since the delete button is wrapped inside a link for ads not yet expired
-          // a preventDefault function is needed to prevent normal link behaviour
-          // when clicking the delete button
-          $event.preventDefault();
-
-          // call function that deletes the ad
-          User.deleteAd($scope.user.id, object.id);
-        }
-
 
 
     }]);
