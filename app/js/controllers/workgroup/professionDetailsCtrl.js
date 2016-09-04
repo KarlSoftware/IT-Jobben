@@ -44,11 +44,11 @@ angular
         var mostRecentAdDate = $scope.realAds[0].publiceraddatum;
 
         // call job service and determine if localstorage for the date exist or not
-        Helper.determineDateProfession(mostRecentAdDate, id);
+        // Helper.determineDateProfession(mostRecentAdDate, id);
 
-        // set scope variable of the latest ad since last time user visited
-        $scope.oldDate = localStorage.getItem(['itjobben-date-profession' + id]);
-
+        // use helper service date functions to attach dates to scope variables.
+        // used to display badges either if ad is new or soon to be expired
+        $scope.yesterday = Helper.yesterdayDate();
         $scope.sevenDaysFromNow = Helper.sevenDaysFromNow();
 
         // do logic depending on how many ads

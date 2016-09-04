@@ -35,13 +35,17 @@ angular
 
       // make http req
       LocationHttp.municipality(municipalityID).then(function(response) {
+
         $scope.ads = response.data;
 
-
         // Update localStorage value for most recent ad user was exosed to
-        Helper.determineDateMunicipality($scope.ads[0].publiceraddatum, municipalityID);
+        // Helper.determineDateMunicipality($scope.ads[0].publiceraddatum, municipalityID);
         $scope.oldDate = localStorage.getItem(['itjobben-date-municipality' + municipalityID]);
+
+        // use helper service date functions to attach dates to scope variables.
+        // used to display badges either if ad is new or soon to be expired
         $scope.sevenDaysFromNow = Helper.sevenDaysFromNow();
+        $scope.yesterday        = Helper.yesterdayDate();
 
         // do logic depending on how many ads
         if ($scope.ads.length == 1) {

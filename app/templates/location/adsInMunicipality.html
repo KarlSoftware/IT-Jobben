@@ -47,7 +47,7 @@
               <tr dir-paginate="ad in ads | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
                 <td>
                   <a ng-href=" /annons/{{ad.annonsid}}">
-                    <span ng-if="ad.publiceraddatum > oldDate" class="label label-default">Ny annons</span>
+                    <span ng-if="ad.publiceraddatum > yesterday" class="label label-info">Ny annons</span>
                     <span ng-if="ad.sista_ansokningsdag < sevenDaysFromNow" class="label label-danger">Går ut snart</span>
                     {{ad.annonsrubrik}}
                     <br>
