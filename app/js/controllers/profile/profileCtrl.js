@@ -18,5 +18,7 @@ angular
         // get all saved ads
         $scope.savedAds = User.getSavedAdsArray(currentUser.facebook.id);
 
+        // get all saved searchterms
+        $scope.savedSearchTerms = User.getSavedSearchTerms(currentUser.facebook.id);
 
     }]);

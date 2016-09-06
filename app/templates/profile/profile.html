@@ -3,10 +3,21 @@
     <div class="row">
       <div class="col-lg-12">
         <h1>Hej {{user.first_name}}!</h1>
-        <p ng-if="savedAds.length > 1">Du har {{savedAds.length}} sparade annonser</p>
-        <p ng-if="savedAds.length == 1">Du har {{savedAds.length}} sparad annons</p>
-        <p ng-if="savedAds.length == 0">Du har inga sparade annonser än</p>
+        <p>
+          
+         <ng-pluralize count="savedAds.length"
+                 when="{'0': '0 sparade annonser',
+                     'one': '1 sparad annons',
+                     'other': '{} sparade annonser'}">
+        </ng-pluralize>
+        och
+        <ng-pluralize count="savedSearchTerms.length"
+                when="{'0': '0 sparade söktermer',
+                    'one': '1 sparad sökterm',
+                    'other': '{} sparade söktermer'}">
+       </ng-pluralize>
 
+        </p>
       </div>
     </div>
   </div>
