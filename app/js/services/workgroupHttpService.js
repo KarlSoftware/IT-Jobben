@@ -1,7 +1,7 @@
 var app = angular.module('app')
 
 app.service(
-  "Job",
+  "WorkgroupHttp",
   function($http) {
 
     return({

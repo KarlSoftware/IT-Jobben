@@ -6,13 +6,13 @@ angular
       '$scope',
       '$http',
       '$rootScope',
-      'Job',
-      function($scope, $http, $rootScope, Job) {
+      'WorkgroupHttp',
+      function($scope, $http, $rootScope, WorkgroupHttp) {
 
         // set page title
         $rootScope.header = 'Yrkesgrupper - IT Jobben';
 
-        Job.workgroup().then(function(response) {
+        WorkgroupHttp.workgroup().then(function(response) {
           $scope.howMany = response.data.body.soklista.totalt_antal_platsannonser + ' annonser '
           console.log(response);
           $scope.workgroups = response.data.body.soklista.sokdata;

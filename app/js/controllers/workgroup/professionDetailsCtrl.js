@@ -7,9 +7,9 @@ angular
       '$http',
       '$routeParams',
       '$rootScope',
-      'Job',
+      'WorkgroupHttp',
       'Helper',
-      function($scope, $http, $routeParams, $rootScope, Job, Helper) {
+      function($scope, $http, $routeParams, $rootScope, WorkgroupHttp, Helper) {
 
       // Create variable from param
       var id = $routeParams.professionID;
@@ -35,7 +35,7 @@ angular
 
 
       // make http request
-      Job.insideProfession(id).then(function(response) {
+      WorkgroupHttp.insideProfession(id).then(function(response) {
 
         // attach 100% ads array to scope
         $scope.realAds = response.data;
