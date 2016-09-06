@@ -15,7 +15,7 @@
       <!-- display if ad is passed its date -->
       <a ng-if="ad.sista_ansokningsdag > now" href="/annons/{{ad.id}}" class="list-group-item">
         <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
-        <span class="fa fa-times pull-right"
+        <span class="fa fa-trash-o pull-right"
               aria-hidden="true"
               ng-click="removeAd(ad, $event)"></span>
         <p class="list-group-item-text">{{ad.yrke}}</p>
@@ -32,7 +32,7 @@
       <!-- display if ad is passed its date -->
       <div ng-if="ad.sista_ansokningsdag < now" class="list-group-item clearfix">
         <h5 class="text-danger">
-          <span class="glyphicon glyphicon-remove pull-right"
+          <span class="fa fa-trash-o pull-right"
                 aria-hidden="true"
                 ng-click="removeAd(ad, $event)"></span>
           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
