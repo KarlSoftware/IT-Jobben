@@ -9,6 +9,7 @@ angular
       '$location',
       'Search',
       function($scope, $http, $rootScope, $location, Search) {
+      'User',
 
 
         // get searchterm from query param
@@ -43,6 +44,11 @@ angular
           $scope.paginationPage = sessionStorage.getItem("paginationSearch");
         };
 
+        // create user variable from firebase session if it exist
+        if (localStorage.getItem('firebase:session::it-jobben')) {
+          var currentUser = JSON.parse(localStorage.getItem('firebase:session::it-jobben'));
+        }
+
         $scope.search = function () {
 
           $location.search({term: $scope.searchterm});
@@ -61,6 +67,13 @@ angular
 
 
         };
+
+        // save searchterm to firebase db
+        $scope.saveSearch = function(searchTerm) {
+          console.log(currentUser);
+          console.log('saving', searchTerm);
+          User.saveSearchTerm(currentUser.facebook.id, searchTerm);
+        }
 
 
 

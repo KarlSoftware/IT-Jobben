@@ -26,8 +26,15 @@
   <div class="container white-subtle-shadow margin-top-bottom">
     <!-- Info text -->
     <div class="row text-center">
-        <h1>{{ads75.length}} Sökresultat</h1>
-        <p class="text-muted lead"><span class="fa fa-search"></span> {{searchTerm}}</p>
+        <h1>
+          {{ads75.length}} Sökresultat
+          <button ng-if="auth" class="btn btn-sm btn-success" ng-click="saveSearch(searchTerm)">
+            Spar sökterm
+          </button>
+        </h1>
+        <p class="text-muted lead">
+          <span class="fa fa-search"></span> {{searchTerm}}
+        </p>
         <dir-pagination-controls max-size="6" on-page-change="changePagination(newPageNumber, oldPageNumber)"></dir-pagination-controls>
     </div>
     <!-- Filter -->

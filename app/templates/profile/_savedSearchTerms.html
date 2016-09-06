@@ -1,0 +1,16 @@
+<h2 class="text-center">Sparade söktermer</h2>
+<ul class="list-group">
+  <a class="list-group-item"
+    ng-repeat="searchterm in searchTerms"
+    ng-click="select(searchterm.searchterm)"
+    href="/sökning">
+    <h5>
+      <span class="glyphicon glyphicon-remove pull-right"
+            aria-hidden="true"
+            ng-click="remove($event, searchterm.$id)">
+      </span>
+      {{searchterm.searchterm}}
+
+    </h5>
+  </a>
+</ul>
