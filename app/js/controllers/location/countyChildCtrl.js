@@ -5,13 +5,13 @@ angular
   .controller('countyChildCtrl', [
     '$scope',
     '$http',
-    function($scope, $http) {
+    'LocationHttp',
+    function($scope, $http, LocationHttp) {
 
-      $http.get('location/match/county/' + $scope.county.id +'', {
-        ignoreLoadingBar: false
-      })
-      .then(function(response) {
-        $scope.adsInCounty = response.data.body.matchningslista.antal_platsannonser_exakta;
-      });
+      // make http request
+      LocationHttp.countyMatch($scope.county.id)
+        .then(function(response) {
+          $scope.adsInCounty = response.data.body.matchningslista.antal_platsannonser_exakta;
+        });
 
   }]);
