@@ -8,12 +8,42 @@ angular
       '$rootScope',
       '$location',
       'Search',
-      function($scope, $http, $rootScope, $location, Search) {
       'User',
+      'Auth',
+      function($scope, $http, $rootScope, $location, Search, User, Auth) {
 
-
-        // get searchterm from query param
+        // get searchterm from sessionStorage
         var searchTerm = sessionStorage.searchTerm;
+
+        // determine if user is authenticated
+        Auth.$onAuth(function(authData) {
+          if (authData) {
+            $scope.auth = true;
+            // call user factory that returns a promise
+            User.checkSavedSearchTerm(authData.facebook.id, searchTerm)
+            .then(function(snapshot) {
+              // loop through each children (each saved searchterm)
+              snapshot.forEach(function(child) {
+                // if the searchterm the user is searching for
+                //matches the saved search term
+                if (child.val().searchterm == searchTerm) {
+                  $scope.savedSearchTermID = child.key();
+                  console.log(child.key());
+                  $scope.saved = true;
+                  return true; // stop the loop
+
+                } else {
+                  // else set it to a hack bool value
+                  $scope.saved = false;
+
+                }
+                // force scope to re-apply itself
+                $scope.$apply()
+              })
+            }) // end of promise
+          } // end of if authdata is found
+        });
+
         $location.search({term: searchTerm});
 
 
@@ -70,9 +100,15 @@ angular
 
         // save searchterm to firebase db
         $scope.saveSearch = function(searchTerm) {
-          console.log(currentUser);
-          console.log('saving', searchTerm);
           User.saveSearchTerm(currentUser.facebook.id, searchTerm);
+          $scope.saved = searchTerm;
+
+        }
+
+        // delete searchterm from db
+        $scope.deleteSearch = function(searchTerm) {
+          User.deleteSearchTerm(currentUser.facebook.id, $scope.savedSearchTermID);
+          $scope.saved = false;
         }
 
 

@@ -52,6 +52,16 @@ var app = angular.module('app')
         },
 
 
+        /*
+        * Return saved search terms as a firebase array
+        * @param id the user ID
+        */
+        getSavedSearchTerms: function(id) {
+          var searchRef = new Firebase('https://it-jobben.firebaseio.com/users/' + id + '/saved-search');
+          return $firebaseArray(searchRef);
+        },
+
+
 
 
 
@@ -117,6 +127,59 @@ var app = angular.module('app')
 
           return adRef.once('value', function(snapshot) {
           });
+        },
+
+
+
+
+        /*
+        * Return a reference snapshot about an saved searchterm
+        * to determine if the term is saved or not
+        */
+        checkSavedSearchTerm: function(userID, searchTerm) {
+
+          var saved = '';
+          var searchRef = new Firebase(
+            'https://it-jobben.firebaseio.com/users/' + userID + '/saved-search'
+          );
+
+        return searchRef.once('value', function(snapshot) {
+        });
+
+        },
+
+
+
+
+
+        /*
+        * Save search term to firebase
+        */
+        saveSearchTerm: function(userID, searchTerm) {
+
+          var usersURL = 'https://it-jobben.firebaseio.com/users/';
+
+          var searchRef = new Firebase(
+            usersURL + userID + '/saved-search/'
+          );
+
+          searchRef.push({
+            searchterm: searchTerm
+          });
+
+        },
+
+        /*
+        * Delete a search term
+        */
+        deleteSearchTerm: function(userID, searchTermID) {
+          var usersURL = 'https://it-jobben.firebaseio.com/users/';
+
+          var searchRef = new Firebase(
+            usersURL + userID + '/saved-search/' + searchTermID
+          );
+
+          searchRef.remove();
         }
 
       })
