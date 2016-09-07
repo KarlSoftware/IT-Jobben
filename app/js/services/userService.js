@@ -143,8 +143,8 @@ var app = angular.module('app')
             'https://it-jobben.firebaseio.com/users/' + userID + '/saved-search'
           );
 
-        return searchRef.once('value', function(snapshot) {
-        });
+          return searchRef.once('value', function(snapshot) {
+          });
 
         },
 
