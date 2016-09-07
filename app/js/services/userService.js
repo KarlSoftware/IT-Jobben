@@ -39,6 +39,16 @@ var app = angular.module('app')
 
         },
 
+        /*
+        * Return facebook id of current logged in user
+        * Gets it from the localStorage firebase creates
+        * Returns the id of current user
+        */
+        UserID: function() {
+          var userObject = JSON.parse(localStorage.getItem('firebase:session::it-jobben'));
+          return userObject.facebook.cachedUserProfile.id;
+        },
+
 
 
 
