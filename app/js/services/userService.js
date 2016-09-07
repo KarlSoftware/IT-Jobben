@@ -49,6 +49,13 @@ var app = angular.module('app')
           return userObject.facebook.cachedUserProfile.id;
         },
 
+        /*
+        * Return whole object of current logged in user
+        */
+        UserObject: function() {
+          return JSON.parse(localStorage.getItem('firebase:session::it-jobben'));
+        },
+
 
 
 

@@ -12,7 +12,7 @@ angular
         $rootScope.header = 'Min profil - IT Jobben';
 
         // get authData from current user as an object
-        var currentUser = JSON.parse(localStorage.getItem('firebase:session::it-jobben'));
+        var currentUser = User.UserObject();
         $scope.user = currentUser.facebook.cachedUserProfile;
 
         // get all saved ads
