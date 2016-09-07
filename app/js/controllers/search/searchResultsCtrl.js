@@ -20,6 +20,8 @@ angular
           if (authData) {
             $scope.auth = true;
             // call user factory that returns a promise
+            // check on initial load if the current search term is in firebase or not
+            // display different buttons if it is
             User.checkSavedSearchTerm(authData.facebook.id, searchTerm)
             .then(function(snapshot) {
               // loop through each children (each saved searchterm)
@@ -107,9 +109,23 @@ angular
 
         // delete searchterm from db
         $scope.deleteSearch = function(searchTerm) {
-          User.deleteSearchTerm(currentUser.facebook.id, $scope.savedSearchTermID);
-          // change scope variable to trigger displaying of another button
-          $scope.saved = false;
+
+          // Call function that checks if the searchterm is saved in firebase or not
+          // if it is found in firebase, extract the key id of it
+          // and pass it to a delete function
+          User.checkSavedSearchTerm(currentUser.facebook.id, searchTerm)
+          .then(function(snapshot) {
+            snapshot.forEach(function(child) {
+              if (child.val().searchterm == searchTerm) {
+                var savedSearchTermID = child.key();
+                User.deleteSearchTerm(currentUser.facebook.id, savedSearchTermID);
+                // change scope variable to trigger displaying of another button
+                $scope.saved = false;
+              }
+            })
+
+          })
+
         }
 
 
