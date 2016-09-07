@@ -20,12 +20,16 @@ module.exports = function(app) {
     var parse = JSON.parse(string);
     var object = parse.matchningslista.matchningdata;
 
-
-    for (i = 0; i < object.length; i++) {
-      if (object[i].relevans == 100) {
-        relevantAds.push(object[i]);
+    // only loop through object if not undefined
+    // else server crashes
+    if (!object == undefined) {
+      for (i = 0; i < object.length; i++) {
+        if (object[i].relevans == 100) {
+          relevantAds.push(object[i]);
+        }
       }
     }
+
 
     return relevantAds;
 
