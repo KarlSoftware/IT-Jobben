@@ -101,6 +101,7 @@ angular
         // save searchterm to firebase db
         $scope.saveSearch = function(searchTerm) {
           User.saveSearchTerm(currentUser.facebook.id, searchTerm);
+          // change scope variable to trigger displaying of another button
           $scope.saved = searchTerm;
 
         }
@@ -108,6 +109,7 @@ angular
         // delete searchterm from db
         $scope.deleteSearch = function(searchTerm) {
           User.deleteSearchTerm(currentUser.facebook.id, $scope.savedSearchTermID);
+          // change scope variable to trigger displaying of another button
           $scope.saved = false;
         }
 
