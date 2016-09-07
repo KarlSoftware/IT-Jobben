@@ -10,7 +10,7 @@
 
 <!-- if search terms has been saved -->
 <ul ng-if="searchTerms.length > 0" class="list-group">
-  <a class="list-group-item"
+  <a class="list-group-item col-sm-6"
     ng-repeat="searchterm in searchTerms | orderBy:'searchterm'"
     ng-click="select(searchterm.searchterm)"
     href="/sökning">
