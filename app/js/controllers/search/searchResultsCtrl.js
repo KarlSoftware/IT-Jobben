@@ -39,7 +39,7 @@ angular
 
                 }
                 // force scope to re-apply itself
-                $scope.$apply()
+                $scope.$apply();
               })
             }) // end of promise
           } // end of if authdata is found
