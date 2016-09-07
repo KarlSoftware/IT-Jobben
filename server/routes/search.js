@@ -22,7 +22,7 @@ module.exports = function(app) {
 
     // only loop through object if not undefined
     // else server crashes
-    if (!object == undefined) {
+    if (object != undefined) {
       for (i = 0; i < object.length; i++) {
         if (object[i].relevans == 100) {
           relevantAds.push(object[i]);
