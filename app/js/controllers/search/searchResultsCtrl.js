@@ -28,7 +28,6 @@ angular
                 //matches the saved search term
                 if (child.val().searchterm == searchTerm) {
                   $scope.savedSearchTermID = child.key();
-                  console.log(child.key());
                   $scope.saved = true;
                   return true; // stop the loop
 
