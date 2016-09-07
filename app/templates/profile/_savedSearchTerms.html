@@ -26,4 +26,24 @@
   </a>
 </ul>
 
-<div ng-include="'templates/profile/modals/_searchTerm.html'"></div>
+<!-- Modal -->
+<div class="modal fade" id="deleteSearchTerm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          Ta bort sökterm
+        </h4>
+      </div>
+      <div class="modal-body">
+        Vill du ta bort följande sökterm: <strong>{{searchterm.name}}</strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()">Ta bort</button>
+      </div>
+    </div>
+  </div>
+</div>
