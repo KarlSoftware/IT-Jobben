@@ -17,7 +17,10 @@
         <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
         <span class="fa fa-trash-o pull-right"
               aria-hidden="true"
-              ng-click="removeAd(ad, $event)"></span>
+              ng-click="openModal(ad, $event)"
+              data-toggle="modal"
+              data-target="#deleteAd">
+        </span>
         <p class="list-group-item-text">{{ad.yrke}}</p>
         <p class="list-group-item-text">
           <i class="fa fa-map-marker"></i> {{ad.kommun}}
@@ -53,3 +56,6 @@
     </span>
   </div>
 </div>
+
+<!-- include modal -->
+<div ng-include="'templates/profile/modals/_ad.html'"></div>

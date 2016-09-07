@@ -17,10 +17,14 @@
     <h5>
       <span class="fa fa-trash-o pull-right"
             aria-hidden="true"
-            ng-click="remove($event, searchterm.$id)">
+            ng-click="openModal($event,searchterm)"
+            data-toggle="modal"
+            data-target="#deleteSearchTerm">
       </span>
       {{searchterm.searchterm}}
 
     </h5>
   </a>
 </ul>
+
+<div ng-include="'templates/profile/modals/_searchTerm.html'"></div>

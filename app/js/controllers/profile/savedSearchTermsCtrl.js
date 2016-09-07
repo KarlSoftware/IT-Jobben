@@ -22,12 +22,18 @@ angular
           sessionStorage.setItem("searchTerm", term);
         }
 
-        // delete a single saved search term
-        $scope.remove = function($event, $id) {
+        // function for when user clicks delete icon and a modal opens
+        $scope.openModal = function($event, searchterm) {
+          $scope.searchterm = {
+            'name': searchterm.searchterm,
+            'id': searchterm.$id
+          };
           $event.preventDefault();
-          console.log('removing id', $id);
-          User.deleteSearchTerm(currentUser.facebook.id, $id);
+        }
 
+        // function that triggers from inside the modal, deletes search term
+        $scope.delete = function() {
+          User.deleteSearchTerm(currentUser.facebook.id, $scope.searchterm.id);
         }
 
     }]);
