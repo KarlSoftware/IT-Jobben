@@ -15,12 +15,12 @@
       <!-- display if ad is passed its date -->
       <a ng-if="ad.sista_ansokningsdag > now" href="/annons/{{ad.id}}" class="list-group-item">
         <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
-        <span class="fa fa-trash-o pull-right"
+        <button class="btn btn-default btn-xs pull-right"
               aria-hidden="true"
               ng-click="openModal(ad, $event)"
               data-toggle="modal"
-              data-target="#deleteAd">
-        </span>
+              data-target="#deleteAd"><i class="fa fa-times"></i>
+        </button>
         <p class="list-group-item-text">{{ad.yrke}}</p>
         <p class="list-group-item-text">
           <i class="fa fa-map-marker"></i> {{ad.kommun}}

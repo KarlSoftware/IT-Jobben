@@ -15,12 +15,12 @@
     ng-click="select(searchterm.searchterm)"
     href="/sökning">
     <h5>
-      <span class="fa fa-trash-o pull-right"
+      <button class="btn btn-default btn-xs pull-right"
             aria-hidden="true"
             ng-click="openModal($event,searchterm)"
             data-toggle="modal"
-            data-target="#deleteSearchTerm">
-      </span>
+            data-target="#deleteSearchTerm"><i class="fa fa-times"></i>
+      </button>
       {{searchterm.searchterm}}
 
     </h5>
