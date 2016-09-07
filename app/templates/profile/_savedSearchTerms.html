@@ -1,5 +1,15 @@
 <h2 class="text-center">Sparade söktermer</h2>
-<ul class="list-group">
+<!-- if no saved search terms are present -->
+<div ng-if="searchTerms.length == 0">
+  <p class="lead text-center text-info" >
+    <i class="fa fa-info-circle" aria-hidden="true"></i>
+    Du har inte sparat några söktermer än.
+  </p>
+  <p class="text-center">Sök efter något av intresse för att kunna spara söktermen. Den kommer då att visas här.</p>
+</div>
+
+<!-- if search terms has been saved -->
+<ul ng-if="searchTerms.length > 0" class="list-group">
   <a class="list-group-item"
     ng-repeat="searchterm in searchTerms"
     ng-click="select(searchterm.searchterm)"
