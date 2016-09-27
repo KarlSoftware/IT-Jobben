@@ -12,7 +12,7 @@ Som backend till denna webbapp används Node och Express. Javascript används al
 
 `server/app.js` är själva huvudfilen där servern skapas. Denna fil importerar först en config fil `server/config.js` och slutligen route filerna `server/routes/api.js` och `server/routes/location.js`.
 
-Konfig-filen innehåller en logger-funktion som hela tiden använder console.log om req.method, req.url och req.params. Konfig-filen möjliggör även CORS vilket behövs för att göra cross-domain snack.
+Konfig-filen `server/config.js` innehåller en logger-funktion som hela tiden använder console.log om req.method, req.url och req.params. Konfig-filen möjliggör även CORS vilket behövs för att göra cross-domain snack.
 
 I `server/routes/` finns två olika filer som sköter http requests med Arbetsförmedlingens API och skickar tillbaka data. `server/routes/api.js` har hand om requests för yrkesgrupper, yrken och sökning medan `server/routes/location.js` har hand om request för län, kommuner och sådant. Se respektive filer för vilka typer av requests som går att göra.
 
@@ -24,25 +24,19 @@ Olika environment varaibles används för att servern serverar olika mappar som 
 
 I `server/app.js` och `server/config.js` finns if-satser som lyssnar efter vilken NODE_ENV som används och serverar olika filer beroende på variableln.
 
+Du kan enkelt starta utveckling eller produktion av node servern med hjälp av npm scripts.
+
 #### Start i utvecklingsmiljö
 När servern startas i utvecklingsmiljö ska förslagsvsis nodemon användas, detta för att servern då startar om sig själv när förändringar sker i filerna som berörs. Detta för att slippa manuellt starta om servern hela tiden.
 ```
-// Starta servern i developmentläge
-$ NODE_ENV=development nodemon server/app.js
+$ npm run start:dev
 ```
 #### Start i produktionsmiljö
 Det andra sättet att starta servern på är alltså att använda `production` som NODE_ENV. Detta innebär att `dist/` används som statiska filer till servern istället för `app/`.
 
 När servern ska startas i produktionsmiljö behövs inte nodemon användas utan kan på lokal maskin startas med hjälp av node istället.
 ```
-// Starta servern i produktionsläge
-$ NODE_ENV=production node server/app.js
-```
-
-För att starta servern på VPS-servern ska istället förslagsvis npm-paketet `forever` användas. Detta för att forever låter servern vara igång även om ssh-sessionen bryts.
-```
-// starta servern på VPS-servern
-$ NODE_ENV=production forever start server/app.js
+$ npm run start:prod
 ```
 
 När servern sen är igång är det bara öppna en webbläsare och gå till `http://LOKAL-IP:1339`
@@ -80,55 +74,16 @@ Se `gulpfile.js` för mer info om vad det är för task som finns tillgängliga.
 ```
 // Se till att gulp körs när du utvecklar för att watch ska kunna köras på app/
 // Gulp default task är att hålla koll på alla filer i /app så inga parametrar behöver skrivas i kommandot
-$ gulp // starta gulp default task med watch
+$ gulp
+```
+## Heroku deployment
+VPS hos Digital Ocean används inte längre utan Heroku används istället.
+Följande kommando pushar kod från master branch till remote heroku branch
+```
+$ git push heroku master
 ```
 
-### Deploy med gulp.js
-I `gulpfile.js` finns det 5 stycken gulp tasks som är till för att underlätta deploy till vps servern. Det handlar om tasks som uppdaterar digitalocean-grenen från master, bygger dist-mappen med nytt innehåll, committar och slutligen pushar till `live digitalocean`.
-
-I Följande ordning ska gulp kommandona exekveras:
-```
-// check out deploy branch
-$ gulp checkout
-
-// update branch with new code from master
-$ gulp update
-
-// build dist folder from the new code
-$ gulp build
-
-// commit code
-$ gulp commit
-
-// finally push to VPS-server
-$ gulp push
-```
-
-
-## Arbetsflöde för att uppdatera VPS-servern
-(Under konstruktion)
-En Git branch används för att uppdatera VPS-servern (Digitalocean) med ny kod. Detta med hjälp av en git branch vid namn 'digitalocean'. En Branch används för att `/dist` mappen i vanliga fall inkulderas i `.gitignore`. Detta är inte fallet med digitalocean-grenen.
-
- Arbetsflöde för att uppdatera VPS-servern bör följa denna struktur:
-
- ```
-// Arbeta på feature grenar.
-// När du är nöjd, efter noggrant testande, gör en git merge in i master igen med den nya koden.
-
-// checkout deploy branch
-$ git checkout digitalocean
-
-//uppdatera grenen med kod från master
-$ git rebase master
-
-// push till vps-servern
-$ git push -f live digitalocean
-
-// byt till master igen
-$ git checkout master
- ```
-
-Antingen kan du följa detta arbetsflöde eller använda dig av de Gulp tasks som är skapde för att enklare göra en deploy till VPS-servern. Se mer under rubriken [Användning av Gulp.js](#deploy-med-gulpjs)
+### NPM scripts
+NPM Scritps används i samband med deploy till Heroku. Det handlar om `preinstall` och `postinstall`. Den första ser till att alla filer i `bower.json` installeras och den andra använder en gulp task för att bygga filer i produktionsmiljö
 
 ## TODO
-* Skriv om heroku deployment
