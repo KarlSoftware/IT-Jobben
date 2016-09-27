@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "bower install",
-    "postinstall": "gulp build-heroku"
+    "postinstall": "gulp build-heroku",
+    "start:dev": "NODE_ENV=development nodemon server/app.js",
+    "start:prod": "NODE_ENV=production node server/app.js"
   },
   "author": "",
   "license": "ISC",
