@@ -12,7 +12,7 @@
   <div class="list-group">
     <span ng-repeat="ad in savedAds">
 
-      <!-- display if ad is passed its date -->
+      <!-- display if ad is not passed its date -->
       <a ng-if="ad.sista_ansokningsdag > now" href="/annons/{{ad.id}}" class="list-group-item">
         <h5 class="list-group-item-heading">{{ad.rubrik}}</h5>
         <button class="btn btn-default btn-xs pull-right"
@@ -37,7 +37,9 @@
         <h5 class="text-danger">
           <span class="fa fa-trash-o pull-right"
                 aria-hidden="true"
-                ng-click="removeAd(ad, $event)"></span>
+                ng-click="openModal(ad, $event)"
+                data-toggle="modal"
+                data-target="#deleteAd"></span>
           <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
           Sista ansökningsdag har tyvärr passerat
         </h5>
