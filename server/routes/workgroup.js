@@ -9,27 +9,6 @@ var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 
 module.exports = function(app) {
 
-
-  // function to extract relevant jobs from an object
-  function relevantJobs(object) {
-    var ads = [];
-
-    if (object != undefined) {
-      // loop through ads to get 100% matches
-      for (i = 0; i < object.length; i++) {
-        if (object[i].relevans == 100) {
-          ads.push(object[i]);
-        }
-      }
-    } else {
-      ads.push(object);
-    }
-
-
-    return ads;
-  }
-
-
   // Declare router
   var router = express.Router();
 
