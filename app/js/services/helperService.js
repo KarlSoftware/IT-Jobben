@@ -6,6 +6,21 @@ app.service(
 
     return({
 
+      /* function to return a random item from array
+      * used to inject a random image class for viewing single ads
+      */
+      randomImage: function() {
+        // array containing class names for different images
+        var imgArray = [
+          'code1',
+          'code2',
+          'code3',
+          'code4',
+          'code5'
+        ];
+
+        return imgArray[Math.floor(Math.random()*imgArray.length)];
+      },
 
       /*
       * function to return a formated date seven days from the current date

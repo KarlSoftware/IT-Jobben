@@ -8,11 +8,15 @@ angular
       '$rootScope',
       'Auth',
       'User',
-      function($scope, $http, $routeParams, $rootScope, Auth, User) {
+      'Helper',
+      function($scope, $http, $routeParams, $rootScope, Auth, User, Helper) {
 
 
         // Create variable from param
         var ad = $routeParams.adID;
+
+        // get a random class name from image array and attach it to scope
+        $scope.randomImgClass = Helper.randomImage();
 
         // determine if user is authenticated or not
         Auth.$onAuth(function(authData) {
@@ -36,18 +40,6 @@ angular
           }
         })
 
-
-      // array for random image class to use with jumbotron image
-      var randomImage = [
-        'code1',
-        'code2',
-        'code3',
-        'code4',
-        'code5'
-      ];
-
-      // get a random item from image array and assign to scope variables
-      $scope.randomImgClass = randomImage[Math.floor(Math.random()*randomImage.length)];
 
       $http.get('api/singleAd/' + ad + '', {
         ignoreLoadingBar: false
