@@ -10,10 +10,16 @@ angular
       'Search',
       'User',
       'Auth',
-      function($scope, $http, $rootScope, $location, Search, User, Auth) {
+      'Helper',
+      function($scope, $http, $rootScope, $location, Search, User, Auth, Helper) {
 
         // get searchterm from sessionStorage
         var searchTerm = sessionStorage.searchTerm;
+
+        // use helper service date functions to attach dates to scope variables.
+        // used to display badges either if ad is new or soon to be expired
+        $scope.sevenDaysFromNow = Helper.sevenDaysFromNow();
+        $scope.yesterday        = Helper.yesterdayDate();
 
         // determine if user is authenticated
         Auth.$onAuth(function(authData) {

@@ -68,7 +68,10 @@
             <tbody>
               <tr dir-paginate="ad in ads75 | filter:searchText | itemsPerPage: 15" current-page="paginationPage">
                 <td>
-                  <a ng-href=" /annons/{{ad.annonsid}}">{{ad.annonsrubrik}}<br>
+                  <a ng-href=" /annons/{{ad.annonsid}}">
+                    <span ng-if="ad.publiceraddatum > yesterday" class="label label-info">Ny annons</span>
+                    <span ng-if="ad.sista_ansokningsdag < sevenDaysFromNow" class="label label-danger">Går ut snart</span>
+                    {{ad.annonsrubrik}}<br>
                     <span class="text-muted">
                       <i class="fa fa-clock-o"></i> {{ad.publiceraddatum | amCalendar}}
                       <span ng-if="ad.antalplatser != '0'"> <i class="fa fa-user"></i> {{ad.antalplatser}}</span>
