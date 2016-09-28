@@ -7,7 +7,7 @@ var express = require('express'),
 
 // Require other modules (files)
 var config   = require('./config')(app);
-var api      = require('./routes/api')(app);
+var workgroup      = require('./routes/workgroup')(app);
 var search   = require('./routes/search')(app);
 var location = require('./routes/location')(app);
 
