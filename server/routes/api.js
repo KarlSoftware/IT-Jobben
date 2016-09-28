@@ -1,6 +1,7 @@
 var express = require('express'),
     request = require('request'),
     unirest = require('unirest'),
+    helpers = require('../helpers'),
     app = express();
 
 // Base URL from arbetsförmedlingen
@@ -90,8 +91,7 @@ module.exports = function(app) {
       'Accept': 'application/json',
       'Accept-Language': 'sv'
     }).end(function (response) {
-      // relevantJobs(response);
-      res.send(relevantJobs(response.body.matchningslista.matchningdata));
+      res.send(helpers.relevantAds(response.body.matchningslista.matchningdata));
     })
 
   }) // end of router

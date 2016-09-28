@@ -1,37 +1,13 @@
 var express = require('express'),
     request = require('request'),
     unirest = require('unirest'),
+    helpers = require('../helpers'),
     app = express();
 
 // Base URL from arbetsförmedlingen
 var baseURL = 'http://api.arbetsformedlingen.se/af/v0/platsannonser/';
 
 module.exports = function(app) {
-
-
-  /*
-  * Function to parse search result and extract 100 relevant jobs in a municipality
-  * @param {Object} object the object to filter though
-  */
-  function municipalityFiltering(object) {
-
-    console.log(typeof(object));
-    // console.log(object);
-    var relevantAds = [];
-
-    if (object != undefined) {
-      // loop through ads to get 100% matches
-      for (i = 0; i < object.length; i++) {
-        if (object[i].relevans == 100) {
-          relevantAds.push(object[i]);
-        }
-      }
-    } else {
-      relevantAds.push(object);
-    }
-
-    return relevantAds;
-  }
 
   // Declare router
   var router = express.Router();
@@ -80,7 +56,7 @@ module.exports = function(app) {
       'Accept': 'application/json',
       'Accept-Language': 'sv'
     }).end(function (response) {
-      res.send(municipalityFiltering(response.body.matchningslista.matchningdata));
+      res.send(helpers.relevantAds(response.body.matchningslista.matchningdata));
     })
 
   });
