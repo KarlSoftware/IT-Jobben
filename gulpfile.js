@@ -183,53 +183,6 @@ gulp.task('useref', function() {
 
 });
 
-
-
-
-
-/*********************************************************************************
-* DEPLOY TO VPS-SERVER USING GIT
-/********************************************************************************/
-
-//1. Checkout digitalocean
-gulp.task('checkout', function(){
-  return git.checkout('digitalocean', function (err) {
-    if (err) throw err;
-  });
-});
-
-//2. Update branch from origin master
-gulp.task('update', function() {
-  return git.pull('.', 'master', {args: '--rebase'}, function (err) {
-     if (err) throw err;
-   });
-})
-
-//3. Build dist folder according to update-branch changes
-gulp.task('build', [
-  'js-dist',
-  'minify-html-template-root',
-  'minify-html-templates-folders',
-  'images-randomAds',
-  'compress-css',
-  'useref'
-]);
-
-//4. Commit changes
-gulp.task('commit', function(){
-  return gulp.src('./dist/*')
-    .pipe(git.commit('Changes to dist-folder'));
-});
-
-
-//5. Push to VPS Server
-gulp.task('push', function(){
-  return git.push('live', 'digitalocean', {args: " -f"}, function (err) {
-    if (err) throw err;
-  });
-});
-
-
 /*
 Build for heroku production mode
  */
