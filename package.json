@@ -5,8 +5,8 @@
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "./node_modules/bower/bin/bower install",
-    "postinstall": "gulp build-heroku",
+    "preinstall": "",
+    "postinstall": "./node_modules/bower/bin/bower install && gulp build-heroku",
     "start:dev": "NODE_ENV=development node server/app.js",
     "start:prod": "NODE_ENV=production node server/app.js",
     "start:nodemon": "NODE_ENV=development nodemon server/app.js"
